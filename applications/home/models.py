@@ -16,7 +16,7 @@ class Blog(models.Model):
 
     fecha_hora = models.DateTimeField(auto_now_add=True)
     titulo = models.CharField(max_length=255)
-    imagen = models.ImageField(upload_to='static/img', blank=True)
+    imagen = models.ImageField(upload_to='media/img', blank=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     cuerpo = HTMLField()
     resumen = HTMLField( blank=True,null=True)
