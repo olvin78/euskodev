@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>La Maison du Bordeaux - Produits</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'portfolio/la-maison-du-bordeaux/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">La Maison du Bordeaux</span>
+                <span class="site-heading-lower">Chocolats et Bonbons</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux' %}">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux-apropos' %}">A própos</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux-produits' %}">Produits</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux-boutique' %}">Boutique</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section">
+            <div class="container">
+                <div class="product-item">
+                    <div class="product-item-title d-flex">
+                        <div class="bg-faded p-5 d-flex ms-auto rounded">
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">Saveur et odeur</span>
+                                <span class="section-heading-lower">cafés et thés</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{% static 'porfolio/la-maison-du-bordeaux/assets/img/chocolates-06.jpg' %}" alt="..." />
+                    <div class="product-item-description d-flex me-auto">
+                        <div class="bg-faded p-5 rounded"><p class="mb-0">À "La Maison du Bordeaux", nous offrons une grande variété de cafés et de thés soigneusement sélectionnés pour accompagner parfaitement nos chocolats. Que vous préfériez un espresso corsé, un cappuccino crémeux ou un thé vert délicat, vous trouverez la boisson idéale pour sublimer chaque bouchée de chocolat. Nos baristas expérimentés sont là pour vous conseiller et créer une expérience gustative harmonieuse. Venez découvrir nos assortiments et laissez-vous tenter par une pause gourmande où chaque saveur est en parfaite symbiose avec nos chocolats d'exception. Une véritable invitation au plaisir et à la détente.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <div class="product-item">
+                    <div class="product-item-title d-flex">
+                        <div class="bg-faded p-5 d-flex me-auto rounded">
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">Saveur et détails en bouche</span>
+                                <span class="section-heading-lower">Pâtisserie et cuisine</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{% static 'portfolio/la-maison-du-bordeaux/assets/img/chocolates.jpg' %}" alt="..." />
+                    <div class="product-item-description d-flex ms-auto">
+                        <div class="bg-faded p-5 rounded"><p class="mb-0">À "La Maison du Bordeaux", nous proposons une cuisine exclusive avec des portions savoureuses alliant sucré et salé, spécialement conçues pour accompagner notre chocolat de Costa Rica. Nos créations culinaires, élaborées avec soin, offrent un équilibre parfait entre des saveurs délicates et audacieuses. Chaque plat est pensé pour sublimer l'expérience de dégustation de notre chocolat, créant ainsi des harmonies gustatives uniques. Venez savourer nos délices et découvrez l'art de marier le chocolat avec des mets raffinés dans une ambiance chaleureuse et accueillante. Une véritable célébration des sens vous attend.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <div class="product-item">
+                    <div class="product-item-title d-flex">
+                        <div class="bg-faded p-5 d-flex ms-auto rounded">
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">Partout dans le monde</span>
+                                <span class="section-heading-lower">Chocolats du monde</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{% static 'portfolio/la-maison-du-bordeaux/assets/img/chocolates-06.jpg' %}" alt="..." />
+                    <div class="product-item-description d-flex me-auto">
+                        <div class="bg-faded p-5 rounded"><p class="mb-0">À "La Maison du Bordeaux", découvrez notre section de chocolats du monde, élaborés avec une variété de cacaos sélectionnés provenant de récoltes écologiques et durables. Chaque chocolat raconte une histoire unique, garantissant une qualité exceptionnelle et un respect de l'environnement, pour une dégustation responsable et savoureuse.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Created by <a href="https://www.euskodev.eus">Euskodev</a></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

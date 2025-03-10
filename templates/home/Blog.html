@@ -1,0 +1,275 @@
+{% load static %}
+
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JLE08PZQL8');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>{% trans 'Desarrollo Web' %}</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1565972943494658"
+        crossorigin="anonymous"></script>
+
+    <style>
+        /* Ocultar contenido en pantallas mayores a 768px */
+        @media (min-width: 992px) {
+            #ocultar-escritorio {
+                /*display: none;*/
+                visibility: invisible;
+            }
+        }
+
+        /* Ocultar contenido en pantallas menores a 768px */
+        @media (max-width: 767px) {
+            #ocultar-movil {
+                /*display: none;*/
+                visibility: invisible;
+            }
+        }
+
+
+        #prueba1 {
+            width: 100%;
+            width: 100%;
+            transition-duration: 1s;
+        }
+
+        #prueba1:hover {
+            width: 90%;
+            height: 80%;
+        }
+
+        p {
+            color: black
+        }
+    </style>
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation-->
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
+        <div class="container">
+            <a href="{% url 'home_app:home' %}">
+                <img class="p-0 m-0" style="height:30px;"
+                    src="{% static 'img/Logo-euskodev-gris-horizontal-rgb-001.png' %}">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home_app:home' %}#services"
+                        style="  text-shadow: 2px 2px black;">{% trans 'Servicios' %}</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home_app:home' %}#portfolio"
+                            style="  text-shadow: 2px 2px black;">{% trans 'Portfolio' %}</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home_app:home' %}#about"
+                            style="  text-shadow: 2px 2px black;">{% trans 'Sobre' %}</a></li>
+
+                    <li class="nav-item"><a class="nav-link" style="color:lime;" href="{% url 'home_app:blog' %}"
+                            style="  text-shadow: 2px 2px black;">{% trans 'Blog' %}</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home_app:home' %}#team"
+                            style="  text-shadow: 2px 2px black;">{% trans 'Nosotros' %} </a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home_app:home' %}#contact"
+                            style="  text-shadow: 2px 2px black;">{% trans 'Contacto' %}</a></li>
+
+                    <!--<li class="nav-item"><a class="nav-link" href="#contact"
+                            style="  text-shadow: 2px 2px black;"><b>747
+                                47 88 42 </b> </a></li>-->
+
+
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% get_available_languages as AVAILABLE_LANGUAGES %}
+                    {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                            style="text-transform:uppercase; background-color:#30C06F; color:white; border-radius:25px;"
+                            href="#" data-bs-toggle="dropdown" aria-expanded="false">{{ CURRENT_LANGUAGE }}</a>
+                        <ul class="dropdown-menu">
+                            {% for language in languages %}
+                            <li><a class="dropdown-item"
+                                    style="text-transform:uppercase; color:gray; text-decoration:none;"
+                                    href="/{{ language.code }}/{{ request.get_full_path|slice:'4:' }}">{{ language.code }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% if messages %}
+    <div class="container-fluid text-center" style="background-color:#8cfaa5; position: relative; top: 20%;">
+        {% for message in messages %}
+        <label {% if message.tags %} class="{{ message.tags }}" {% endif %}
+            style="font-size: 12px;">{{ message }}</label>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+
+    <!--fin de navbar-->
+    <!-- Masthead-->
+
+
+    <section class="page-section" id="services" style="padding-bottom: 0%;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" style="text-shadow: 2px 2px 5px white;">
+                    {% trans 'Blog' %}</h2>
+                <h3 class="section-subheading text-muted" style="text-shadow: 2px 2px 5px white;">
+                    {% trans '¡Últimas novedades!.' %}</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!--aca es para pantallas grandes "publicidad"-->
+    <div id="" class="container text-center ">
+        <div class="row">
+
+            <div class="col-3 border-end d-none d-lg-block">{% trans 'Te puede interesar:' %}
+
+                <!--<h4><br>Olvin Duarte </h4>
+
+                <a href="https://www.olvinduarte.com/" target="_blank"><img
+                        src="{% static 'assets/img/logopruff2.jpg' %}" alt="" class="w-100"></a>
+
+                <h5 class="mt-2">Desarrolladores web full stock, coonfia en un equipo capacitado.</h5>-->
+
+                <h4 style="padding-top: 10%;"></h4>
+
+                <a href="#" target="_blank"><img src="{% static 'assets/img/testOsakidetza.png' %}" alt=""
+                        class="w-50"></a>
+
+                <label class="mt-3"
+                    style="font-size:11px;">({% trans 'Hemos desarrollado esta plataforma para ayudar en la preparación de oposiciones' %}.)</label>
+
+            </div>
+
+
+
+            <div class="col-lg-9 col-md-12">
+
+                {% for entrada_blog in entradas_blog %}
+
+
+                <div class="container mb-5">
+
+                    <div class="row">
+
+                        <div class="col-lg-10 col-md-12">
+                            <label style="color: gray;" class="text-start w-100"
+                                style="margin-left: 5px;">{{ entrada_blog.fecha_hora|date:"Y/m/d" }} |
+                                {{ entrada_blog.autor }} <br> </label>
+
+                            <a href="{% url 'home_app:blog-detail' entrada_blog.id %}" class=""
+                                style="text-decoration: none;">
+                                <h1 class="text-start" style="font-size:34px;color:#333;">{{ entrada_blog.titulo }}
+
+                                </h1>
+
+                            </a>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row">
+
+
+
+                        <div class="col-lg-4 col-md-12"> <img src="{{ entrada_blog.imagen.url }}" class="w-100">
+                            <br>
+
+
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-12">
+                            <a href="{% url 'home_app:blog-detail' entrada_blog.id %}" style="text-decoration: none;">
+                                <p style="color: black;" class="">{{ entrada_blog.resumen|safe }}
+                                    <button class="btn"
+                                        style="border: 60%;color:white; background-color:green;">{% trans 'Leer artículo...' %}</button>
+                                </p>
+                            </a>
+
+                            <br>
+
+                            <a href="" style=" text-decoration: none;">
+
+                            </a>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,708 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-12 22:34+0000\n"
+"PO-Revision-Date: 2024-07-23 09:31+0000\n"
+"Last-Translator:   <olvind78@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: euskodev/settings.py:148
+msgid "Spanish"
+msgstr "Español"
+
+#: euskodev/settings.py:151
+msgid "Basque"
+msgstr "euskera"
+
+#: templates/home/Blog.html:28
+msgid "Desarrollo Web"
+msgstr "Desarrollo Web"
+
+#: templates/home/Blog.html:98 templates/home/articulo_completo.html:79
+#: templates/home/index copy 2.html:189 2.html:272 3.html:192 3.html:275
+#: copy.html:147 copy.html:229 templates/home/index.html:193
+#: templates/home/index.html:316
+msgid "Servicios"
+msgstr "servicios"
+
+#: templates/home/Blog.html:101 templates/home/articulo_completo.html:82
+#: templates/home/index copy 2.html:192 2.html:364 3.html:195 3.html:367
+#: copy.html:150 copy.html:317 templates/home/index.html:196
+#: templates/home/index.html:408
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: templates/home/Blog.html:104 templates/home/articulo_completo.html:85
+#: templates/home/index copy 2.html:195 2.html:546 3.html:198 3.html:549
+#: copy.html:153 copy.html:490 templates/home/index.html:199
+#: templates/home/index.html:590
+msgid "Sobre"
+msgstr "Sobre"
+
+#: templates/home/Blog.html:107 templates/home/Blog.html:144
+#: templates/home/articulo_completo.html:88
+#: templates/home/articulo_completo.html:125 templates/home/index copy
+#: 2.html:198 2.html:325 3.html:201 3.html:328 copy.html:156 copy.html:282
+#: templates/home/index.html:202 templates/home/index.html:369
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/home/Blog.html:110 templates/home/articulo_completo.html:91
+msgid "Creadores"
+msgstr "Creadores"
+
+#: templates/home/Blog.html:113 templates/home/articulo_completo.html:94
+#: templates/home/index copy 2.html:204 3.html:207 copy.html:162
+#: templates/home/index.html:208
+msgid "Contacto"
+msgstr "Contacto"
+
+#: templates/home/Blog.html:146
+msgid "¡Últimas novedades!."
+msgstr "¡Últimas novedades!."
+
+#: templates/home/Blog.html:158
+msgid "Te puede interesar:"
+msgstr "Te puede interesar"
+
+#: templates/home/Blog.html:173
+msgid ""
+"Hemos desarrollado esta plataforma para ayudar en la preparación de "
+"oposiciones"
+msgstr ""
+"Hemos desarrollado esta plataforma para ayudar en la preparación de "
+"oposiciones"
+
+#: templates/home/Blog.html:221
+msgid "Leer artículo..."
+msgstr "Leer artículo..."
+
+#: templates/home/articulo_completo.html:28
+msgid "Imagen Corporativa"
+msgstr ""
+
+#: templates/home/articulo_completo.html:127
+msgid "Últimas novedades!."
+msgstr "¡Últimas novedades!."
+
+#: templates/home/index copy 2.html:28 3.html:28 copy.html:28
+#: templates/home/index.html:28
+msgid "Euskodev - Desarrollo Web, App e Imagen Corporativa"
+msgstr "Euskodev - Desarrollo Web, App e Imagen Corporativa"
+
+#: templates/home/index copy 2.html:201 3.html:204 copy.html:159
+#: templates/home/index.html:205
+msgid "Nosotros"
+msgstr "Nosotros"
+
+#: templates/home/index copy 2.html:254 copy.html:210
+msgid "Desarrollo Web, APP<br> e Imagen Corporativa"
+msgstr "Desarrollo Web, APP<br> e Imagen Corporativa"
+
+#: templates/home/index copy 2.html:274 3.html:277 copy.html:231
+#: templates/home/index.html:318
+#, fuzzy
+#| msgid "¡Conoce un poco de nuestros servicios!."
+msgid "¡Conoce un poco de nuestros servicios!"
+msgstr "¡Conoce un poco de nuestros servicios!."
+
+#: templates/home/index copy 2.html:282 3.html:285 copy.html:239
+#: templates/home/index.html:326
+msgid "E-Commerce"
+msgstr "E-Commerce"
+
+#: templates/home/index copy 2.html:285 3.html:288 copy.html:242
+#: templates/home/index.html:329
+msgid ""
+"Eleve su presencia online con las soluciones de eCommerce de euskodev <br> "
+"En el panorama digital actual, un sitio web de eCommerce no es solo un lujo; "
+"es una necesidad para empresas de todos los tamaños. Con un sitio web de "
+"eCommerce, puede llegar a una audiencia global, ampliar su base de clientes "
+"y aumentar sus ventas. Pero crear un sitio web de eCommerce exitoso requiere "
+"más que un diseño atractivo. Debe ser funcional, fácil de usar y seguro.."
+msgstr ""
+"Eleve su presencia online con las soluciones de eCommerce de euskodev <br> "
+"En el panorama digital actual, un sitio web de eCommerce no es solo un lujo; "
+"es una necesidad para empresas de todos los tamaños. Con un sitio web de "
+"eCommerce, puede llegar a una audiencia global, ampliar su base de clientes "
+"y aumentar sus ventas. Pero crear un sitio web de eCommerce exitoso requiere "
+"más que un diseño atractivo. Debe ser funcional, fácil de usar y seguro.."
+
+#: templates/home/index copy 2.html:294 3.html:297 copy.html:251
+#: templates/home/index.html:338
+msgid "Responsive Design"
+msgstr "Responsive Design"
+
+#: templates/home/index copy 2.html:297 3.html:300 copy.html:254
+#: templates/home/index.html:341
+msgid ""
+"Creamos sitios web responsive que se adaptan a la perfección a cualquier "
+"tamaño de pantalla, desde ordenadores de sobremesa y portátiles hasta "
+"tablets y smartphones. Nuestros expertos diseñadores y desarrolladores se "
+"aseguran de que tu sitio web ofrezca una experiencia de usuario (UX) "
+"excepcional en todos los dispositivos, manteniendo a tus visitantes "
+"comprometidos y regresando por más."
+msgstr ""
+"Creamos sitios web responsive que se adaptan a la perfección a cualquier "
+"tamaño de pantalla, desde ordenadores de sobremesa y portátiles hasta "
+"tablets y smartphones. Nuestros expertos diseñadores y desarrolladores se "
+"aseguran de que tu sitio web ofrezca una experiencia de usuario (UX) "
+"excepcional en todos los dispositivos, manteniendo a tus visitantes "
+"comprometidos y regresando por más."
+
+#: templates/home/index copy 2.html:307 3.html:310 copy.html:264
+#: templates/home/index.html:351
+msgid "Web Security"
+msgstr "Web Security"
+
+#: templates/home/index copy 2.html:310 3.html:313 copy.html:267
+#: templates/home/index.html:354
+msgid ""
+"La seguridad del sitio web es primordial. En euskodev, ofrecemos soluciones "
+"integrales de seguridad web para proteger tus activos online de las amenazas "
+"en constante evolución.. <br><br> HTTPS: Nos aseguramos de que su sitio web "
+"utilice HTTPS para cifrar todo el tráfico entre su                        "
+"sitio y los navegadores de los visitantes, protegiendo la confidencialidad "
+"de los datos."
+msgstr ""
+"La seguridad del sitio web es primordial. En euskodev, ofrecemos soluciones "
+"integrales de seguridad web para proteger tus activos online de las amenazas "
+"en constante evolución.. <br><br> HTTPS: Nos aseguramos de que su sitio web "
+"utilice HTTPS para cifrar todo el tráfico entre su sitio y los navegadores "
+"de los visitantes, protegiendo la confidencialidad de los datos."
+
+#: templates/home/index copy 2.html:327 3.html:330 copy.html:284
+#: templates/home/index.html:371
+#, fuzzy
+#| msgid "¡Últimas novedades!."
+msgid "¡Últimas publicaciones!"
+msgstr "¡Últimas novedades!."
+
+#: templates/home/index copy 2.html:366 3.html:369 copy.html:319
+#: templates/home/index.html:410
+msgid "¡Hecha un vistazo!."
+msgstr "¡Hecha un vistazo!."
+
+#: templates/home/index copy 2.html:548 3.html:551 copy.html:492
+#: templates/home/index.html:592
+msgid ""
+"En euskodev somos un equipo apasionado de desarrolladores web, app y diseño "
+"de imagen corporativa, expertos en crear soluciones digitales que impulsan "
+"tu negocio. Contamos con un historial probado de éxito en el desarrollo de "
+"sitios web, aplicaciones web y sistemas personalizados. Nos especializamos "
+"en comprender tus necesidades y objetivos para crear soluciones a medida que "
+"superen tus expectativas.   Nuestra filosofía se basa en la innovación, la "
+"creatividad y la cercanía con el cliente. Trabajamos en estrecha "
+"colaboración contigo en cada paso del proceso, desde la ideación hasta el "
+"lanzamiento y el mantenimiento de tu proyecto. Nos enorgullecemos de ofrecer "
+"un servicio de alta calidad, personalizado y asequible.."
+msgstr ""
+"En euskodev somos un equipo apasionado de desarrolladores web expertos en "
+"crear soluciones digitales que impulsan tu negocio. Contamos con un "
+"historial probado de éxito en el desarrollo de sitios web, aplicaciones web "
+"y sistemas personalizados. Nos especializamos en comprender tus necesidades "
+"y objetivos para crear soluciones a medida que superen tus expectativas. "
+"Nuestra filosofía se basa en la innovación, la creatividad y la cercanía con "
+"el cliente. Trabajamos en estrecha colaboración contigo en cada paso del "
+"proceso, desde la ideación hasta el lanzamiento y el mantenimiento de tu "
+"proyecto. Nos enorgullecemos de ofrecer un servicio de alta calidad, "
+"personalizado y asequible.."
+
+#: templates/home/index copy 2.html:562 3.html:565 copy.html:505
+#: templates/home/index.html:606
+msgid "Creación y Remodelación de páginas y sitios web"
+msgstr "Creación y Remodelación de páginas y sitios web"
+
+#: templates/home/index copy 2.html:566 3.html:569 copy.html:509
+#: templates/home/index.html:610
+msgid "¿Tu sitio web necesita un cambio de imagen?"
+msgstr "¿Tu sitio web necesita un cambio de imagen?"
+
+#: templates/home/index copy 2.html:568 3.html:571 copy.html:511
+#: templates/home/index.html:612
+msgid ""
+"En euskodev, ofrecemos servicios profesionales de creación y remodelación de "
+"páginas y sitios web. Somos expertos en transformar sitios web obsoletos o "
+"que no funcionan correctamente en sitios web modernos, atractivos y "
+"funcionales que te ayuden a alcanzar tus objetivos de negocio!"
+msgstr ""
+"¡En euskodev, ofrecemos servicios profesionales de creación y remodelación "
+"de páginas y sitios web. Somos expertos en transformar sitios web obsoletos "
+"o que no funcionan correctamente en sitios web modernos, atractivos y "
+"funcionales que te ayuden a alcanzar tus objetivos de negocio!"
+
+#: templates/home/index copy 2.html:580 3.html:583 copy.html:522
+#: templates/home/index.html:625
+msgid "Dominio, hosting y seguridad"
+msgstr "Dominio, hosting y seguridad"
+
+#: templates/home/index copy 2.html:582 3.html:585 copy.html:524
+#: templates/home/index.html:627
+msgid "campo libre"
+msgstr ""
+
+#: templates/home/index copy 2.html:589 3.html:592 copy.html:531
+#: templates/home/index.html:634
+msgid ""
+"Registro de tu dominio: Elige el nombre perfecto para tu proyecto y nosotros "
+"nos encargamos de registrarlo y configurarlo para que tu sitio web sea "
+"accesible en internet. <br><br> Alojamiento web seguro: Tu sitio web estará "
+"alojado en nuestros servidores de última generación, con altos estándares de "
+"seguridad para proteger tus datos y los de tus visitantes.  Protección "
+"contra amenazas: Implementamos las mejores medidas de seguridad para evitar "
+"ataques cibernéticos, malware y otras amenazas que puedan poner en riesgo tu "
+"sitio web."
+msgstr ""
+"Registro de tu dominio: Elige el nombre perfecto para tu proyecto y nosotros "
+"nos encargamos de registrarlo y configurarlo para que tu sitio web sea "
+"accesible en internet. <br><br> Alojamiento web seguro: Tu sitio web estará "
+"alojado en nuestros servidores de última generación, con altos estándares de "
+"seguridad para proteger tus datos y los de tus visitantes. Protección contra "
+"amenazas: Implementamos las mejores medidas de seguridad para evitar ataques "
+"cibernéticos, malware y otras amenazas que puedan poner en riesgo tu sitio "
+"web."
+
+#: templates/home/index copy 2.html:605 3.html:608 copy.html:545
+#: templates/home/index.html:650
+msgid "Sitios Webs Responsives"
+msgstr "Sitios Webs Responsives"
+
+#: templates/home/index copy 2.html:609 3.html:612 copy.html:549
+#: templates/home/index.html:654
+msgid ""
+"¿Tu sitio web se adapta a todas las pantallas? <br> <br>  En la era digital "
+"actual, donde cada vez más personas acceden a internet desde dispositivos "
+"móviles, es fundamental contar con un sitio web responsive. Un sitio web "
+"responsive es aquel que se ajusta automáticamente al tamaño de la pantalla "
+"del dispositivo en el que se visualiza, ya sea un ordenador de sobremesa, "
+"una tableta o un smartphone!"
+msgstr ""
+"¿Tu sitio web se adapta a todas las pantallas? <br> <br> En la era digital "
+"actual, donde cada vez más personas acceden a internet desde dispositivos "
+"móviles, es fundamental contar con un sitio web responsive. Un sitio web "
+"responsive es aquel que se ajusta automáticamente al tamaño de la pantalla "
+"del dispositivo en el que se visualiza, ya sea un ordenador de sobremesa, "
+"una tableta o un smartphone!"
+
+#: templates/home/index copy 2.html:623 3.html:626 copy.html:562
+#: templates/home/index.html:668
+#, fuzzy
+#| msgid "E-Commerce"
+msgid "E-commerce"
+msgstr "E-Commerce"
+
+#: templates/home/index copy 2.html:627 3.html:630 copy.html:566
+#: templates/home/index.html:672
+msgid ""
+"Euskodev: Desarrolle su tienda online con expertos en comercio electrónico "
+"En Euskodev, comprendemos el poder transformador del comercio electrónico en "
+"el panorama empresarial actual. Ayudamos a las empresas a establecer una "
+"presencia sólida en el  mundo online con soluciones de comercio electrónico "
+"personalizadas y de vanguardia.!"
+msgstr ""
+"¡Euskodev: Desarrolle su tienda online con expertos en comercio electrónico "
+"En Euskodev, comprendemos el poder transformador del comercio electrónico en "
+"el panorama empresarial actual. Ayudamos a las empresas a establecer una "
+"presencia sólida en el mundo online con soluciones de comercio electrónico "
+"personalizadas y de vanguardia.!"
+
+#: templates/home/index copy 2.html:641 3.html:644 copy.html:579
+#: templates/home/index.html:686
+msgid "Diseño Gráfico"
+msgstr "Diseño Gráfico"
+
+#: templates/home/index copy 2.html:645 3.html:648 copy.html:583
+#: templates/home/index.html:690
+msgid ""
+"Euskodev: Creando experiencias visuales cautivadoras para su presencia "
+"digital En la era digital actual, un sitio web visualmente atractivo y fácil "
+"de usar ya no es un lujo, es una necesidad. En Euskodev, entendemos el poder "
+"de un diseño convincente para dar forma a la identidad online de su marca y "
+"generar compromiso con su público objetivo. Nuestro equipo de diseñadores "
+"web expertos y creativos apasionados por crearsitios web que no solo se vean "
+"impresionantes sino que también brinden experiencias de usuario "
+"excepcionales."
+msgstr ""
+"Euskodev: Creando experiencias visuales cautivadoras para su presencia "
+"digital En la era digital actual, un sitio web visualmente atractivo y fácil "
+"de usar ya no es un lujo, es una necesidad. En Euskodev, entendemos el poder "
+"de un diseño convincente para dar forma a la identidad online de su marca y "
+"generar compromiso con su público objetivo. Nuestro equipo de diseñadores "
+"web expertos y creativos apasionados por crearsitios web que no solo se vean "
+"impresionantes sino que también brinden experiencias de usuario "
+"excepcionales."
+
+#: templates/home/index copy 2.html:666 3.html:669 copy.html:602
+#: templates/home/index.html:711
+msgid "Euskodev: Su socio de SEO para una presencia online próspera"
+msgstr "Euskodev: Su socio de SEO para una presencia online próspera"
+
+#: templates/home/index copy 2.html:670 3.html:673 copy.html:606
+#: templates/home/index.html:715
+msgid ""
+"En el panorama digital competitivo actual, una presencia online sólida es "
+"crucial para empresas de todos los tamaños. Un sitio web bien optimizado no "
+"solo atrae más visitantes, sino que también los convierte en clientes "
+"valiosos. Sin embargo, lograr los mejores rankings en los motores de "
+"búsqueda y generar tráfico orgánico requiere experiencia y dedicación. Ahí "
+"es donde entran en juego los servicios de SEO de Euskodev. Libere el poder "
+"del SEO con Euskodev en Euskodev, somos un equipo de especialistas en SEO "
+"experimentados apasionados por ayudar a empresas como la suya a lograr sus "
+"objetivos online. Entendemos las complejidades de los algoritmos de los "
+"motores de búsqueda y el panorama SEO en constante cambio. Nuestros "
+"servicios completos de SEO están diseñados para <br> aumentar la visibilidad "
+"de su sitio web"
+msgstr ""
+"En el panorama digital competitivo actual, una presencia online sólida es "
+"crucial para empresas de todos los tamaños. Un sitio web bien optimizado no "
+"solo atrae más visitantes, sino que también los convierte en clientes "
+"valiosos. Sin embargo, lograr los mejores rankings en los motores de "
+"búsqueda y generar tráfico orgánico requiere experiencia y dedicación. Ahí "
+"es donde entran en juego los servicios de SEO de Euskodev. Libere el poder "
+"del SEO con Euskodev en Euskodev, somos un equipo de especialistas en SEO "
+"experimentados apasionados por ayudar a empresas como la suya a lograr sus "
+"objetivos online. Entendemos las complejidades de los algoritmos de los "
+"motores de búsqueda y el panorama SEO en constante cambio. Nuestros "
+"servicios completos de SEO están diseñados para <br> aumentar la visibilidad "
+"de su sitio web"
+
+#: templates/home/index copy 2.html:681 3.html:684 copy.html:617
+#: templates/home/index.html:726
+msgid "¡Se parte <br/> de nuestra <br/> historia!"
+msgstr "¡Se parte <br/> de nuestra <br/> historia!"
+
+#: templates/home/index copy 2.html:699 3.html:702 copy.html:635
+#: templates/home/index.html:744
+msgid "opiniones"
+msgstr "opiniones"
+
+#: templates/home/index copy 2.html:710 3.html:713 copy.html:645
+#: templates/home/index.html:755
+msgid ""
+"En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon con "
+"atención y entendieron mis necesidades a la perfección."
+msgstr ""
+"En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon con "
+"atención y entendieron mis necesidades a la perfección."
+
+#: templates/home/index copy 2.html:723 3.html:726 copy.html:658
+#: templates/home/index.html:768
+msgid ""
+"Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev me "
+"lo pusieron facilísimo. Desde el principio me escucharon y entendieron lo "
+"que quería. Me hicieron un diseño chulísimo y que funciona a la perfección, "
+"¡hasta me subieron en el buscador! Son majísimos y profesionales."
+msgstr ""
+"Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev me "
+"lo pusieron facilísimo. Desde el principio me escucharon y entendieron lo "
+"que quería. Me hicieron un diseño chulísimo y que funciona a la perfección, "
+"¡hasta me subieron en el buscador! Son majísimos y profesionales."
+
+#: templates/home/index copy 2.html:735 3.html:738 copy.html:670
+#: templates/home/index.html:780
+msgid ""
+"En Euskodev me entendieron a la perfección. Desde el principio supieron lo "
+"que buscaba para mi negocio online. Me hicieron una web preciosa y que "
+"funciona de maravilla. Además, me ayudaron a que me encontraran en Google, "
+"¡estoy encantado! Son un equipo súper atento y profesional."
+msgstr ""
+"En Euskodev me entendieron a la perfección. Desde el principio supieron lo "
+"que buscaba para mi negocio online. Me hicieron una web preciosa y que "
+"funciona de maravilla. Además, me ayudaron a que me encontraran en Google, "
+"¡estoy encantado! Son un equipo súper atento y profesional."
+
+#: templates/home/index copy 2.html:757 3.html:760 copy.html:692
+#: templates/home/index.html:802
+msgid "Sobre nosotros"
+msgstr ""
+
+#: templates/home/index copy 2.html:758 3.html:761 copy.html:693
+#: templates/home/index.html:803
+msgid "Developers Full Stack."
+msgstr "Developers Full Stack."
+
+#: templates/home/index copy 2.html:766 3.html:769 copy.html:701
+#: templates/home/index.html:811
+#, fuzzy
+#| msgid "Full Stack Developer"
+msgid "Full Stack Developer & Photographer"
+msgstr "Full Stack Developer"
+
+#: templates/home/index copy 2.html:801 3.html:804 copy.html:736
+#: templates/home/index.html:846
+#, fuzzy
+#| msgid "Full Stack Developer"
+msgid "Full Stack Developer & Designer"
+msgstr "Full Stack Developer"
+
+#: templates/home/index copy 2.html:815 3.html:818 copy.html:750
+#: templates/home/index.html:860
+msgid ""
+"Euskodev: Donde la tecnología se convierte en realidad Si está buscando un "
+"equipo de programadores digitales confiables y experimentados que puedan "
+"ayudarlo a alcanzar sus objetivos comerciales, no busque más allá de "
+"Euskodev. Con su enfoque personalizado y su dedicación a la calidad, "
+"Euskodev le brindará las soluciones digitales que necesita para prosperar en "
+"el mundo digital actual."
+msgstr ""
+"Euskodev: Donde la tecnología se convierte en realidad Si está buscando un "
+"equipo de programadores digitales confiables y experimentados que puedan "
+"ayudarlo a alcanzar sus objetivos comerciales, no busque más allá de "
+"Euskodev. Con su enfoque personalizado y su dedicación a la calidad, "
+"Euskodev le brindará las soluciones digitales que necesita para prosperar en "
+"el mundo digital actual."
+
+#: templates/home/index copy 2.html:888 3.html:891 copy.html:822
+#: templates/home/index.html:932
+msgid "Contáctanos"
+msgstr "Contáctanos"
+
+#: templates/home/index copy 2.html:889 3.html:892 copy.html:823
+#: templates/home/index.html:934
+msgid "Sin Fronteras."
+msgstr "Sin Fronteras."
+
+#: templates/home/index copy 2.html:906 3.html:909 copy.html:836
+#: templates/home/index.html:951
+msgid "Nombre"
+msgstr "Nombre"
+
+#: templates/home/index copy 2.html:908 3.html:911 copy.html:839
+#: templates/home/index.html:953
+msgid "A name is required."
+msgstr "A name is required."
+
+#: templates/home/index copy 2.html:913 3.html:916 copy.html:843
+#: templates/home/index.html:958
+msgid "Email"
+msgstr "Email"
+
+#: templates/home/index copy 2.html:915 3.html:918 copy.html:846
+#: templates/home/index.html:960
+msgid "An email is required"
+msgstr "An email is required"
+
+#: templates/home/index copy 2.html:917 3.html:920 copy.html:848
+#: templates/home/index.html:962
+msgid "Email is not valid."
+msgstr "Email is not valid."
+
+#: templates/home/index copy 2.html:922 3.html:925 copy.html:852
+#: templates/home/index.html:967
+msgid "teléfono"
+msgstr "teléfono"
+
+#: templates/home/index copy 2.html:924 3.html:927 copy.html:855
+#: templates/home/index.html:969
+msgid "A phone number is required."
+msgstr "A phone number is required."
+
+#: templates/home/index copy 2.html:932 3.html:935 copy.html:862
+#: templates/home/index.html:977
+msgid "Mensaje"
+msgstr "Mensaje"
+
+#: templates/home/index copy 2.html:934 3.html:937 copy.html:865
+#: templates/home/index.html:979
+msgid "A message is required."
+msgstr "A message is required."
+
+#: templates/home/index copy 2.html:953 3.html:956 copy.html:884
+#: templates/home/index.html:998
+msgid "Error sending message!"
+msgstr "Error sending message!"
+
+#: templates/home/index copy 2.html:957 3.html:960 copy.html:888
+#: templates/home/index.html:1002
+msgid "Enviar"
+msgstr "Enviar"
+
+#: templates/home/index copy 2.html:1009 3.html:1012 copy.html:940
+#: templates/home/index.html:1054
+msgid "Euskodev &copy;tu creador de sitios web 2024"
+msgstr "Euskodev &copy;tu creador de sitios web 2024"
+
+#: templates/home/index copy 2.html:1020 3.html:1023 copy.html:951
+#: templates/home/index.html:1065
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: templates/home/index copy 2.html:1023 3.html:1026 copy.html:954
+#: templates/home/index.html:1068
+msgid "Aviso_legal"
+msgstr "Aviso_legal"
+
+#: templates/home/index copy 2.html:1027 3.html:1030 copy.html:958
+#: templates/home/index.html:1072
+msgid "politicas de cookies"
+msgstr "politicas de cookies"
+
+#: templates/home/index copy 2.html:1054 3.html:1057 copy.html:985
+#: templates/home/index.html:1099
+msgid "Facilitamos Vuestro Aprendizaje"
+msgstr "Facilitamos Vuestro Aprendizaje"
+
+#: templates/home/index copy 2.html:1059 3.html:1062 copy.html:989
+#: templates/home/index.html:1104
+msgid ""
+" es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia "
+"variedad de test para diferentes puestos de trabajo en el ámbito de la "
+"salud, la educación, la administración y otros sectores."
+msgstr ""
+"es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia "
+"variedad de test para diferentes puestos de trabajo en el ámbito de la "
+"salud, la educación, la administración y otros sectores."
+
+#: templates/home/index copy 2.html:1064 2.html:1109 3.html:1067 3.html:1112
+#: copy.html:994 copy.html:1036 templates/home/index.html:1109
+#: templates/home/index.html:1154
+msgid "Personas:"
+msgstr "Personas:"
+
+#: templates/home/index copy 2.html:1068 2.html:1113 3.html:1071 3.html:1116
+#: copy.html:998 copy.html:1040 templates/home/index.html:1113
+#: templates/home/index.html:1158
+msgid "Category:"
+msgstr "Category:"
+
+#: templates/home/index copy 2.html:1075 2.html:1120 3.html:1078 3.html:1123
+#: copy.html:1005 copy.html:1047 templates/home/index.html:1120
+#: templates/home/index.html:1165
+msgid "Volver"
+msgstr "Volver"
+
+#: templates/home/index copy 2.html:1100 3.html:1103 copy.html:1028
+#: templates/home/index.html:1145
+msgid "Euskodev"
+msgstr "Euskodev"
+
+#: templates/home/index copy 2.html:1101 2.html:1114 3.html:1104 3.html:1117
+#: copy.html:1029 copy.html:1041 templates/home/index.html:1146
+#: templates/home/index.html:1159
+msgid "Desarrollo de software"
+msgstr "Desarrollo de software"
+
+#: templates/home/index copy 2.html:1105 3.html:1108 copy.html:1032
+#: templates/home/index.html:1150
+msgid ""
+"Euskodev: Su aliado en el desarrollo de software <br> Euskodev, un equipo de "
+"desarrolladores de software en el País Vasco. especializado en la creación "
+"de soluciones digitales a medida, para empresas de todos los tamaños, desde "
+"pequeñas startups hasta grandes corporaciones!"
+msgstr ""
+"¡Euskodev: Su aliado en el desarrollo de software <br> Euskodev, un equipo "
+"de desarrolladores de software en el País Vasco. especializado en la "
+"creación de soluciones digitales a medida, para empresas de todos los "
+"tamaños, desde pequeñas startups hasta grandes corporaciones!"
+
+#: templates/home/index copy 2.html:1110 3.html:1113 copy.html:1037
+#: templates/home/index.html:1155
+msgid "Web privada"
+msgstr "Web privada"
+
+#: templates/home/index copy 2.html:1143 3.html:1146 copy.html:1070
+#: templates/home/index.html:1188
+msgid "Gastrogune"
+msgstr "Gastrogune"
+
+#: templates/home/index copy 2.html:1145 3.html:1148 copy.html:1072
+#: templates/home/index.html:1190
+msgid "GastroGune: La esencia de Euskadi en cada bocado."
+msgstr "GastroGune: La esencia de Euskadi en cada bocado."
+
+#: templates/home/index copy 2.html:1148 3.html:1151 copy.html:1075
+#: templates/home/index.html:1193
+msgid ""
+"GastroGune: Tu Guía para Descubrir la Gastronomía <br> Vasca Eusko.Gune no "
+"solo te acerca la cocina vasca a tu hogar a través de recetas tradicionales, "
+"sino que también te sirve como guía para descubrir y disfrutar de los "
+"mejores lugares y restaurantes del País Vasco.!"
+msgstr ""
+"GastroGune: ¡Tu Guía para Descubrir la Gastronomía <br> Vasca Eusko.Gune no "
+"solo te acerca la cocina vasca a tu hogar a través de recetas tradicionales, "
+"sino que también te sirve como guía para descubrir y disfrutar de los "
+"mejores lugares y restaurantes del País Vasco.!"
+
+#: templates/home/index copy 2.html:1158 3.html:1161 copy.html:1085
+#: templates/home/index.html:1203
+msgid "Gastronomy"
+msgstr "Gastronomy"
+
+#: templates/home/index copy 2.html:1164 3.html:1167 copy.html:1091
+#: templates/home/index.html:1209
+msgid "Close Project"
+msgstr "Close Project"
+
+#: templates/home/index copy 3.html:256
+#, fuzzy
+#| msgid "Desarrollo Web, APP<br> e Imagen Corporativa"
+msgid "Desarrollo Web<br><br>APP e Imagen<br><br>Corporativa"
+msgstr "Desarrollo Web, APP<br> e Imagen Corporativa"
+
+#~ msgid "Autor:"
+#~ msgstr "Autor:"
+
+#~ msgid ""
+#~ "Welcome To Our Studio <br> <br style=\"text-shadow: 2px 2px 5px black;"
+#~ "\">of"
+#~ msgstr ""
+#~ "Welcome To Our Studio <br> <br style=\"text-shadow: 2px 2px 5px black;"
+#~ "\">of"
+
+#~ msgid "Aprendizaje"
+#~ msgstr "Aprendizaje"
+
+#~ msgid "e-comerce"
+#~ msgstr "e-comerce"
+
+#~ msgid "Creadores de la web"
+#~ msgstr "Creadores de la web"
+
+#~ msgid "Artificial Intelligence"
+#~ msgstr "Inteligencia Artificial"
+
+#~ msgid "pruebaaaaaa"
+#~ msgstr "prueba"
+
+#, fuzzy
+#~ msgid ""
+#~ "Euskodev es una empresa de desarrollo web altamente recomendada por su "
+#~ "calidad excepcional. Destacan en el uso de tecnologías avanzadas como "
+#~ "Django, ofreciendo soluciones robustas y personalizadas. Su equipo "
+#~ "profesional y enfoque en la satisfacción del cliente garantizan proyectos "
+#~ "exitosos y de alto rendimiento. ¡Definitivamente, una excelente opción!"
+#~ msgstr ""
+#~ "Euskodev es una empresa de desarrollo web altamente recomendada por su "
+#~ "calidad excepcional. Destacan en el uso de tecnologías avanzadas como "
+#~ "Django, ofreciendo soluciones robustas y personalizadas. Su equipo "
+#~ "profesional y enfoque en la satisfacción del cliente garantizan proyectos "
+#~ "exitosos y de alto rendimiento. ¡Definitivamente, una excelente opción!"
+
+#~ msgid "Probando otro texto"
+#~ msgstr "Probando otro texto"
+
+#, fuzzy
+#~ msgid ""
+#~ "Si estas buscando una empresa de desarrollo web profesional, confiable y "
+#~ "creativa, no busques más alla de euskodev. Su equipo de expertos te "
+#~ "ayudara a crear un sitio web que cumpla con tus necesidades y supere tus "
+#~ "expectativas y presupuestos."
+#~ msgstr ""
+#~ "Si estás buscando una empresa de desarrollo web profesional, confiable y "
+#~ "creativa, no busques más allá de euskodev. Su equipo de expertos te "
+#~ "ayudará a crear un sitio web que cumpla con tus necesidades y supere tus "
+#~ "expectativas y presupuestos."

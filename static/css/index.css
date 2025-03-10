@@ -1,0 +1,184 @@
+#prueba1 {
+    width: 100%;
+    width: 100%;
+    transition-duration: 1s;
+}
+
+#prueba1:hover {
+    width: 90%;
+    height: 80%;
+}
+
+.facephoto {
+    opacity: 0.9;
+    transition-duration: 1s;
+    transform: rotate(0deg)
+}
+
+.facephoto:hover {
+    opacity: 1;
+    transition-duration: 0.3s;
+    transform: rotate(10deg)
+}
+
+.simbolEffect {
+    opacity: 0.9;
+    transition-duration: 1s;
+    transform: rotate(0deg)
+}
+
+.simbolEffect:hover {
+    opacity: 1;
+    transition-duration: 0.3s;
+    transform: rotate(30deg)
+}
+
+.testToYellow {
+    transition-duration: 1s;
+    color: black;
+}
+
+.testToYellow:hover {
+    transition-duration: 0.1s;
+    color: yellow;
+}
+
+.efecto-foto-blog {
+    background-size: cover;
+}
+
+.efecto-foto-blog:hover {
+    background-size: auto;
+}
+
+.icon-image-izquierda {
+    transform: translateX(-5000px);
+}
+
+.icon-image-izquierda2 {
+    transform: translateX(5000px);
+}
+
+.foto-olvin {
+    transform: translateX(-5000px);
+}
+
+.foto-inaki {
+    transform: translateX(5000px);
+}
+
+.parrafo_abajo_inaki {
+    transform: translateX(-8000px);
+    opacity: 0;
+}
+
+.ecomerce {
+    opacity: 0;
+}
+
+.portafolio-izquierda {
+    transform: translateX(-5000px);
+    opacity: 0:
+}
+
+.portafolio-derecha {
+    transform: translateX(5000px);
+    opacity: 0;
+}
+
+.portafolio-izquierda2 {
+    transform: translateX(-5000px);
+    opacity: 0;
+}
+
+.comentarios {
+    opacity: 0;
+}
+
+.cambio-color {
+    background-color: green;
+}
+
+
+
+/*==========================================================================
+             Estilos para el apartado de el blog, nuevas publicasiones
+============================================================================ */
+
+/* Sección del Blog */
+.blog-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 15px;
+}
+
+/* Encabezado del Blog */
+.section-heading {
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.section-subheading {
+    font-size: 1.3rem;
+    font-weight: normal;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Tarjetas del Blog */
+.blog-card {
+    padding: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.blog-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Enlace del blog */
+.blog-entry-link {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.blog-entry-link:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Fecha de publicación */
+.blog-date {
+    color: #bbb;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* Imagen destacada */
+.blog-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Título del Blog */
+.blog-title {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Descripción del Blog (si se usa en el futuro) */
+.blog-description {
+    color: #bbb;
+    text-align: left;
+    font-size: 1rem;
+    display: none;
+    /* Oculto hasta que haya contenido */
+}

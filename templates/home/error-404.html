@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <meta name="description"
+        content="Lo sentimos, la página que buscas no esta deisponible. visita nuestra página principal para seguir navegando."
+        <title>Página No Encontrada - Error 404</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: #333;
+
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Error 404</h1>
+    <p>Lo sentimos, la página que buscas no se pudo encontrar.</p>
+    <p>Puedes regresar a la <a href="https://www.euskodev.eus/es/">página de inicio</a> o explorar el sitio para
+        encontrar lo que necesitas.</p>
+    <img src="{% static 'img/busqueda-desconocida.png' %}" alt="imagen sobre busqueda desconocida en google"
+        style="max-width: 100%; padding-top:50px;">
+</body>
+
+</html>

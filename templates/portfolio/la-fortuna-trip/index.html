@@ -1,0 +1,844 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>La fortuna trip</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'portfolio/la-fortuna-trip/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/la-fortuna-trip/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/la-fortuna-trip/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/la-fortuna-trip/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/la-fortuna-trip/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'portfolio/la-fortuna-trip/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: eStartup
+  * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div id="logo">
+        <h1><a href="index.html"><span>La</span>fortuna trip</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto" href="#about-us">Sobre</a></li>
+          <li><a class="nav-link scrollto" href="#features">Tours</a></li>
+          <li><a class="nav-link scrollto" href="#screenshots">Galeria</a></li>
+          <li><a class="nav-link scrollto" href="#team">Guías</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Precios</a></li>
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>-->
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container container-fluid" data-aos="fade-in">
+      <h1>Welcome to la fortuna trip</h1>
+      <h2>¿Listo para vivir una aventura inolvidable? ¡La Fortuna te espera!</h2>
+      <img src="{% static 'portfolio/la-fortuna-trip/assets/img/inicio/la-fortuna-downtown-town-city-buildings-arenal-volcano-costa-rica.jpg' %}" alt="Hero Imgs"
+        data-aos="zoom-out" data-aos-delay="100">
+      <a href="#get-started" class="btn-get-started scrollto">hecha un vistazo!</a>
+      <div class="btns">
+        <a href="#"><i class="fa fa-apple fa-3x"></i> Descubre</a>
+        <a href="#"><i class="fa fa-play fa-3x"></i> Aprovecha</a>
+        <a href="#"><i class="fa fa-windows fa-3x"></i> Disfruta</a>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Get Started Section ======= -->
+    <section id="get-started" class="padd-section text-center">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+
+          <h2>Harémos el tour perfecto para ti </h2>
+          <p class="separator">Ya sea naturalez, playa o conocer la ciudad.</p>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="feature-block">
+
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/wild-animals.png' %}" alt="img">
+              <h4>Naturaleza</h4>
+              <p>La Fortuna es un verdadero paraíso natural en Costa Rica, donde la exuberante selva tropical se
+                encuentra con la imponente majestuosidad del volcán Arenal.</p>
+              <a href="#"><a href="https://www.flaticon.es/iconos-gratis/animales" title="animales iconos">Animales
+                  iconos creados por Chattapat - Flaticon</a></a>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="feature-block">
+
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/playa.png' %}" alt="img">
+              <h4>Playa</h4>
+              <p>si deseas combinar tu aventura en la montaña con un poco de sol y mar, puedes encontrar hermosas playas
+                en las costas del Pacífico y del Caribe costarricense.</p>
+              <a href="#"><a href="https://www.flaticon.es/iconos-gratis/playa" title="playa iconos">Playa iconos
+                  creados por Freepik - Flaticon</a></a>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="feature-block">
+
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/pueblo.png' %}" alt="img">
+              <h4>Ciudad</h4>
+              <p>Su ambiente es relajado y acogedor, con una mezcla de locales y visitantes de todo el mundo. Las calles
+                están llenas de pequeños hoteles, restaurantes que ofrecen deliciosa comida costarricense, y tiendas de
+                souvenirs. </p>
+              <a href="#"><a href="https://www.flaticon.es/iconos-gratis/rural" title="rural iconos">Rural iconos
+                  creados por Freepik - Flaticon</a></a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Get Started Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about-us" class="about-us padd-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+
+          <div class="col-md-5 col-lg-6">
+            <img src="{% static 'portfolio/la-fortuna-trip/assets/img/inicio/sloth-2834796_1280 (copia).jpg' %}" alt="About" data-aos="zoom-in"
+              data-aos-delay="100" style="padding: 10%;">
+          </div>
+
+          <div class="col-md-7 col-lg-5">
+            <div class="about-content" data-aos="fade-left" data-aos-delay="100">
+
+              <h2><span>la fortiuna trip</span>Te guiamos en toda la aventura</h2>
+              <p>¿Buscas una aventura inolvidable en Costa Rica? ¡En La fortuna trip, te ofrecemos una amplia gama
+                de tours para que descubras la belleza natural de La Fortuna! Desde emocionantes caminatas por el volcán
+                Arenal hasta relajantes baños en aguas termales, pasando por emocionantes actividades como rafting y
+                canopy, tenemos el tour perfecto para ti. Personalizamos cada experiencia para que puedas vivir unas
+                vacaciones únicas y memorables.
+                <br><br>
+                Sumérgete en la cultura costarricense y descubre los secretos de La Fortuna con nuestros tours. Nuestros
+                guías locales te llevarán a los lugares más impresionantes y te compartirán sus conocimientos sobre la
+                flora, fauna y tradiciones de la zona. Además, nos comprometemos con el turismo sostenible, asegurando
+                que nuestras actividades tengan un impacto mínimo en el medio ambiente.
+              </p>
+
+              <ul class="list-unstyled">
+                <li><i class="vi bi-chevron-right"></i>Habilidades de comunicación</li>
+                <li><i class="vi bi-chevron-right"></i>Múltiples idiomas</li>
+                <li><i class="vi bi-chevron-right"></i>Equipos de seguridad</li>
+                <li><i class="vi bi-chevron-right"></i>Respeto al medio ambiente</li>
+                <li><i class="vi bi-chevron-right"></i>daptación a diferentes interese</li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="padd-section text-center">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Elige el que más te guste.</h2>
+          <p class="separator">Amplia gama de tours para satisfacer todos los gustos y niveles de aventura. .</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/equitacion.png' %}" alt="img">
+              <h4>Cavalgata por el Volcán Arenal</h4>
+              <p class="text-start">Montar a caballo en La Fortuna te ofrece una oportunidad única de explorar la
+                belleza
+                natural de esta
+                región costarricense desde una perspectiva diferente. </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/cataratas-gocta.png' %}" alt="img">
+              <h4>Catarata La Fortuna</h4>
+              <p class="text-start">La Fortuna es una impresionante cascada de aproximadamente 70 metros de altura,
+                ubicada en la base del
+                volcán Chato, cerca del famoso Volcán Arenal.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/grano-de-cafe.png' %}" alt="img">
+              <h4>Visita a una finca de café</h4>
+              <p class="text-start">Un tour de café en esta región te permitirá conocer todo el proceso de producción,
+                desde la semilla hasta la taza.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/rafting_1316036.png' %}" alt="img">
+              <h4>Rafting en el río Peñas Blancas</h4>
+              <p class="text-start">El río Peñas Blancas ofrece rápidos de clase II y III, perfectos para principiantes
+                y familias que buscan una dosis de aventura. </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/arenal.png' %}" alt="img">
+              <h4>Parque Nacional Volcán Arenal</h4>
+              <p class="text-start">El Volcán Arenal es un estratovolcán que durante décadas fue uno de los volcanes más
+                activos del mundo. Aunque en la actualidad no presenta erupciones explosivas, su imponente figura sigue
+                siendo el centro de atención.</p>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/onsen.png' %}" alt="img">
+              <h4>Aguas termales, diferentes opciones</h4>
+              <p class="text-start"> La Fortuna es famosa por sus aguas termales, alimentadas por la actividad volcánica
+                del Arenal.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/puente-colgante-de-capilano.png' %}" alt="img">
+              <h4>Puentes colgantes</h4>
+              <p class="text-start">Estos puentes suspendidos entre los árboles te permiten cruzar ríos, valles y copas
+                de árboles, ofreciendo vistas panorámicas impresionantes del volcán Arenal y la exuberante vegetación.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-3">
+            <div class="feature-block">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/iconos/arbol-del-cacao.png' %}" alt="img">
+              <h4>cacao tour</h4>
+              <p class="text-start">Descubrirás los pasos involucrados en la transformación de la semilla de cacao en
+                chocolate, desde la fermentación y secado hasta el tostado y molido.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Screenshots Section ======= -->
+    <section id="screenshots" class="padd-section text-center">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Galeria</h2>
+          <p class="separator">Tu próxima aventura te espera en la naturaleza..</p>
+        </div>
+
+        <div class="screens-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/inicio/toucan-5854897_1280 (copia).jpg' %}" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/inicio/waterfall-7295817_1280.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/inicio/sloth-4099455_1280 (copia).jpg' %}" class="img-fluid"
+                alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/inicio/ruins-2743695_1280.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/blog/pexels-amfaru-12290341.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/blog/pexels-pixabay-51003.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/blog/pexels-tomas-malik-793526-26690714.jpg' %}"
+                class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="{% static 'portfolio/la-fortuna-trip/assets/img/blog/pexels-jean-paul-montanaro-49563862-17907387.jpg' %}"
+                class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+    </section><!-- End Screenshots Section -->
+
+    <!-- ======= Video Section ======= -->
+    <section id="video" class="text-center">
+      <div class="overlay">
+        <div class="container-fluid container-full" data-aos="zoom-in">
+
+          <div class="row">
+            <a href="https://www.youtube.com/watch?v=D6b5zcDqvf4" class="glightbox play-btn"></a>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Video Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="padd-section text-center">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+
+          <h2>Nuestros guías</h2>
+          <p class="separator">Nuestros guías son expertos en su campo y están comprometidos en ofrecer una experiencia
+            única a cada cliente..</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+            <div class="team-block bottom" style="min-height: 300px;">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/team/Face(1).jpeg' %}" class="img-responsive" alt="img">
+              <div class="team-content">
+                <ul class="list-unstyled">
+                  <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                  <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                  <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                </ul>
+                <span>Guia</span>
+                <h4>Noah Ramirez </h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+            <div class="team-block bottom" style="min-height: 300px;">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/team/Face(2).jpeg' %}" class="img-responsive" alt="img">
+              <div class="team-content">
+                <ul class="list-unstyled">
+                  <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                  <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                  <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                </ul>
+                <span>Guia</span>
+                <h4>Lucas Farah</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+            <div class="team-block bottom" style="min-height: 300px;">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/team/Face(4).jpeg' %}" class="img-responsive" alt="img">
+              <div class="team-content">
+                <ul class="list-unstyled">
+                  <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                  <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                  <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                </ul>
+                <span>Guia</span>
+                <h4>Emma Kim</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+            <div class="team-block bottom" style="min-height: 300px;">
+              <img src="{% static 'portfolio/la-fortuna-trip/assets/img/team/Face(5).jpeg' %}" class="img-responsive" alt="img">
+              <div class="team-content">
+                <ul class="list-unstyled">
+                  <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                  <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                  <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                </ul>
+                <span>Guia</span>
+                <h4>Lucía Rodríguez</h4>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <!--<<section id="testimonials" class="padd-section text-center">
+      <div class="container" data-aos="fade-up">
+         <div class="row justify-content-center">
+
+          <div class="col-md-8">
+
+            div class="testimonials-content">
+              <div id="carousel-example-generic" class="carousel slide" data-bs-ride="carousel">
+
+                <div class="carousel-inner" role="listbox">
+
+                   <div class="carousel-item  active">
+                    <div class="top-top">
+
+                      <h2>Our Users Speack volumes us</h2>
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type
+                        specimen book. It has survived not only five centuries.</p>
+                      <h4>Kimberly Tran<span>manager</span></h4>
+
+                    </div>
+                  </div>
+
+    <div class="carousel-item ">
+      <div class="top-top">
+
+        <h2>Our Users Speack volumes us</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+          of type and scrambled it to make a type
+          specimen book. It has survived not only five centuries.</p>
+        <h4>Henderson<span>manager</span></h4>
+
+      </div>
+    </div>
+
+    <div class="carousel-item ">
+      <div class="top-top">
+
+        <h2>Our Users Speack volumes us</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+          the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+          of type and scrambled it to make a type
+          specimen book. It has survived not only five centuries.</p>
+        <h4>David Spark<span>manager</span></h4>
+
+      </div>
+    </div>
+
+    </div>
+
+    <div class="btm-btm">
+
+      <ul class="list-unstyled carousel-indicators">
+        <li data-bs-target="#carousel-example-generic" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carousel-example-generic" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carousel-example-generic" data-bs-slide-to="2"></li>
+      </ul>
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </section>-->
+    <!-- End Testimonials Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="padd-section text-cente">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+
+          <h2>conoce los diferentes precios</h2>
+          <p class="separator">¡Pregúntanos por nuestros tours personalizados! .</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-md-6 col-lg-3">
+            <div class="block-pricing">
+              <div class="pricing-table">
+                <h4>Básico</h4>
+                <h2>$45</h2>
+                <ul class="list-unstyled">
+                  <li><b>Guia</b> Profecional</li>
+                  <li><b>Pack</b> de agua</li>
+                  <li>Aguas <b></b>termales </li>
+                  <li>Vista al volcal</li>
+                  <li>Catarata</b>la fortuna</li>
+                </ul>
+                <div class="table_btn">
+                  <a href="#" class="btn"><i class="bi bi-cart"></i> Comprar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="block-pricing">
+              <div class="pricing-table">
+                <h4>standard</h4>
+                <h2>$75</h2>
+                <ul class="list-unstyled">
+                  <li><b>Guia</b> Profecional</li>
+                  <li><b>Toallas</b></li>
+                  <li><b>Pack de agua</b></li>
+                  <li>Vista de peresoso</li>
+                  <li>4 tours a elección del cliente</li>
+                </ul>
+                <div class="table_btn">
+                  <a href="#" class="btn"><i class="bi bi-cart"></i> Comprar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="block-pricing">
+              <div class="pricing-table">
+                <h4>Premium</h4>
+                <h2>$120</h2>
+                <ul class="list-unstyled">
+                  <li><b>Guia</b> Profecional</li>
+                  <li><b>Refrigerio</b></li>
+                  <li><b>kit </b>necesasios</li>
+                  <li>4 tours a elegir</li>
+                  <li>Cena en equipo</li>
+                </ul>
+                <div class="table_btn">
+                  <a href="#" class="btn"><i class="bi bi-cart"></i> Comprar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="block-pricing">
+              <div class="pricing-table">
+                <h4>Personalizado</h4>
+                <h2>$145</h2>
+                <ul class="list-unstyled">
+                  <li><b>Guia</b> Profecional</li>
+                  <li><b>tour</b> a elección del cliente</li>
+                  <li><b>Kit </b> con todo lo necesario</li>
+                  <li>Transporte en la puerta del hotel</li>
+                  <li>Guia personal</li>
+                </ul>
+                <div class="table_btn">
+                  <a href="#" class="btn"><i class="bi bi-cart"></i> Comprar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <!--<section id="blog" class="padd-sectio">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+
+          <h2>Latest posts</h2>
+          <p class="separator">Integer cursus bibendum augue ac cursus .</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="block-blog text-left">
+              <a href="#"><img src="assets/img/blog/blog-image-1.jpg" alt="img"></a>
+              <div class="content-blog">
+                <h4><a href="#">whats isthe difference between good and bat typography</a></h4>
+                <span>05, juin 2017</span>
+                <a class="float-end readmore" href="#">read more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="block-blog text-left">
+              <a href="#"><img src="assets/img/blog/blog-image-2.jpg" class="img-responsive" alt="img"></a>
+              <div class="content-blog">
+                <h4><a href="#">whats isthe difference between good and bat typography</a></h4>
+                <span>05, juin 2017</span>
+                <a class="float-end readmore" href="#">read more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="block-blog text-left">
+              <a href="#"><img src="assets/img/blog/blog-image-3.jpg" class="img-responsive" alt="img"></a>
+              <div class="content-blog">
+                <h4><a href="#">whats isthe difference between good and bat typography</a></h4>
+                <span>05, juin 2017</span>
+                <a class="float-end readmore" href="#">read more</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Newsletter Section ======= -->
+    <!--<section id="newsletter" class="newsletter text-center">
+      <div class="overlay padd-section">
+        <div class="container" data-aos="zoom-in">
+
+          <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-6">
+              <form class="d-flex" method="POST" action="#">
+                <input type="email" class="form-control " placeholder="Email Adress" name="email">
+                <button type="submit" class="btn btn-default"><i class="bi bi-location-arrow"></i>Subscribe</button>
+              </form>
+            </div>
+          </div>
+
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+            <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+          </ul>
+
+        </div>
+      </div>
+    </section>-->
+    <!-- End Newsletter Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="padd-section" style="background-color: rgb(198, 201, 201);">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Contacto</h2>
+          <p class="separator">Déjanos tu mensaje, nuestro equipo se pondrá en contacto contigo.</p>
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-3 col-md-4">
+
+            <div class="info">
+              <div>
+                <i class="bi bi-geo-alt"></i>
+                <p>Calle principal<br>La fortuna, CR</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <p>lafortunatrip@gmail.com</p>
+              </div>
+
+              <div>
+                <i class="bi bi-phone"></i>
+                <p>+506 5009 0408 </p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <div class="form">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Cargando</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">su mensaje fue enviado. Gracias!</div>
+                </div>
+                <div class="text-center"><button type="submit">Enviar</button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-4">
+          <div class="footer-logo">
+
+            <a class="navbar-brand" href="#">Euskodev</a>
+            <p style="font-size: 100%;">¿Necesitas un sitio web profesional y eficaz? ¡Visita euskodev y descubre cómo
+              podemos
+              ayudarte a dar
+              vida a tu proyecto online!</p>
+
+          </div>
+        </div>
+
+        <!--<div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Support</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">faq</a></li>
+              <li><a href="#">Editor help</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2">
+          <div class="list-menu">
+
+            <h4>Abou Us</h4>
+
+            <ul class="list-unstyled">
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Features item</a></li>
+              <li><a href="#">Live streaming</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>-->
+
+        <div class="copyrights">
+          <div class="container">
+            <p>&copy;euskodev.</p>
+            <div class="credits">
+              <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eStartup
+        -->
+              Rediseñado por <a href="https://bootstrapmade.com/">euskodev</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'portfolio/la-fortuna-trip/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'portfolio/la-fortuna-trip/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'portfolio/la-fortuna-trip/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'portfolio/la-fortuna-trip/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'portfolio/la-fortuna-trip/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'portfolio/la-fortuna-trip/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

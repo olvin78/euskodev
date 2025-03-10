@@ -1,0 +1,439 @@
+/* Estilos para el botón flotante */
+.boton-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #30C06F;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+/* Efecto hover */
+.boton-flotante:hover {
+    background-color: #28a05f;
+    transform: scale(1.1);
+}
+
+/*===========================================================
+            efecto de el boton de header  flecha
+============================================================*/
+
+/* Contenedor del botón dentro del carrusel */
+.carousel-button-container {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Estilo base del botón */
+.custom-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #30C06F, #77E25B);
+    box-shadow: 0px 0px 10px rgba(119, 226, 91, 0.5);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Hover con efecto */
+.custom-btn:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #2a9d58, #6ed564);
+    box-shadow: 0px 0px 20px rgba(119, 226, 91, 0.7);
+}
+
+/* Efecto de pulsación */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0px 0px 10px rgba(119, 226, 91, 0.5);
+    }
+
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px rgba(119, 226, 91, 0.7);
+    }
+}
+
+/* Icono dentro del botón */
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 50px;
+    height: 50px;
+}
+
+/* 🔥 Estilos Responsivos para Móviles */
+@media (max-width: 768px) {
+    .carousel-button-container {
+        bottom: 35%;
+        /* Subir un poco el botón */
+    }
+
+    .custom-btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/*==========================================================
+            boton para enviar el formulario de contacto     
+===========================================================*/
+
+/* Estilos generales del botón */
+.boton-enviar {
+    position: relative;
+    background: linear-gradient(135deg, #30C06F, #228B22);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(48, 192, 111, 0.5);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.boton-enviar:hover {
+    background: linear-gradient(135deg, #2a9d58, #1d6b1d);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(48, 192, 111, 0.8);
+}
+
+/* Flor que aparece en hover */
+.flor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #fff 40%, transparent 60%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: 0.5s;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+/* Expansión de la flor */
+.boton-enviar:hover .flor {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(5);
+}
+
+/*===============================================================
+           estos son los iconos de las tecnologias usadas
+=================================================================*/
+/* Contenedor de iconos */
+.iconos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 🔥 4 columnas en PC */
+    gap: 30px;
+    /* Espaciado uniforme */
+    justify-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    /* 🔥 Control de ancho máximo */
+    margin: auto;
+    /* Centrado */
+}
+
+/* Estilo base de los iconos */
+.icono-wow {
+    width: 110px;
+    /* Tamaño en PC */
+    transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.3));
+    animation: flotacion 4s infinite ease-in-out alternate;
+}
+
+/* Animación de flotación */
+@keyframes flotacion {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(-2deg);
+    }
+}
+
+/* Hover: Hace crecer y brillar */
+.icono-wow:hover {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0px 6px 15px rgba(48, 192, 111, 0.7));
+}
+
+/* 🔥 En móviles: Dos columnas */
+@media (max-width: 768px) {
+    .iconos-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 🔥 Se divide en 2 columnas */
+        max-width: 90%;
+        /* Para evitar que se vean alineados demasiado pegados */
+        gap: 25px;
+    }
+
+    .icono-wow {
+        width: 100px;
+        /* Un poco más grande en móvil */
+        animation: flotacion-movil 3.5s infinite ease-in-out alternate;
+    }
+
+    @keyframes flotacion-movil {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-8px) rotate(3deg);
+        }
+
+        100% {
+            transform: translateY(0px) rotate(-3deg);
+        }
+    }
+}
+
+/*apartado para opiniones esto lo movere mas tarde*/
+
+/* Contenedor de tarjetas */
+.opinion-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 30px;
+    /* 🔥 Agregamos espacio entre tarjetas */
+}
+
+/* Imagen */
+.opinion-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Contenido oculto */
+.opinion-content {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Efecto hover */
+.opinion-card:hover .opinion-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.opinion-card:hover img {
+    filter: brightness(70%);
+}
+
+/* 🔥 Diseño Mejorado en Escritorio */
+@media (min-width: 992px) {
+    .opinion-card {
+        margin-bottom: 50px;
+        /* Más espacio en escritorio */
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col-lg-4 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+/*===============================================
+esto es para el mapa
+================================================*/
+/* Contenedor general de los mapas */
+.map-wrapper {
+    width: 100%;
+    max-width: 500px;
+    /* Ajuste para que no se vean demasiado grandes */
+    margin: 10px auto;
+    /* Margen reducido para que estén más juntos */
+}
+
+/* Ajuste del tamaño del mapa */
+.map-container {
+    width: 100%;
+    height: 350px;
+    /* Ajuste más proporcional */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilos del título del mapa */
+.map-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+
+/* RESPONSIVE - En pantallas más pequeñas, los mapas se apilan mejor */
+@media (max-width: 992px) {
+    .map-wrapper {
+        max-width: 90%;
+        /* Ajuste para que no sean tan pequeños */
+    }
+
+    .map-container {
+        height: 300px;
+        /* Mantener buena proporción */
+    }
+}
+
+@media (max-width: 768px) {
+    .map-wrapper {
+        width: 90%;
+    }
+
+    .map-container {
+        height: 300px;
+        /* Un poco más pequeños en móvil */
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+
+/*====================================================================
+estilos para el portafolio
+=====================================================================*/
+
+/* Sección del Portafolio */
+.page-section {
+    padding: 100px 0;
+}
+
+/* Items del Portafolio */
+.portfolio-item {
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 550px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+/* Imagen del Portafolio */
+.portfolio-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid black;
+}
+
+/* Texto del Portafolio */
+.portfolio-caption {
+    padding: 15px;
+    text-align: center;
+}
+
+.portfolio-caption-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.portfolio-caption-subheading {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #777;
+}
+
+/* Efecto Hover */
+.portfolio-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.portfolio-item:hover .portfolio-hover {
+    opacity: 1;
+}
+
+.portfolio-hover-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .portfolio-caption-heading {
+        font-size: 1rem;
+    }
+
+    .portfolio-caption-subheading {
+        font-size: 0.8rem;
+    }
+}
