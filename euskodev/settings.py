@@ -174,16 +174,23 @@ TINYMCE_DEFAULT_CONFIG = {
         'fontsize_formats': '8pt 10pt 12pt 14pt 15pt 16pt 17pt 18pt 24pt 36pt', }
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+"""===========================================
+    esto es para la configuracion de correo 
+=============================================="""
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'euskodev'
-EMAIL_HOST_PASSWORD = 'nqkg bxps wtjf xwcc '
+EMAIL_HOST_USER = "euskodev@gmail.com"
+EMAIL_HOST_PASSWORD = 'nqkg bxps wtjf xwcc '  # Usa la contraseña generada
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+DEFAULT_CHARSET = 'utf-8'
+EMAIL_USE_LOCALTIME = True  # Asegura que Django maneje bien la codificación
+
 
 # Configuración de reCAPTCHA
-RECAPTCHA_PUBLIC_KEY = "6Lf7AtoqAAAAAG8EvoT1FriJTlqHredv5ttINHtF"
-RECAPTCHA_PRIVATE_KEY = "6Lf7AtoqAAAAAKZ6K-e3c0BMvFHcbuYPu3wXvQua"
+RECAPTCHA_PUBLIC_KEY = "6LfjFPEqAAAAAL23CYZsif_KdPGU2189i0UMjIgk"
+RECAPTCHA_PRIVATE_KEY = "6LfjFPEqAAAAABBc48ipUn3encwA_Ix350EJgQE1"
 
 # Opcional: Para desactivar en desarrollo
-RECAPTCHA_VERIFY_REQUESTS = True  # False si no quieres validar en local
+RECAPTCHA_VERIFY_REQUESTS = False  # False si no quieres validar en local

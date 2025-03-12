@@ -238,7 +238,7 @@
         <div class="video-overlay">
             <h1>Tecnología y diseño que impulsan tu éxito</h1>
             <p id="changing-subtitle">Diseño web, desarrollo de software y apps a medida.</p>
-            <a href="#contacto" class="btn btn-primary">Contáctanos</a>
+            <a href="{% url 'home_app:home' %}#contact" class="btn btn-primary">Contáctanos</a>
         </div>
     </div>
 </div>
@@ -314,7 +314,7 @@
                 ¿Sabías que gracias a las ayudas para la digitalización, la web para tu empresa puede ser completamente gratuita? 💻✨  
                 Déjanos informarte sobre las subvenciones disponibles y cómo aprovecharlas al máximo.
             </p>
-            <a href="#contacto" class="btn btn-success btn-lg mt-3 shadow-lg">Solicita Información</a>
+            <a href="{% url 'home_app:home' %}#contact" class="btn btn-success btn-lg mt-3 shadow-lg">Solicita Información</a>
         </div>
     </div>
 </div>
@@ -482,39 +482,55 @@
             
             <!--tercer row de presentacion de portafolio-->
             <div class="row">
-            <!-- Portfolio item 7-->
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" href="#!">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                <!-- Portfolio item 7-->
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="#!">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-image img-fluid" style="background-image: url('{% static "assets/img/portfolio/cocina.jpg" %}'); background-size: cover; background-position: center; height: 250px;"></div>
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Gastrogune</div>
+                            <div class="portfolio-caption-subheading text-muted">Web + Design + App</div>
                         </div>
-                        <div class="portfolio-image img-fluid" style="background-image: url('{% static "assets/img/portfolio/cocina.jpg" %}'); background-size: cover; background-position: center; height: 250px;"></div>
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">Gastrogune</div>
-                        <div class="portfolio-caption-subheading text-muted">Web + Design + App</div>
+                    </div>
+                </div>
+
+
+                <!-- Portfolio item 8-->
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="#!">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/testosakidetza.png" %}'); background-size: 200px; background-position: center; background-repeat: no-repeat; background-color: #eeeeee;"></div>
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">20.000+</div>
+                            <div class="portfolio-caption-subheading text-muted">Web + Design</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio item 9-->
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" href="https://tuasistenteinteligente.com/">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <div class="portfolio-image" style="background-image: url('{% static "img/tuasistenteinteligente.png" %}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #eeeeee;"></div>
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">520+</div>
+                            <div class="portfolio-caption-subheading text-muted">IA +Web + Design</div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-            <!-- Portfolio item 8-->
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="portfolio-item">
-                    <a class="portfolio-link" href="#!">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/testosakidetza.png" %}'); background-size: 200px; background-position: center; background-repeat: no-repeat; background-color: #eeeeee;"></div>
-                    </a>
-                    <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading">20.000+</div>
-                        <div class="portfolio-caption-subheading text-muted">Web + Design</div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
             <!--fin del segundo row de la portada de portafolio duplicado-->
         </div>
@@ -525,7 +541,7 @@
 
 
 <!-- About-->
-<section class="page-section" id="about" style="backgroun-color:white; ">
+<section class="page-section" id="about" style="backgroun-color:white;text-align: justify !important;">
         <div class="container">
             <div class="text-start">
                 <h2 class="section-heading text-uppercase text-center">{% trans 'Sobre' %}</h2>
@@ -676,17 +692,20 @@
 
 
 <!--comentarios-->
-<hr class="w-100">
+<hr class="w-100 text-center">
+<h3 class="text-center">OPINIONES</h3>
+<div class="opiniones-container mt-5">
 
-<div class="container mt-5">
     <div class="row">
         <!-- Tarjeta 1 -->
         <div class="col-lg-4 col-md-6">
             <div class="opinion-card">
-                <img src="{% static 'assets/img/opiniones/primera.jpeg' %}" alt="Mertxe">
+                <div class="opinion-img">
+                    <img src="{% static 'assets/img/opiniones/primera.jpeg' %}" alt="Mertxe">
+                </div>
                 <div class="opinion-content">
-                    <h4>Mertxe</h4>
-                    <p>En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon con atención y entendieron mis necesidades a la perfección.</p>
+                    <p class="opinion-text">"En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon con atención y entendieron mis necesidades a la perfección."</p>
+                    <h4 class="opinion-author">Mertxe</h4>
                 </div>
             </div>
         </div>
@@ -694,10 +713,12 @@
         <!-- Tarjeta 2 -->
         <div class="col-lg-4 col-md-6">
             <div class="opinion-card">
-                <img src="{% static 'assets/img/opiniones/segundaa.jpeg' %}" alt="Jose Luis">
+                <div class="opinion-img">
+                    <img src="{% static 'assets/img/opiniones/segundaa.jpeg' %}" alt="Jose Luis">
+                </div>
                 <div class="opinion-content">
-                    <h4>Jose Luis</h4>
-                    <p>Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev me lo pusieron facilísimo. ¡Son profesionales y majísimos!</p>
+                    <p class="opinion-text">"Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev me lo pusieron facilísimo. ¡Son profesionales y majísimos!"</p>
+                    <h4 class="opinion-author">Jose Luis</h4>
                 </div>
             </div>
         </div>
@@ -705,16 +726,17 @@
         <!-- Tarjeta 3 -->
         <div class="col-lg-4 col-md-6">
             <div class="opinion-card">
-                <img src="{% static 'assets/img/opiniones/tercera.jpeg' %}" alt="Luis Diego">
+                <div class="opinion-img">
+                    <img src="{% static 'assets/img/opiniones/tercera.jpeg' %}" alt="Luis Diego">
+                </div>
                 <div class="opinion-content">
-                    <h4>Luis Diego</h4>
-                    <p>En Euskodev supieron lo que buscaba para mi negocio online. Me hicieron una web preciosa y que funciona de maravilla.</p>
+                    <p class="opinion-text">"En Euskodev supieron lo que buscaba para mi negocio online. Me hicieron una web preciosa y que funciona de maravilla."</p>
+                    <h4 class="opinion-author">Luis Diego</h4>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--terminan el  area  de comentarios-->
 
 
 
@@ -839,7 +861,7 @@
                     <div class="row">
                         <div class="col-md-12 d-flex flex-column align-items-center">
                             <div class="mb-3">
-                                <div class="g-recaptcha" data-sitekey="6Lf7AtoqAAAAAG8EvoT1FriJTlqHredv5ttINHtF"></div>
+                                <div class="g-recaptcha" data-sitekey="6LfjFPEqAAAAAL23CYZsif_KdPGU2189i0UMjIgk"></div>
                             </div>
                             <button type="submit" class="boton-enviar mt-3">
                                 Enviar
@@ -849,6 +871,15 @@
                         </div>
                     </div>
                 </form>
+                
+                <!-- Mostrar mensajes de éxito o error -->
+                {% if messages %}
+                    <div class="mt-3">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
 
         </div>
@@ -896,7 +927,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 text-lg-start">
-                    {% trans 'Euskodev &copy;tu creador de sitios web 2024' %}</div>
+                    {% trans 'Euskodev &copy;tu creador de sitios web 2025' %}</div>
                 <div class="col-lg-4 my-3 my-lg-0">
                     <!--  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
                             class="fab fa-twitter"></i></a>
@@ -1085,7 +1116,7 @@
             L.marker([lat, lng]).addTo(map);
         }
 
-        createMap('map', 42.9247, -2.2247); // Euskadi
+        createMap('map', 43.32207429440778, -1.9839135682231204); // Euskadis
         createMap('map2', 12.1149, -86.2365); // Nicaragua
         createMap('map3', 9.9287, -84.0906); // Costa Rica
     });

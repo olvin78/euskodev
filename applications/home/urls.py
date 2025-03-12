@@ -22,6 +22,8 @@ urlpatterns = [
         name='home',
     ),
 
+    path('formulario/', views.formulario_contactar, name='formulario_contactar'),
+
      path('Politicas de privacidad',
         views.PoliticasdeprivacidadView.as_view(),
         name='politicas_de_privacidad',

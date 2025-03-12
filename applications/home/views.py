@@ -6,48 +6,69 @@ from django.views.generic import (
 )
 
 from .models import Blog
+
+import requests
 from django.conf import settings
 from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
-from django.contrib import messages
+
 from applications.home.models import Blog
 
 from django.shortcuts import render
 from django.http import HttpResponse
 import requests
-from django.conf import settings
-
-
 
 
 def formulario_contactar(request):
     if request.method == "POST":
+        print("post")
+        name = request.POST.get("name", "")
+        email = request.POST.get("email", "")
+        phone = request.POST.get("phone", "")
+        company = request.POST.get("company", "")
+        message = request.POST.get("message", "")
         recaptcha_response = request.POST.get("g-recaptcha-response")
-        data = {
-            "secret": settings.RECAPTCHA_PRIVATE_KEY,
-            "response": recaptcha_response
-        }
-        recaptcha_result = requests.post("https://www.google.com/recaptcha/api/siteverify", data=data).json()
+        print("POST con estos datos:",name,email,phone,company,message,recaptcha_response)
 
-        if recaptcha_result.get("success"):
-            try:
-                send_mail(
-                    "Nuevo mensaje de contacto",
-                    "Has recibido un nuevo mensaje.",
-                    settings.EMAIL_HOST_USER,
-                    ["euskodev@gmail.com"],
-                    fail_silently=False,
-                )
-                messages.success(request, "✅ Formulario enviado correctamente. ¡Gracias por contactarnos!")
-            except Exception as e:
-                messages.error(request, f"❌ Error enviando el correo: {e}")
+        # Enviar correo con los datos ingresados desde la web
+        asunto = f"Tu Asistente Inteligente Nuevo mensaje de contacto de {name}"
+        contenido = (
+            f"Nombre: {name}\n"
+            f"Email: {email}\n"
+            f"Teléfono: {phone}\n"
+            f"Empresa: {company}\n"
+            f"Mensaje:\n{message}"
+        )
 
-        else:
-            messages.warning(request, "⚠️ Error: ReCAPTCHA no validado.")
+        try:
+            print("Try de la función send_mail")
+            send_mail(
+                asunto,
+                contenido,
+                settings.EMAIL_HOST_USER,  # Remitente
+                ["euskodev@gmail.com"],  # Cambia por el correo real
+                fail_silently=False,
+            )
+            print("Enviado email")
+            messages.success(request, "Tu mensaje ha sido enviado con éxito.")
+            return redirect("home_app:home")
 
-    return render(request, "index.html")  # Redirige y muestra los mensajes en la landing
+        except Exception as e:
+            print(f"Error en send_mail: {e}")  # Esto imprimirá el error en la terminal
+            messages.error(request, f"Error al enviar el correo: {str(e)}")
+            return render(request, "home/index.html", {
+                "name": name,
+                "email": email,
+                "phone": phone,
+                "company": company,
+                "message": message
+            })
 
+    return redirect("home_app:home")
 
 
 class HomePageView(ListView):

@@ -9,10 +9,17 @@ from django.utils.translation import gettext_lazy as _
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
 from django.contrib.staticfiles.storage import staticfiles_storage
+from applications.home.views import formulario_contactar  # ✅ Correcto si la vista está en `home`
+
+
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),  # Fuera de i18n_patterns (corregido)
+ 
     path("ads.txt",
          RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),),
 ]
