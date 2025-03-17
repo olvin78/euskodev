@@ -130,8 +130,8 @@
     <div class="container">
         <!-- Logo con alt para SEO -->
         <a href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
-            <img class="p-0 m-0" style="height:30px;" 
-                src="{% static 'img/Logo-euskodev-gris-horizontal-rgb-001.png' %}" 
+            <img class="p-0 m-0" style="height:80px;" 
+                src="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}" 
                 alt="Euskodev - Desarrollo Web en Euskadi">
         </a>
 
@@ -214,7 +214,7 @@
         <!-- Video de fondo -->
         <video class="w-100" autoplay loop muted playsinline>
             <source src="{% static 'videos/video_portada.mp4' %}" type="video/mp4">
-            Tu navegador no soporta videos.
+            {% trans 'Tu navegador no soporta videos' %}.
         </video>
 
         <!-- Capa negra semi-transparente -->
@@ -222,9 +222,9 @@
 
         <!-- Texto dentro del video -->
         <div class="video-overlay">
-            <h1>Tecnología y diseño que impulsan tu éxito</h1>
-            <p id="changing-subtitle">Diseño web, desarrollo de software y apps a medida.</p>
-            <a href="{% url 'home_app:home' %}#contact" class="btn btn-primary">Contáctanos</a>
+            <h1>{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+            <p id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
+            <a href="{% url 'home_app:home' %}#contact" class="btn btn-primary">{% trans 'Contáctanos' %}</a>
         </div>
     </div>
 </div>
@@ -295,12 +295,12 @@
 <div class="container-fluid bg-dark text-white py-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <h2 class="display-4 fw-bold text-uppercase text-glow">¡WEB GRATIS!</h2>
+            <h2 class="display-4 fw-bold text-uppercase text-glow">{% trans '¡WEB GRATIS!' %}</h2>
             <p class="lead mt-3">
-                ¿Sabías que gracias a las ayudas para la digitalización, la web para tu empresa puede ser completamente gratuita? 💻✨  
-                Déjanos informarte sobre las subvenciones disponibles y cómo aprovecharlas al máximo.
+                {% trans '¿Sabías que gracias a las ayudas para la digitalización, la web para tu empresa puede ser completamente gratuita?' %} 💻✨  
+                {% trans 'Déjanos informarte sobre las subvenciones disponibles y cómo aprovecharlas al máximo' %}.
             </p>
-            <a href="{% url 'home_app:home' %}#contact" class="btn btn-success btn-lg mt-3 shadow-lg">Solicita Información</a>
+            <a href="{% url 'home_app:home' %}#contact" class="btn btn-success btn-lg mt-3 shadow-lg">{% trans 'Solicita Información' %}</a>
         </div>
     </div>
 </div>
@@ -679,7 +679,7 @@
 
 <!--comentarios-->
 <hr class="w-100 text-center">
-<h3 class="text-center">OPINIONES</h3>
+<h3 class="text-center">{% trans 'OPINIONES' %}</h3>
 <div class="opiniones-container mt-5">
 
     <div class="row">
