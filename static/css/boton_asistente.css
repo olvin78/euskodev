@@ -385,7 +385,7 @@
     border: 2px solid black;
     border-radius: 10px;
     overflow: hidden;
-    width: 550px;
+    width: 380px!important;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -395,7 +395,7 @@
 
 /* Imagen del Portafolio */
 .portfolio-image {
-    height: 250px;
+    height: 220px;
     background-size: cover;
     background-position: center;
     border-bottom: 2px solid black;

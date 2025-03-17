@@ -121,11 +121,14 @@
     font-size: 1.2rem;
     padding: 10px 20px;
 }
-    </style>
+</style>
+
+
 </head>
 
 <body id="page-top">
-   <!-- Navbar -->
+
+    <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
     <div class="container">
         <!-- Logo con alt para SEO -->
@@ -175,34 +178,29 @@
                         style="text-shadow: 2px 2px black;" aria-label="Contáctanos">{% trans 'Contacto' %}</a>
                 </li>
 
-
-
                 {% get_current_language as CURRENT_LANGUAGE %}
                 {% get_available_languages as AVAILABLE_LANGUAGES %}
                 {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
                 
-                <li class="nav-item dropdown">
+                <!-- Menú de idiomas con efecto hover -->
+                <li class="nav-item dropdown hover-dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                        style="text-transform:uppercase; background-color:#30C06F; color:white; border-radius:25px;"
-                        aria-label="Cambiar idioma">
+                        style="text-transform:uppercase; background-color:#30C06F; color:white; border-radius:25px;">
                         {{ CURRENT_LANGUAGE }}
                     </a>
                     <ul class="dropdown-menu">
                         {% for language in languages %}
                         <li>
-                            <form action="{% url 'set_language' %}" method="post" class="language-form">
-                                {% csrf_token %}
-                                <input type="hidden" name="language" value="{{ language.code }}">
-                                <input type="hidden" name="next" value="{{ request.path }}">
-                                <button type="submit" class="dropdown-item language-button" 
-                                        style="text-transform:uppercase; color:gray; text-decoration:none;">
-                                    {{ language.name_local }}
-                                </button>
-                            </form>
+                            <a href="{% url 'set_language' %}?language={{ language.code }}&next={{ request.path }}"
+                                class="dropdown-item language-button"
+                                style="text-transform:uppercase; color:gray; text-decoration:none;">
+                                {{ language.name_local }}
+                            </a>
                         </li>
                         {% endfor %}
                     </ul>
                 </li>
+ 
             </ul>
         </div>
     </div>
@@ -256,7 +254,7 @@
                        aria-label="Icono de E-Commerce"></i>
                 </span>
                 <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'E-Commerce' %}</h4>
-                <p class="text-muted" style="text-align:left;">
+                <p class="text-muted" style="text-align:justify;font-size: 17px;"">
                     {% trans 'Eleve su presencia online con las soluciones de eCommerce de Euskodev. En el panorama digital actual, un sitio web de eCommerce no es solo un lujo; es una necesidad para empresas de todos los tamaños. Con un sitio web de eCommerce, puede llegar a una audiencia global, ampliar su base de clientes y aumentar sus ventas. Pero crear un sitio web de eCommerce exitoso requiere más que un diseño atractivo. Debe ser funcional, fácil de usar y seguro.' %}
                 </p>
             </div>
@@ -269,7 +267,7 @@
                        aria-label="Icono de Responsive Design"></i>
                 </span>
                 <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'Responsive Design' %}</h4>
-                <p class="text-muted" style="text-align:left;">
+                <p class="text-muted" style="text-align:justify;font-size: 17px;">
                     {% trans 'Creamos sitios web responsive que se adaptan a la perfección a cualquier tamaño de pantalla, desde ordenadores de sobremesa y portátiles hasta tablets y smartphones. Nuestros expertos diseñadores y desarrolladores se aseguran de que tu sitio web ofrezca una experiencia de usuario (UX) excepcional en todos los dispositivos, manteniendo a tus visitantes comprometidos y regresando por más.' %}
                 </p>
             </div>
@@ -282,7 +280,7 @@
                        aria-label="Icono de Seguridad Web"></i>
                 </span>
                 <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'Web Security' %}</h4>
-                <p class="text-muted" style="text-align:left;">
+                <p class="text-muted" style="text-align:justify;font-size: 17px;"">
                     {% trans 'La seguridad del sitio web es primordial. En Euskodev, ofrecemos soluciones integrales de seguridad web para proteger tus activos online de las amenazas en constante evolución.<br><br>HTTPS: Nos aseguramos de que su sitio web utilice HTTPS para cifrar todo el tráfico entre su  sitio y los navegadores de los visitantes, protegiendo la confidencialidad de los datos.' %}
                 </p>
             </div>
@@ -367,6 +365,7 @@
             <h3 class="section-subheading text-muted">{% trans '¡Echa un vistazo!.' %}</h3>
         </div>
 
+        <!-- Primer row -->
         <div class="row">
             <!-- Portfolio item 1-->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
@@ -417,6 +416,7 @@
             </div>
         </div>
 
+        <!-- Segundo row -->
         <div class="row">
             <!-- Portfolio item 4-->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
@@ -457,7 +457,7 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/portafolio2.png" %}'); background-size: 130%;"></div>
+                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/portafolio2.png" %}');"></div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Euskodev</div>
@@ -465,63 +465,61 @@
                     </div>
                 </div>
             </div>
-            
-            <!--tercer row de presentacion de portafolio-->
-            <div class="row">
-                <!-- Portfolio item 7-->
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" href="#!">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <div class="portfolio-image img-fluid" style="background-image: url('{% static "assets/img/portfolio/cocina.jpg" %}'); background-size: cover; background-position: center; height: 250px;"></div>
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Gastrogune</div>
-                            <div class="portfolio-caption-subheading text-muted">Web + Design + App</div>
-                        </div>
-                    </div>
-                </div>
+        </div>
 
-
-                <!-- Portfolio item 8-->
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" href="#!">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/testosakidetza.png" %}'); background-size: 200px; background-position: center; background-repeat: no-repeat; background-color: #eeeeee;"></div>
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">20.000+</div>
-                            <div class="portfolio-caption-subheading text-muted">Web + Design</div>
+        <!-- Tercer row -->
+        <div class="row">
+            <!-- Portfolio item 7-->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="#!">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Portfolio item 9-->
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" href="https://tuasistenteinteligente.com/">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <div class="portfolio-image" style="background-image: url('{% static "img/tuasistenteinteligente.png" %}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #eeeeee;"></div>
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">520+</div>
-                            <div class="portfolio-caption-subheading text-muted">IA +Web + Design</div>
-                        </div>
+                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/cocina.jpg" %}');"></div>
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Gastrogune</div>
+                        <div class="portfolio-caption-subheading text-muted">Web + Design + App</div>
                     </div>
                 </div>
             </div>
 
-            <!--fin del segundo row de la portada de portafolio duplicado-->
+            <!-- Portfolio item 8-->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="#!">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/testosakidetza.png" %}');"></div>
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">20.000+</div>
+                        <div class="portfolio-caption-subheading text-muted">Web + Design</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio item 9-->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="portfolio-item">
+                    <a class="portfolio-link" href="https://tuasistenteinteligente.com/">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <div class="portfolio-image" style="background-image: url('{% static "img/tuasistenteinteligente.png" %}');"></div>
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">520+</div>
+                        <div class="portfolio-caption-subheading text-muted">IA + Web + Design</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 <!--fin de portafolio grid-->
 
 
@@ -1116,7 +1114,7 @@
         </div>
     </div>
 </div>
-s
+
 
 <!--fin del portafolio numero 3-->
 
@@ -1483,10 +1481,6 @@ s
 <script src="{% static 'js/botones_index.js' %}"></script>
 
 
-</body>
-
-
-
     <!-- Font Awesome icons (free version) -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
@@ -1499,6 +1493,10 @@ s
 
     <!-- Google Tag Manager (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
+
+
+
+</body>
 
 
 </html>

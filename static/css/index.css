@@ -76,21 +76,6 @@
     opacity: 0;
 }
 
-.portafolio-izquierda {
-    transform: translateX(-5000px);
-    opacity: 0:
-}
-
-.portafolio-derecha {
-    transform: translateX(5000px);
-    opacity: 0;
-}
-
-.portafolio-izquierda2 {
-    transform: translateX(-5000px);
-    opacity: 0;
-}
-
 .comentarios {
     opacity: 0;
 }
@@ -98,8 +83,6 @@
 .cambio-color {
     background-color: green;
 }
-
-
 
 /*==========================================================================
              Estilos para el apartado de el blog, nuevas publicasiones
