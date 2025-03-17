@@ -5,71 +5,57 @@
 <html lang="en">
 
 <head>
-   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- Meta Description (Optimizada para SEO) -->
-    <meta name="description" content="Euskodev - Expertos en desarrollo web, apps y branding corporativo. Creamos soluciones digitales personalizadas para potenciar tu negocio en España y el mundo. 🚀">
-    
-    <!-- Meta Keywords (Opcional, Google ya no les da mucho peso, pero algunos motores de búsqueda sí) -->
-    <meta name="keywords" content="desarrollo web, diseño web, creación de apps, branding, imagen corporativa, SEO, Euskodev, páginas web profesionales">
-    
+    <!-- Meta Description (Optimizada para SEO Local en Oiartzun) -->
+
+    <meta name="description" content="Euskodev - Desarrollo web en Oiartzun. Creamos páginas web, apps y branding digital para negocios locales. ¡Haz crecer tu empresa con soluciones digitales a medida! 🚀">
+    <!-- Meta Keywords (SEO Local) -->
+
+    <meta name="keywords" content="desarrollo web en Oiartzun, diseño web Oiartzun, páginas web en Oiartzun, creación de apps Oiartzun, SEO Oiartzun, digitalización de empresas Gipuzkoa, branding Oiartzun">
     <!-- Meta Author -->
-    <meta name="author" content="Euskodev - Desarrollo Web y Apps">
-    
-    <!-- Meta Open Graph (Para compartir en redes sociales como Facebook, LinkedIn) -->
-    <meta property="og:title" content="Euskodev - Desarrollo Web, Apps e Imagen Corporativa">
-    <meta property="og:description" content="Transformamos tu negocio con soluciones digitales innovadoras. Expertos en desarrollo web, diseño UX/UI y branding. 🚀">
+
+    <meta name="author" content="Euskodev - Desarrollo Web y Apps en Oiartzun">
+    <!-- Meta Open Graph (Para Facebook, LinkedIn y otras redes sociales) -->
+
+    <meta property="og:title" content="Euskodev - Desarrollo Web en Oiartzun | Diseño y Apps para Empresas">
+    <meta property="og:description" content="Tu negocio en Oiartzun necesita presencia digital. Creamos páginas web, apps y branding corporativo a medida. 🚀">
     <meta property="og:image" content="https://www.euskodev.eus/static/img/portada.jpg"> <!-- Imagen destacada -->
-    <meta property="og:url" content="https://www.euskodev.eus">
+    <meta property="og:url" content="https://www.euskodev.eus/oiartzun">
     <meta property="og:type" content="website">
-    
-    <!-- Meta Twitter Cards (Para mejorar el preview en Twitter) -->
+    <!-- Meta Twitter Cards (Para Twitter) -->
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Euskodev - Desarrollo Web, Apps e Imagen Corporativa">
-    <meta name="twitter:description" content="Impulsa tu marca con Euskodev: Desarrollo Web, Apps y Diseño Corporativo de calidad. 🚀">
-    <meta name="twitter:image" content="https://www.tudominio.com/static/images/preview.jpg">
+    <meta name="twitter:title" content="Euskodev - Desarrollo Web en Oiartzun | Diseño y Apps">
+    <meta name="twitter:description" content="Expertos en diseño web y apps en Oiartzun. Digitaliza tu empresa y llega a más clientes. 🚀">
+    <meta name="twitter:image" content="https://www.euskodev.eus/static/img/portada.jpg">
     <!-- <meta name="twitter:site" content="@Euskodev"> Si tienes cuenta de Twitter -->
-    
-    <!-- Título SEO optimizado -->
-    <title>{% trans 'Euskodev | Desarrollo Web, Apps and Profesional técnologies Service' %}</title>
-    
+
+    <!-- Título SEO optimizado para Oiartzun -->
+    <title>Euskodev | Desarrollo Web y Apps en Oiartzun</title>
     <!-- Favicon con imagen personalizada -->
+
     <link rel="icon" type="image/png" href="{% static 'assets/img/logo-euskodev.png' %}" />
-
-
-    <!-- Font Awesome icons (free version) -->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
     <!-- Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
+
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="{% static 'css/boton_asistente.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
     <!-- Google Search Console -->
+
     <meta name="google-site-verification" content="Z5huUGyc1deP2ce9DgHlqWheIAB-kZt5-Ae9WK1rfeU" />
-
-    <!-- reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
     <!-- Leaflet CSS (Para mapas) -->
+     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Leaflet JS (Después del CSS) -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-    <!-- Google Tag Manager (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -921,175 +907,216 @@
   
 <!--aca termina el div  del mapa-->
 
-
 <!-- Footer-->
-<footer class=" footer py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start">
-                    {% trans 'Euskodev &copy;tu creador de sitios web 2025' %}</div>
-                <div class="col-lg-4 my-3 my-lg-0">
-                    <!--  <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
-                            class="fab fa-facebook-f"></i></a>-->
-                    <a class="btn btn-dark btn-social mx-2 aline" href="https://www.linkedin.com/company/euskodev/"
-                        aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class=" col-lg-4 text-lg-end">
-                    <a class="link-dark text-decoration-none" href="{% url 'home_app:politicas_de_privacidad' %}"
-                        target="_blank">{% trans 'Políticas de privacidad' %} |</a>
+<footer class="footer py-4 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Información de la empresa -->
+            <div class="col-lg-4 text-lg-start">
+                <address>
+                    <p>📍 Oiartzun, Gipuzkoa</p>
+                    <p>📧 <a href="mailto:info@euskodev.eus" class="link-dark text-decoration-none">euskodev@gmail.com</a></p>
+                </address>
+                <p>{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
+                
+            </div>
 
-                    <a class="link-dark text-decoration-none" href="{% url 'home_app:aviso_legal' %}"
-                        target="_blank">{% trans 'Aviso legal' %} |</a>
+            <!-- Redes sociales -->
+            <div class="col-lg-4 my-3 my-lg-0">
+                <a class="btn btn-dark btn-social mx-2 aline" 
+                   href="https://www.linkedin.com/company/euskodev/" 
+                   aria-label="Euskodev en LinkedIn" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
 
-
-                    <a class="link-dark text-decoration-none" href="{% url 'home_app:politicas_de_cookies' %}"
-                        target="_blank">{% trans 'Políticas de cookies' %}</a>
-
-                </div>
+            <!-- Enlaces legales -->
+            <div class="col-lg-4 text-lg-end">
+                <a class="link-dark text-decoration-none" 
+                   href="{% url 'home_app:politicas_de_privacidad' %}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   aria-label="Políticas de privacidad">
+                    {% trans 'Políticas de privacidad' %}
+                </a> |
+                <a class="link-dark text-decoration-none" 
+                   href="{% url 'home_app:aviso_legal' %}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   aria-label="Aviso legal">
+                    {% trans 'Aviso legal' %}
+                </a> |
+                <a class="link-dark text-decoration-none" 
+                   href="{% url 'home_app:politicas_de_cookies' %}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   aria-label="Políticas de cookies">
+                    {% trans 'Políticas de cookies' %}
+                </a>
             </div>
         </div>
+    </div>
 </footer>
+
 
 <!--fin del  footer-->
 
 
 
 <!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolio-testosakidetza" tabindex="-1" role="dialog" 
+     aria-labelledby="portfolioTitle-testosakidetza" aria-describedby="portfolioDesc-testosakidetza" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal">
+                <img src="{% static 'assets/img/close-icon.svg' %}" alt="Cerrar ventana modal de Testosakidetza" />
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase" id="portfolioTitle-testosakidetza">TESTOSAKIDETZA</h2>
+                            <p class="item-intro text-muted">{% trans 'Facilitamos Vuestro Aprendizaje' %}</p>
+                            
+                            <img class="img-fluid d-block mx-auto"
+                                src="{% static 'assets/img/portfolio/testosakidetza.png' %}"
+                                alt="Desarrollo web y base de datos con Django y Python para Testosakidetza - Preparación de oposiciones"
+                                loading="lazy" />
+                            
+                            <p id="portfolioDesc-testosakidetza">
+                                <strong>TESTOSAKIDETZA</strong> {% trans ' es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia variedad de test para diferentes puestos de trabajo en el ámbito de la salud, la educación, la administración y otros sectores.' %}
+                            </p>
 
- <!-- Portfolio item 1 modal popup-->
-<div class="portfolio-modal modal fade" id="" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}"
-                        alt="Close modal" /></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="modal-body">
-                                <!-- Project details-->
-                                <h2 class="text-uppercase">TESTOSAKIDETZA</h2>
-                                <p class="item-intro text-muted">
-                                    {% trans 'Facilitamos Vuestro Aprendizaje' %}</p>
-                                <img class="img-fluid d-block mx-auto"
-                                    src="{% static 'assets/img/portfolio/testosakidetza.png' %}"
-                                    alt="desarrollo web, y creacion de base de datos- django, python, css, html, javascript, github" />
-                                <p>TESTOSAKIDETZA
-                                    {% trans ' es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia variedad de test para diferentes puestos de trabajo en el ámbito de la salud, la educación, la administración y otros sectores.' %}
-                                </p>
+                            <ul class="list-inline">
+                                <li><strong>{% trans 'Personas:' %}</strong> 20.000+</li>
+                                <li><strong>{% trans 'Categoría:' %}</strong> Atenea Gastronómica</li>
+                            </ul>
 
-                                <ul class="list-inline">
-                                    <li>
-                                        <strong>{% trans 'Personas:' %}</strong>
-                                        20.000+
-                                    </li>
-                                    <li>
-                                        <strong>{% trans 'Category:' %}</strong>
-                                        Atenea Gastronómica
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
-                                    type="button">
-                                    <i class="fas fa-xmark me-1"></i>
-                                    {% trans 'Volver' %}
-                                </button>
-                            </div>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                {% trans 'Volver' %}
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </div>
+
 
 <!--fin del portafiolio numero 1-->
 
 
 <!-- Portfolio item 2 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div><img src="{% static 'assets/img/portafolio/portafolio2.png' %}"
-                        alt="euskodev desarrollo web, desarrollo de software, mantenimiento de web, rremodelacion, creacion desde cero, creacion de aplicasiones web, y aplicasiones moviles" />
-                </div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="modal-body">
-                                <!-- Project details-->
-                                <h2 class="text-uppercase">{% trans 'Euskodev' %}</h2>
-                                <p class="item-intro text-muted">{% trans 'Desarrollo de software' %}</p>
-                                <img class="img-fluid d-block mx-auto"
-                                    src="{% static 'assets/img/portfolio/portafolio2.png' %}"
-                                    alt="creacoin de plataformas de reservacion para hoteles restaurantes y todo tipo de trabajos webs" />
-                                <p> {% trans 'Euskodev: Su aliado en el desarrollo de software <br> Euskodev, un equipo de desarrolladores de software en el País Vasco. especializado en la creación de soluciones digitales a medida, para empresas de todos los tamaños, desde pequeñas startups hasta grandes corporaciones!' %}
-                                </p>
-                                <ul class="list-inline">
-                                    <!--<li>
-                                        <strong>{% trans 'Personas:' %}</strong>
-                                    {% trans 'Web privada' %}
-                                    </li>-->
-                                    <li>
-                                        <strong>{% trans 'Category:' %}</strong>
-                                        {% trans 'Desarrollo de software' %}
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+<!-- Portfolio modal - Euskodev -->
+<div class="portfolio-modal modal fade" id="portfolio-euskodev" tabindex="-1" role="dialog" 
+     aria-labelledby="portfolioTitle-euskodev" aria-describedby="portfolioDesc-euskodev" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <!-- Imagen destacada -->
+            <div>
+                <img src="{% static 'assets/img/portafolio/portafolio2.png' %}"
+                     alt="Euskodev - Desarrollo web, software a medida, mantenimiento de sitios y creación de aplicaciones" 
+                     loading="lazy" />
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details -->
+                            <h2 class="text-uppercase" id="portfolioTitle-euskodev">{% trans 'Euskodev' %}</h2>
+                            <p class="item-intro text-muted">{% trans 'Desarrollo de software a medida' %}</p>
+                            
+                            <img class="img-fluid d-block mx-auto"
+                                 src="{% static 'assets/img/portfolio/portafolio2.png' %}"
+                                 alt="Plataformas de reservación para hoteles, restaurantes y negocios" 
+                                 loading="lazy" />
+
+                            <p id="portfolioDesc-euskodev">
+                                <strong>Euskodev</strong> - {% trans 'Tu aliado en el desarrollo de software. <br> Euskodev es un equipo de desarrolladores expertos en el País Vasco, especializados en la creación de soluciones digitales personalizadas para empresas de todos los tamaños, desde startups hasta grandes corporaciones.' %}
+                            </p>
+
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>{% trans 'Categoría:' %}</strong>
+                                    {% trans 'Desarrollo de software y soluciones digitales' %}
+                                </li>
+                            </ul>
+
+                            <!-- Botón para cerrar modal -->
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
                                     type="button">
-                                    <i class="fas fa-xmark me-1"></i>
-                                    {% trans 'Volver' %}
-                                </button>
-                            </div>
+                                <i class="fas fa-xmark me-1"></i>
+                                {% trans 'Volver' %}
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </div>
+
 
 <!--fin del portafolio numero 2-->
 
 <!-- Portfolio item 3 modal popup-->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'assets/img/close-icon.svg' %}"
-                        alt="Close modal" /></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="modal-body">
-                                <!-- Project details-->
-                                <h2 class="text-uppercase">{% trans 'Gastrogune' %}</h2>
-                                <p class="item-intro text-muted">
-                                    {% trans 'GastroGune: La esencia de Euskadi en cada bocado.' %}</p>
-                                <img class="img-fluid d-block mx-auto"
-                                    src="{% static 'assets/img/portfolio/cocina.jpg' %}" alt="..." />
-                                <p>{% trans 'GastroGune: Tu Guía para Descubrir la Gastronomía <br> Vasca Eusko.Gune no solo te acerca la cocina vasca a tu hogar a través de recetas tradicionales, sino que también te sirve como guía para descubrir y disfrutar de los mejores lugares y restaurantes del País Vasco.!' %}
-                                </p>
+<!-- Portfolio modal - Gastrogune -->
+<div class="portfolio-modal modal fade" id="portfolio-gastrogune" tabindex="-1" role="dialog" 
+     aria-labelledby="portfolioTitle-gastrogune" aria-describedby="portfolioDesc-gastrogune" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            
+            <!-- Botón de cierre del modal -->
+            <div class="close-modal" data-bs-dismiss="modal">
+                <img src="{% static 'assets/img/close-icon.svg' %}" alt="Cerrar ventana de Gastrogune" />
+            </div>
 
-                                <!--<ul class="list-inline">
-                                    <li>
-                                        <strong>Client:</strong>
-                                        Finish
-                                    </li>-->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details -->
+                            <h2 class="text-uppercase" id="portfolioTitle-gastrogune">{% trans 'Gastrogune' %}</h2>
+                            <p class="item-intro text-muted">{% trans 'GastroGune: La esencia de Euskadi en cada bocado.' %}</p>
+                            
+                            <img class="img-fluid d-block mx-auto"
+                                src="{% static 'assets/img/portfolio/cocina.jpg' %}"
+                                alt="Gastrogune - Descubre la gastronomía vasca con recetas y restaurantes tradicionales" 
+                                loading="lazy" />
+
+                            <p id="portfolioDesc-gastrogune">
+                                <strong>GastroGune</strong> - {% trans 'Tu guía para descubrir la gastronomía vasca. Eusko.Gune no solo te acerca la cocina vasca a tu hogar con recetas tradicionales, sino que también te ayuda a encontrar los mejores restaurantes del País Vasco para disfrutar su auténtica esencia gastronómica.' %}
+                            </p>
+
+                            <ul class="list-inline">
                                 <li>
-                                    <strong>Category:</strong>
-                                    {% trans 'Gastronomy' %}
+                                    <strong>{% trans 'Categoría:' %}</strong>
+                                    {% trans 'Gastronomía Vasca y Restaurantes' %}
                                 </li>
-                                </ul>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                            </ul>
+
+                            <!-- Botón para cerrar modal -->
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
                                     type="button">
-                                    <i class="fas fa-xmark me-1"></i>
-                                    {% trans 'Close Project' %}
-                                </button>
-                            </div>
+                                <i class="fas fa-xmark me-1"></i>
+                                {% trans 'Cerrar Proyecto' %}
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </div>
+s
 
 <!--fin del portafolio numero 3-->
 
@@ -1457,5 +1484,21 @@
 
 
 </body>
+
+
+
+    <!-- Font Awesome icons (free version) -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Leaflet JS (Después del CSS) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Google Tag Manager (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
+
 
 </html>
