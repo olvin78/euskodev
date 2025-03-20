@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+{% block content %}
+    <div class="container text-center">
+        <h2>✅ Presupuesto Creado con Éxito</h2>
+        <p>Tu presupuesto ha sido registrado correctamente.</p>
+        <a href="{% url 'erp:create_budget' %}" class="btn btn-primary">Crear otro presupuesto</a>
+        <a href="{% url 'erp:budget_detail' pk=1 %}" class="btn btn-success">Ver presupuestos</a> 
+    </div>
+{% endblock %}
+
+</body>
+</html>

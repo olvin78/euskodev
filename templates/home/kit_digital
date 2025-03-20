@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kit Digital - Euskodev</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-QWTKZjb9qBkVkaWvDAmFNKPJ9p53zK3GXp90+o1jg9eYwBPr1ymz5LmdUdmhR/BP" crossorigin="anonymous">
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Fondo suave */
+        .kit-digital {
+            background-color: #f7fdfc;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        /* Estilos del título y subtítulo */
+        .kit-digital h2 {
+            color: #2b7a77;
+            font-weight: bold;
+        }
+
+        .kit-digital h3 {
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+
+        .kit-digital p {
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Botones */
+        .btn-success {
+            background: linear-gradient(135deg, #30c0b9, #209597);
+            border: none;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn-success:hover {
+            background: #1e857e;
+            transform: scale(1.05);
+        }
+
+        .btn-outline-success {
+            border: 2px solid #30c0b9;
+            color: #30c0b9;
+            font-weight: bold;
+            padding: 10px 22px;
+            border-radius: 50px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn-outline-success:hover {
+            background: #30c0b9;
+            color: white;
+        }
+
+        /* Contenedor de imagen */
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Beneficios - Tarjetas */
+        .kit-benefits {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: 0.3s ease-in-out;
+            width: 250px;
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-card h4 {
+            font-weight: bold;
+            color: #2b7a77;
+            margin-top: 40px;
+        }
+
+        .benefit-card p {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        /* Iconos en Tarjetas */
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: #30c0b9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin: auto;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sección Kit Digital -->
+<section class="kit-digital">
+    <div class="container">
+        <!-- Título y descripción -->
+        <h2>Kit Digital</h2>
+        <h3>Impulsa tu empresa con ayudas digitales</h3>
+        <p>
+            El programa Kit Digital ofrece subvenciones para la digitalización de empresas. Accede a herramientas tecnológicas, 
+            mejora tu presencia en internet y lleva tu negocio al siguiente nivel.
+        </p>
+
+        <!-- Botones de acción -->
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <a href="#contact" class="btn btn-lg btn-success shadow">Solicitar Ayuda</a>
+            <a href="#video" class="btn btn-outline-success">Ver Video</a>
+        </div>
+
+        <!-- Imagen principal -->
+        <div class="image-container">
+            <img src="https://via.placeholder.com/600x300" 
+                 alt="Ilustración de Kit Digital para digitalización de empresas">
+        </div>
+
+        <!-- Beneficios -->
+        <div class="kit-benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="https://via.placeholder.com/30" alt="Desarrollo web">
+                </div>
+                <h4>Presencia Online</h4>
+                <p>Mejora tu sitio web y visibilidad en internet.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="https://via.placeholder.com/30" alt="Automatización empresarial">
+                </div>
+                <h4>Automatización</h4>
+                <p>Optimiza procesos y aumenta la eficiencia.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="https://via.placeholder.com/30" alt="E-commerce">
+                </div>
+                <h4>Comercio Electrónico</h4>
+                <p>Implementa o mejora tu tienda online.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <img src="https://via.placeholder.com/30" alt="Ciberseguridad">
+                </div>
+                <h4>Ciberseguridad</h4>
+                <p>Protege tu empresa con soluciones avanzadas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap 5 JavaScript Bundle con Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YudHgGTorrXNtS2KR8a3G5l8kPp7tHCl/8tLaN7q8BOtZulF2hWkFHG5N8ql0B5r" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -98,5 +98,9 @@ urlpatterns = [
         name='error-404',
     ),
 
+     path('kit-digital',
+        views.KitdigitalView.as_view(),
+        name='kit_digital',
+    ),
 
 ]

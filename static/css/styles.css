@@ -12694,10 +12694,10 @@ p {
   color: #fff;
   letter-spacing: 0.0625em;
 }
-
+/*colores de los botones del navbar o del menu*/
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #aac800;
+  color:  #2ad8ec ;
 }
 
 @media (min-width: 992px) {
@@ -12736,6 +12736,7 @@ p {
 
   #mainNav .navbar-nav .nav-item {
     margin-right: 1rem;
+    
   }
 
   #mainNav .navbar-nav .nav-item:last-child {

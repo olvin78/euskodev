@@ -129,80 +129,83 @@
 <body id="page-top">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
-        <div class="container">
-            <!-- Logo con alt para SEO -->
-            <a href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
-                <img class="p-0 m-0" style="height:80px;" 
-                    src="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}" 
-                    alt="Euskodev - Desarrollo Web en Euskadi">
-            </a>
-    
-            <!-- Botón de menú para móviles -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú de navegación">
-                Menú
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-    
-            <!-- Menú de navegación -->
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home_app:home' %}#services" 
-                            style="text-shadow: 2px 2px black;" aria-label="Servicios">{% trans 'Servicios' %}</a>
-                    </li>
-    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home_app:home' %}#portfolio" 
-                            style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Portfolio' %}</a>
-                    </li>
-    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home_app:home' %}#about" 
-                            style="text-shadow: 2px 2px black;" aria-label="Sobre Euskodev">{% trans 'Sobre' %}</a>
-                    </li>
-    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home_app:blog' %}" 
-                            style="text-shadow: 2px 2px black; color:rgb(49, 139, 49);" aria-label="Blog de Euskodev">{% trans 'Blog' %}</a>
-                    </li>
-    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home_app:home' %}#team" 
-                            style="text-shadow: 2px 2px black;" aria-label="Nuestro equipo">{% trans 'Nosotros' %}</a>
-                    </li>
-    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home_app:home' %}#contact" 
-                            style="text-shadow: 2px 2px black;" aria-label="Contáctanos">{% trans 'Contacto' %}</a>
-                    </li>
-                    
-                    {% get_current_language as CURRENT_LANGUAGE %}
-                    {% get_available_languages as AVAILABLE_LANGUAGES %}
-                    {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
-    
-                    <!-- Selector de idioma con botones separados -->
-                    <li class="nav-item">
-                        {% for language in languages %}
-                            <form action="{% url 'set_language' %}" method="post" class="d-inline">
-                                {% csrf_token %}
-                                <input type="hidden" name="language" value="{{ language.code }}">
-                                <input type="hidden" name="next" value="{{ request.path }}">
-                                <button type="submit" 
-                                        style="background: none; border: none; color: white; font-size: 16px; text-transform: uppercase; cursor: pointer; padding: 5px; transition: color 0.3s ease-in-out;"
-                                        onmouseover="this.style.textDecoration='underline'; this.style.color='#30C06F';"
-                                        onmouseout="this.style.textDecoration='none'; this.style.color='white';">
-                                    {{ language.code|upper }}
-                                </button>
-                            </form>
-                        {% endfor %}
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top p-3 bg-dark" id="mainNav">
+    <div class="container">
+        <!-- Logo con alt para SEO -->
+        <a href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
+            <img class="p-0 m-0" style="height:80px;" 
+                src="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}" 
+                alt="Euskodev - Desarrollo Web en Euskadi">
+        </a>
+
+        <!-- Botón de menú para móviles -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú de navegación">
+            Menú
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+
+        <!-- Menú de navegación -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#services" 
+                        style="text-shadow: 2px 2px black;" aria-label="Servicios">{% trans 'Servicios' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#portfolio" 
+                        style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Portfolio' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:kit_digital' %}" 
+                        style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Kit Digital' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#about" 
+                        style="text-shadow: 2px 2px black;" aria-label="Sobre Euskodev">{% trans 'Sobre' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color:rgb(102, 227, 243);" href="{% url 'home_app:blog' %}" 
+                        style="text-shadow: 2px 2px black;" aria-label="Blog de Euskodev">{% trans 'Blog' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#team" 
+                        style="text-shadow: 2px 2px black;" aria-label="Nuestro equipo">{% trans 'Nosotros' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#contact" 
+                        style="text-shadow: 2px 2px black;" aria-label="Contáctanos">{% trans 'Contacto' %}</a>
+                </li>
+                
+                {% get_current_language as CURRENT_LANGUAGE %}
+                {% get_available_languages as AVAILABLE_LANGUAGES %}
+                {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+                
+                <li class="nav-item d-flex align-items-center">
+                    {% for language in languages %}
+                        <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="language" value="{{ language.code }}">
+                            /<input type="hidden" name="next" value="{{ request.path }}">
+                            <button type="submit" class="border-0 bg-transparent text-white mx-2" 
+                                    style="font-size: 16px; cursor: pointer; text-transform: uppercase;">
+                                {{ language.code }}
+                            </button>
+                        </form>
+                    {% endfor %}
+                </li>
+                
+            </ul>
         </div>
-    </nav>
-    
+    </div>
+</nav>
+
 
 <div class="container-fluid p-0">
     <div class="video-container">
@@ -219,7 +222,18 @@
         <div class="video-overlay">
             <h1>{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
             <p id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
-            <a href="{% url 'home_app:home' %}#contact" class="btn btn-primary">{% trans 'Contáctanos' %}</a>
+            <div class="text-center mt-4">
+                <a class="btn btn-lg text-uppercase" 
+                   href="#contact" 
+                   style="background: linear-gradient(135deg, #5ce9e2, #348D94); 
+                          color: white; 
+                          padding: 12px 24px; 
+                          border-radius: 8px; 
+                          font-weight: bold; 
+                          transition: 0.3s;">
+                    {% trans 'Contáctanos' %}
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -246,7 +260,7 @@
             <!-- E-Commerce -->
             <div class="col-md-4 ecomerce" id="ecomerce">
                 <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x" style="color:#30C06F;"></i>
+                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
                     <i class="fas fa-shopping-cart fa-stack-1x fa-inverse" id="prueba1" 
                        aria-label="Icono de E-Commerce"></i>
                 </span>
@@ -259,7 +273,7 @@
             <!-- Responsive Design -->
             <div class="col-md-4 ecomerce">
                 <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x" style="color:#30C06F;"></i>
+                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
                     <i class="fas fa-laptop fa-stack-1x fa-inverse" id="prueba1"
                        aria-label="Icono de Responsive Design"></i>
                 </span>
@@ -272,7 +286,7 @@
             <!-- Web Security -->
             <div class="col-md-4 ecomerce">
                 <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x" style="color:#30C06F;"></i>
+                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
                     <i class="fas fa-lock fa-stack-1x fa-inverse" id="prueba1" 
                        aria-label="Icono de Seguridad Web"></i>
                 </span>
@@ -284,9 +298,9 @@
         </div>
     </div>
 </section>
+
+
 <!-- Fin de Services -->
-
-
 <div class="container-fluid bg-dark text-white py-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
@@ -295,7 +309,16 @@
                 {% trans '¿Sabías que gracias a las ayudas para la digitalización, la web para tu empresa puede ser completamente gratuita?' %} 💻✨  
                 {% trans 'Déjanos informarte sobre las subvenciones disponibles y cómo aprovecharlas al máximo' %}.
             </p>
-            <a href="{% url 'home_app:home' %}#contact" class="btn btn-success btn-lg mt-3 shadow-lg">{% trans 'Solicita Información' %}</a>
+            <a href="{% url 'home_app:home' %}#contact" 
+            class="btn btn-lg mt-3 shadow-lg text-white" 
+            style="background: linear-gradient(135deg, #348D94, #1E5F63); 
+                    padding: 12px 24px; 
+                    border-radius: 8px; 
+                    font-weight: bold; 
+                    transition: 0.3s ease-in-out;">
+                {% trans 'Solicita Información' %}
+            </a>
+
         </div>
     </div>
 </div>
@@ -659,7 +682,7 @@
 
 
                 <li class="timeline-inverted">
-                    <div class="timeline-image simbolEffect" style="background-color:#30C06F;">
+                    <div class="timeline-image simbolEffect" style="background-color:#30c0b9;color: black;">
                         <h4>
                             {% trans '¡Se parte <br/> de nuestra <br/> historia!' %}
                         </h4>
@@ -723,72 +746,85 @@
 
 <!-- Team-->
 
-<!--este es un espacio oculto sobre los creadores de la web "team"-->
-<section class="page-section bg-dark" id="team" name="team" style="transition: background-color 0.5s;">
-        <div class="container">
-            <div class="text-center">
-                <h2 class=" section-heading text-uppercase text-white">{% trans 'Sobre nosotros' %}</h2>
-                <h3 class="section-subheading text-muted">{% trans 'Developers Full Stack.' %}</h3>
+<!-- Este es un espacio sobre los creadores de la web "team" -->
+<section class="page-section bg-dark text-white" id="team" name="team" style="transition: background-color 0.5s;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Columna del video -->
+            <div class="col-lg-6 text-center">
+                <video class="img-fluid rounded shadow-lg" autoplay loop muted playsinline style="max-width: 100%; border-radius: 10px;">
+                    <source src="{% static 'videos/quienes_somo_euskodev.mp4' %}" type="video/mp4">
+                    {% trans 'Tu navegador no soporta el elemento de video.' %}
+                </video>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle facephoto" src="{% static 'assets/img/team/daniel.jpg' %}"
-                            alt="nicaragua, costa rica, internet, desarrollo web, software , developer full stack donostia y todo españa y pais vasco" />
-                        <h4 class="text-white">Olvin Duarte</h4>
-                        <p class="text-muted">{% trans 'Full Stack Developer & Photographer' %}</p>
-                        <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i
-                                class="fab fa-facebook-f"></i></a>-->
-                        <a class="btn btn-dark btn-social mx-2 bg-black"
-                            href="https://www.linkedin.com/in/olvin-duarte-252b25300?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BvYDRoEspTgKDbrTxlgSb5w%3D%3D"
-                            aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
 
-
-                <div class="col-lg-6">
-                    <div class="team-member">
-                        <img class="mx-auto rounded-circle facephoto" src="{% static 'assets/img/team/retegi.jpg' %}"
-                            alt="españa desarrollo web y en todo el mundo, developer full stack" />
-                        <h4 class="text-white">Iñaki Retegi</h4>
-                        <p class="text-muted">{% trans 'Full Stack Developer & Designer' %}</p>
-                        <!-- <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i
-                                class="fab fa-facebook-f"></i></a>-->
-                        <a class="btn btn-dark btn-social mx-2 bg-black"
-                            href="https://www.linkedin.com/in/inakiretegi?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BWKM33ZUHQTK%2FysXX4DfVYw%3D%3D"
-                            aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <p class="large text-muted">
-                        {% trans 'Euskodev: Donde la tecnología se convierte en realidad Si está buscando un equipo de programadores digitales confiables y experimentados que puedan ayudarlo a alcanzar sus objetivos comerciales, no busque más allá de Euskodev. Con su enfoque personalizado y su dedicación a la calidad, Euskodev le brindará las soluciones digitales que necesita para prosperar en el mundo digital actual.' %}
-                    </p>
+            <!-- Columna del contenido -->
+            <div class="col-lg-6">
+                <h2 class="text-uppercase text-white">{% trans 'Sobre nosotros' %}</h2>
+                <h3 style="font-size: 23px;color: #04dbc9;">{% trans 'Developers Full Stack y soluciones digitales a medida.' %}</h3>
+                <p class="text-white">
+                    {% trans 'Euskodev es una empresa de desarrollo de software ubicada en Oiartzun, dedicada a la creación de soluciones digitales personalizadas para empresas y negocios. Nos especializamos en desarrollo web, automatización de procesos y digitalización empresarial.' %}
+                </p>
+                <p class="text-white">
+                    {% trans 'Nuestro equipo está comprometido en ofrecer tecnología innovadora y eficiente, ayudando a empresas a modernizar sus operaciones y alcanzar nuevos niveles de productividad.' %}
+                </p>
+                <div class="text-center mt-4">
+                    <a class="btn btn-lg text-uppercase" 
+                       href="#contact" 
+                       style="background: linear-gradient(135deg, #04dbc9, #2575fc); 
+                              color: white; 
+                              padding: 12px 24px; 
+                              border-radius: 8px; 
+                              font-weight: bold; 
+                              transition: 0.3s;">
+                        {% trans 'Contáctanos' %}
+                    </a>
                 </div>
             </div>
         </div>
- </section>
+    </div>
+</section>
+
+
 
 <!--acá termina el área de team-->
 
 
 
 <!-- Iconos de aplicaciones usadas -->
-<!-- Contenedor de iconos -->
-<div class="iconos-container">
-    <img class="icono-wow" src="{% static 'assets/img/logos/python.png' %}" />
-    <img class="icono-wow" src="{% static 'assets/img/logos/artificial.avif' %}" />
-    <img class="icono-wow" src="{% static 'assets/img/logos/django.png' %}" />
-    <img class="icono-wow" src="{% static 'assets/img/logos/triologo.webp' %}" />
-    <img class="icono-wow" src="{% static 'assets/img/logos/github.jpg' %}" />
-    <img class="icono-wow" src="{% static 'assets/img/logos/linux.jpeg' %}" />
-    <img class="icono-wow" src="{% static 'assets/img/logos/sql.webp' %}" />
-    <img class="icono-wow" src="{% static 'assets/img/logos/bootstrap.png' %}" />
+<!-- Contenedor de iconos optimizado para SEO con referencia a Oiartzun -->
+<div class="iconos-container py-5">
+    <img class="icono-wow" src="{% static 'assets/img/logos/python.png' %}" 
+         alt="Logo de Python en Oiartzun, País Vasco - Lenguaje de programación para desarrollo web e inteligencia artificial" 
+         width="80" height="80" loading="lazy" />
+
+    <img class="icono-wow" src="{% static 'assets/img/logos/artificial.avif' %}" 
+         alt="Inteligencia Artificial en Oiartzun, País Vasco - Algoritmos avanzados y machine learning" 
+         width="80" height="80" loading="lazy" />
+
+    <img class="icono-wow" src="{% static 'assets/img/logos/django.png' %}" 
+         alt="Django en Oiartzun, País Vasco - Framework de desarrollo web en Python" 
+         width="80" height="80" loading="lazy" />
+
+    <img class="icono-wow" src="{% static 'assets/img/logos/triologo.webp' %}" 
+         alt="Triologo en Oiartzun, País Vasco - Soluciones digitales y programación avanzada" 
+         width="80" height="80" loading="lazy" />
+
+    <img class="icono-wow" src="{% static 'assets/img/logos/github.jpg' %}" 
+         alt="GitHub en Oiartzun, País Vasco - Plataforma de control de versiones para desarrollo colaborativo" 
+         width="80" height="80" loading="lazy" />
+
+    <img class="icono-wow" src="{% static 'assets/img/logos/linux.jpeg' %}" 
+         alt="Linux en Oiartzun, País Vasco - Sistema operativo de código abierto para servidores y desarrollo" 
+         width="80" height="80" loading="lazy" />
+
+    <img class="icono-wow" src="{% static 'assets/img/logos/sql.webp' %}" 
+         alt="SQL en Oiartzun, País Vasco - Lenguaje de bases de datos para gestión de información" 
+         width="80" height="80" loading="lazy" />
+
+    <img class="icono-wow" src="{% static 'assets/img/logos/bootstrap.png' %}" 
+         alt="Bootstrap en Oiartzun, País Vasco - Framework para diseño web responsivo" 
+         width="80" height="80" loading="lazy" />
 </div>
 
 <!-- Contact-->
@@ -867,53 +903,33 @@
         
 </section>
 
-<!--fin de contact-->
-
-<section class="bg-dark">
-    <!-- Sección de Mapas con Alineación Mejorada -->
-    <div class="container-fluid py-3">
-      <div class="row justify-content-center">
-          <!-- Euskadi -->
-          <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex flex-column align-items-center">
-              <h3 class="map-title">Euskadi</h3>
-              <div class="map-wrapper">
-                  <div id="map" class="map-container"></div>
-              </div>
-          </div>
-  
-          <!-- Nicaragua -->
-          <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex flex-column align-items-center">
-              <h3 class="map-title">Nicaragua</h3>
-              <div class="map-wrapper">
-                  <div id="map2" class="map-container"></div>
-              </div>
-          </div>
-  
-          <!-- Costa Rica -->
-          <div class="col-lg-4 col-md-6 col-sm-12 text-center d-flex flex-column align-items-center">
-              <h3 class="map-title">Costa Rica</h3>
-              <div class="map-wrapper">
-                  <div id="map3" class="map-container"></div>
-              </div>
-          </div>
-      </div>
+<!-- Sección del Mapa SIN márgenes abajo -->
+<section class="bg-dark mb-0 pb-5">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="map-title text-white py-3">Oiartzun, País Vasco</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="map-oiartzun" class="map-container" style="width: 100vw; height: 500px; margin-bottom: 0;"></div>
+            </div>
+        </div>
     </div>
-  </section>
-  
-<!--aca termina el div  del mapa-->
+</section>
 
-<!-- Footer-->
-<footer class="footer py-4 bg-light">
+<!-- Footer SIN margen superior -->
+<footer class="footer py-4 bg-light mt-0">
     <div class="container">
         <div class="row align-items-center">
             <!-- Información de la empresa -->
             <div class="col-lg-4 text-lg-start">
                 <address>
                     <p>📍 Oiartzun, Gipuzkoa</p>
-                    <p>📧 <a href="mailto:info@euskodev.eus" class="link-dark text-decoration-none">euskodev@gmail.com</a></p>
+                    <p>📧 <a href="mailto:info@euskodev.eus" class="link-dark text-decoration-none"> Info@euskodev.eus</a></p>
                 </address>
                 <p>{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
-                
             </div>
 
             <!-- Redes sociales -->
@@ -1127,24 +1143,35 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+<!--este es el script para el mapa de contactar-->
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         function createMap(id, lat, lng) {
-            var map = L.map(id).setView([lat, lng], 7);
+            var map = L.map(id).setView([lat, lng], 12); // Zoom ajustado
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
-            L.marker([lat, lng]).addTo(map);
+
+            // Agregar marcador con imagen dentro del popup
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup(`
+                    <div style="text-align: center;">
+                        <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" 
+                             alt="Logo Oiartzun" 
+                             style="max-width: 80px; display: block; margin: 0 auto; margin-top:25px;">
+                        <b style"margin-top:10px;">Oiartzun, País Vasco</b>
+                    </div>
+                `).openPopup();
         }
 
-        createMap('map', 43.32207429440778, -1.9839135682231204); // Euskadis
-        createMap('map2', 12.1149, -86.2365); // Nicaragua
-        createMap('map3', 9.9287, -84.0906); // Costa Rica
+        createMap('map-oiartzun', 43.29906393296637, -1.8600191715360295); // Coordenadas de Oiartzun
     });
 </script>
 
 
+<!--fin de los mapas para contactar-->
 
 <!--estos son los códigos para que funcione la librería de gsap-->
 
@@ -1201,84 +1228,6 @@
 
 <!--aca termina el apartado de efectos de los iconos de lado derecho-->
 
-<!--======================================================================================================
-        aca inician los efectos de las fotos en el apartado de sobre nosotros esta foto es la de olvin
-==========================================================================================================-->
-
-<script>
-        // Seleccionar todas las imágenes dentro del tercer div usando ID
-        const images3 = document.querySelectorAll('.foto-olvin');
-
-        // Crear la animación con GSAP y ScrollTrigger
-        gsap.to(images3, {
-            x: 0, // Desplazar las imágenes 200px a la derecha
-            duration: 3, // Duración de la animación
-            stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-            scrollTrigger: {
-                trigger: '#olvin-e-inaki', // El contenedor que activa la animación
-                start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-                end: "bottom 95%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-                scrub: true, // Sincroniza la animación con el scroll
-            }
-        });
-</script>
-
-<!--===================================================================================================
-            aca terminan los efectos en foto de olvin y inician los efectos de la foto de iñaki         
-=======================================================================================================-->
-
-<script>
-        // Seleccionar todas las imágenes dentro del tercer div usando ID
-        const images4 = document.querySelectorAll('.foto-inaki');
-
-        // Crear la animación con GSAP y ScrollTrigger
-        gsap.to(images4, {
-            x: 0, // Desplazar las imágenes 200px a la derecha
-            duration: 3, // Duración de la animación
-            stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-            scrollTrigger: {
-                trigger: '#olvin-e-inaki', // El contenedor que activa la animación
-                start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-                end: "bottom 95%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-                scrub: true, // Sincroniza la animación con el scroll
-            }
-        });
-</script>
-
-<!--=====================================================================================================
-                aca terminan ñlos efectos de la foto de inaki
-========================================================================================================-->
-
-<!--====================================================================================================
-            aca inician los efectos en el parrado de sobre nosotros
-========================================================================================================-->
-
-<script>
-        // Seleccionar todas las imágenes dentro del tercer div usando ID
-        const images5 = document.querySelectorAll('.parrafo_abajo_inaki');
-
-        // Crear la animación con GSAP y ScrollTrigger
-        gsap.to(images5, {
-            x: 0, // Desplazar las imágenes 200px a la derecha
-            duration: 1, // Duración de la animación
-            stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-            scrollTrigger: {
-                trigger: '#parrafo_abajo_inaki', // El contenedor que activa la animación
-                start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-                end: "bottom 95%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-                scrub: true, // Sincroniza la animación con el scroll
-                opacity: 1,
-            }
-        });
-</script>
-
-<!--========================================================================================================
-            aca terminan los efectos en el apartado del parrafo en el apartado sobre nosotros
-============================================================================================================-->
-
-<!--===============================================================================================================
-    aca inician los efectos de gsap en eel apartado sobre los sercicios que ofrecemos abajo de la foto de perfil
-===============================================================================================================-->
 
 <!--===============================================================================================================
     esto son los efectos de las imagenes de servicios
@@ -1310,55 +1259,6 @@
 <!--===============================================================================================================
             aca inician los efectos para la parte de los portafolios
 ===============================================================================================================-->
-
-<!--movimiento a la izquierda-->
-<script>
-    // Registrar el plugin ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Seleccionar todas las imágenes dentro del tercer div usando ID
-    const images7 = document.querySelectorAll('.portafolio-izquierda');
-
-    // Crear la animación con GSAP y ScrollTrigger
-    gsap.to(images7, {
-        x: 0, // Desplazar las imágenes 200px a la derecha
-        duration: 3, // Duración de la animación
-        stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-        opacity: 1,
-        scrollTrigger: {
-            trigger: '#izquierda', // El contenedor que activa la animación
-            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-            end: "bottom 90%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-            scrub: true // Sincroniza la animación con el scroll
-        }
-    });
-</script>
-
-<!--mpovimiento hacia la derecha-->
-
-<script>
-    // Registrar el plugin ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Seleccionar todas las imágenes dentro del tercer div usando ID
-    const images8 = document.querySelectorAll('.portafolio-derecha');
-
-    // Crear la animación con GSAP y ScrollTrigger
-    gsap.to(images8, {
-        x: 0, // Desplazar las imágenes 200px a la derecha
-        duration: 1, // Duración de la animación
-        stagger: 0,
-        opacity: 1, // Retrasar cada imagen un poco para un efecto de escalonamiento
-        scrollTrigger: {
-            trigger: '#derecha', // El contenedor que activa la animación
-            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-            end: "bottom 90%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-            scrub: true // Sincroniza la animación con el scroll
-        }
-    });
-</script>
-
-<!--movimiento hacia la izquierda-->
 
 <script>
     // Registrar el plugin ScrollTrigger
@@ -1440,9 +1340,6 @@
          cambiarColor();
      });
 </script>
-
-
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

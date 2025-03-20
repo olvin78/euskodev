@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'applications.home',
+    'applications.erp',# Asegúrate de que está aquí
     'rosetta',
     'tinymce',
     'django_recaptcha',

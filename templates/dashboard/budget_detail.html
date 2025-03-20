@@ -1,0 +1,221 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto #{{ budget.id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* 🎨 Estilos Generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .invoice-container {
+            max-width: 850px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid #333;
+        }
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .header-section img {
+            max-width: 180px;
+        }
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .info-box {
+            font-size: 14px;
+            color: #495057;
+            width: 48%;
+        }
+        .highlight {
+            font-weight: 600;
+            color: #007bff;
+        }
+        .table th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+        .table td {
+            text-align: center;
+        }
+        .total-section {
+            text-align: right;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-top: 20px;
+        }
+        .notes-section {
+            font-size: 14px;
+            color: #495057;
+            margin-top: 20px;
+            border-top: 2px solid #ddd;
+            padding-top: 15px;
+        }
+        .footer-contact {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+        .footer-contact a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn-container .btn {
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+        /* 🔍 Optimización para impresión */
+        @media print {
+            @page {
+                margin: 10mm;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background: white;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .invoice-container {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-container">
+    
+    <!-- Encabezado con Logo y Número de Presupuesto -->
+    <div class="header-section">
+        <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" alt="Logo Euskodev">
+        <div>
+            <h4 class="highlight">PRESUPUESTO</h4>
+            <p><strong>N°:</strong> {{ budget.id }}</p>
+            <p><strong>Fecha:</strong> {{ budget.fecha_creacion|date:"d/m/Y" }}</p>
+            <p><strong>Vencimiento:</strong> {{ budget.fecha_vencimiento|date:"d/m/Y" }}</p>
+        </div>
+    </div>
+
+    <!-- Información del Cliente y Empresa -->
+    <div class="info-section">
+        <div class="info-box">
+            <strong class="highlight">Cliente:</strong> {{ budget.cliente.nombre }}<br>
+            <strong>Empresa:</strong> {{ budget.cliente.empresa|default:"-" }}<br>
+            <strong>Email:</strong> {{ budget.cliente.email|default:"No disponible" }}<br>
+            <strong>Teléfono:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
+            <strong>Dirección:</strong> {{ budget.cliente.direccion|default:"-" }}
+        </div>
+        <div class="info-box">
+            <strong class="highlight">Datos de pago:</strong><br>
+            <strong>Cuenta:</strong> XXXXXX<br>
+            <strong>Banco:</strong> CaixaBank, S.A<br>
+            <strong>Empresa:</strong> Euskodev SRL
+        </div>
+    </div>
+
+    <!-- Tabla de Ítems -->
+   <!-- Tabla de Ítems con Descuento -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Descuento (%)</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in budget.items.all %}
+            {% if item.descripcion %}  {# 🔹 Evita que aparezcan filas vacías #}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>${{ item.precio_unitario|floatformat:2 }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.descuento|floatformat:2 }}%</td>
+                <td>${{ item.subtotal|floatformat:2 }}</td>
+            </tr>
+            {% endif %}
+        {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">No hay ítems en este presupuesto.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Totales -->
+<div class="total-section">
+    <p><strong>Subtotal:</strong> ${{ subtotal|floatformat:2 }}</p>
+    <p><strong>Impuestos ({{ budget.impuesto_porcentaje|floatformat:2 }}%):</strong> 
+    ${{ impuestos|floatformat:2 }}
+    </p>
+    <p><strong class="highlight">TOTAL:</strong> ${{ total|floatformat:2 }}</p>
+</div>
+
+    <!-- Notas y Condiciones de Pago -->
+    <div class="notes-section">
+        <h6 class="highlight">Condiciones de pago</h6>
+        <p>El pago debe realizarse dentro de los próximos 15 días. Cualquier retraso podría incurrir en cargos adicionales.</p>
+    </div>
+
+    <!-- Firma -->
+    <div class="notes-section">
+        <h6 class="highlight">Firma</h6>
+        <p>________________________________________</p>
+        <p>{{ budget.cliente.nombre }}</p>
+    </div>
+
+    <!-- Botones -->
+    <div class="btn-container no-print">
+        <a href="{% url 'dashboard_app:create_budget' %}" class="btn btn-secondary">Volver</a>
+        <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-warning">Actualizar</a>  <!-- ✅ Botón para editar -->
+        <button class="btn btn-primary" onclick="window.print()">Imprimir</button>
+    </div>
+    
+
+</div>
+
+</body>
+</html>

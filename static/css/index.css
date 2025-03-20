@@ -47,31 +47,6 @@
     background-size: cover;
 }
 
-.efecto-foto-blog:hover {
-    background-size: auto;
-}
-
-.icon-image-izquierda {
-    transform: translateX(-5000px);
-}
-
-.icon-image-izquierda2 {
-    transform: translateX(5000px);
-}
-
-.foto-olvin {
-    transform: translateX(-5000px);
-}
-
-.foto-inaki {
-    transform: translateX(5000px);
-}
-
-.parrafo_abajo_inaki {
-    transform: translateX(-8000px);
-    opacity: 0;
-}
-
 .ecomerce {
     opacity: 0;
 }
