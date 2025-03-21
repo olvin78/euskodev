@@ -182,13 +182,8 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-<<<<<<< HEAD
-EMAIL_HOST_USER = "Info@euskodev.eus"
-EMAIL_HOST_PASSWORD = 'rkmp txik yhpb vqzn '  # Usa la contraseña generada
-=======
 EMAIL_HOST_USER = 'info@euskodev.eus'  # <- debe coincidir 100% con la cuenta de Google
 EMAIL_HOST_PASSWORD = 'pjgf buph daxf drvg'# Usa la contraseña generada, azrt cnop xfxh scbq 
->>>>>>> correo
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 DEFAULT_CHARSET = 'utf-8'
 EMAIL_USE_LOCALTIME = True  # Asegura que Django maneje bien la codificación
