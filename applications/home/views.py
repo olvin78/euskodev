@@ -49,13 +49,8 @@ def formulario_contactar(request):
             send_mail(
                 asunto,
                 contenido,
-<<<<<<< HEAD
-                settings.EMAIL_HOST_USER,  # Remitente
-                ["Info@euskodev.eus"],  # Cambia por el correo real
-=======
                 settings.EMAIL_HOST_USER,
                 ["info@euskodev.eus"],
->>>>>>> correo
                 fail_silently=False,
             )
             print("Enviado email")
