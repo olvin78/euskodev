@@ -40,7 +40,6 @@ def formulario_contactar(request):
             f"Nombre: {name}\n"
             f"Email: {email}\n"
             f"Teléfono: {phone}\n"
-            f"Empresa: {company}\n"
             f"Mensaje:\n{message}"
         )
 
