@@ -50,7 +50,7 @@ def formulario_contactar(request):
                 asunto,
                 contenido,
                 settings.EMAIL_HOST_USER,  # Remitente
-                ["euskodev@gmail.com"],  # Cambia por el correo real
+                ["Info@euskodev.eus"],  # Cambia por el correo real
                 fail_silently=False,
             )
             print("Enviado email")

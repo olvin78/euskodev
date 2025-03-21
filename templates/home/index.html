@@ -123,6 +123,39 @@
 }
 </style>
 
+<style>
+    .service-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-card .icon {
+    font-size: 40px;
+    color: #28a745; /* Verde elegante */
+    margin-bottom: 15px;
+}
+
+.service-card h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #666;
+    height: 100px;
+}
+
+</style>
 
 </head>
 
@@ -147,7 +180,7 @@
 
         <!-- Menú de navegación -->
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+            <ul class="navbar-nav text-uppercase ms-auto py-5 py-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'home_app:home' %}#services" 
                         style="text-shadow: 2px 2px black;" aria-label="Servicios">{% trans 'Servicios' %}</a>
@@ -159,8 +192,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="·#" 
-                        style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Kit Digital' %}</a>
+                    <a class="nav-link" href="#"  onclick="mostrarAlerta()"  style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Kit Digital' %} </a>
                 </li>
 
                 <li class="nav-item">
@@ -255,73 +287,53 @@
             </h3>
         </div>
 
-        <!-- Filas de Servicios -->
-        <div class="row text-center">
-            <!-- E-Commerce -->
-            <div class="col-md-4 ecomerce" id="ecomerce">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
-                    <i class="fas fa-shopping-cart fa-stack-1x fa-inverse" id="prueba1" 
-                       aria-label="Icono de E-Commerce"></i>
-                </span>
-                <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'E-Commerce' %}</h4>
-                <p class="text-muted" style="text-align:justify;font-size: 17px;"">
-                    {% trans 'Eleve su presencia online con las soluciones de eCommerce de Euskodev. En el panorama digital actual, un sitio web de eCommerce no es solo un lujo; es una necesidad para empresas de todos los tamaños. Con un sitio web de eCommerce, puede llegar a una audiencia global, ampliar su base de clientes y aumentar sus ventas. Pero crear un sitio web de eCommerce exitoso requiere más que un diseño atractivo. Debe ser funcional, fácil de usar y seguro.' %}
-                </p>
+        <div class="row justify-content-center">
+            <!-- Desarrollo Web -->
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Desarrollo Web</h4>
+                    <p>Diseño y creación de sitios web modernos y optimizados para tu negocio.</p>
+                </div>
             </div>
-
-            <!-- Responsive Design -->
-            <div class="col-md-4 ecomerce">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
-                    <i class="fas fa-laptop fa-stack-1x fa-inverse" id="prueba1"
-                       aria-label="Icono de Responsive Design"></i>
-                </span>
-                <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'Responsive Design' %}</h4>
-                <p class="text-muted" style="text-align:justify;font-size: 17px;">
-                    {% trans 'Creamos sitios web responsive que se adaptan a la perfección a cualquier tamaño de pantalla, desde ordenadores de sobremesa y portátiles hasta tablets y smartphones. Nuestros expertos diseñadores y desarrolladores se aseguran de que tu sitio web ofrezca una experiencia de usuario (UX) excepcional en todos los dispositivos, manteniendo a tus visitantes comprometidos y regresando por más.' %}
-                </p>
+    
+            <!-- Aplicaciones Móviles -->
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center">
+                    <div class="icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Aplicaciones Móviles</h4>
+                    <p>Apps nativas y multiplataforma para iOS y Android con la mejor experiencia de usuario.</p>
+                </div>
             </div>
-
-            <!-- Web Security -->
-            <div class="col-md-4 ecomerce">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
-                    <i class="fas fa-lock fa-stack-1x fa-inverse" id="prueba1" 
-                       aria-label="Icono de Seguridad Web"></i>
-                </span>
-                <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'Web Security' %}</h4>
-                <p class="text-muted" style="text-align:justify;font-size: 17px;"">
-                    {% trans 'La seguridad del sitio web es primordial. En Euskodev, ofrecemos soluciones integrales de seguridad web para proteger tus activos online de las amenazas en constante evolución.<br><br>HTTPS: Nos aseguramos de que su sitio web utilice HTTPS para cifrar todo el tráfico entre su  sitio y los navegadores de los visitantes, protegiendo la confidencialidad de los datos.' %}
-                </p>
+    
+            <!-- Software a Medida -->
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center">
+                    <div class="icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>Software a Medida</h4>
+                    <p>Desarrollamos soluciones personalizadas para optimizar la gestión de tu empresa.</p>
+                </div>
+            </div>
+    
+            <!-- Implementaciones de IA -->
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card text-center">
+                    <div class="icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Inteligencia Artificial</h4>
+                    <p>Integración de IA y Machine Learning para potenciar tu negocio.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-
-<!-- Fin de Services -->
-<div class="container-fluid bg-dark text-white py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-            <h2 class="display-4 fw-bold text-uppercase text-glow">{% trans '¡WEB GRATIS!' %}</h2>
-            <p class="lead mt-3">
-                {% trans '¿Sabías que gracias a las ayudas para la digitalización, la web para tu empresa puede ser completamente gratuita?' %} 💻✨  
-                {% trans 'Déjanos informarte sobre las subvenciones disponibles y cómo aprovecharlas al máximo' %}.
-            </p>
-            <a href="{% url 'home_app:home' %}#contact" 
-            class="btn btn-lg mt-3 shadow-lg text-white" 
-            style="background: linear-gradient(135deg, #348D94, #1E5F63); 
-                    padding: 12px 24px; 
-                    border-radius: 8px; 
-                    font-weight: bold; 
-                    transition: 0.3s ease-in-out;">
-                {% trans 'Solicita Información' %}
-            </a>
-
-        </div>
-    </div>
-</div>
 
 
 
@@ -374,6 +386,51 @@
     <!-- Botón flotante -->
 <a href="https://www.tuasistenteinteligente.com/Euskodev/" class="boton-flotante" target="_blank" style="z-index: 500;">💬</a>
 
+
+<section class="container py-5">
+
+        <!-- Filas de Servicios -->
+        <div class="row text-center">
+            <!-- E-Commerce -->
+            <div class="col-md-4 ecomerce" id="ecomerce">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
+                    <i class="fas fa-shopping-cart fa-stack-1x fa-inverse" id="prueba1" 
+                       aria-label="Icono de E-Commerce"></i>
+                </span>
+                <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'E-Commerce' %}</h4>
+                <p class="text-muted" style="text-align:justify;font-size: 17px;"">
+                    {% trans 'Eleve su presencia online con las soluciones de eCommerce de Euskodev. En el panorama digital actual, un sitio web de eCommerce no es solo un lujo; es una necesidad para empresas de todos los tamaños. Con un sitio web de eCommerce, puede llegar a una audiencia global, ampliar su base de clientes y aumentar sus ventas. Pero crear un sitio web de eCommerce exitoso requiere más que un diseño atractivo. Debe ser funcional, fácil de usar y seguro.' %}
+                </p>
+            </div>
+
+            <!-- Responsive Design -->
+            <div class="col-md-4 ecomerce">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
+                    <i class="fas fa-laptop fa-stack-1x fa-inverse" id="prueba1"
+                       aria-label="Icono de Responsive Design"></i>
+                </span>
+                <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'Responsive Design' %}</h4>
+                <p class="text-muted" style="text-align:justify;font-size: 17px;">
+                    {% trans 'Creamos sitios web responsive que se adaptan a la perfección a cualquier tamaño de pantalla, desde ordenadores de sobremesa y portátiles hasta tablets y smartphones. Nuestros expertos diseñadores y desarrolladores se aseguran de que tu sitio web ofrezca una experiencia de usuario (UX) excepcional en todos los dispositivos, manteniendo a tus visitantes comprometidos y regresando por más.' %}
+                </p>
+            </div>
+
+            <!-- Web Security -->
+            <div class="col-md-4 ecomerce">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#30c0b9;"></i>
+                    <i class="fas fa-lock fa-stack-1x fa-inverse" id="prueba1" 
+                       aria-label="Icono de Seguridad Web"></i>
+                </span>
+                <h4 class="my-3" style="text-shadow: 2px 2px 5px white;">{% trans 'Web Security' %}</h4>
+                <p class="text-muted" style="text-align:justify;font-size: 17px;"">
+                    {% trans 'La seguridad del sitio web es primordial. En Euskodev, ofrecemos soluciones integrales de seguridad web para proteger tus activos online de las amenazas en constante evolución.<br><br>HTTPS: Nos aseguramos de que su sitio web utilice HTTPS para cifrar todo el tráfico entre su  sitio y los navegadores de los visitantes, protegiendo la confidencialidad de los datos.' %}
+                </p>
+            </div>
+        </div>
+</section>
 
 
 
@@ -697,9 +754,10 @@
 
 <!--comentarios-->
 <hr class="w-100 text-center">
-<h3 class="text-center">{% trans 'OPINIONES' %}</h3>
-<div class="opiniones-container mt-5">
 
+<h3 class="text-center m-5 mt-5">{% trans 'OPINIONES' %}</h3>
+
+<div class="opiniones-container mt-5 py-5">  <!-- Agregado py-5 para más altura -->
     <div class="row">
         <!-- Tarjeta 1 -->
         <div class="col-lg-4 col-md-6">
@@ -743,40 +801,47 @@
 </div>
 
 
-
 <!-- Team-->
 
 <!-- Este es un espacio sobre los creadores de la web "team" -->
-<section class="page-section bg-dark text-white" id="team" name="team" style="transition: background-color 0.5s;">
+<section class="page-section bg-dark text-white d-flex align-items-center justify-content-center" 
+         id="team" name="team" 
+         style="min-height: 60vh; padding: 80px 0; text-align: center;">
     <div class="container">
-        <div class="row align-items-center">
-            <!-- Columna del video -->
+        <div class="row justify-content-center align-items-center">
+            <!-- Columna del video/imagen -->
             <div class="col-lg-6 text-center">
-                <video class="img-fluid rounded shadow-lg" autoplay loop muted playsinline style="max-width: 100%; border-radius: 10px;">
+                <video class="img-fluid rounded shadow-lg" autoplay loop muted playsinline 
+                       style="width: 100%; max-width: 600px; min-height: 350px; border-radius: 10px;">
                     <source src="{% static 'videos/quienes_somo_euskodev.mp4' %}" type="video/mp4">
                     {% trans 'Tu navegador no soporta el elemento de video.' %}
                 </video>
             </div>
+            
+            
 
             <!-- Columna del contenido -->
-            <div class="col-lg-6">
+            <div class="col-lg-6 text-lg-start text-center mt-4 mt-lg-0">
                 <h2 class="text-uppercase text-white">{% trans 'Sobre nosotros' %}</h2>
-                <h3 style="font-size: 23px;color: #04dbc9;">{% trans 'Developers Full Stack y soluciones digitales a medida.' %}</h3>
+                <h3 style="font-size: 23px; color: #04dbc9;">
+                    {% trans 'Developers Full Stack y soluciones digitales a medida.' %}
+                </h3>
                 <p class="text-white">
                     {% trans 'Euskodev es una empresa de desarrollo de software ubicada en Oiartzun, dedicada a la creación de soluciones digitales personalizadas para empresas y negocios. Nos especializamos en desarrollo web, automatización de procesos y digitalización empresarial.' %}
                 </p>
                 <p class="text-white">
                     {% trans 'Nuestro equipo está comprometido en ofrecer tecnología innovadora y eficiente, ayudando a empresas a modernizar sus operaciones y alcanzar nuevos niveles de productividad.' %}
                 </p>
-                <div class="text-center mt-4">
+                <div class="mt-4">
                     <a class="btn btn-lg text-uppercase" 
                        href="#contact" 
                        style="background: linear-gradient(135deg, #04dbc9, #2575fc); 
                               color: white; 
-                              padding: 12px 24px; 
-                              border-radius: 8px; 
+                              padding: 14px 28px; 
+                              border-radius: 10px; 
                               font-weight: bold; 
-                              transition: 0.3s;">
+                              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                              transition: all 0.3s ease;">
                         {% trans 'Contáctanos' %}
                     </a>
                 </div>
@@ -785,47 +850,47 @@
     </div>
 </section>
 
-
-
 <!--acá termina el área de team-->
 
 
 
 <!-- Iconos de aplicaciones usadas -->
 <!-- Contenedor de iconos optimizado para SEO con referencia a Oiartzun -->
-<div class="iconos-container py-5">
+<div class="iconos-container py-5" 
+     style="min-height: 40vh; padding-top: 60px; padding-bottom: 60px; text-align: center;">
+    
     <img class="icono-wow" src="{% static 'assets/img/logos/python.png' %}" 
-         alt="Logo de Python en Oiartzun, País Vasco - Lenguaje de programación para desarrollo web e inteligencia artificial" 
-         width="80" height="80" loading="lazy" />
+         alt="Logo de Python en Oiartzun, País Vasco - Lenguaje de programación para desarrollo web e inteligencia artificial" height="90" loading="lazy" style="margin: 10px;" />
 
     <img class="icono-wow" src="{% static 'assets/img/logos/artificial.avif' %}" 
          alt="Inteligencia Artificial en Oiartzun, País Vasco - Algoritmos avanzados y machine learning" 
-         width="80" height="80" loading="lazy" />
+         width="80" height="80" loading="lazy" style="margin: 10px;" />
 
     <img class="icono-wow" src="{% static 'assets/img/logos/django.png' %}" 
          alt="Django en Oiartzun, País Vasco - Framework de desarrollo web en Python" 
-         width="80" height="80" loading="lazy" />
+         width="80" height="80" loading="lazy" style="margin: 10px;" />
 
     <img class="icono-wow" src="{% static 'assets/img/logos/triologo.webp' %}" 
          alt="Triologo en Oiartzun, País Vasco - Soluciones digitales y programación avanzada" 
-         width="80" height="80" loading="lazy" />
+         width="80" height="80" loading="lazy" style="margin: 10px;" />
 
     <img class="icono-wow" src="{% static 'assets/img/logos/github.jpg' %}" 
          alt="GitHub en Oiartzun, País Vasco - Plataforma de control de versiones para desarrollo colaborativo" 
-         width="80" height="80" loading="lazy" />
+         width="80" height="80" loading="lazy" style="margin: 10px;" />
 
     <img class="icono-wow" src="{% static 'assets/img/logos/linux.jpeg' %}" 
          alt="Linux en Oiartzun, País Vasco - Sistema operativo de código abierto para servidores y desarrollo" 
-         width="80" height="80" loading="lazy" />
+         width="80" height="80" loading="lazy" style="margin: 10px;" />
 
     <img class="icono-wow" src="{% static 'assets/img/logos/sql.webp' %}" 
          alt="SQL en Oiartzun, País Vasco - Lenguaje de bases de datos para gestión de información" 
-         width="80" height="80" loading="lazy" />
+         width="80" height="80" loading="lazy" style="margin: 10px;" />
 
     <img class="icono-wow" src="{% static 'assets/img/logos/bootstrap.png' %}" 
          alt="Bootstrap en Oiartzun, País Vasco - Framework para diseño web responsivo" 
-         width="80" height="80" loading="lazy" />
+         width="80" height="80" loading="lazy" style="margin: 10px;" />
 </div>
+
 
 <!-- Contact-->
 
@@ -919,51 +984,65 @@
     </div>
 </section>
 
-<!-- Footer SIN margen superior -->
-<footer class="footer py-4 bg-light mt-0">
+<!-- Footer Mejorado -->
+<footer class="footer py-5 mt-0" style="background: linear-gradient(135deg, #1a1a1a, #333); color: white;">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center text-center text-lg-start">
+            
             <!-- Información de la empresa -->
-            <div class="col-lg-4 text-lg-start">
-                <address>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <address class="mb-2">
                     <p>📍 Oiartzun, Gipuzkoa</p>
-                    <p>📧 <a href="mailto:info@euskodev.eus" class="link-dark text-decoration-none"> Info@euskodev.eus</a></p>
+                    <p>📧 <a href="mailto:info@euskodev.eus" class="text-white text-decoration-none">info@euskodev.eus</a></p>
                 </address>
-                <p>{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
+                <p class="mb-0">{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
             </div>
 
             <!-- Redes sociales -->
-            <div class="col-lg-4 my-3 my-lg-0">
-                <a class="btn btn-dark btn-social mx-2 aline" 
+            <div class="col-lg-4 d-flex justify-content-center my-3 my-lg-0">
+                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
                    href="https://www.linkedin.com/company/euskodev/" 
                    aria-label="Euskodev en LinkedIn" 
                    target="_blank" 
                    rel="noopener noreferrer">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
+                
+                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+                   href="https://www.instagram.com/euskodev/" 
+                   aria-label="Euskodev en Instagram" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+                   href="https://www.facebook.com/euskodev/" 
+                   aria-label="Euskodev en Facebook" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
             </div>
 
             <!-- Enlaces legales -->
             <div class="col-lg-4 text-lg-end">
-                <a class="link-dark text-decoration-none" 
+                <a class="text-white text-decoration-none me-2" 
                    href="{% url 'home_app:politicas_de_privacidad' %}" 
                    target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Políticas de privacidad">
+                   rel="noopener noreferrer">
                     {% trans 'Políticas de privacidad' %}
-                </a> |
-                <a class="link-dark text-decoration-none" 
+                </a> •
+                <a class="text-white text-decoration-none mx-2" 
                    href="{% url 'home_app:aviso_legal' %}" 
                    target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Aviso legal">
+                   rel="noopener noreferrer">
                     {% trans 'Aviso legal' %}
-                </a> |
-                <a class="link-dark text-decoration-none" 
+                </a> •
+                <a class="text-white text-decoration-none ms-2" 
                    href="{% url 'home_app:politicas_de_cookies' %}" 
                    target="_blank" 
-                   rel="noopener noreferrer" 
-                   aria-label="Políticas de cookies">
+                   rel="noopener noreferrer">
                     {% trans 'Políticas de cookies' %}
                 </a>
             </div>
@@ -1389,7 +1468,23 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
+    function mostrarAlerta() {
+        Swal.fire({
+            title: "Servicio No Disponible",
+            text: "El servicio de Kit Digital no está disponible por ahora. ¡Pronto tendremos más información!",
+            icon: "info",
+            confirmButtonText: "Entendido",
+            confirmButtonColor: "#3085d6",
+            background: "#f9f9f9",
+            color: "#333",
+            allowOutsideClick: false
+        });
+    }
+    </script>
+    
 </body>
 
 
