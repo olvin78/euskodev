@@ -35,7 +35,7 @@ def formulario_contactar(request):
         print("POST con estos datos:",name,email,phone,company,message,recaptcha_response)
 
         # Enviar correo con los datos ingresados desde la web
-        asunto = f"Tu Asistente Inteligente Nuevo mensaje de contacto de {name}"
+        asunto = f"Euskodev Nuevo mensaje de contacto de {name}"
         contenido = (
             f"Nombre: {name}\n"
             f"Email: {email}\n"
@@ -49,11 +49,17 @@ def formulario_contactar(request):
             send_mail(
                 asunto,
                 contenido,
+<<<<<<< HEAD
                 settings.EMAIL_HOST_USER,  # Remitente
                 ["Info@euskodev.eus"],  # Cambia por el correo real
+=======
+                settings.EMAIL_HOST_USER,
+                ["info@euskodev.eus"],
+>>>>>>> correo
                 fail_silently=False,
             )
             print("Enviado email")
+
             messages.success(request, "Tu mensaje ha sido enviado con éxito.")
             return redirect("home_app:home")
 
