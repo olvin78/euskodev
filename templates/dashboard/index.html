@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,9 +62,9 @@
 <nav class="pc-sidebar">
   <div class="navbar-wrapper">
     <div class="m-header">
-      <a href="../dashboard/index.html" class="b-brand text-primary">
+      <a href="{% url 'dashboard_app:home' %}" class="b-brand ">
         <!-- ========   Change your logo from here   ============ -->
-        <img src="{% static 'dashboard/images/logo-dark.svg' %}" class="img-fluid logo-lg" alt="logo">
+        <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}"  class="img-fluid logo-lg" style="max-height: 150px; height: auto;" alt="">
       </a>
     </div>
     <div class="navbar-content">
@@ -177,50 +178,50 @@
 <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
 <header class="pc-header">
   <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
-<div class="me-auto pc-mob-drp">
-  <ul class="list-unstyled">
-    <!-- ======= Menu collapse Icon ===== -->
-    <li class="pc-h-item pc-sidebar-collapse">
-      <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
-        <i class="ti ti-menu-2"></i>
-      </a>
-    </li>
-    <li class="pc-h-item pc-sidebar-popup">
-      <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
-        <i class="ti ti-menu-2"></i>
-      </a>
-    </li>
-    <li class="dropdown pc-h-item d-inline-flex d-md-none">
-      <a
-        class="pc-head-link dropdown-toggle arrow-none m-0"
-        data-bs-toggle="dropdown"
-        href="#"
-        role="button"
-        aria-haspopup="false"
-        aria-expanded="false"
-      >
-        <i class="ti ti-search"></i>
-      </a>
-      <div class="dropdown-menu pc-h-dropdown drp-search">
-        <form class="px-3">
-          <div class="form-group mb-0 d-flex align-items-center">
-            <i data-feather="search"></i>
-            <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+    <div class="me-auto pc-mob-drp">
+      <ul class="list-unstyled">
+        <!-- ======= Menu collapse Icon ===== -->
+        <li class="pc-h-item pc-sidebar-collapse">
+          <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+            <i class="ti ti-menu-2"></i>
+          </a>
+        </li>
+        <li class="pc-h-item pc-sidebar-popup">
+          <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
+            <i class="ti ti-menu-2"></i>
+          </a>
+        </li>
+        <li class="dropdown pc-h-item d-inline-flex d-md-none">
+          <a
+            class="pc-head-link dropdown-toggle arrow-none m-0"
+            data-bs-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="false"
+            aria-expanded="false"
+          >
+            <i class="ti ti-search"></i>
+          </a>
+          <div class="dropdown-menu pc-h-dropdown drp-search">
+            <form class="px-3">
+              <div class="form-group mb-0 d-flex align-items-center">
+                <i data-feather="search"></i>
+                <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    </li>
-    <li class="pc-h-item d-none d-md-inline-flex">
-      <form class="header-search">
-        <i data-feather="search" class="icon-search"></i>
-        <input type="search" class="form-control" placeholder="Search here. . .">
-      </form>
-    </li>
-  </ul>
-</div>
+        </li>
+        <li class="pc-h-item d-none d-md-inline-flex">
+          <form class="header-search">
+            <i data-feather="search" class="icon-search"></i>
+            <input type="search" class="form-control" placeholder="Search here. . .">
+          </form>
+        </li>
+      </ul>
+    </div>
 
 <!-- [Mobile Media Block end] -->
-<div class="ms-auto">
+    <div class="ms-auto">
   <ul class="list-unstyled">
     <li class="dropdown pc-h-item">
       <a
@@ -400,8 +401,8 @@
       </div>
     </li>
   </ul>
+    </div>
 </div>
- </div>
 </header>
 <!-- [ Header ] end -->
 
@@ -483,7 +484,7 @@
                           <!-- Tres botones dentro del div con separación entre ellos -->
                           <button class="btn mx-2 text-white" style="background-color: rgb(158, 124, 221);">Crear Factura</button>
                           <a href="{% url 'dashboard_app:create_budget' %}"><button class="btn mx-2 text-white" style="background-color: rgb(3, 128, 76);">Crear Presupuesto</button></a>
-                          <button class="btn mx-2 text-white" style="background-color: rgb(50, 209, 209);">Crear</button>
+                          <a href="{% url 'dashboard_app:budget_list' %}"><button class="btn mx-2 text-white" style="background-color: rgb(50, 209, 209);">Ver presupuestos</button></a>
                       </div>
                       <p class="mb-0 text-muted text-sm">
                           Puedes crear una factura <span class="text-danger">o hacer presupuestos</span>

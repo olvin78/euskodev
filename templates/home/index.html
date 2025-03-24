@@ -154,6 +154,9 @@
     color: #666;
     height: 100px;
 }
+.dropdown-menu{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 </style>
 
@@ -181,20 +184,52 @@
         <!-- Menú de navegación -->
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-5 py-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home_app:home' %}#services" 
-                        style="text-shadow: 2px 2px black;" aria-label="Servicios">{% trans 'Servicios' %}</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="serviciosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="text-shadow: 2px 2px black;" aria-label="Servicios">
+                        {% trans 'Servicios' %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:home' %}#automatizacion" style="color: #1a1a1a;">
+                                {% trans 'Desarrollo Web' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:home' %}#reservas" style="color: #1a1a1a;">
+                                {% trans 'Reservas y Pagos Online' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:home' %}#reservas" style="color: #1a1a1a;">
+                                {% trans 'Software a Medida' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:home' %}#reservas" style="color: #1a1a1a;">
+                                {% trans 'Inteligencia Artificial' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:home' %}#reservas" style="color: #1a1a1a;">
+                                {% trans 'Aplicaciones Móviles' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:home' %}#reservas" style="color: #1a1a1a;">
+                                {% trans 'Sistema de Ticket' %}
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+                
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'home_app:home' %}#portfolio" 
                         style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Portfolio' %}</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#"  onclick="mostrarAlerta()"  style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Kit Digital' %} </a>
-                </li>
-
+                  
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'home_app:home' %}#about" 
                         style="text-shadow: 2px 2px black;" aria-label="Sobre Euskodev">{% trans 'Sobre' %}</a>
@@ -289,46 +324,46 @@
 
         <div class="row justify-content-center">
             <!-- Desarrollo Web -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
-                    <div class="icon">
-                        <i class="fas fa-code"></i>
+                    <div class="icon mb-3" aria-label="{% trans 'Icono Desarrollo Web' %}">
+                        <i class="fas fa-code fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h4>Desarrollo Web</h4>
-                    <p>Diseño y creación de sitios web modernos y optimizados para tu negocio.</p>
+                    <h3 class="text-uppercase">{% trans 'Desarrollo Web' %}</h3>
+                    <p>{% trans 'Diseño y creación de sitios web modernos y optimizados para tu negocio.' %}</p>
                 </div>
             </div>
-    
+
             <!-- Aplicaciones Móviles -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
-                    <div class="icon">
-                        <i class="fas fa-mobile-alt"></i>
+                    <div class="icon mb-3" aria-label="{% trans 'Icono Aplicaciones Móviles' %}">
+                        <i class="fas fa-mobile-alt fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h4>Aplicaciones Móviles</h4>
-                    <p>Apps nativas y multiplataforma para iOS y Android con la mejor experiencia de usuario.</p>
+                    <h3 class="text-uppercase">{% trans 'Aplicaciones Móviles' %}</h3>
+                    <p>{% trans 'Apps nativas y multiplataforma para iOS y Android con la mejor experiencia de usuario.' %}</p>
                 </div>
             </div>
-    
+
             <!-- Software a Medida -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
-                    <div class="icon">
-                        <i class="fas fa-cogs"></i>
+                    <div class="icon mb-3" aria-label="{% trans 'Icono Software a Medida' %}">
+                        <i class="fas fa-cogs fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h4>Software a Medida</h4>
-                    <p>Desarrollamos soluciones personalizadas para optimizar la gestión de tu empresa.</p>
+                    <h3 class="text-uppercase">{% trans 'Software a Medida' %}</h3>
+                    <p>{% trans 'Desarrollamos soluciones personalizadas para optimizar la gestión de tu empresa.' %}</p>
                 </div>
             </div>
-    
-            <!-- Implementaciones de IA -->
-            <div class="col-lg-3 col-md-6">
+
+            <!-- Inteligencia Artificial -->
+            <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
-                    <div class="icon">
-                        <i class="fas fa-brain"></i>
+                    <div class="icon mb-3" aria-label="{% trans 'Icono Inteligencia Artificial' %}">
+                        <i class="fas fa-brain fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h4>Inteligencia Artificial</h4>
-                    <p>Integración de IA y Machine Learning para potenciar tu negocio.</p>
+                    <h3 class="text-uppercase">{% trans 'Inteligencia Artificial' %}</h3>
+                    <p>{% trans 'Integración de IA y Machine Learning para potenciar tu negocio.' %}</p>
                 </div>
             </div>
         </div>
@@ -602,7 +637,7 @@
 
 
 <!-- About-->
-<section class="page-section" id="about" style="backgroun-color:white;text-align: justify !important;">
+<section class="page-section" id="about" style="backgroun-color:white;text-align:justify !important;">
         <div class="container">
             <div class="text-start">
                 <h2 class="section-heading text-uppercase text-center">{% trans 'Sobre' %}</h2>

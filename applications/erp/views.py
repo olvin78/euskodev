@@ -1,4 +1,5 @@
-from django.views.generic import TemplateView, DetailView, ListView, UpdateView
+from django.views.generic import TemplateView, DetailView, ListView, UpdateView, ListView
+from django.db.models import Q
 from django.shortcuts import render
 from django.db.models import Count, Sum
 from django.shortcuts import render, redirect, get_object_or_404
@@ -84,20 +85,6 @@ def delete_budget_item(request, item_id):
 
 
 
-class BudgetDetailView(DetailView):
-    model = Budget
-    template_name = "dashboard/budget_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        budget = self.get_object()
-        context["subtotal"] = budget.calcular_subtotal
-        context["impuestos"] = budget.calcular_impuestos
-        context["total"] = budget.calcular_total_con_impuestos
-        return context
-
-
-
 def add_client(request):
     if request.method == 'POST':
         form = ClientForm(request.POST)
@@ -160,20 +147,37 @@ class BudgetUpdateView(UpdateView):
             return self.form_invalid(form)
 
 
+
+
+
 class BudgetListView(ListView):
     model = Budget
     template_name = "dashboard/budget_list.html"
     context_object_name = "budgets"
 
+    def get_queryset(self):
+        queryset = super().get_queryset().exclude(id__isnull=True)
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(
+                Q(cliente__nombre__icontains=query) |
+                Q(id__iexact=query)
+            )
+        return queryset.order_by('-id')
+
+
+
 
 class BudgetDetailView(DetailView):
     model = Budget
     template_name = "dashboard/budget_detail.html"
+    context_object_name = "budget"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         budget = self.get_object()
-        context["subtotal"] = budget.calcular_subtotal  # ✅ Ahora sí está definido
+        context["subtotal"] = budget.calcular_subtotal
         context["impuestos"] = budget.calcular_impuestos
-        context["total"] = budget.calcular_total_con_impuestos
+        context["total_con_impuestos"] = budget.calcular_total_con_impuestos
+        context["items"] = budget.items.all()
         return context
