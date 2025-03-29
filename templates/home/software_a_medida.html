@@ -1,0 +1,361 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+
+<style>
+
+</style>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid p-0">
+  <div class="position-relative" style="height: 100vh;">
+    
+    <!-- Imagen de fondo -->
+    <div class="position-absolute top-0 start-0 w-100 h-100">
+      <img src="{% static 'img/software_service.png' %}" 
+           alt="{% trans 'Imagen de portada representando los servicios digitales de Euskodev' %}" 
+           class="w-100 h-100" 
+           style="object-fit: cover; object-position: center;" 
+           loading="lazy">
+      <!-- Capa oscura encima de la imagen -->
+      <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+    </div>
+
+    <!-- Texto centrado -->
+    <div class="position-relative d-flex flex-column justify-content-center align-items-center text-center text-white h-100 px-3">
+      <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+      <p class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}</p>
+      <a href="#contact" class="btn btn-lg text-uppercase fw-bold mt-3"
+         style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
+        {% trans 'Solicita Presupuesto Gratis' %}
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<section class="py-5" style="background-color: #e6f2f4; font-family: 'Segoe UI', sans-serif;">
+  <div class="container">
+    
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-4 text-dark">¿Qué es el software a medida?</h2>
+      <p class="fs-5 text-secondary mt-3">
+        Una herramienta digital creada exclusivamente para ti. Sin plantillas. Sin límites.
+      </p>
+    </div>
+
+    <div class="row gx-5 gy-4">
+      <!-- Columna 1 -->
+      <div class="col-lg-6">
+        <div class="bg-white rounded-4 shadow p-5 h-100">
+          <h4 class="fw-bold text-warning mb-3">¿Qué es "software"?</h4>
+          <p class="fs-5 text-dark mb-0">
+            Es toda herramienta digital diseñada para resolver tareas específicas: reservas, ventas, cobros, gestión de usuarios, automatización… está en todas partes. Y lo desarrollamos para que funcione exactamente como tú lo necesitas.
+          </p>
+        </div>
+      </div>
+    
+      <!-- Columna 2 -->
+      <div class="col-lg-6">
+        <div class="bg-white rounded-4 shadow p-5 h-100">
+          <h4 class="fw-bold text-success mb-3">¿Qué significa "a medida"?</h4>
+          <p class="fs-5 text-dark mb-0">
+            Que no usas un sistema genérico que limita tu negocio, sino uno construido desde cero para ti: tus procesos, tu lógica, tu equipo, tus clientes. Flexible, escalable y único.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+
+      <!-- Bloque completo -->
+      <div class="col-12">
+        <div class="bg-dark text-white rounded-4 p-5 mt-4 gsap-fade">
+          <h4 class="fw-bold mb-3"><i class="bi bi-stars me-2"></i>¿Por qué elegir software a medida?</h4>
+          <ul class="fs-5">
+            <li class="mb-2">✔ Control total sobre funcionalidades, sin depender de servicios externos.</li>
+            <li class="mb-2">✔ Se adapta a cómo tú trabajas, no al revés.</li>
+            <li class="mb-2">✔ Escalable: crece contigo, se ajusta a nuevos objetivos.</li>
+            <li class="mb-2">✔ Mejora productividad y experiencia del cliente.</li>
+            <li class="mb-2">✔ Inversión inteligente a largo plazo, sin pagar por funciones que no usas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5" style="background-color: #f4fbfd; font-family: 'Segoe UI', sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">¿Qué tipo de software desarrollamos?</h2>
+      <p class="lead text-muted">Soluciones funcionales, útiles y listas para escalar. Creamos herramientas digitales que realmente ayudan a tu negocio.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 software-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-info">
+          <h5 class="fw-semibold mb-2"><i class="bi bi-calendar-check me-2 text-info"></i> Sistemas de reservas</h5>
+          <p class="text-secondary mb-0">Agenda automática de citas, sincronización con calendarios, recordatorios por correo o WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 software-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-success">
+          <h5 class="fw-semibold mb-2"><i class="bi bi-file-earmark-text me-2 text-success"></i> Generadores de presupuestos</h5>
+          <p class="text-secondary mb-0">Plataformas que permiten crear, enviar y gestionar presupuestos automáticamente, desde el navegador.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 software-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-warning">
+          <h5 class="fw-semibold mb-2"><i class="bi bi-credit-card me-2 text-warning"></i> Pagos en línea</h5>
+          <p class="text-secondary mb-0">Integración con Stripe, Bizum, Redsys, etc. para vender productos, servicios o cobrar reservas.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 software-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-primary">
+          <h5 class="fw-semibold mb-2"><i class="bi bi-cpu me-2 text-primary"></i> Aplicaciones con IA</h5>
+          <p class="text-secondary mb-0">Desde asistentes inteligentes hasta predicción de datos o automatización basada en comportamiento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#contacto" class="btn btn-lg fw-bold text-uppercase"
+         style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 10px;">
+        Empecemos tu software
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="py-5" style="background-color: #f4f9fa; font-family: 'Segoe UI', sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-6">¿Cómo te beneficia un software a medida?</h2>
+      <p class="lead text-muted">Más eficiencia, menos errores, total libertad. Estas son algunas de las ventajas reales de tener una solución hecha solo para ti.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+      <div class="col benefit-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
+          <i class="bi bi-clock-history fs-1 text-primary mb-3"></i>
+          <h5 class="fw-semibold">Ahorro de tiempo</h5>
+          <p class="text-secondary">Automatiza tareas repetitivas, evita errores y enfócate en lo que realmente importa.</p>
+        </div>
+      </div>
+
+      <div class="col benefit-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
+          <i class="bi bi-currency-euro fs-1 text-success mb-3"></i>
+          <h5 class="fw-semibold">Reducción de costes</h5>
+          <p class="text-secondary">Evita pagar por funciones innecesarias o licencias de herramientas que no usas.</p>
+        </div>
+      </div>
+
+      <div class="col benefit-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
+          <i class="bi bi-bar-chart-line fs-1 text-warning mb-3"></i>
+          <h5 class="fw-semibold">Mayor productividad</h5>
+          <p class="text-secondary">Optimiza tus procesos, mejora la experiencia del equipo y acelera resultados.</p>
+        </div>
+      </div>
+
+      <div class="col benefit-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
+          <i class="bi bi-person-check fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold">Adaptado a ti</h5>
+          <p class="text-secondary">Cada función está diseñada para encajar con tus procesos, clientes y estilo de trabajo.</p>
+        </div>
+      </div>
+
+      <div class="col benefit-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
+          <i class="bi bi-shield-lock fs-1 text-danger mb-3"></i>
+          <h5 class="fw-semibold">Más seguridad</h5>
+          <p class="text-secondary">Tú decides qué se almacena, cómo se protege y quién accede. Sin sorpresas externas.</p>
+        </div>
+      </div>
+
+      <div class="col benefit-card">
+        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
+          <i class="bi bi-stars fs-1 text-secondary mb-3"></i>
+          <h5 class="fw-semibold">Experiencia premium</h5>
+          <p class="text-secondary">Ofrece una plataforma profesional que transmite calidad y confianza a tus usuarios.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="py-5 bg-white" style="font-family: 'Segoe UI', sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-6">¿Cómo desarrollamos tu software?</h2>
+      <p class="lead text-muted">En Euskodev trabajamos contigo paso a paso para transformar tu idea en una solución digital potente y funcional.</p>
+    </div>
+
+    <div class="row g-4 text-center">
+
+      <div class="col-md-3 process-card">
+        <div class="p-4 border rounded-4 shadow-sm h-100">
+          <div class="fs-1 text-info mb-3"><i class="bi bi-chat-dots"></i></div>
+          <h5 class="fw-semibold">1. Escuchamos</h5>
+          <p class="text-muted">Nos cuentas tu idea, tu problema o tu objetivo. Nosotros escuchamos, preguntamos y te proponemos una solución realista.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 process-card">
+        <div class="p-4 border rounded-4 shadow-sm h-100">
+          <div class="fs-1 text-success mb-3"><i class="bi bi-vector-pen"></i></div>
+          <h5 class="fw-semibold">2. Diseñamos</h5>
+          <p class="text-muted">Creamos la estructura, los módulos, la experiencia de usuario y todas las piezas que tendrá tu software.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 process-card">
+        <div class="p-4 border rounded-4 shadow-sm h-100">
+          <div class="fs-1 text-warning mb-3"><i class="bi bi-code-slash"></i></div>
+          <h5 class="fw-semibold">3. Desarrollamos</h5>
+          <p class="text-muted">Codificamos todo desde cero. Tú puedes ir viendo el progreso real y validando el resultado.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 process-card">
+        <div class="p-4 border rounded-4 shadow-sm h-100">
+          <div class="fs-1 text-primary mb-3"><i class="bi bi-rocket-takeoff"></i></div>
+          <h5 class="fw-semibold">4. Lanzamos</h5>
+          <p class="text-muted">Probamos, corregimos, y lanzamos tu software en producción. Con o sin mantenimiento, tú eliges.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".gsap-fade").forEach((el) => {
+      gsap.fromTo(el, 
+        { opacity: 0, y: 50 }, 
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        });
+    });
+  });
+</script>
+
+
+
+
+
+<!-- GSAP animation -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".software-card").forEach((card, i) => {
+      gsap.fromTo(card, 
+        { opacity: 0, y: 60 }, 
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+  });
+</script>
+
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".benefit-card").forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+  });
+</script>
+
+
+
+
+<!-- Animación con GSAP -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".process-card").forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: i * 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+  });
+</script>
+
+
+  
+{% endblock %}

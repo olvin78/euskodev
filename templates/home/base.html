@@ -1,0 +1,797 @@
+{% load static %}
+
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta Description (Optimizada para SEO Local en Oiartzun) -->
+
+    <meta name="description" content="Euskodev - Desarrollo web en Oiartzun. Creamos páginas web, apps y branding digital para negocios locales. ¡Haz crecer tu empresa con soluciones digitales a medida! 🚀">
+    <!-- Meta Keywords (SEO Local) -->
+
+    <meta name="description" content="Euskodev ofrece desarrollo web y de aplicaciones móviles para negocios en Oiartzun, Errenteria, Pasajes y Lezo. Creamos soluciones digitales modernas con diseño profesional y tecnología avanzada.">
+    <!-- Meta Author -->
+
+    <meta name="author" content="Euskodev - Desarrollo Web y Apps en Oiartzun">
+    <!-- Meta Open Graph (Para Facebook, LinkedIn y otras redes sociales) -->
+
+    <meta property="og:title" content="Euskodev - Desarrollo Web en Oiartzun | Diseño y Apps para Empresas">
+    <meta property="og:description" content="Tu negocio en Oiartzun necesita presencia digital. Creamos páginas web, apps y branding corporativo a medida. 🚀">
+    <meta property="og:image" content="https://www.euskodev.eus/static/img/portada.jpg"> <!-- Imagen destacada -->
+    <meta property="og:url" content="https://www.euskodev.eus/oiartzun">
+    <meta property="og:type" content="website">
+    <!-- Meta Twitter Cards (Para Twitter) -->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Euskodev - Desarrollo Web en Oiartzun | Diseño y Apps">
+    <meta name="twitter:description" content="Expertos en diseño web y apps en Oiartzun. Digitaliza tu empresa y llega a más clientes. 🚀">
+    <meta name="twitter:image" content="https://www.euskodev.eus/static/img/portada.jpg">
+    <!-- <meta name="twitter:site" content="@Euskodev"> Si tienes cuenta de Twitter -->
+
+    <!-- Título SEO optimizado para Oiartzun -->
+    <title>Euskodev | Desarrollo Web y Apps en Oiartzun, Errenteria, Pasajes y Lezo</title>
+
+    <!-- Favicon con imagen personalizada -->
+
+    <link rel="icon" type="image/png" href="{% static 'assets/img/logo-euskodev.png' %}" />
+    <!-- Google Fonts -->
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!-- Estilos personalizados -->
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/boton_asistente.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <!-- Google Search Console -->
+
+    <meta name="google-site-verification" content="Z5huUGyc1deP2ce9DgHlqWheIAB-kZt5-Ae9WK1rfeU" />
+    <!-- Leaflet CSS (Para mapas) -->
+     
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-JLE08PZQL8');
+    </script>
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1565972943494658">
+
+
+<style>
+/* Contenedor del video */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Video de fondo */
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Capa negra semi-transparente */
+.video-overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Texto dentro del video */
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 80%;
+    max-width: 900px;
+    z-index: 2;
+}
+
+/* Efecto de transición en los subtítulos */
+#changing-subtitle {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Botón dentro del video */
+.video-overlay .btn {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+</style>
+
+<style>
+    .service-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-card .icon {
+    font-size: 40px;
+    color: #28a745; /* Verde elegante */
+    margin-bottom: 15px;
+}
+
+.service-card h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #666;
+    height: 100px;
+}
+.dropdown-menu{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+</style>
+
+{% block head %}{% endblock %}
+</head>
+
+<body id="page-top">
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top p-3 bg-dark" id="mainNav">
+    <div class="container">
+        <!-- Logo con alt para SEO -->
+        <a href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
+            <img class="p-0 m-0" style="height:80px;" 
+                src="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}" 
+                alt="Euskodev - Desarrollo Web en Euskadi">
+        </a>
+
+        <!-- Botón de menú para móviles -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú de navegación">
+            Menú
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+
+        <!-- Menú de navegación -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-5 py-lg-0">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="serviciosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                        style="text-shadow: 2px 2px black;" aria-label="Servicios">
+                        {% trans 'Servicios' %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:desarrollo_web' %}" style="color: #1a1a1a;">
+                                {% trans 'Desarrollo Web' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:reservas_pagos' %}" style="color: #1a1a1a;">
+                                {% trans 'Reservas y Pagos Online' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:software_a_medida' %}" style="color: #1a1a1a;">
+                                {% trans 'Software a Medida' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:inteligencia_artificial' %}" style="color: #1a1a1a;">
+                                {% trans 'Inteligencia Artificial' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:aplicaciones_moviles' %}" style="color: #1a1a1a;">
+                                {% trans 'Aplicaciones Móviles' %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'home_app:sistema_ticket' %}" style="color: #1a1a1a;">
+                                {% trans 'Sistema de Ticket' %}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#portfolio" 
+                        style="text-shadow: 2px 2px black;" aria-label="Portfolio">{% trans 'Portfolio' %}</a>
+                </li>
+                  
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#about" 
+                        style="text-shadow: 2px 2px black;" aria-label="Sobre Euskodev">{% trans 'Sobre' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color:rgb(102, 227, 243);" href="{% url 'home_app:blog' %}" 
+                        style="text-shadow: 2px 2px black;" aria-label="Blog de Euskodev">{% trans 'Blog' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#team" 
+                        style="text-shadow: 2px 2px black;" aria-label="Nuestro equipo">{% trans 'Nosotros' %}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_app:home' %}#contact" 
+                        style="text-shadow: 2px 2px black;" aria-label="Contáctanos">{% trans 'Contacto' %}</a>
+                </li>
+                
+                {% get_current_language as CURRENT_LANGUAGE %}
+                {% get_available_languages as AVAILABLE_LANGUAGES %}
+                {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+                
+                <li class="nav-item d-flex align-items-center">
+                    {% for language in languages %}
+                        <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="language" value="{{ language.code }}">
+                            /<input type="hidden" name="next" value="{{ request.path }}">
+                            <button type="submit" class="border-0 bg-transparent text-white mx-2" 
+                                    style="font-size: 16px; cursor: pointer; text-transform: uppercase;">
+                                {{ language.code }}
+                            </button>
+                        </form>
+                    {% endfor %}
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block content %}
+
+
+
+{% endblock %}
+
+
+    <!-- Botón flotante -->
+<a href="https://www.tuasistenteinteligente.com/Euskodev/" class="boton-flotante" target="_blank" style="z-index: 500;">💬</a>
+
+
+<!-- Footer Mejorado -->
+<footer class="footer py-5 mt-0" style="background: linear-gradient(135deg, #1a1a1a, #333); color: white;">
+<div class="container">
+    <div class="row align-items-center text-center text-lg-start">
+        
+        <!-- Información de la empresa -->
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            <address class="mb-2">
+                <p>📍 Oiartzun, Gipuzkoa</p>
+                <p>📧 <a href="mailto:info@euskodev.eus" class="text-white text-decoration-none">info@euskodev.eus</a></p>
+            </address>
+            <p class="mb-0">{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="col-lg-4 d-flex justify-content-center my-3 my-lg-0">
+            <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+               href="https://www.linkedin.com/company/euskodev/" 
+               aria-label="Euskodev en LinkedIn" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            
+            <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+               href="https://www.instagram.com/euskodev/" 
+               aria-label="Euskodev en Instagram" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+            
+            <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+               href="https://www.facebook.com/euskodev/" 
+               aria-label="Euskodev en Facebook" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+
+        <!-- Enlaces legales -->
+        <div class="col-lg-4 text-lg-end">
+            <a class="text-white text-decoration-none me-2" 
+               href="{% url 'home_app:politicas_de_privacidad' %}" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                {% trans 'Políticas de privacidad' %}
+            </a> •
+            <a class="text-white text-decoration-none mx-2" 
+               href="{% url 'home_app:aviso_legal' %}" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                {% trans 'Aviso legal' %}
+            </a> •
+            <a class="text-white text-decoration-none ms-2" 
+               href="{% url 'home_app:politicas_de_cookies' %}" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                {% trans 'Políticas de cookies' %}
+            </a>
+        </div>
+    </div>
+</div>
+</footer>
+
+
+<!--fin del  footer-->
+
+
+
+<!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolio-testosakidetza" tabindex="-1" role="dialog" 
+ aria-labelledby="portfolioTitle-testosakidetza" aria-describedby="portfolioDesc-testosakidetza" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal">
+            <img src="{% static 'assets/img/close-icon.svg' %}" alt="Cerrar ventana modal de Testosakidetza" />
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase" id="portfolioTitle-testosakidetza">TESTOSAKIDETZA</h2>
+                        <p class="item-intro text-muted">{% trans 'Facilitamos Vuestro Aprendizaje' %}</p>
+                        
+                        <img class="img-fluid d-block mx-auto"
+                            src="{% static 'assets/img/portfolio/testosakidetza.png' %}"
+                            alt="Desarrollo web y base de datos con Django y Python para Testosakidetza - Preparación de oposiciones"
+                            loading="lazy" />
+                        
+                        <p id="portfolioDesc-testosakidetza">
+                            <strong>TESTOSAKIDETZA</strong> {% trans ' es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia variedad de test para diferentes puestos de trabajo en el ámbito de la salud, la educación, la administración y otros sectores.' %}
+                        </p>
+
+                        <ul class="list-inline">
+                            <li><strong>{% trans 'Personas:' %}</strong> 20.000+</li>
+                            <li><strong>{% trans 'Categoría:' %}</strong> Atenea Gastronómica</li>
+                        </ul>
+
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            {% trans 'Volver' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--fin del portafiolio numero 1-->
+
+
+<!-- Portfolio item 2 modal popup-->
+<!-- Portfolio modal - Euskodev -->
+<div class="portfolio-modal modal fade" id="portfolio-euskodev" tabindex="-1" role="dialog" 
+ aria-labelledby="portfolioTitle-euskodev" aria-describedby="portfolioDesc-euskodev" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        
+        <!-- Imagen destacada -->
+        <div>
+            <img src="{% static 'assets/img/portafolio/portafolio2.png' %}"
+                 alt="Euskodev - Desarrollo web, software a medida, mantenimiento de sitios y creación de aplicaciones" 
+                 loading="lazy" />
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details -->
+                        <h2 class="text-uppercase" id="portfolioTitle-euskodev">{% trans 'Euskodev' %}</h2>
+                        <p class="item-intro text-muted">{% trans 'Desarrollo de software a medida' %}</p>
+                        
+                        <img class="img-fluid d-block mx-auto"
+                             src="{% static 'assets/img/portfolio/portafolio2.png' %}"
+                             alt="Plataformas de reservación para hoteles, restaurantes y negocios" 
+                             loading="lazy" />
+
+                        <p id="portfolioDesc-euskodev">
+                            <strong>Euskodev</strong> - {% trans 'Tu aliado en el desarrollo de software. <br> Euskodev es un equipo de desarrolladores expertos en el País Vasco, especializados en la creación de soluciones digitales personalizadas para empresas de todos los tamaños, desde startups hasta grandes corporaciones.' %}
+                        </p>
+
+                        <ul class="list-inline">
+                            <li>
+                                <strong>{% trans 'Categoría:' %}</strong>
+                                {% trans 'Desarrollo de software y soluciones digitales' %}
+                            </li>
+                        </ul>
+
+                        <!-- Botón para cerrar modal -->
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            {% trans 'Volver' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--fin del portafolio numero 2-->
+
+<!-- Portfolio item 3 modal popup-->
+<!-- Portfolio modal - Gastrogune -->
+<div class="portfolio-modal modal fade" id="portfolio-gastrogune" tabindex="-1" role="dialog" 
+ aria-labelledby="portfolioTitle-gastrogune" aria-describedby="portfolioDesc-gastrogune" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        
+        <!-- Botón de cierre del modal -->
+        <div class="close-modal" data-bs-dismiss="modal">
+            <img src="{% static 'assets/img/close-icon.svg' %}" alt="Cerrar ventana de Gastrogune" />
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details -->
+                        <h2 class="text-uppercase" id="portfolioTitle-gastrogune">{% trans 'Gastrogune' %}</h2>
+                        <p class="item-intro text-muted">{% trans 'GastroGune: La esencia de Euskadi en cada bocado.' %}</p>
+                        
+                        <img class="img-fluid d-block mx-auto"
+                            src="{% static 'assets/img/portfolio/cocina.jpg' %}"
+                            alt="Gastrogune - Descubre la gastronomía vasca con recetas y restaurantes tradicionales" 
+                            loading="lazy" />
+
+                        <p id="portfolioDesc-gastrogune">
+                            <strong>GastroGune</strong> - {% trans 'Tu guía para descubrir la gastronomía vasca. Eusko.Gune no solo te acerca la cocina vasca a tu hogar con recetas tradicionales, sino que también te ayuda a encontrar los mejores restaurantes del País Vasco para disfrutar su auténtica esencia gastronómica.' %}
+                        </p>
+
+                        <ul class="list-inline">
+                            <li>
+                                <strong>{% trans 'Categoría:' %}</strong>
+                                {% trans 'Gastronomía Vasca y Restaurantes' %}
+                            </li>
+                        </ul>
+
+                        <!-- Botón para cerrar modal -->
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            {% trans 'Cerrar Proyecto' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--fin del portafolio numero 3-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<!--este es el script para el mapa de contactar-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    function createMap(id, lat, lng) {
+        var map = L.map(id).setView([lat, lng], 12); // Zoom ajustado
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Agregar marcador con imagen dentro del popup
+        L.marker([lat, lng]).addTo(map)
+            .bindPopup(`
+                <div style="text-align: center;">
+                    <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" 
+                         alt="Logo Oiartzun" 
+                         style="max-width: 80px; display: block; margin: 0 auto; margin-top:25px;">
+                    <b style"margin-top:10px;">Oiartzun, País Vasco</b>
+                </div>
+            `).openPopup();
+    }
+
+    createMap('map-oiartzun', 43.29906393296637, -1.8600191715360295); // Coordenadas de Oiartzun
+});
+</script>
+
+
+<!--fin de los mapas para contactar-->
+
+<!--estos son los códigos para que funcione la librería de gsap-->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+<!--aca terminan los códigos de la librería de gsap-->
+
+<!--aca inician los efectos de gsap iniciando por los cuatro primero iconos del apartado de iconos dod de arriba dos de abajo des lado izquierdo-->
+
+<script>
+    // Registrar el plugin ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Seleccionar todas las imágenes dentro del tercer div usando ID
+    const images = document.querySelectorAll('.icon-image-izquierda');
+
+    // Crear la animación con GSAP y ScrollTrigger
+    gsap.to(images, {
+        x: 0, // Desplazar las imágenes 200px a la derecha
+        duration: 20, // Duración de la animación
+        stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+        scrollTrigger: {
+            trigger: '#icon-container-div', // El contenedor que activa la animación
+            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
+            end: "bottom 95%", // Termina la animación cuando el contenedor salga del centro de la pantalla
+            scrub: true // Sincroniza la animación con el scroll
+        }
+    });
+</script>
+
+<!--aca terminan los primero efectos de el partado de iconos -->
+
+<!--aca inicia el segundo apartado de los efectos de el apartado de iconos cuatro de arriba y cuatro de abajo del lado derecho-->
+
+<script>
+    // Seleccionar todas las imágenes dentro del tercer div usando ID
+    const images2 = document.querySelectorAll('.icon-image-izquierda2');
+
+    // Crear la animación con GSAP y ScrollTrigger
+    gsap.to(images2, {
+        x: 0, // Desplazar las imágenes 200px a la derecha
+        duration: 1, // Duración de la animación
+        stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+        scrollTrigger: {
+            trigger: '#icon-container-div2', // El contenedor que activa la animación
+            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
+            end: "bottom 95%", // Termina la animación cuando el contenedor salga del centro de la pantalla
+            scrub: true // Sincroniza la animación con el scroll
+        }
+    });
+</script>
+
+<!--aca termina el apartado de efectos de los iconos de lado derecho-->
+
+
+<!--===============================================================================================================
+esto son los efectos de las imagenes de servicios
+===============================================================================================================-->
+<script>
+    // Seleccionar todas las imágenes dentro del tercer div usando ID
+    const images6 = document.querySelectorAll('.ecomerce');
+
+    // Crear la animación con GSAP y ScrollTrigger
+    gsap.to(images6, {
+
+        opacity: 1,
+        x: 0, // Desplazar las imágenes 200px a la derecha
+        duration: 2, // Duración de la animación
+        stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+        scrollTrigger: {
+            trigger: '#ecomerce', // El contenedor que activa la animación
+            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
+            end: "bottom 80%", // Termina la animación cuando el contenedor salga del centro de la pantalla
+            scrub: true, // Sincroniza la animación con el scroll
+        }
+    });
+</script>
+
+<!--===============================================================================================================
+aca terminan los efectos del apartado de los servicios que ofrecemos abajo del la imagen de inicio
+===============================================================================================================-->
+
+<!--===============================================================================================================
+        aca inician los efectos para la parte de los portafolios
+===============================================================================================================-->
+
+<script>
+// Registrar el plugin ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Seleccionar todas las imágenes dentro del tercer div usando ID
+const images9 = document.querySelectorAll('.portafolio-izquierda2');
+
+// Crear la animación con GSAP y ScrollTrigger
+gsap.to(images9, {
+    x: 0, // Desplazar las imágenes 200px a la derecha
+    duration: 3, // Duración de la animación
+    stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+    opacity: 1,
+    scrollTrigger: {
+        trigger: '#izquierda2', // El contenedor que activa la animación
+        start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
+        end: "bottom 90%", // Termina la animación cuando el contenedor salga del centro de la pantalla
+        scrub: true // Sincroniza la animación con el scroll
+    }
+ });
+</script>
+
+<!--fin de los efectos en el aparatado de portafiolios-->
+
+<!--aca inician los efectos para el apartado de coemntarios-->
+
+<script>
+// Seleccionar todas las imágenes dentro del tercer div usando ID
+const images10 = document.querySelectorAll('.comentarios');
+
+// Crear la animación con GSAP y ScrollTrigger
+gsap.to(images10, {
+
+    opacity: 1,
+    x: 0, // Desplazar las imágenes 200px a la derecha
+    duration: 2, // Duración de la animación
+    stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+    scrollTrigger: {
+        trigger: '#comentarios', // El contenedor que activa la animación
+        start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
+        end: "bottom 80%", // Termina la animación cuando el contenedor salga del centro de la pantalla
+        scrub: true, // Sincroniza la animación con el scroll
+    }
+});
+</script>
+
+<!--aca terminan los efectos para el apartadode comentarios-->
+
+
+<script>
+// Seleccionar todas las imágenes dentro del tercer div usando ID
+const images11 = document.querySelectorAll('.cambio-color');
+
+ // Crear la animación con GSAP y ScrollTrigger
+gsap.to(images11, {
+    // Desplazar las imágenes 200px a la derecha
+     backgroundColor: "blue",
+    duration: 2, // Duración de la animación
+    stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+    scrollTrigger: {
+        trigger: '#backgroud', // El contenedor que activa la animación
+        start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
+        end: "bottom 25%", // Termina la animación cuando el contenedor salga del centro de la pantalla
+        scrub: true, // Sincroniza la animación con el scroll
+    }
+ });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    function cambiarColor() {
+         const div = document.getElementById('miDiv');
+        const colorAleatorio =
+             `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+           div.style.backgroundColor = colorAleatorio;
+    }
+
+     cambiarColor();
+ });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const subtitles = [
+        "Diseño web, desarrollo de software y apps a medida.",
+        "Soluciones digitales personalizadas para tu empresa.",
+        "Convierte tu visión en tecnología funcional."
+    ];
+    
+    let index = 0;
+    const subtitleElement = document.getElementById("changing-subtitle");
+
+    function changeSubtitle() {
+        subtitleElement.style.opacity = 0; // Desvanecer texto
+        setTimeout(() => {
+            index = (index + 1) % subtitles.length;
+            subtitleElement.textContent = subtitles[index];
+            subtitleElement.style.opacity = 1; // Aparecer nuevo texto
+        }, 1000); // Tiempo de desaparición
+    }
+
+    setInterval(changeSubtitle, 2300); // Cambia cada 4 segundos
+});
+</script>
+
+
+
+
+<!-- Mantén solo este script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!--boton de envia formulario-->
+<script src="{% static 'js/botones_index.js' %}"></script>
+
+
+<!-- Font Awesome icons (free version) -->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Leaflet JS (Después del CSS) -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- Google Tag Manager (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+function mostrarAlerta() {
+    Swal.fire({
+        title: "Servicio No Disponible",
+        text: "El servicio de Kit Digital no está disponible por ahora. ¡Pronto tendremos más información!",
+        icon: "info",
+        confirmButtonText: "Entendido",
+        confirmButtonColor: "#3085d6",
+        background: "#f9f9f9",
+        color: "#333",
+        allowOutsideClick: false
+    });
+}
+</script>
+
+
+</body>
+
+
+</html>

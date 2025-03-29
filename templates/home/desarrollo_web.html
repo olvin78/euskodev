@@ -1,0 +1,290 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+
+
+{% block head %}
+<style>
+.euskodev-detalles {
+  background: linear-gradient(to bottom, #f9fafa, #ffffff);
+}
+
+.detalle-servicio {
+  transition: all 0.3s ease;
+}
+
+.detalle-servicio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+</style>
+
+<style>
+  body {
+  font-family: 'Poppins', sans-serif;
+}
+.container{
+  padding: auto;
+}
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="video-container position-relative">
+    <!-- Imagen de fondo -->
+    <img src="{% static 'img/desarrollo_web.png' %}"
+         alt="{% trans 'Imagen de portada representando los servicios digitales de diseño web de Euskodev' %}"
+         class="img-fluid w-100"
+         style="height: 100vh; object-fit: cover; object-position: center;" loading="lazy">
+
+    <!-- Capa oscura -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+
+    <!-- Contenido centrado -->
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3 px-md-5">
+      <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+      <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
+      <div class="text-center mt-4">
+        <a class="btn btn-lg text-uppercase text-white"
+           href="#contact"
+           style="background: linear-gradient(135deg, #5ce9e2, #348D94);
+                  border-radius: 8px;">
+          {% trans 'Solicita Presupuesto Gratis' %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="py-5">
+  <div class="container  py-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-5">{% trans 'Aspectos clave de tu web profesional' %}</h2>
+      <p class="text-muted lead mx-auto" style="max-width: 720px;">
+        {% trans 'Euskodev te ofrece soluciones web completas centradas en rendimiento, seguridad y experiencia de usuario.' %}
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- E-Commerce -->
+      <div class="col-md-6 col-lg-4">
+        <div class="text-center p-4 h-100 bg-white rounded-4 shadow-sm">
+          <div class="mb-3">
+            <div class="rounded-circle bg-info bg-opacity-25 d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="bi bi-cart-fill text-info fs-2"></i>
+            </div>
+          </div>
+          <h5 class="fw-bold mb-3">{% trans 'E-Commerce' %}</h5>
+          <p class="text-muted small">
+            {% trans 'Lleva tu negocio al mundo digital con un eCommerce moderno, funcional y seguro. Amplía tu alcance, aumenta tus ventas y gestiona todo desde un solo panel.' %}
+          </p>
+        </div>
+      </div>
+
+      <!-- Responsive Design -->
+      <div class="col-md-6 col-lg-4">
+        <div class="text-center p-4 h-100 bg-white rounded-4 shadow-sm">
+          <div class="mb-3">
+            <div class="rounded-circle bg-info bg-opacity-25 d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="bi bi-laptop text-info fs-2"></i>
+            </div>
+          </div>
+          <h5 class="fw-bold mb-3">{% trans 'Diseño Responsive' %}</h5>
+          <p class="text-muted small">
+            {% trans 'Adaptamos tu sitio a todos los dispositivos: móviles, tablets y ordenadores. Diseño UX profesional que mejora la experiencia del usuario y tu conversión.' %}
+          </p>
+        </div>
+      </div>
+
+      <!-- Web Security -->
+      <div class="col-md-6 col-lg-4">
+        <div class="text-center p-4 h-100 bg-white rounded-4 shadow-sm">
+          <div class="mb-3">
+            <div class="rounded-circle bg-info bg-opacity-25 d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="bi bi-shield-lock-fill text-info fs-2"></i>
+            </div>
+          </div>
+          <h5 class="fw-bold mb-3">{% trans 'Seguridad Web' %}</h5>
+          <p class="text-muted small">
+            {% trans 'Protegemos tu sitio con HTTPS, cifrado y protocolos de seguridad web para mantener tus datos y los de tus usuarios completamente seguros.' %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5 bg-light">
+  <div class="container  py-5">
+    <div class="text-center mb-5">
+      <h3 class="fw-bold">{% trans '¿Qué incluye cada servicio?' %}</h3>
+      <p class="text-muted">{% trans 'Te explicamos en detalle qué obtienes al contratar cada solución digital.' %}</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-lg h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-cart-fill fs-1 text-primary mb-3"></i>
+            <h5 class="fw-bold">{% trans 'E-Commerce' %}</h5>
+            <p class="text-muted small">{% trans 'Ventas online con carrito de compra, pagos integrados y gestión de pedidos.' %}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-lg h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-phone-fill fs-1 text-success mb-3"></i>
+            <h5 class="fw-bold">{% trans 'Diseño Responsive' %}</h5>
+            <p class="text-muted small">{% trans 'Diseño adaptable a cualquier dispositivo, optimizado para experiencia de usuario.' %}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-lg h-100">
+          <div class="card-body text-center">
+            <i class="bi bi-shield-lock-fill fs-1 text-danger mb-3"></i>
+            <h5 class="fw-bold">{% trans 'Seguridad Web' %}</h5>
+            <p class="text-muted small">{% trans 'Certificados SSL, protección contra ataques y control total del sistema.' %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5 bg-white">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h3 class="fw-bold">{% trans '¿Por qué elegir Euskodev?' %}</h3>
+      <p class="text-muted">{% trans 'Te damos razones reales para confiar en nosotros.' %}</p>
+    </div>
+
+    <div class="row text-center justify-content-between">
+      <!-- Paso 1 -->
+      <div class="col-md-4">
+        <div class="p-4 border-start border-4 border-success h-100 text-start">
+          <h6 class="fw-bold text-success mb-2"><i class="bi bi-person-heart me-2"></i>{% trans 'Trato humano y directo' %}</h6>
+          <p class="text-muted small">{% trans 'Acompañamos tu proyecto como si fuera nuestro, siempre cerca de ti.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="col-md-4">
+        <div class="p-4 border-start border-4 border-warning h-100 text-start">
+          <h6 class="fw-bold text-warning mb-2"><i class="bi bi-clock-history me-2"></i>{% trans 'Eficiencia sin rodeos' %}</h6>
+          <p class="text-muted small">{% trans 'Nos enfocamos en entregarte justo lo que necesitas en el menor tiempo posible.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="col-md-4">
+        <div class="p-4 border-start border-4 border-secondary h-100 text-start">
+          <h6 class="fw-bold text-success mb-2"><i class="bi bi-bar-chart-line-fill me-2"></i>{% trans 'Resultados medibles' %}</h6>
+          <p class="text-muted small">{% trans 'Creamos soluciones que generan impacto real en tu negocio.' %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Sección con estilo animado GSAP y diseño creativo -->
+<section id="proceso-euskodev" class="py-5 position-relative" style="background: #f1f5f9; overflow: hidden;">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h3 class="fw-bold" data-gsap="fade-up">{% trans '¿Cómo desarrollamos tu proyecto?' %}</h3>
+      <p class="text-muted" data-gsap="fade-up" data-delay="0.2">{% trans 'De la idea al lanzamiento, este es nuestro proceso colaborativo.' %}</p>
+    </div>
+
+    <div class="row g-4 align-items-stretch justify-content-center">
+      <!-- Paso 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in">
+          <div class="mb-3">
+            <i class="bi bi-chat-dots-fill fs-2 text-primary"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '1. Exploramos tus ideas' %}</h6>
+          <p class="text-muted small">{% trans 'Analizamos tus necesidades, el sector y tu propuesta de valor para empezar con claridad.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in" data-delay="0.1">
+          <div class="mb-3">
+            <i class="bi bi-vector-pen fs-2 text-success"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '2. Diseñamos la experiencia' %}</h6>
+          <p class="text-muted small">{% trans 'Creamos wireframes y prototipos atractivos centrados en el usuario y sus objetivos.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in" data-delay="0.2">
+          <div class="mb-3">
+            <i class="bi bi-terminal-fill fs-2 text-warning"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '3. Desarrollamos la solución' %}</h6>
+          <p class="text-muted small">{% trans 'Transformamos los diseños en sistemas funcionales, conectando APIs y servicios reales.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in" data-delay="0.3">
+          <div class="mb-3">
+            <i class="bi bi-rocket-takeoff fs-2 text-danger"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '4. Lanzamos y medimos' %}</h6>
+          <p class="text-muted small">{% trans 'Publicamos tu proyecto y monitorizamos resultados para seguir mejorando contigo.' %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('[data-gsap]');
+    items.forEach(el => {
+      const anim = el.dataset.gsap;
+      const delay = parseFloat(el.dataset.delay) || 0;
+      if (anim === 'fade-in') {
+        gsap.from(el, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          delay: delay,
+          scrollTrigger: el
+        });
+      } else if (anim === 'fade-up') {
+        gsap.from(el, {
+          opacity: 0,
+          y: 50,
+          duration: 0.9,
+          delay: delay,
+          ease: 'power2.out'
+        });
+      }
+    });
+  });
+</script>
+
+
+
+{% endblock %}

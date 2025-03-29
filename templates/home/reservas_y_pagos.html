@@ -1,0 +1,374 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+<!-- Estilos -->
+<style>
+  .servicios-section {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+  }
+
+  .titulo-servicio {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f1f1f;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #5ce9e2, #348D94);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .descripcion-servicio {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .servicio-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+
+  .servicio-card i {
+    font-size: 2rem;
+    color: #348D94;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .servicio-card h5 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #111;
+  }
+
+  .servicio-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+  }
+
+  .servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .btn-servicio {
+    background: linear-gradient(135deg, #5ce9e2, #348D94);
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    display: inline-block;
+    margin-top: 40px;
+  }
+
+  .btn-servicio:hover {
+    opacity: 0.9;
+  }
+</style>
+
+
+<style>
+  .euskodev-servicios {
+    background: linear-gradient(135deg, #e6f7f7, #f8fcfc);
+  }
+
+  .servicio-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+    gap: 16px;
+  }
+
+  .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .btn-servicio {
+    background: linear-gradient(135deg, #5ce9e2, #348D94);
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .btn-servicio:hover {
+    opacity: 0.9;
+  }
+</style>
+
+<style>
+  body {
+  font-family: 'Poppins', sans-serif;
+}
+</style>
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid p-0">
+  <div class="video-container position-relative">
+      <!-- Imagen responsive y centrada -->
+      <img src="{% static 'img/metodo_de_pago_y_reservas.png' %}"
+           alt="{% trans 'Imagen de portada representando los servicios digitales de Euskodev' %}"
+           class="img-fluid w-100"
+           style="height: 100vh; object-fit: cover; object-position: center;"
+           loading="lazy">
+
+      <!-- Capa negra semi-transparente -->
+      <div class="video-overlay-dark position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+
+      <!-- Texto dentro del video (no se toca) -->
+      <div class="video-overlay position-absolute top-50 start-50 translate-middle text-center text-white px-3 px-md-5">
+          <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+          <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
+          <div class="text-center">
+            <a href="#contact" class="btn-servicio">Solicita tu Presupuesto Gratis</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Sección moderna de Servicios -->
+<section class="servicios-section">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="titulo-servicio">
+        <i class="bi bi-credit-card-fill text-gradient me-2"></i>
+        Pagos y Reservas Online
+      </h2>
+      <p class="descripcion-servicio">
+        Facilitamos herramientas digitales para que tus clientes puedan pagar y reservar en línea de forma segura, rápida y sencilla.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="servicio-card">
+          <i class="bi bi-shield-lock-fill"></i>
+          <h5>Pagos Seguros</h5>
+          <p>Stripe, PayPal o Redsys integrados para cobrar sin complicaciones.</p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="servicio-card">
+          <i class="bi bi-calendar2-check-fill"></i>
+          <h5>Reservas Inteligentes</h5>
+          <p>Disponibilidad en tiempo real, recordatorios automáticos y control total.</p>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="servicio-card">
+          <i class="bi bi-sliders2"></i>
+          <h5>Soluciones a Medida</h5>
+          <p>Sistemas desarrollados para adaptarse a tus procesos específicos.</p>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="servicio-card">
+          <i class="bi bi-code-slash"></i>
+          <h5>Código Profesional</h5>
+          <p>Backend limpio, seguro, escalable y documentado desde cero.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a href="#contact" class="btn-servicio">Solicita tu sistema ahora</a>
+    </div>
+  </div>
+</section>
+
+  
+
+<section class="euskodev-servicios py-5">
+  <div class="container py-5">
+    <!-- Título -->
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-dark">Soluciones digitales a tu medida</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 720px;">
+        Gestiona pagos, reservas y procesos personalizados con tecnología moderna y segura adaptada a tu negocio.
+      </p>
+    </div>
+
+    <!-- Servicios -->
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="servicio-box d-flex align-items-start">
+          <div class="icon-wrapper bg-primary bg-opacity-10 text-primary">
+            <i class="bi bi-credit-card-fill fs-4"></i>
+          </div>
+          <div>
+            <h5 class="fw-semibold mb-1">Pagos Integrados</h5>
+            <p class="small text-muted mb-0">Permite que tus clientes paguen desde tu web con Stripe, PayPal o Redsys de forma segura y rápida.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="servicio-box d-flex align-items-start">
+          <div class="icon-wrapper bg-success bg-opacity-10 text-success">
+            <i class="bi bi-calendar2-check-fill fs-4"></i>
+          </div>
+          <div>
+            <h5 class="fw-semibold mb-1">Reservas Online</h5>
+            <p class="small text-muted mb-0">Clientes reservan online 24/7 con confirmaciones, recordatorios y disponibilidad actualizada.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="servicio-box d-flex align-items-start">
+          <div class="icon-wrapper bg-warning bg-opacity-10 text-warning">
+            <i class="bi bi-sliders2 fs-4"></i>
+          </div>
+          <div>
+            <h5 class="fw-semibold mb-1">Soluciones a medida</h5>
+            <p class="small text-muted mb-0">Creamos software que se adapta a tus procesos internos y mejora tu eficiencia diaria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="servicio-box d-flex align-items-start">
+          <div class="icon-wrapper bg-info bg-opacity-10 text-info">
+            <i class="bi bi-code-slash fs-4"></i>
+          </div>
+          <div>
+            <h5 class="fw-semibold mb-1">Desarrollo Profesional</h5>
+            <p class="small text-muted mb-0">Plataformas escalables con paneles de gestión, APIs limpias y código de calidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="#contact" class="btn-servicio">Solicita tu sistema ahora</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="py-5 bg-light">
+  <div class="container py-5">
+    <!-- Título -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-5">¿Por qué ofrecer pagos y reservas online?</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 720px;">
+        Ya sea que tengas un restaurante, un hotel o una tienda, digitalizar tu sistema mejora la experiencia de tus clientes y optimiza tu negocio.
+      </p>
+    </div>
+
+    <!-- Beneficios -->
+    <div class="row g-4">
+      <!-- Beneficio 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
+          <i class="bi bi-clock-history fs-1 text-primary mb-3"></i>
+          <h5 class="fw-semibold">Ahorro de tiempo</h5>
+          <p class="text-muted small mb-0">
+            Automatiza tareas repetitivas como confirmar reservas o registrar pagos, y dedica ese tiempo a lo que realmente importa.
+          </p>
+        </div>
+      </div>
+
+      <!-- Beneficio 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
+          <i class="bi bi-bar-chart-line-fill fs-1 text-success mb-3"></i>
+          <h5 class="fw-semibold">Más ventas y reservas</h5>
+          <p class="text-muted small mb-0">
+            Estás disponible 24/7 para recibir pagos y reservas incluso mientras duermes. Sin límites ni intermediarios.
+          </p>
+        </div>
+      </div>
+
+      <!-- Beneficio 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
+          <i class="bi bi-emoji-smile-fill fs-1 text-warning mb-3"></i>
+          <h5 class="fw-semibold">Mejor experiencia para tus clientes</h5>
+          <p class="text-muted small mb-0">
+            Reservar una mesa o pagar un producto con pocos clics desde el móvil mejora la percepción de tu marca y fideliza al cliente.
+          </p>
+        </div>
+      </div>
+
+      <!-- Beneficio 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
+          <i class="bi bi-shield-check fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold">Mayor seguridad y control</h5>
+          <p class="text-muted small mb-0">
+            Todos los pagos son cifrados. Tú decides políticas de cancelación, horarios y disponibilidad sin depender de terceros.
+          </p>
+        </div>
+      </div>
+
+      <!-- Beneficio 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
+          <i class="bi bi-person-check-fill fs-1 text-danger mb-3"></i>
+          <h5 class="fw-semibold">Gestión eficiente del cliente</h5>
+          <p class="text-muted small mb-0">
+            Recoge datos útiles de tus clientes, ofrece recordatorios automáticos y crea campañas personalizadas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Beneficio 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
+          <i class="bi bi-lightning-fill fs-1 text-secondary mb-3"></i>
+          <h5 class="fw-semibold">Digitaliza y escala tu negocio</h5>
+          <p class="text-muted small mb-0">
+            Empieza con una solución simple y hazla crecer según tus necesidades. Abre nuevos canales de venta fácilmente.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+
+    <div class="text-center">
+      <a href="#contact" class="btn-servicio">Solicita tu sistema ahora</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -152,3 +152,30 @@ class KitdigitalView(TemplateView):
 
 
 
+#estas seran las vsistas para los servicios que ofrecemos es decir para separar los servicios
+#para nppoder poner mas informacion y no hacer mas lenta la pagina principal
+
+
+def desarrollo_web(request):
+    return render(request, 'home/desarrollo_web.html')
+
+def reservas_y_pagos(request):
+    return render(request, 'home/reservas_y_pagos.html')
+
+def software_a_medida(request):
+    return render(request, 'home/software_a_medida.html')
+
+def inteligencia_artificial(request):
+    return render(request, 'home/inteligencia_artificial.html')
+
+def aplicaciones_moviles(request):
+    return render(request, 'home/aplicaciones_moviles.html')
+
+def sistema_ticket(request):
+    return render(request, 'home/sistema_ticket.html')
+    
+
+def base(request):
+    return render(request, 'home/base.html')
+    
+

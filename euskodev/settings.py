@@ -23,7 +23,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['www.euskodev.eus', 'euskodev.eus', '127.0.0.1', 'localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,18 +37,64 @@ INSTALLED_APPS = [
     'rosetta',
     'tinymce',
     'django_recaptcha',
+    
+    # Terceros
+    'django.contrib.sites',  # ⚠️ Obligatorio para allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'widget_tweaks',         # Necesario para allauth-ui
+    'allauth_ui',  
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  # El backend por defecto
+    'allauth.account.auth_backends.AuthenticationBackend',  # Backend de Allauth
+)
+
+# Google OAuth
+
+
+SITE_ID = 1
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
+
+# SITE_ID necesario para Allauth
+SITE_ID = 1
+
+
+# Redirección después de login/logout
+LOGIN_REDIRECT_URL = '/erp/'  # Después de login, redirige al panel de control
+LOGOUT_REDIRECT_URL = '/'  # Después de logout, redirige a la página principal
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Si estás usando soporte de idiomas
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',  # Agrega este middleware para Allauth
 ]
+
 
 ROOT_URLCONF = 'euskodev.urls'
 

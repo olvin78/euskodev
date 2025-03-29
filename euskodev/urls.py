@@ -15,11 +15,12 @@ from applications.home.views import formulario_contactar  # ✅ Correcto si la v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('i18n/', include('django.conf.urls.i18n')),  # Fuera de i18n_patterns (corregido)
+    path('i18n/', include('django.conf.urls.i18n')),  # Fuera de i18n_patterns (corregido) 
     path('erp/', include('applications.erp.urls')),  # Mantén tu aplicación dentro de i18n_patterns
  
     path("ads.txt",
          RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),),
+
 ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
@@ -29,7 +30,7 @@ if 'rosetta' in settings.INSTALLED_APPS:
 
 urlpatterns += i18n_patterns(
     path('', include('applications.home.urls')),  # Mantén tu aplicación dentro de i18n_patterns
-
+    path("accounts/", include("allauth.urls")), # <-- esta debe estar
 )
 
 if settings.DEBUG:

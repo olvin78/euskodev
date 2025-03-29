@@ -114,11 +114,11 @@
     <table class="table table-bordered tabla-azul">
         <thead>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Descripción</th>
                 <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Descuento (%)</th>
+                <th>Cant</th>
+                <th>Desc (%)</th>
                 <th>Total</th>
             </tr>
         </thead>
@@ -127,10 +127,10 @@
             <tr>
                 <td class="text-center">{{ forloop.counter }}</td>
                 <td>{{ item.descripcion }}</td>
-                <td>€{{ item.precio_unitario }}</td>
-                <td>{{ item.cantidad }}</td>
-                <td>{{ item.descuento }}%</td>
-                <td>€{{ item.subtotal }}</td>
+                <td style="width: 100px;text-align: center;">{{ item.precio_unitario }} €</td>
+                <td style="width: 70px;text-align: center;">{{ item.cantidad }}</td>
+                <td style="width: 90px;">{{ item.descuento }}%</td>
+                <td style="width: 100px;text-align: center;">{{ item.subtotal }} €</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -138,9 +138,9 @@
 
     <!-- TOTALES -->
     <div class="text-end">
-        <p><strong>Subtotal:</strong> €{{ subtotal }}</p>
-        <p><strong>Impuestos ({{ budget.impuesto_porcentaje }}%):</strong> €{{ impuestos }}</p>
-        <h5 class="text-primary"><strong>TOTAL: €{{ total_con_impuestos }}</strong></h5>
+        <p><strong>Subtotal: </strong> {{ subtotal }} €</p>
+        <p><strong>Impuestos ({{ budget.impuesto_porcentaje }}%): </strong> {{ impuestos }} €</p>
+        <h5 class="text-primary"><strong>TOTAL: {{ total_con_impuestos }} €</strong></h5>
     </div>
 
 <!-- CONDICIONES DE PAGO -->

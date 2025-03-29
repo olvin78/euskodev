@@ -1,0 +1,391 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+
+<!-- Estilos personalizados para la sección -->
+<!-- Estilos personalizados -->
+
+<!-- Estilos personalizados -->
+<style>
+  body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .card-body {
+    background-color: #ffffff;
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .list-unstyled li {
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  .card-body p {
+    font-size: 1rem;
+    color: #777;
+  }
+
+  .btn-primary {
+    background-color: #348D94;
+    border: none;
+    color: white;
+    font-weight: bold;
+  }
+
+  .btn-primary:hover {
+    background-color: #5ce9e2;
+  }
+</style>
+
+<style>
+  .section-title {
+    border-left: 4px solid #0d6efd;
+    padding-left: 10px;
+  }
+</style>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- Estilos extra -->
+<style>
+  .beneficio-wrapper {
+    background: linear-gradient(135deg, #e0f7f9, #f5fdff);
+    overflow: hidden;
+  }
+
+  .beneficio-animado {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-out;
+  }
+
+  .beneficio-icono {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .beneficio-titulo {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .beneficio-texto {
+    color: #4a4a4a;
+  }
+</style>
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="video-container position-relative">
+    <!-- Imagen de fondo -->
+    <img src="{% static 'img/asistente_gpt_chat_bot.png' %}"
+         alt="{% trans 'Imagen de portada representando los servicios digitales de diseño web de Euskodev' %}"
+         class="img-fluid w-100"
+         style="height: 100vh; object-fit: cover; object-position: center;" loading="lazy">
+
+    <!-- Capa oscura -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+
+    <!-- Contenido centrado -->
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3 px-md-5">
+      <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+      <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
+      <div class="text-center mt-4">
+        <a class="btn btn-lg text-uppercase text-white"
+           href="#contact"
+           style="background: linear-gradient(135deg, #5ce9e2, #348D94);
+                  border-radius: 8px;">
+          {% trans 'Solicita Presupuesto Gratis' %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="py-5" style="background-color: #e6f2f4; color: #1a1a1a; font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Texto descriptivo -->
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h2 class="display-5 fw-bold">Asistente Inteligente con IA</h2>
+        <p class="lead">
+          Euskodev te ofrece una solución de inteligencia artificial conversacional para tu negocio. 
+          Automatiza la atención al cliente, responde dudas 24/7 y mejora la experiencia de tus usuarios con un chatbot personalizado.
+        </p>
+        <ul class="list-unstyled">
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Disponible 24/7</li>
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Entrenado con tus datos</li>
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Fácil de integrar en tu web</li>
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Traduce conversaciones automáticamente a otros idiomas</li>
+        </ul>
+        <a href="#" class="btn btn-lg mt-4 fw-bold text-uppercase w-50"
+           style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
+          Solicita una demo
+        </a>
+      </div>
+
+      <!-- Imagen o animación IA -->
+      <div class="col-md-6 text-center">
+        <img src="{% static 'img/chatbot-gemini.jpeg' %}" alt="Asistente IA" class="img-fluid rounded shadow" style="max-height: 400px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<div class="container py-5" style="font-family: 'Segoe UI', sans-serif;">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold display-6">¿Qué puede hacer tu Asistente Inteligente?</h2>
+    <p class="lead text-secondary">Una solución basada en IA que transforma la atención al cliente, automatiza tareas y mejora la experiencia del usuario desde el primer clic.</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    
+    <!-- Atención automatizada -->
+    <div class="col">
+      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
+        <div class="card-body text-center">
+          <i class="bi bi-robot fs-1 text-info"></i>
+          <h5 class="card-title mt-3 fw-semibold">Atención 24/7 con IA</h5>
+          <p class="card-text">Responde automáticamente preguntas frecuentes, dudas de clientes y solicitudes comunes en cualquier momento del día, sin necesidad de intervención humana.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promociones inteligentes -->
+    <div class="col">
+      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
+        <div class="card-body text-center">
+          <i class="bi bi-megaphone fs-1 text-success"></i>
+          <h5 class="card-title mt-3 fw-semibold">Promociona en tiempo real</h5>
+          <p class="card-text">Informa al instante sobre promociones activas, descuentos personalizados y campañas según el perfil del visitante.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personalización -->
+    <div class="col">
+      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
+        <div class="card-body text-center">
+          <i class="bi bi-sliders2 fs-1 text-primary"></i>
+          <h5 class="card-title mt-3 fw-semibold">Totalmente Personalizable</h5>
+          <p class="card-text">El asistente puede adaptarse al tono, lenguaje y necesidades de tu marca. Desde un ecommerce hasta una clínica o gestoría, se ajusta a tu negocio.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Asesor inteligente -->
+    <div class="col">
+      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
+        <div class="card-body text-center">
+          <i class="bi bi-lightbulb fs-1 text-warning"></i>
+          <h5 class="card-title mt-3 fw-semibold">Asesor Virtual Avanzado</h5>
+          <p class="card-text">Guía a tus usuarios en sus decisiones: qué producto elegir, qué servicio contratar o cómo resolver un problema. Como un vendedor experto, pero digital.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<section class="py-5" style="background-color: #f4f9fc; font-family: 'Segoe UI', sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">¿Dónde puede ayudarte el Asistente Inteligente?</h2>
+      <p class="lead text-secondary">El asistente de Euskodev se adapta a diferentes sectores y necesidades, ofreciendo soluciones reales para automatizar, vender más y mejorar la experiencia del cliente.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Ecommerce -->
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
+          <div class="card-body">
+            <div class="text-center mb-3">
+              <i class="bi bi-cart-check fs-1 text-primary"></i>
+            </div>
+            <h5 class="card-title text-center fw-semibold">Tiendas Online</h5>
+            <p class="card-text text-secondary">
+              Ayuda a los visitantes a encontrar productos, responder preguntas frecuentes y finalizar sus compras más rápido. Reduce carritos abandonados con atención 24/7.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Salud -->
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
+          <div class="card-body">
+            <div class="text-center mb-3">
+              <i class="bi bi-heart-pulse fs-1 text-danger"></i>
+            </div>
+            <h5 class="card-title text-center fw-semibold">Clínicas y Centros Médicos</h5>
+            <p class="card-text text-secondary">
+              Gestiona reservas de citas, responde dudas comunes de pacientes y ofrece información útil sobre tratamientos o especialidades sin saturar tu personal.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicios Profesionales -->
+      <div class="col">
+        <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
+          <div class="card-body">
+            <div class="text-center mb-3">
+              <i class="bi bi-briefcase fs-1 text-success"></i>
+            </div>
+            <h5 class="card-title text-center fw-semibold">Servicios y Consultorías</h5>
+            <p class="card-text text-secondary">
+              Capta clientes respondiendo sus preguntas en tiempo real, ofrece presupuestos estimados y agenda reuniones sin esfuerzo. Ideal para despachos, agencias y más.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="py-5 bg-white" style="font-family: 'Segoe UI', sans-serif;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">¿Cómo se integra el Asistente Inteligente?</h2>
+      <p class="lead text-secondary">Nuestro equipo te acompaña paso a paso para implementar el asistente en tu negocio, sin complicaciones técnicas ni instalaciones complejas.</p>
+    </div>
+
+    <div class="row g-5">
+      <!-- Paso 1 -->
+      <div class="col-md-4 text-center">
+        <div class="mb-3">
+          <i class="bi bi-chat-dots fs-1 text-info"></i>
+        </div>
+        <h5 class="fw-semibold">1. Definimos tu objetivo</h5>
+        <p class="text-secondary">Analizamos qué necesitas: atención al cliente, generación de leads, reservas, ventas o todo junto. El asistente se adapta a ti.</p>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="col-md-4 text-center">
+        <div class="mb-3">
+          <i class="bi bi-tools fs-1 text-primary"></i>
+        </div>
+        <h5 class="fw-semibold">2. Configuramos el asistente</h5>
+        <p class="text-secondary">Personalizamos el flujo de conversación con tus datos, servicios y estilo de comunicación. Puedes incluir respuestas automáticas, botones y enlaces.</p>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="col-md-4 text-center">
+        <div class="mb-3">
+          <i class="bi bi-plug fs-1 text-success"></i>
+        </div>
+        <h5 class="fw-semibold">3. Lo integramos en tu web</h5>
+        <p class="text-secondary">Instalamos el asistente en tu página en minutos. Funciona con WordPress, HTML, tiendas online o cualquier CMS. También se puede usar en WhatsApp o redes.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn btn-lg text-uppercase fw-bold"
+         style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
+        Quiero integrar mi asistente
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="py-5 beneficio-wrapper" id="beneficios">
+  <div class="container py-5">
+    <div class="row align-items-center">
+      
+      <!-- Lado izquierdo: texto general -->
+      <div class="col-md-6 text-center text-md-start mb-5 mb-md-0">
+        <h2 class="fw-bold mb-3">Beneficios reales para tu negocio</h2>
+        <p class="lead text-secondary">
+          Implementar un asistente inteligente no solo mejora la atención: optimiza recursos, automatiza procesos y hace crecer tus conversiones. 
+        </p>
+        <p class="text-muted">
+          Euskodev ofrece una solución lista para integrarse a tu web, app o CRM, con IA adaptable a tu marca y objetivos.
+        </p>
+      </div>
+
+      <!-- Lado derecho: beneficios animados -->
+      <div class="col-md-6">
+        <div class="d-flex flex-column gap-4">
+          <div class="beneficio-animado d-flex align-items-start">
+            <i class="bi bi-lightning-charge text-warning beneficio-icono me-3"></i>
+            <div>
+              <div class="beneficio-titulo">Respuestas inmediatas</div>
+              <p class="beneficio-texto">Atiende a tus clientes sin esperas, 24/7, con velocidad y precisión.</p>
+            </div>
+          </div>
+          <div class="beneficio-animado d-flex align-items-start">
+            <i class="bi bi-currency-euro text-success beneficio-icono me-3"></i>
+            <div>
+              <div class="beneficio-titulo">Reducción de costes</div>
+              <p class="beneficio-texto">Disminuye la carga del equipo humano y ahorra en atención repetitiva.</p>
+            </div>
+          </div>
+          <div class="beneficio-animado d-flex align-items-start">
+            <i class="bi bi-bar-chart-line text-primary beneficio-icono me-3"></i>
+            <div>
+              <div class="beneficio-titulo">Aumento en conversiones</div>
+              <p class="beneficio-texto">Guía a tus usuarios hasta la acción correcta: compra, reserva o contacto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GSAP ScrollTrigger animation -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".beneficio-animado").forEach((element, i) => {
+      gsap.fromTo(element,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    });
+  });
+</script>
+
+{% endblock %}

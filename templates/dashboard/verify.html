@@ -1,0 +1,17 @@
+
+{% load static %}<!-- verify.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iniciar sesión</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Entrar</button>
+  </form>
+</body>
+</html>
+

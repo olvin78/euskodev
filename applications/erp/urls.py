@@ -21,6 +21,4 @@ urlpatterns = [
     path('budget/update/<int:pk>/', BudgetUpdateView.as_view(), name='update_budget'),
     path('budget/list/', views.BudgetListView.as_view(), name='budget_list'),
 
-
-
 ]

@@ -1,0 +1,292 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container-fluid p-0">
+  <div class="video-container position-relative" style="height: 100vh; max-height: 1800px; overflow: hidden;">
+    
+    <!-- Imagen de fondo -->
+    <img class="w-100 h-100 position-absolute top-0 start-0"
+         src="{% static 'img/sistema_de_ticket.png' %}"
+         alt="{% trans 'Imagen de portada representando los servicios digitales de Euskodev' %}"
+         loading="lazy"
+         style="object-fit: cover; object-position: center;">
+
+    <!-- Capa negra semi-transparente -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+
+    <!-- Texto dentro del video -->
+    <div class="video-overlay position-absolute top-50 start-50 translate-middle text-white text-center px-3" style="z-index: 2;">
+      <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+      <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}</p>
+      <div class="text-center mt-4">
+        <a class="btn btn-lg text-uppercase"
+           href="#contact"
+           style="background: linear-gradient(135deg, #5ce9e2, #348D94);
+                  color: white;
+                  padding: 12px 24px;
+                  border-radius: 8px;
+                  font-weight: bold;
+                  transition: 0.3s;">
+          {% trans 'Solicita Presupuesto Gratis' %}
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- Sección con estilo animado GSAP y diseño creativo -->
+<section id="proceso-euskodev" class="py-5 position-relative" style="background: #f1f5f9; overflow: hidden;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h3 class="fw-bold" data-gsap="fade-up">{% trans '¿Cómo desarrollamos tu proyecto?' %}</h3>
+      <p class="text-muted fs-6" data-gsap="fade-up" data-delay="0.2">{% trans 'De la idea al lanzamiento, este es nuestro proceso colaborativo.' %}</p>
+    </div>
+
+    <div class="row g-4 align-items-stretch justify-content-center">
+      <!-- Paso 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in">
+          <div class="mb-3">
+            <i class="bi bi-chat-dots-fill fs-2 text-primary"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '1. Exploramos tus ideas' %}</h6>
+          <p class="text-muted fs-6">{% trans 'Analizamos tus necesidades, el sector y tu propuesta de valor para empezar con claridad.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in" data-delay="0.1">
+          <div class="mb-3">
+            <i class="bi bi-vector-pen fs-2 text-success"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '2. Diseñamos la experiencia' %}</h6>
+          <p class="text-muted fs-6">{% trans 'Creamos wireframes y prototipos atractivos centrados en el usuario y sus objetivos.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in" data-delay="0.2">
+          <div class="mb-3">
+            <i class="bi bi-terminal-fill fs-2 text-warning"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '3. Desarrollamos la solución' %}</h6>
+          <p class="text-muted fs-6">{% trans 'Transformamos los diseños en sistemas funcionales, conectando APIs y servicios reales.' %}</p>
+        </div>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="bg-white rounded-4 p-4 shadow h-100 text-center" data-gsap="fade-in" data-delay="0.3">
+          <div class="mb-3">
+            <i class="bi bi-rocket-takeoff fs-2 text-danger"></i>
+          </div>
+          <h6 class="fw-bold">{% trans '4. Lanzamos y medimos' %}</h6>
+          <p class="text-muted fs-6">{% trans 'Publicamos tu proyecto y monitorizamos resultados para seguir mejorando contigo.' %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Sección Sistema de Tickets -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h3 class="fw-bold" data-gsap="fade-up">{% trans 'Sistema de Tickets de Euskodev' %}</h3>
+      <p class="text-muted fs-6" data-gsap="fade-up" data-delay="0.2">
+        {% trans 'Gestiona incidencias, solicitudes y soporte técnico desde una única plataforma ágil y eficiente.' %}
+      </p>
+    </div>
+
+    <div class="row g-5 align-items-center flex-column flex-lg-row">
+      <!-- Imagen primero en móvil, segundo en escritorio -->
+      <div class="col-lg-6 text-center order-1 order-lg-2" data-gsap="fade-in" data-delay="0.2">
+        <img src="{% static 'img/systema_tiket2.png' %}" alt="Sistema de Tickets Euskodev" class="img-fluid rounded shadow">
+      </div>
+
+      <!-- Texto -->
+      <div class="col-lg-6 order-2 order-lg-1" data-gsap="fade-in">
+        <h5 class="fw-semibold">{% trans '¿Qué es?' %}</h5>
+        <p class="text-muted fs-6">
+          {% trans 'Un sistema de tickets es una herramienta digital que permite registrar, organizar y dar seguimiento a peticiones o problemas reportados por usuarios o clientes. Euskodev ofrece una solución intuitiva y personalizable que se adapta a cualquier tipo de negocio o equipo de soporte.' %}
+        </p>
+
+        <h5 class="fw-semibold mt-4">{% trans '¿Cómo funciona?' %}</h5>
+        <p class="text-muted fs-6">
+          {% trans 'Cada usuario puede crear tickets desde una web, correo o sistema embebido. El equipo los recibe en un panel organizado por prioridad, estado y categoría. Puedes responder, resolver, reabrir o escalar cada ticket con notificaciones automatizadas.' %}
+        </p>
+
+        <h5 class="fw-semibold mt-4">{% trans '¿Qué beneficios aporta?' %}</h5>
+        <ul class="text-muted fs-6 ps-3">
+          <li>{% trans 'Centraliza toda la atención al cliente.' %}</li>
+          <li>{% trans 'Mejora los tiempos de respuesta.' %}</li>
+          <li>{% trans 'Facilita la trazabilidad y estadísticas de soporte.' %}</li>
+          <li>{% trans 'Permite priorizar y asignar tareas automáticamente.' %}</li>
+        </ul>
+
+        <h5 class="fw-semibold mt-4">{% trans '¿Cómo se implementa?' %}</h5>
+        <p class="text-muted fs-6">
+          {% trans 'El sistema se puede integrar fácilmente en tu web o usar como plataforma independiente. Incluye configuración inicial, branding, usuarios y capacitación.' %}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h3 class="fw-bold">{% trans 'Beneficios del Sistema de Tickets' %}</h3>
+      <p class="text-muted fs-6">{% trans 'Descubre cómo nuestro sistema de tickets puede mejorar la gestión de incidencias, solicitudes y atención al cliente en tu empresa.' %}</p>
+    </div>
+
+    <div class="row g-5 align-items-center">
+      <!-- Beneficio 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-3">
+            <i class="bi bi-chat-square-dots fs-2 text-primary"></i>
+          </div>
+          <h5 class="fw-semibold">{% trans 'Atención al Cliente Eficiente' %}</h5>
+          <p class="text-muted fs-6">{% trans 'Nuestro sistema centraliza todas las interacciones con los clientes en un solo lugar, asegurando que no se pierda ninguna solicitud.' %}</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-3">
+            <i class="bi bi-clock-fill fs-2 text-warning"></i>
+          </div>
+          <h5 class="fw-semibold">{% trans 'Reducción de Tiempos de Respuesta' %}</h5>
+          <p class="text-muted fs-6">{% trans 'Con el sistema de tickets, las tareas se asignan automáticamente a los responsables, lo que reduce el tiempo de respuesta y mejora la eficiencia.' %}</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-3">
+            <i class="bi bi-graph-up fs-2 text-success"></i>
+          </div>
+          <h5 class="fw-semibold">{% trans 'Mejora en la Trazabilidad' %}</h5>
+          <p class="text-muted fs-6">{% trans 'Podrás seguir el estado de cada ticket en tiempo real, lo que mejora la trazabilidad y facilita la toma de decisiones basadas en datos.' %}</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-3">
+            <i class="bi bi-person-check-fill fs-2 text-danger"></i>
+          </div>
+          <h5 class="fw-semibold">{% trans 'Priorización y Asignación Automática' %}</h5>
+          <p class="text-muted fs-6">{% trans 'El sistema de tickets permite clasificar y priorizar solicitudes, asegurando que se atiendan las más urgentes primero.' %}</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-3">
+            <i class="bi bi-bar-chart-line-fill fs-2 text-info"></i>
+          </div>
+          <h5 class="fw-semibold">{% trans 'Análisis y Estadísticas' %}</h5>
+          <p class="text-muted fs-6">{% trans 'Genera informes detallados sobre el rendimiento de tu equipo de soporte, ayudando a identificar áreas de mejora.' %}</p>
+        </div>
+      </div>
+
+      <!-- Beneficio 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-white p-4 rounded-4 shadow-sm">
+          <div class="mb-3">
+            <i class="bi bi-shield-lock-fill fs-2 text-dark"></i>
+          </div>
+          <h5 class="fw-semibold">{% trans 'Seguridad y Confidencialidad' %}</h5>
+          <p class="text-muted fs-6">{% trans 'El sistema protege los datos sensibles y asegura que solo los usuarios autorizados puedan ver la información confidencial.' %}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+      <a class="btn btn-lg text-uppercase"
+         href="#contact"
+         style="background: linear-gradient(135deg, #5ce9e2, #348D94);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                font-weight: bold;
+                transition: 0.3s;">
+        {% trans 'Solicita Presupuesto Gratis' %}
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- GSAP Animaciones -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('[data-gsap]');
+    items.forEach(el => {
+      const anim = el.dataset.gsap;
+      const delay = parseFloat(el.dataset.delay) || 0;
+      if (anim === 'fade-in') {
+        gsap.from(el, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          delay: delay,
+          scrollTrigger: el
+        });
+      } else if (anim === 'fade-up') {
+        gsap.from(el, {
+          opacity: 0,
+          y: 50,
+          duration: 0.9,
+          delay: delay,
+          ease: 'power2.out'
+        });
+      }
+    });
+  });
+</script>
+
+{% endblock %}

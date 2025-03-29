@@ -1,0 +1,247 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<div class="container-fluid p-0">
+  <div class="video-container">
+      <!-- Video de fondo -->
+      <img class="w-100" src="{% static 'img/expo_app.png' %}" alt="{% trans 'Imagen de portada representando los servicios digitales de Euskodev' %}" loading="lazy">
+
+      <!-- Capa negra semi-transparente -->
+      <div class="video-overlay-dark"></div>
+
+      <!-- Texto dentro del video -->
+      <div class="video-overlay">
+          <h1>{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+          <p id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
+          <div class="text-center mt-4">
+              <a class="btn btn-lg text-uppercase" 
+                 href="#contact" 
+                 style="background: linear-gradient(135deg, #5ce9e2, #348D94); 
+                        color: white; 
+                        padding: 12px 24px; 
+                        border-radius: 8px; 
+                        font-weight: bold; 
+                        transition: 0.3s;">
+                  {% trans 'Solicita Presupuesto Gratis' %}
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<section class="py-5" style="background-color: #eaf6f7; font-family: 'Segoe UI', sans-serif;">
+    <div class="container text-center">
+      <h2 class="fw-bold display-5 mb-4">¿Qué es una aplicación móvil moderna?</h2>
+      <p class="fs-5 text-muted mb-5">Una app móvil ya no es solo una pantalla con botones. Hoy es una extensión real de tu negocio, accesible en cualquier momento y desde cualquier lugar.</p>
+  
+      <div class="row g-5 justify-content-center">
+        
+        <div class="col-lg-10">
+          <div class="bg-white rounded-4 shadow p-4 text-start app-block">
+            <h4 class="fw-semibold text-primary mb-2"><i class="bi bi-phone me-2"></i>Diseñada para funcionar en la palma de la mano</h4>
+            <p class="fs-5 text-dark mb-0">Tu app debe verse bien, cargar rápido y ser intuitiva. Pensamos primero en la experiencia del usuario móvil. Nada de cosas genéricas.</p>
+          </div>
+        </div>
+  
+        <div class="col-lg-10">
+          <div class="bg-white rounded-4 shadow p-4 text-start app-block">
+            <h4 class="fw-semibold text-success mb-2"><i class="bi bi-cloud-check me-2"></i>Conectada a tu negocio en tiempo real</h4>
+            <p class="fs-5 text-dark mb-0">Con un backend robusto en Django, todo se sincroniza en tiempo real: usuarios, reservas, pagos, notificaciones y más.</p>
+          </div>
+        </div>
+  
+        <div class="col-lg-10">
+          <div class="bg-white rounded-4 shadow p-4 text-start app-block">
+            <h4 class="fw-semibold text-warning mb-2"><i class="bi bi-stars me-2"></i>Personalizada para tus objetivos</h4>
+            <p class="fs-5 text-dark mb-0">No usamos plantillas. Creamos desde cero lo que tu negocio necesita: desde apps internas hasta plataformas comerciales.</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+
+  <section class="py-5" style="background-color: #ffffff; font-family: 'Segoe UI', sans-serif;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-6">¿Qué incluye nuestro servicio de desarrollo de apps móviles?</h2>
+        <p class="lead text-muted">No solo programamos. En Euskodev desarrollamos soluciones móviles completas, conectadas y listas para crecer contigo.</p>
+      </div>
+  
+      <div class="row g-5 align-items-center">
+        <!-- Bloque 1 -->
+        <div class="col-md-6">
+          <div class="d-flex align-items-start">
+            <i class="bi bi-brush fs-1 me-3 text-info"></i>
+            <div>
+              <h5 class="fw-bold mb-2">Diseño UI/UX personalizado</h5>
+              <p class="text-muted mb-0">Diseñamos interfaces atractivas, limpias y enfocadas en usabilidad. Tu app se verá bien y será fácil de usar.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+          <div class="d-flex align-items-start">
+            <i class="bi bi-phone fs-1 me-3 text-primary"></i>
+            <div>
+              <h5 class="fw-bold mb-2">Desarrollo móvil con Expo</h5>
+              <p class="text-muted mb-0">Creamos apps nativas para iOS y Android usando React Native (Expo), con rendimiento alto y desarrollo rápido.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Bloque 2 -->
+        <div class="col-md-6">
+          <div class="d-flex align-items-start">
+            <i class="bi bi-hdd-network fs-1 me-3 text-success"></i>
+            <div>
+              <h5 class="fw-bold mb-2">Backend en Django</h5>
+              <p class="text-muted mb-0">Conectamos tu app a un backend potente, donde se gestionan usuarios, datos, lógica y seguridad.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+          <div class="d-flex align-items-start">
+            <i class="bi bi-wallet2 fs-1 me-3 text-warning"></i>
+            <div>
+              <h5 class="fw-bold mb-2">Pagos integrados</h5>
+              <p class="text-muted mb-0">Tu app puede aceptar pagos con Stripe, Bizum, Redsys, TPVs u otras plataformas. Todo automatizado y seguro.</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Bloque 3 -->
+        <div class="col-md-6">
+          <div class="d-flex align-items-start">
+            <i class="bi bi-bell-fill fs-1 me-3 text-danger"></i>
+            <div>
+              <h5 class="fw-bold mb-2">Notificaciones push</h5>
+              <p class="text-muted mb-0">Envía alertas, recordatorios o novedades directamente al móvil de tus usuarios.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+          <div class="d-flex align-items-start">
+            <i class="bi bi-upload fs-1 me-3 text-secondary"></i>
+            <div>
+              <h5 class="fw-bold mb-2">Publicación en tiendas</h5>
+              <p class="text-muted mb-0">Te ayudamos a lanzar tu app en Google Play y App Store, lista para ser descargada por tus clientes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-5" style="background-color: #ffffff; font-family: 'Segoe UI', sans-serif;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-4 fw-bold">¿Qué gana tu negocio con una app móvil?</h2>
+        <p class="fs-5 text-muted">
+          Una aplicación no es solo un canal digital. Es una herramienta estratégica que impulsa la experiencia del cliente, la productividad y tus resultados.  
+          En <strong>Euskodev</strong> desarrollamos apps móviles para negocios y profesionales de <strong>Oiartzun, Errenteria, Pasajes, Lezo</strong> y toda la zona de <strong>Oarsoaldea</strong>.
+        </p>
+      </div>
+  
+      <!-- BLOQUE 1 -->
+      <div class="row align-items-center py-5">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h4 class="fw-bold">📲 Accesibilidad total</h4>
+          <p class="fs-5 text-muted">
+            Tus servicios estarán disponibles las 24 horas, desde cualquier lugar. Ideal para comercios locales de <strong>Oiartzun</strong>, empresas de <strong>Errenteria</strong> o autónomos de <strong>Lezo</strong> que quieren ofrecer disponibilidad total a sus clientes.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img src="{% static 'img/accesibilidad_app.png' %}" 
+               class="img-fluid rounded-4 shadow-lg" 
+               alt="Aplicaciones móviles personalizadas en Oiartzun, Errenteria, Pasajes y Lezo" 
+               title="Apps accesibles 24/7 para negocios de Oiartzun, Errenteria y Lezo">
+        </div>
+      </div>
+  
+      <!-- BLOQUE 2 -->
+      <div class="row align-items-center py-5">
+        <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+          <h4 class="fw-bold">🚀 Aumento de conversiones</h4>
+          <p class="fs-5 text-muted">
+            Una app bien diseñada guía al usuario a comprar, reservar o contactar con rapidez. En municipios como <strong>Pasajes</strong> o <strong>Errenteria</strong>, donde el ritmo es ágil, esto marca la diferencia en la experiencia del cliente.
+          </p>
+        </div>
+        <div class="col-md-6 order-md-1">
+          <img src="{% static 'img/aumento_de_conversaciones.png' %}" 
+               class="img-fluid rounded-4 shadow-lg" 
+               alt="Desarrollo de apps móviles para aumentar ventas en Pasajes y Errenteria" 
+               title="Aplicaciones móviles que mejoran la conversión en Pasajes y alrededores">
+        </div>
+      </div>
+  
+      <!-- BLOQUE 3 -->
+      <div class="row align-items-center py-5">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h4 class="fw-bold">🧠 Automatización inteligente</h4>
+          <p class="fs-5 text-muted">
+            Automatiza tareas repetitivas, recordatorios o formularios. Perfecto para pymes de <strong>Lezo</strong>, comercios de <strong>Pasajes</strong> o centros de servicios de <strong>Oiartzun</strong> que quieren ahorrar tiempo y recursos.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img src="{% static 'img/automatizacion.png' %}" 
+               class="img-fluid rounded-4 shadow-lg" 
+               alt="Automatización de procesos con apps móviles en Lezo y Oiartzun" 
+               title="Apps móviles con automatización inteligente para empresas de Gipuzkoa">
+        </div>
+      </div>
+  
+      <!-- BLOQUE 4 -->
+      <div class="row align-items-center py-5">
+        <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+          <h4 class="fw-bold">✨ Imagen de marca premium</h4>
+          <p class="fs-5 text-muted">
+            Tener una app propia transmite innovación y profesionalismo. Ideal para negocios en <strong>Errenteria, Lezo o Pasajes</strong> que quieren destacarse en el entorno digital con una solución de calidad hecha por <strong>Euskodev</strong>.
+          </p>
+        </div>
+        <div class="col-md-6 order-md-1">
+          <img src="{% static 'img/marca_premium_profesional_app.png' %}" 
+               class="img-fluid rounded-4 shadow-lg" 
+               alt="Aplicaciones móviles profesionales en Errenteria, Lezo y Pasajes" 
+               title="Desarrollo de apps premium en Errenteria y alrededores con Euskodev">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- GSAP efecto scroll suave -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray(".app-block").forEach((el, i) => {
+        gsap.fromTo(el, 
+          { opacity: 0, y: 60 }, 
+          {
+            opacity: 1, y: 0,
+            duration: 1,
+            ease: "power2.out",
+            delay: i * 0.1,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      });
+    });
+  </script>
+  
+{% endblock %}
