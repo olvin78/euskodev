@@ -46,12 +46,13 @@ def formulario_contactar(request):
         try:
             print("Try de la función send_mail")
             send_mail(
-                asunto,
-                contenido,
-                settings.EMAIL_HOST_USER,
-                ["info@euskodev.eus"],
-                fail_silently=False,
-            )
+            asunto,
+            contenido,
+            settings.DEFAULT_FROM_EMAIL,
+            ["info@euskodev.eus"],  # <-- cámbialo por otro correo real tuyo
+            fail_silently=False,
+        )
+
             print("Enviado email")
 
             messages.success(request, "Tu mensaje ha sido enviado con éxito.")

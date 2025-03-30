@@ -37,7 +37,7 @@
 
     <!-- Favicon con imagen personalizada -->
 
-    <link rel="icon" type="image/png" href="{% static 'assets/img/logo-euskodev.png' %}" />
+    <link rel="icon" type="image/png" href="{% static '/img/favicon.png' %}" />
     <!-- Google Fonts -->
     <!-- Bootstrap Icons CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -57,8 +57,6 @@
     <meta name="google-site-verification" content="Z5huUGyc1deP2ce9DgHlqWheIAB-kZt5-Ae9WK1rfeU" />
     <!-- Leaflet CSS (Para mapas) -->
      
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -522,30 +520,7 @@
 
 <!--este es el script para el mapa de contactar-->
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    function createMap(id, lat, lng) {
-        var map = L.map(id).setView([lat, lng], 12); // Zoom ajustado
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
 
-        // Agregar marcador con imagen dentro del popup
-        L.marker([lat, lng]).addTo(map)
-            .bindPopup(`
-                <div style="text-align: center;">
-                    <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" 
-                         alt="Logo Oiartzun" 
-                         style="max-width: 80px; display: block; margin: 0 auto; margin-top:25px;">
-                    <b style"margin-top:10px;">Oiartzun, País Vasco</b>
-                </div>
-            `).openPopup();
-    }
-
-    createMap('map-oiartzun', 43.29906393296637, -1.8600191715360295); // Coordenadas de Oiartzun
-});
-</script>
 
 
 <!--fin de los mapas para contactar-->
@@ -744,23 +719,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-<!-- Mantén solo este script -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-<!--boton de envia formulario-->
-<script src="{% static 'js/botones_index.js' %}"></script>
-
-
-<!-- Font Awesome icons (free version) -->
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-<!-- reCAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-<!-- Leaflet JS (Después del CSS) -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 <!-- Google Tag Manager (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>

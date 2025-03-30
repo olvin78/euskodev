@@ -17,5 +17,9 @@ urlpatterns = [
         views.MapCompaniesView.as_view(),
         name='map_companies',
     ),
+    path('mapa/',
+        views.MapCompaniesView.as_view(),
+        name='map_companies',
+    ),
 
 ]
