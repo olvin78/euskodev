@@ -16,14 +16,14 @@ class Company(models.Model):
 
     logo = models.ImageField("Logo de la empresa", upload_to="companies/logos/", blank=True, null=True)
 
-    latitude = models.DecimalField("Latitud", max_digits=22, decimal_places=16, blank=True, null=True)
-    longitude = models.DecimalField("Longitud", max_digits=22, decimal_places=16, blank=True, null=True)
+    latitude = models.CharField("Latitud", max_length=30, blank=True, null=True)
+    longitude = models.CharField("Longitud", max_length=30,blank=True, null=True)
 
     has_website = models.BooleanField("¿Tiene página web?", null=True, blank=True, default=None)
     has_mobile_app = models.BooleanField("¿Tiene app móvil?", null=True, blank=True, default=None)
     has_custom_software = models.BooleanField("¿Usa software propio?", null=True, blank=True, default=None)
     uses_ai = models.BooleanField("¿Utiliza inteligencia artificial?", null=True, blank=True, default=None)
-
+    is_competition_company = models.BooleanField("¿Es competencia de Euskdoev?", null=True, blank=True, default=None)
     manager_name = models.CharField("Nombre del gerente", max_length=255, blank=True, null=True)
     manager_phone = models.CharField("Teléfono del gerente", max_length=50, blank=True, null=True)
     manager_email = models.EmailField("Email del gerente", blank=True, null=True)

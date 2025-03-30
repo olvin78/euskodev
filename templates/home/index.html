@@ -2,6 +2,13 @@
 {% load i18n %}
 {% load static %}
 
+{% block head %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+{% endblock %}
+
 {% block content %}
 
 
@@ -782,5 +789,52 @@
     </div>
 </div>
 </section>
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    function createMap(id, lat, lng) {
+        var map = L.map(id).setView([lat, lng], 12); // Zoom ajustado
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Agregar marcador con imagen dentro del popup
+        L.marker([lat, lng]).addTo(map)
+            .bindPopup(`
+                <div style="text-align: center;">
+                    <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" 
+                         alt="Logo Oiartzun" 
+                         style="max-width: 80px; display: block; margin: 0 auto; margin-top:25px;">
+                    <b style"margin-top:10px;">Oiartzun, País Vasco</b>
+                </div>
+            `).openPopup();
+    }
+
+    createMap('map-oiartzun', 43.29906393296637, -1.8600191715360295); // Coordenadas de Oiartzun
+});
+</script>
+
+
+<!-- Mantén solo este script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!--boton de envia formulario-->
+<script src="{% static 'js/botones_index.js' %}"></script>
+
+
+<!-- Font Awesome icons (free version) -->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Leaflet JS (Después del CSS) -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 {% endblock %}
