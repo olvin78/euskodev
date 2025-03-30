@@ -8,10 +8,10 @@ from django.urls import reverse_lazy  # ✅ Corrección aquí
 
 from .models import Client, Budget, BudgetItem
 from .forms import BudgetForm, BudgetItemFormSet, ClientForm
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib import messages
 
-
-
-class DashboardView(TemplateView):
+class DashboardView(UserPassesTestMixin,TemplateView):
     template_name = "dashboard/index.html"
 
     def get_context_data(self, **kwargs):
@@ -40,8 +40,14 @@ class DashboardView(TemplateView):
         context['chart_data_month_budgets'] = [data['count'] for data in budgets_monthly]
 
         return context
+    
+    def test_func(self):
+        return self.request.user.is_staff
 
-
+    def handle_no_permission(self):
+        messages.error(self.request, "Solo el equipo staff puede acceder a esta página.")
+        return redirect("home_app:home")
+        
 
 def create_budget(request):
     if request.method == 'POST':
