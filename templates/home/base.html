@@ -563,9 +563,6 @@
 <!-- reCAPTCHA (único y necesario) -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-<<<<<<< HEAD
-
-=======
 <!-- Script botones personalizados -->
 <script src="{% static 'js/botones_index.js' %}"></script>
 
@@ -585,32 +582,6 @@
 
 <!-- SweetAlert2 para alertas -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<!-- Script para el mapa -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    function createMap(id, lat, lng) {
-        var map = L.map(id).setView([lat, lng], 12);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; OpenStreetMap'
-        }).addTo(map);
-
-        L.marker([lat, lng]).addTo(map)
-            .bindPopup(`
-                <div style="text-align: center;">
-                    <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" 
-                         alt="Logo Oiartzun" 
-                         style="max-width: 80px; display: block; margin: 0 auto; margin-top:25px;">
-                    <b style="margin-top:10px;">Oiartzun, País Vasco</b>
-                </div>
-            `).openPopup();
-    }
-
-    createMap('map-oiartzun', 43.29906393296637, -1.8600191715360295);
-});
-</script>
->>>>>>> 9123d65 (agregar 404)
 
 <!-- GSAP: Comentarios -->
 <script>
@@ -675,10 +646,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<<<<<<< HEAD
-
-
-
 <!-- Google Tag Manager (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
 
@@ -688,9 +655,6 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- CDN de animate.css para la animación del dropdown -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-=======
-<!-- Cierre automático del menú en móviles al hacer clic -->
->>>>>>> 9123d65 (agregar 404)
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll('.navbar-collapse .nav-link:not(.dropdown-toggle)');
