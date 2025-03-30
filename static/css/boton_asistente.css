@@ -326,9 +326,12 @@
     border: 2px solid black;
     border-radius: 10px;
     overflow: hidden;
-    width: 380px!important;
     transition: transform 0.3s ease-in-out;
+    width: 100%; /* se adapta a su contenedor .col */
+    max-width: 360px; /* para no ser demasiado ancho en pantallas grandes */
+    margin: auto; /* centrado */
 }
+
 
 .portfolio-item:hover {
     transform: scale(1.05);

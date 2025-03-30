@@ -51,7 +51,8 @@
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="{% static 'css/boton_asistente.css' %}">
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">   
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- Google Search Console -->
 
     <meta name="google-site-verification" content="Z5huUGyc1deP2ce9DgHlqWheIAB-kZt5-Ae9WK1rfeU" />
@@ -71,99 +72,6 @@
     <meta name="google-adsense-account" content="ca-pub-1565972943494658">
 
 
-<style>
-/* Contenedor del video */
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Video de fondo */
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Capa negra semi-transparente */
-.video-overlay-dark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-/* Texto dentro del video */
-.video-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    width: 80%;
-    max-width: 900px;
-    z-index: 2;
-}
-
-/* Efecto de transición en los subtítulos */
-#changing-subtitle {
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-}
-
-/* Botón dentro del video */
-.video-overlay .btn {
-    margin-top: 15px;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-}
-</style>
-
-<style>
-    .service-card {
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.service-card .icon {
-    font-size: 40px;
-    color: #28a745; /* Verde elegante */
-    margin-bottom: 15px;
-}
-
-.service-card h4 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-}
-
-.service-card p {
-    font-size: 14px;
-    color: #666;
-    height: 100px;
-}
-.dropdown-menu{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-</style>
-
 {% block head %}{% endblock %}
 </head>
 
@@ -173,11 +81,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top p-3 bg-dark" id="mainNav">
     <div class="container">
         <!-- Logo con alt para SEO -->
-        <a href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
-            <img class="p-0 m-0" style="height:80px;" 
-                src="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}" 
-                alt="Euskodev - Desarrollo Web en Euskadi">
+        <a href="{% url 'home_app:home' %}" class="navbar-brand" aria-label="Ir a la página de inicio">
+            <img src="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}" alt="Euskodev" style="height:80px;">
         </a>
+        
 
         <!-- Botón de menú para móviles -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"

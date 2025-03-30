@@ -37,7 +37,6 @@
 </div>
 
 
-
 <!-- Services -->
 <section class="page-section" id="services">
     <div class="container">
@@ -56,9 +55,13 @@
             <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
                     <div class="icon mb-3" aria-label="{% trans 'Icono Desarrollo Web' %}">
-                        <i class="fas fa-code fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
+                        <i class="bi bi-globe2" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h3 class="text-uppercase">{% trans 'Desarrollo Web' %}</h3>
+                    <h3 class="text-uppercase">
+                        <a href="{% url 'home_app:desarrollo_web' %}" class="text-decoration-none text-dark">
+                            {% trans 'Desarrollo Web' %}
+                        </a>
+                    </h3>
                     <p>{% trans 'Diseño y creación de sitios web modernos y optimizados para tu negocio.' %}</p>
                 </div>
             </div>
@@ -67,9 +70,13 @@
             <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
                     <div class="icon mb-3" aria-label="{% trans 'Icono Aplicaciones Móviles' %}">
-                        <i class="fas fa-mobile-alt fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
+                        <i class="bi bi-phone" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h3 class="text-uppercase">{% trans 'Aplicaciones Móviles' %}</h3>
+                    <h3 class="text-uppercase">
+                        <a href="{% url 'home_app:aplicaciones_moviles' %}" class="text-decoration-none text-dark">
+                            {% trans 'Aplicaciones Móviles' %}
+                        </a>
+                    </h3>
                     <p>{% trans 'Apps nativas y multiplataforma para iOS y Android con la mejor experiencia de usuario.' %}</p>
                 </div>
             </div>
@@ -78,9 +85,13 @@
             <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
                     <div class="icon mb-3" aria-label="{% trans 'Icono Software a Medida' %}">
-                        <i class="fas fa-cogs fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
+                        <i class="bi bi-tools" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h3 class="text-uppercase">{% trans 'Software a Medida' %}</h3>
+                    <h3 class="text-uppercase">
+                        <a href="{% url 'home_app:software_a_medida' %}" class="text-decoration-none text-dark">
+                            {% trans 'Software a Medida' %}
+                        </a>
+                    </h3>
                     <p>{% trans 'Desarrollamos soluciones personalizadas para optimizar la gestión de tu empresa.' %}</p>
                 </div>
             </div>
@@ -89,9 +100,13 @@
             <div class="col-lg-3 col-md-6 py-4 mb-4">
                 <div class="service-card text-center">
                     <div class="icon mb-3" aria-label="{% trans 'Icono Inteligencia Artificial' %}">
-                        <i class="fas fa-brain fa-3x" style="color: #3EB8C0; font-size: 50px;"></i>
+                        <i class="bi bi-cpu" style="color: #3EB8C0; font-size: 50px;"></i>
                     </div>
-                    <h3 class="text-uppercase">{% trans 'Inteligencia Artificial' %}</h3>
+                    <h3 class="text-uppercase">
+                        <a href="{% url 'home_app:inteligencia_artificial' %}" class="text-decoration-none text-dark">
+                            {% trans 'Inteligencia Artificial' %}
+                        </a>
+                    </h3>
                     <p>{% trans 'Integración de IA y Machine Learning para potenciar tu negocio.' %}</p>
                 </div>
             </div>
@@ -163,14 +178,22 @@
 
         <!-- Primer row -->
         <div class="row">
-            <!-- Portfolio item 1-->
+            <!-- Portfolio item 1 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'home_app:sun-and-surf' %}" target="_blank">
+                    <a class="portfolio-link" 
+                       href="{% url 'home_app:sun-and-surf' %}" 
+                       target="_blank"
+                       title="Proyecto web Euskodev en Oiartzun"
+                       aria-label="Proyecto web en Oiartzun: Sun And Surf">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "portfolio/sun-and-surf/img/tablas4.jpg" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "portfolio/sun-and-surf/img/tablas4.jpg" %}');" 
+                             role="img" 
+                             aria-label="Diseño web Sun And Surf realizado en Oiartzun" 
+                             alt="Diseño web en Oiartzun por Euskodev"></div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Sun And Surf</div>
@@ -178,15 +201,23 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Portfolio item 2-->
+        
+            <!-- Portfolio item 2 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'home_app:atenea-gastronomica' %}" target="_blank">
+                    <a class="portfolio-link" 
+                       href="{% url 'home_app:atenea-gastronomica' %}" 
+                       target="_blank"
+                       title="Web de gastronomía creada en Errenteria"
+                       aria-label="Desarrollo web en Errenteria: Atenea Gastronómica">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "portfolio/atenea-gastronomica/assets/img/portada.png" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "portfolio/atenea-gastronomica/assets/img/portada.png" %}');" 
+                             role="img" 
+                             aria-label="Diseño web de restaurante en Errenteria"
+                             alt="Atenea Gastronómica - Web en Errenteria, Gipuzkoa"></div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Atenea Gastronómica</div>
@@ -194,15 +225,23 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Portfolio item 3-->
+        
+            <!-- Portfolio item 3 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'home_app:la-maison-du-bordeaux' %}" target="_blank">
+                    <a class="portfolio-link" 
+                       href="{% url 'home_app:la-maison-du-bordeaux' %}" 
+                       target="_blank"
+                       title="E-commerce para Pasajes y Lezo"
+                       aria-label="E-commerce desarrollado en Pasajes y Lezo: La Maison du Bordeaux">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "portfolio/la-maison-du-bordeaux/assets/img/chocolates-06.jpg" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "portfolio/la-maison-du-bordeaux/assets/img/chocolates-06.jpg" %}');" 
+                             role="img" 
+                             aria-label="La Maison du Bordeaux: tienda online en Pasajes y Lezo"
+                             alt="Web en Pasajes y Lezo desarrollada por Euskodev"></div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">La Maison du Bordeaux</div>
@@ -211,17 +250,27 @@
                 </div>
             </div>
         </div>
+        
 
         <!-- Segundo row -->
         <div class="row">
-            <!-- Portfolio item 4-->
+            <!-- Portfolio item 4 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'home_app:la-fortuna-trip' %}" target="_blank">
+                    <a class="portfolio-link" 
+                       href="{% url 'home_app:la-fortuna-trip' %}" 
+                       target="_blank"
+                       title="Web turística desarrollada en Oiartzun"
+                       aria-label="La Fortuna Trip - Web desarrollada en Oiartzun, Gipuzkoa">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "portfolio/la-fortuna-trip/assets/img/inicio/la-fortuna-downtown-town-city-buildings-arenal-volcano-costa-rica.jpg" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "portfolio/la-fortuna-trip/assets/img/inicio/la-fortuna-downtown-town-city-buildings-arenal-volcano-costa-rica.jpg" %}');" 
+                             role="img" 
+                             aria-label="Sitio turístico creado por Euskodev en Oiartzun"
+                             alt="Desarrollo web turístico en Oiartzun">
+                        </div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">La Fortuna Trip</div>
@@ -229,15 +278,24 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Portfolio item 5-->
+        
+            <!-- Portfolio item 5 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="{% url 'home_app:de-mi-tierra' %}" target="_blank">
+                    <a class="portfolio-link" 
+                       href="{% url 'home_app:de-mi-tierra' %}" 
+                       target="_blank"
+                       title="Diseño web gastronómico en Errenteria"
+                       aria-label="De Mi Tierra - Proyecto web en Errenteria, Gipuzkoa">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "portfolio/de-mi-tierra/assets/img/hero-bg.jpg" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "portfolio/de-mi-tierra/assets/img/hero-bg.jpg" %}');" 
+                             role="img" 
+                             aria-label="Proyecto web gastronómico en Errenteria"
+                             alt="Web gastronómica en Errenteria realizada por Euskodev">
+                        </div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">De Mi Tierra</div>
@@ -245,15 +303,23 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Portfolio item 6-->
+        
+            <!-- Portfolio item 6 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="#!">
+                    <a class="portfolio-link" 
+                       href="#!"
+                       title="Desarrollo web corporativo en Pasajes y Lezo"
+                       aria-label="Euskodev - Proyecto interno desarrollado en Pasajes y Lezo">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/portafolio2.png" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "assets/img/portfolio/portafolio2.png" %}');" 
+                             role="img" 
+                             aria-label="Proyecto interno de Euskodev con base en Pasajes y Lezo"
+                             alt="Diseño web Euskodev desde Pasajes y Lezo">
+                        </div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Euskodev</div>
@@ -262,17 +328,26 @@
                 </div>
             </div>
         </div>
+        
 
         <!-- Tercer row -->
         <div class="row">
-            <!-- Portfolio item 7-->
+            <!-- Portfolio item 7 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="#!">
+                    <a class="portfolio-link" 
+                       href="#!" 
+                       title="Proyecto gastronómico en Oiartzun desarrollado por Euskodev"
+                       aria-label="Gastrogune - Aplicación gastronómica desarrollada en Oiartzun">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/cocina.jpg" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "assets/img/portfolio/cocina.jpg" %}');" 
+                             role="img"
+                             aria-label="Desarrollo de aplicación gastronómica en Oiartzun"
+                             alt="Gastrogune - Proyecto de gastronomía digital desde Oiartzun">
+                        </div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Gastrogune</div>
@@ -280,15 +355,23 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Portfolio item 8-->
+        
+            <!-- Portfolio item 8 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="#!">
+                    <a class="portfolio-link" 
+                       href="#!" 
+                       title="Plataforma de test desarrollada desde Errenteria"
+                       aria-label="Testosakidetza - Plataforma educativa desde Errenteria, Gipuzkoa">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "assets/img/portfolio/testosakidetza.png" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "assets/img/portfolio/testosakidetza.png" %}');" 
+                             role="img"
+                             aria-label="Proyecto educativo online con base en Errenteria"
+                             alt="Testosakidetza - Plataforma digital desarrollada en Errenteria">
+                        </div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">20.000+</div>
@@ -296,15 +379,24 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Portfolio item 9-->
+        
+            <!-- Portfolio item 9 -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                 <div class="portfolio-item">
-                    <a class="portfolio-link" href="https://tuasistenteinteligente.com/">
+                    <a class="portfolio-link" 
+                       href="https://tuasistenteinteligente.com/" 
+                       target="_blank"
+                       title="Asistente inteligente con IA desarrollado en Pasajes y Lezo"
+                       aria-label="Tu Asistente Inteligente - Proyecto de IA con sede en Pasajes y Lezo">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <div class="portfolio-image" style="background-image: url('{% static "img/tuasistenteinteligente.png" %}');"></div>
+                        <div class="portfolio-image" 
+                             style="background-image: url('{% static "img/tuasistenteinteligente.png" %}');" 
+                             role="img"
+                             aria-label="Asistente inteligente creado en Pasajes y Lezo con inteligencia artificial"
+                             alt="Tu Asistente Inteligente - IA desde Pasajes y Lezo">
+                        </div>
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">520+</div>
@@ -313,6 +405,8 @@
                 </div>
             </div>
         </div>
+        
+
     </div>
 </section>
 
@@ -320,152 +414,137 @@
 
 
 
-<!-- About-->
-<section class="page-section" id="about" style="backgroun-color:white;text-align:justify !important;">
-        <div class="container">
-            <div class="text-start">
-                <h2 class="section-heading text-uppercase text-center">{% trans 'Sobre' %}</h2>
-                <h3 class="section-subheading text-muted">
-                    {% trans 'En euskodev somos un equipo apasionado de desarrolladores web, app y diseño de imagen corporativa, expertos en crear soluciones digitales que impulsan tu negocio. Contamos con un historial probado de éxito en el desarrollo de sitios web, aplicaciones web y sistemas personalizados. Nos especializamos en comprender tus necesidades y objetivos para crear soluciones a medida que superen tus expectativas.   Nuestra filosofía se basa en la innovación, la creatividad y la cercanía con el cliente. Trabajamos en estrecha colaboración contigo en cada paso del proceso, desde la ideación hasta el lanzamiento y el mantenimiento de tu proyecto. Nos enorgullecemos de ofrecer un servicio de alta calidad, personalizado y asequible..' %}
-                </h3>
-
-            </div>
-            <br><br>
-            <ul class="timeline">
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid simbolEffect"
-                            src="{% static 'assets/img/about/nueva.jpg' %}" alt="remodelacion y creacion de Webs" />
-                    </div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <!--<h4>2009-2011</h4>-->
-                            <h4 class="subheading testToYellow">
-                                {% trans 'Creación y Remodelación de páginas y sitios web' %}</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">
-                                {% trans '¿Tu sitio web necesita un cambio de imagen?' %}' <br> <br>
-
-                                {% trans 'En euskodev, ofrecemos servicios profesionales de creación y remodelación de páginas y sitios web. Somos expertos en transformar sitios web obsoletos o que no funcionan correctamente en sitios web modernos, atractivos y funcionales que te ayuden a alcanzar tus objetivos de negocio!' %}
-                            </p>
-                        </div>
-
-                    </div>
-                </li>
-                <li class="timeline-inverted mb-5">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid simbolEffect"
-                            src="{% static 'assets/img/about/seguridad.jpg' %}"
-                            alt="hosting y domions para webs y proyectos, donostia, pais vasco, pais vasko" />
-                    </div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4>{% trans 'Dominio, hosting y seguridad' %}</h4>
-                            <h4 class="subheading">
-                                <!--{% trans 'campo libre' %}-->
-                            </h4>
-
-                        </div>
-                        <div class="timeline-body mb-5">
-                            <p class="text-muted">
-
-                                {% trans 'Registro de tu dominio: Elige el nombre perfecto para tu proyecto y nosotros nos encargamos de registrarlo y configurarlo para que tu sitio web sea accesible en internet. <br><br> Alojamiento web seguro: Tu sitio web estará alojado en nuestros servidores de última generación, con altos estándares de seguridad para proteger tus datos y los de tus visitantes.  Protección contra amenazas: Implementamos las mejores medidas de seguridad para evitar ataques cibernéticos, malware y otras amenazas que puedan poner en riesgo tu sitio web.' %}
-
-                            </p>
-
-
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid simbolEffect"
-                            src="{% static 'assets/img/about/responsive.png' %}"
-                            alt="diseño de webs responsive adaptado a las deferentes pantallas de los dispositivos" />
-                    </div>
-                    <div class="timeline-panel mb-5">
-                        <div class="timeline-heading">
-                            <!--<h4>December 2015</h4>-->
-                            <h4 class="subheading">{% trans 'Sitios Webs Responsives' %}</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">
-                                {% trans '¿Tu sitio web se adapta a todas las pantallas? <br> <br>  En la era digital actual, donde cada vez más personas acceden a internet desde dispositivos móviles, es fundamental contar con un sitio web responsive. Un sitio web responsive es aquel que se ajusta automáticamente al tamaño de la pantalla del dispositivo en el que se visualiza, ya sea un ordenador de sobremesa, una tableta o un smartphone!' %}
-                            </p>
-
-
-                        </div>
-                    </div>
-                </li>
-                <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid simbolEffect"
-                            src="{% static 'assets/img/about/tienda2.jpg' %}"
-                            alt="ecomerce-tu tienda online, ten una presencia en linea" /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <!--<h4>July 2020</h4>-->
-                            <h4 class="subheading">{% trans 'E-commerce' %}</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">
-                                {% trans 'Euskodev: Desarrolle su tienda online con expertos en comercio electrónico En Euskodev, comprendemos el poder transformador del comercio electrónico en el panorama empresarial actual. Ayudamos a las empresas a establecer una presencia sólida en el  mundo online con soluciones de comercio electrónico personalizadas y de vanguardia.!' %}
-
-                            </p>
-                        </div>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid simbolEffect"
-                            src="{% static 'assets/img/about/woman.png' %}"
-                            alt="diseño grafico desde cero, remodelacion" /></div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <!--<h4>2009-2011</h4>-->
-                            <h4 class="subheading">{% trans 'Diseño Gráfico' %}</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">
-                                {% trans 'Euskodev: Creando experiencias visuales cautivadoras para su presencia digital En la era digital actual, un sitio web visualmente atractivo y fácil de usar ya no es un lujo, es una necesidad. En Euskodev, entendemos el poder de un diseño convincente para dar forma a la identidad online de su marca y generar compromiso con su público objetivo. Nuestro equipo de diseñadores web expertos y creativos apasionados por crearsitios web que no solo se vean impresionantes sino que también brinden experiencias de usuario excepcionales.' %}
-
-                                <!--Ofrecemos una suite completa de servicios de diseño web adaptados para satisfacer las
-                                necesidades únicas de su negocio. Ya sea que esté buscando una revisión completa de su
-                                sitio web o una actualización de su diseño existente, nuestros expertos trabajarán en
-                                estrecha colaboración con usted para comprender su visión y traducirla en una obra
-                                maestra digital cautivadora.ur--> !</p>
-                        </div>
-                    </div>
-                </li>
-
-
-                <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid simbolEffect"
-                            src="{% static 'assets/img/about/seo.jpg' %}"
-                            alt="seo posocionamiento de webs, has que tu web se vea en los primeros resultados" />
-                    </div>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <!-- <h4>July 2020</h4>-->
-                            <h4 class="subheading">
-                                {% trans 'Euskodev: Su socio de SEO para una presencia online próspera' %}</h4>
-                        </div>
-                        <div class="timeline-body">
-                            <p class="text-muted">
-                                {% trans 'En el panorama digital competitivo actual, una presencia online sólida es crucial para empresas de todos los tamaños. Un sitio web bien optimizado no solo atrae más visitantes, sino que también los convierte en clientes valiosos. Sin embargo, lograr los mejores rankings en los motores de búsqueda y generar tráfico orgánico requiere experiencia y dedicación. Ahí es donde entran en juego los servicios de SEO de Euskodev. Libere el poder del SEO con Euskodev en Euskodev, somos un equipo de especialistas en SEO experimentados apasionados por ayudar a empresas como la suya a lograr sus objetivos online. Entendemos las complejidades de los algoritmos de los motores de búsqueda y el panorama SEO en constante cambio. Nuestros servicios completos de SEO están diseñados para <br> aumentar la visibilidad de su sitio web' %}
-                            </p>
-
-                        </div>
-                    </div>
-                </li>
-
-
-                <li class="timeline-inverted">
-                    <div class="timeline-image simbolEffect" style="background-color:#30c0b9;color: black;">
-                        <h4>
-                            {% trans '¡Se parte <br/> de nuestra <br/> historia!' %}
-                        </h4>
-                    </div>
-                </li>
-            </ul>
+<!-- About -->
+<section class="page-section" id="about" style="background-color: white; text-align: justify;">
+    <div class="container">
+        <div class="text-start">
+            <h2 class="section-heading text-uppercase text-center"
+                aria-label="Sobre Euskodev, desarrollo web en Oiartzun y País Vasco"
+                title="Sobre Euskodev, expertos en soluciones digitales">
+                {% trans 'Sobre' %}
+            </h2>
+            <h3 class="section-subheading text-muted" style="line-height: 1.8;">
+                {% trans "Desde Oiartzun, en el corazón del País Vasco, en Euskodev ayudamos a negocios de Oiartzun, Errenteria, Lezo y Pasajes a digitalizarse con soluciones que funcionan: webs modernas, tiendas online, apps y software a medida." %}
+                <br><br>
+                {% trans "No ofrecemos lo mismo para todos. Nos sentamos contigo, entendemos tu proyecto y lo adaptamos a lo que realmente necesitas, con cercanía y trato directo." %}
+                <br><br>
+                {% trans "Si buscas una empresa local de confianza que hable claro y te acompañe de verdad, Euskodev es tu aliado digital." %}
+            </h3>
+            
         </div>
+        
+
+        <!-- Aquí comienzan los items del timeline ampliados -->
+        <ul class="timeline mt-5">
+            <li>
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid simbolEffect"
+                         src="{% static 'assets/img/about/nueva.jpg' %}"
+                         alt="Rediseño y creación de sitios web en Oiartzun, Euskodev"
+                         title="Remodelación web Euskodev">
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="subheading testToYellow">{% trans 'Creación y Remodelación de páginas y sitios web' %}</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">{% trans '¿Tu sitio web necesita un cambio de imagen?' %}</p>
+                        <p class="text-muted">{% trans 'En Euskodev rediseñamos y renovamos sitios que ya no cumplen con los estándares modernos. Desde lo visual hasta la funcionalidad, adaptamos tu web para que transmita confianza, profesionalismo y conecte con tus clientes.' %}</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted mb-5">
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid simbolEffect"
+                         src="{% static 'assets/img/about/seguridad.jpg' %}"
+                         alt="Seguridad, hosting y dominios web Euskodev Oiartzun"
+                         title="Hosting seguro Euskodev País Vasco">
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>{% trans 'Dominio, hosting y seguridad' %}</h4>
+                    </div>
+                    <div class="timeline-body mb-5">
+                        <p class="text-muted">{% trans 'Gestionamos el registro y configuración de tu dominio para que estés online sin complicaciones.' %}</p>
+                        <p class="text-muted">{% trans 'Alojamos tu sitio en servidores seguros, con certificados SSL, backups automáticos y protección contra ataques.' %}</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid simbolEffect"
+                         src="{% static 'assets/img/about/responsive.png' %}"
+                         alt="Sitios web responsivos para móviles y tablets, Euskodev"
+                         title="Diseño responsive Euskodev">
+                </div>
+                <div class="timeline-panel mb-5">
+                    <div class="timeline-heading">
+                        <h4 class="subheading">{% trans 'Sitios Webs Responsives' %}</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">{% trans 'Creamos sitios adaptables a todos los dispositivos, mejorando la experiencia del usuario en móviles, tablets y ordenadores.' %}</p>
+                        <p class="text-muted">{% trans 'Esto también mejora tu posicionamiento en Google y aumenta el tiempo de permanencia en la web.' %}</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid simbolEffect"
+                         src="{% static 'assets/img/about/tienda2.jpg' %}"
+                         alt="Ecommerce Euskodev, tu tienda online a medida"
+                         title="Tienda online Euskodev en Oiartzun y País Vasco">
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="subheading">{% trans 'E-commerce' %}</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">{% trans 'Creamos tiendas online que venden. Desde catálogos hasta pasarelas de pago, todo pensado para que tu cliente compre fácil y tú gestiones sin dolores de cabeza.' %}</p>
+                        <p class="text-muted">{% trans 'Ideal para comercios, productos locales y emprendedores que quieren vender en línea desde el País Vasco al mundo.' %}</p>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid simbolEffect"
+                         src="{% static 'assets/img/about/woman.png' %}"
+                         alt="Diseño gráfico Euskodev desde cero o rediseño"
+                         title="Imagen corporativa y diseño visual Euskodev">
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="subheading">{% trans 'Diseño Gráfico' %}</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">{% trans 'Creamos identidades visuales coherentes, atractivas y adaptadas a tu público objetivo. Desde logotipos hasta banners o material impreso.' %}</p>
+                        <p class="text-muted">{% trans 'Un buen diseño fortalece tu marca, genera confianza y hace que tu negocio destaque entre la competencia.' %}</p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <img class="rounded-circle img-fluid simbolEffect"
+                         src="{% static 'assets/img/about/seo.jpg' %}"
+                         alt="SEO Euskodev: posicionamiento web en Oiartzun y el País Vasco"
+                         title="Optimización SEO Euskodev">
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="subheading">{% trans 'Euskodev: Su socio de SEO para una presencia online próspera' %}</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">{% trans 'Optimizamos tu web con técnicas de SEO técnico y de contenido para aparecer en los primeros resultados de Google.' %}</p>
+                        <p class="text-muted">{% trans 'Te ayudamos a atraer más visitas orgánicas, mejorar tu reputación digital y convertir más clientes.' %}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </section>
 
 <!--fin de  Abaut-->
