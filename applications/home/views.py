@@ -22,7 +22,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 
-from .utils.email_brevo import enviar_email_brevo
+
+from .utils.email_brevo import enviar_email_brevo  # asegúrate de tener esta línea
 
 def formulario_contactar(request):
     if request.method == "POST":
@@ -43,12 +44,11 @@ def formulario_contactar(request):
         """
 
         resultado = enviar_email_brevo(
-            asunto="Nuevo mensaje de contacto",
-            contenido_html="<p>Nuevo email de contacto</p>",
+            asunto=asunto,
+            contenido_html=contenido_html,
             destinatario_email="info@euskodev.eus",
             destinatario_nombre="Iñaki Retegi"
         )
-
 
         if resultado:
             messages.success(request, "Mensaje enviado con éxito.")
@@ -56,6 +56,8 @@ def formulario_contactar(request):
             messages.error(request, "Error al enviar el mensaje.")
 
         return redirect("home_app:home")
+
+    return redirect("home_app:home")
 
 def formulario_contactar2(request):
     if request.method == "POST":

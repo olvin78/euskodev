@@ -4,6 +4,12 @@ from sib_api_v3_sdk.api import TransactionalEmailsApi
 from sib_api_v3_sdk.models import SendSmtpEmail
 from django.conf import settings
 
+# applications/home/utils/email_brevo.py
+from sib_api_v3_sdk.rest import ApiException
+from sib_api_v3_sdk import Configuration, ApiClient
+from sib_api_v3_sdk.api import TransactionalEmailsApi
+from sib_api_v3_sdk.models import SendSmtpEmail
+from django.conf import settings
 
 def enviar_email_brevo(asunto, contenido_html, destinatario_email, destinatario_nombre=""):
     try:
@@ -15,7 +21,7 @@ def enviar_email_brevo(asunto, contenido_html, destinatario_email, destinatario_
         email = SendSmtpEmail(
             to=[{
                 "email": destinatario_email,
-                "name": destinatario_nombre or "Euskodev"  # Si no se pasa nombre, usa uno por defecto
+                "name": destinatario_nombre or "Euskodev"
             }],
             sender={
                 "email": settings.DEFAULT_FROM_EMAIL,
