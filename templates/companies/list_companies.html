@@ -1,0 +1,99 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid" style="min-height:80vh; margin-top:10vh;">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Lista empresas</h1>
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Web</th>
+                <th scope="col">¿Tiene Web?</th>
+                <th scope="col">¿Tiene APP?</th>
+                <th scope="col">¿Tiene ERP?</th>
+                <th scope="col">¿Tiene IA?</th>
+                <th scope="col">Gerente</th>
+                <th scope="col">Tel.Gerente</th>
+                <th scope="col">Email.Gerente</th>
+                <th scope="col">¿Visitado?</th>
+                <th scope="col">¿Fecha visita?</th>
+                <th scope="col">Comentario</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for dato in datos %}
+                <tr>
+               
+                <td><b>{{ dato.name }}</b></td>
+                <td>{{ dato.city }}</td>
+                <td>{{ dato.address }}</td>
+                <td>{{ dato.email }}</td>
+                <td><a href="tel:{{ dato.phone }}">{{ dato.phone }}</td>
+                <td><a href="{{ dato.website }}" target="_blank"><button class="btn">VER</button></a></td>
+
+                
+                    {% if dato.has_website %}
+                <td class="bg-success text-center text-white">Sí</td>
+                    {% elif dato.has_website == False %}
+                <td class="bg-danger text-center text-white">No</td>
+                    {% else %}
+                <td class="bg-light text-center text-white">?</td>
+                    {% endif %}
+
+                 {% if dato.has_mobile_app %}
+                <td class="bg-success text-center text-white">Sí</td>
+                    {% elif dato.has_mobile_app == False %}
+                <td class="bg-danger text-center text-white">No</td>
+                    {% else %}
+                <td class="bg-secondary text-center text-white">?</td>
+                    {% endif %}
+
+                 {% if dato.has_custom_software %}
+                <td class="bg-success text-center text-white">Sí</td>
+                    {% elif dato.has_custom_software == False %}
+                <td class="bg-danger text-center text-white">No</td>
+                    {% else %}
+                <td class="bg-secondary text-center text-white">?</td>
+                    {% endif %}
+
+                 {% if dato.uses_ai %}
+                <td class="bg-success text-center text-white">Sí</td>
+                    {% elif dato.uses_ai == False %}
+                <td class="bg-danger text-center text-white">No</td>
+                    {% else %}
+                <td class="bg-secondary text-center text-white">?</td>
+                    {% endif %}
+
+
+                <td>{{ dato.manager_name }}</td>
+                <td>{{ dato.manager_phone }}</td>
+                <td>{{ dato.manager_email }}</td>
+
+                {% if dato.visited %}
+                <td class="text-center">Sí</td>
+                {% else %}
+                <td class="text-center">No</td>
+                {% endif %}
+
+                <td>{{ dato.visited_date }}</td>
+                <td>{{ dato.comments }}</td>
+
+               
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+jñlkjñkj
+
+{% endblock %}

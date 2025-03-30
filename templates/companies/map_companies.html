@@ -1,0 +1,72 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+     <style>
+        #map3 { height: 100vh; }
+     </style>
+
+{% endblock %}
+
+{% block content %}
+
+
+ <div id="map3"></div>
+
+
+
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<script>
+    var customIcon = L.icon({
+        iconUrl: '{% static "img/companies/blue-mark.png" %}', // URL de la imagen del icono
+        iconSize: [40, 50], // Tamaño del icono [ancho, alto]
+        iconAnchor: [20, 50], // Punto de anclaje del icono (centro inferior)
+        popupAnchor: [0, -40] // Punto de anclaje del popup relativo al icono
+    });
+    var mymap = L.map('map3').setView([43.308795942880394, -1.890163412957376], 15); // Centrado en Donostia
+   mymap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors");
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://carto.com/">CARTO</a> | &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+}).addTo(mymap);
+
+
+    {% for victim in datos %}
+        var popupContent = `
+            {% if victim.name %}<img class='w-25' src='media/{{ victim.image }}'>{% endif %}
+            {% if victim.email %}<br><b>Víctima:</b><br>{{ victim.victim }}{% endif %}
+            {% if victim.phone %}<br><b>Fecha:</b>{{ victim.date_time|date:' Y/m/d' }}{% endif %}
+            {% if victim.website %}<br><b>Descripción:</b><br>{{ victim.description }}{% endif %}
+            {% if victim.address %}<br><b>Técnica:</b><br>{{ victim.technique }}{% endif %}
+            {% if victim.city %}<br><b>Hacker:</b><br>{{ victim.hacker_name }}{% endif %}
+            {% if victim.has_website %}<br><b>¿Capturado?</b><br>{{ victim.hacker_captured }}{% endif %}
+            {% if victim.has_mobile_app %}<br><b>Dirección:</b><br>{{ victim.address }}{% endif %}
+            {% if victim.has_custom_software %}<br><b>Localidad:</b><br>{{ victim.locality }}{% endif %}
+            {% if victim.uses_ai %}<br><b>Provincia:</b><br>{{ victim.province }}{% endif %}
+            {% if victim.manager_name %}<br><b>Comunidad autónoma:</b><br>{{ victim.autonomous_community }}{% endif %}
+            {% if victim.manager_phone %}<br><b>País:</b><br>{{ victim.country }}{% endif %}
+        `;
+        var marker = L.marker([{{ victim.latitude }}, {{ victim.longitude }}], { icon: customIcon }).addTo(mymap);
+        marker.bindPopup(popupContent);
+    {% endfor %}
+var marker = L.marker([43.309885, -1.890257]).addTo(map);
+
+
+</script>
+
+
+{% endblock %}
+
+
+
+
