@@ -1,7 +1,6 @@
 from os import name
 from django.urls import include, path
 from . import views
-from django.conf.urls import handler404
 
 
 """
@@ -14,7 +13,8 @@ from django.conf.urls import handler404
 
 app_name = 'home_app'
 
-handler404 ='applications.home.views.custom_404'
+handler404 = 'applications.home.views.custom_404'
+
 
 urlpatterns = [
     path('',
@@ -93,17 +93,6 @@ urlpatterns = [
     path('formulario/', views.formulario_contactar, name='formulario_contactar'),
 
 
-    path('error-404',
-        views.Error404View.as_view(),
-        name='error-404',
-    ),
-
-     path('kit-digital',
-        views.KitdigitalView.as_view(),
-        name='kit_digital',
-    ),
-
-
 
 # estas son las urls para en apartado del menu de servicios, 
     path('desarrollo-web/', views.desarrollo_web, name='desarrollo_web'),
@@ -113,5 +102,8 @@ urlpatterns = [
     path('aplicaciones-moviles/', views.aplicaciones_moviles, name='aplicaciones_moviles'),
     path('sistema-de-ticket/', views.sistema_ticket, name='sistema_ticket'),
     path('base/', views.base, name='base'),
+
+
+
 
 ]

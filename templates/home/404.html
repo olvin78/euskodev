@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error 404 | Euskodev</title>
+  <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(145deg, #0a0a0a, #1c1c1c);
+      color: #fff;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: 7rem;
+      margin: 0;
+      background: linear-gradient(to right, #00e1ff, #00ffa1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #ccc;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+    }
+
+    a.btn {
+      display: inline-block;
+      padding: 0.8rem 2.2rem;
+      font-weight: bold;
+      color: #000;
+      background-color: #00e1ff;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 0 25px rgba(0, 225, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+    }
+
+    a.btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(0, 225, 255, 0.7);
+    }
+
+    .orbit {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px dashed rgba(0,225,255,0.1);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotate 8s linear infinite;
+      z-index: 0;
+    }
+
+    .satellite {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      background: #00e1ff;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px #00e1ff;
+    }
+
+    @keyframes rotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="orbit">
+    <div class="satellite"></div>
+  </div>
+
+  <div class="container">
+    <!-- ✅ LOGO FUNCIONANDO con clase .logo -->
+    <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" class="logo">
+
+    <h1>404</h1>
+    <p>Parece que esta página se perdió en el espacio-tiempo digital.</p>
+    <a href="{% url 'home_app:home' %}" class="btn">Regresar al inicio</a>
+  </div>
+
+  <script>
+    gsap.to(".logo", { opacity: 1, y: -10, duration: 1, ease: "power2.out" });
+    gsap.to("h1", { opacity: 1, y: -10, duration: 1, delay: 0.3, ease: "power2.out" });
+    gsap.to("p", { opacity: 1, y: -10, duration: 1, delay: 0.6, ease: "power2.out" });
+    gsap.to(".btn", { opacity: 1, y: -10, duration: 1, delay: 0.9, ease: "power2.out" });
+  </script>
+</body>
+</html>

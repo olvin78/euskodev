@@ -239,7 +239,11 @@
 <body id="page-top">
 
 
-<!-- Navbar limpio, profesional y trabajado -->
+<!-- Botón flotante -->
+    <a href="https://www.tuasistenteinteligente.com/Euskodev/" class="boton-flotante" target="_blank" style="z-index: 500;">💬</a>
+
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top shadow">
     <div class="container">
       <!-- Logo -->
@@ -316,81 +320,84 @@
 
 
 
+
+
 {% endblock %}
 
-
-    <!-- Botón flotante -->
-<a href="https://www.tuasistenteinteligente.com/Euskodev/" class="boton-flotante" target="_blank" style="z-index: 500;">💬</a>
 
 
 <!-- Footer Mejorado -->
 <footer class="footer py-5 mt-0" style="background: linear-gradient(135deg, #1a1a1a, #333); color: white;">
-<div class="container">
-    <div class="row align-items-center text-center text-lg-start">
-        
-        <!-- Información de la empresa -->
-        <div class="col-lg-4 mb-4 mb-lg-0">
-            <address class="mb-2">
-                <p>📍 Oiartzun, Gipuzkoa</p>
-                <p>📧 <a href="mailto:info@euskodev.eus" class="text-white text-decoration-none">info@euskodev.eus</a></p>
-            </address>
-            <p class="mb-0">{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
-        </div>
-
-        <!-- Redes sociales -->
-        <div class="col-lg-4 d-flex justify-content-center my-3 my-lg-0">
-            <a class="btn btn-outline-light btn-social mx-2 social-icon" 
-               href="https://www.linkedin.com/company/euskodev/" 
-               aria-label="Euskodev en LinkedIn" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="f           <!-- Logo con alt para SEO -->
-                    <a href="{% url 'home_app:home' %}" class="navbar-brand" aria-label="Ir a la página de inicio">
-                        <img src="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}" alt="Euskodev" style="height:80px;">
-                    </a>
-                /www.instagram.com/euskodev/" 
-               aria-label="Euskodev en Instagram" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
+    <div class="container">
+        <div class="row align-items-center text-center text-lg-start">
             
-            <a class="btn btn-outline-light btn-social mx-2 social-icon" 
-               href="https://www.facebook.com/euskodev/" 
-               aria-label="Euskodev en Facebook" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        </div>
+            <!-- Información de la empresa -->
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <address class="mb-2">
+                    <p>📍 Oiartzun, Gipuzkoa</p>
+                    <p>📧 <a href="mailto:info@euskodev.eus" class="text-white text-decoration-none">info@euskodev.eus</a></p>
+                </address>
+                <p class="mb-0">{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
+            </div>
+    
+            <!-- Redes sociales -->
+            <div class="col-lg-4 d-flex justify-content-center my-3 my-lg-0">
+                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+                href="https://www.linkedin.com/company/euskodev/" 
+                aria-label="Euskodev en LinkedIn" 
+                target="_blank" 
+                rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
 
-        <!-- Enlaces legales -->
-        <div class="col-lg-4 text-lg-end">
-            <a class="text-white text-decoration-none me-2" 
-               href="{% url 'home_app:politicas_de_privacidad' %}" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                {% trans 'Políticas de privacidad' %}
-            </a> •
-            <a class="text-white text-decoration-none mx-2" 
-               href="{% url 'home_app:aviso_legal' %}" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                {% trans 'Aviso legal' %}
-            </a> •
-            <a class="text-white text-decoration-none ms-2" 
-               href="{% url 'home_app:politicas_de_cookies' %}" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                {% trans 'Políticas de cookies' %}
-            </a>
+                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+                href="https://www.instagram.com/euskodev/" 
+                aria-label="Euskodev en Instagram" 
+                target="_blank" 
+                rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
+                href="https://www.facebook.com/euskodev/" 
+                aria-label="Euskodev en Facebook" 
+                target="_blank" 
+                rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+
+            <!-- Enlaces legales -->
+            <div class="col-lg-4 text-lg-end">
+                <a class="text-white text-decoration-none me-2" 
+                   href="{% url 'home_app:politicas_de_privacidad' %}" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    {% trans 'Políticas de privacidad' %}
+                </a> •
+                <a class="text-white text-decoration-none mx-2" 
+                   href="{% url 'home_app:aviso_legal' %}" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    {% trans 'Aviso legal' %}
+                </a> •
+                <a class="text-white text-decoration-none ms-2" 
+                   href="{% url 'home_app:politicas_de_cookies' %}" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                    {% trans 'Políticas de cookies' %}
+                </a>
+            </div>
         </div>
     </div>
-</div>
-</footer>
+    </footer>
+    
+    
+    <!--fin del  footer-->
+    
 
-
-<!--fin del  footer-->
+    <!-- Botón flotante -->
+<a href="https://www.tuasistenteinteligente.com/Euskodev/" class="boton-flotante" target="_blank" style="z-index: 500;">💬</a>
 
 
 
@@ -544,188 +551,106 @@
 </div>
 </div>
 
-
-<!--fin del portafolio numero 3-->
-
+<!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script principal de tu sitio -->
 <script src="{% static 'js/scripts.js' %}"></script>
 
+<!-- Font Awesome icons -->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
-<!--este es el script para el mapa de contactar-->
+<!-- reCAPTCHA (único y necesario) -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+<<<<<<< HEAD
 
+=======
+<!-- Script botones personalizados -->
+<script src="{% static 'js/botones_index.js' %}"></script>
 
+<!-- Leaflet JS para el mapa -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-<!--fin de los mapas para contactar-->
+<!-- Google Analytics (Tag Manager) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
 
-<!--estos son los códigos para que funcione la librería de gsap-->
-
-
+<!-- GSAP y ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
-<!--aca terminan los códigos de la librería de gsap-->
+<!-- Animate.css para animaciones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-<!--aca inician los efectos de gsap iniciando por los cuatro primero iconos del apartado de iconos dod de arriba dos de abajo des lado izquierdo-->
+<!-- SweetAlert2 para alertas -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<!-- Script para el mapa -->
 <script>
-    // Registrar el plugin ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function () {
+    function createMap(id, lat, lng) {
+        var map = L.map(id).setView([lat, lng], 12);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(map);
 
-    // Seleccionar todas las imágenes dentro del tercer div usando ID
-    const images = document.querySelectorAll('.icon-image-izquierda');
-
-    // Crear la animación con GSAP y ScrollTrigger
-    gsap.to(images, {
-        x: 0, // Desplazar las imágenes 200px a la derecha
-        duration: 20, // Duración de la animación
-        stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-        scrollTrigger: {
-            trigger: '#icon-container-div', // El contenedor que activa la animación
-            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-            end: "bottom 95%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-            scrub: true // Sincroniza la animación con el scroll
-        }
-    });
-</script>
-
-<!--aca terminan los primero efectos de el partado de iconos -->
-
-<!--aca inicia el segundo apartado de los efectos de el apartado de iconos cuatro de arriba y cuatro de abajo del lado derecho-->
-
-<script>
-    // Seleccionar todas las imágenes dentro del tercer div usando ID
-    const images2 = document.querySelectorAll('.icon-image-izquierda2');
-
-    // Crear la animación con GSAP y ScrollTrigger
-    gsap.to(images2, {
-        x: 0, // Desplazar las imágenes 200px a la derecha
-        duration: 1, // Duración de la animación
-        stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-        scrollTrigger: {
-            trigger: '#icon-container-div2', // El contenedor que activa la animación
-            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-            end: "bottom 95%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-            scrub: true // Sincroniza la animación con el scroll
-        }
-    });
-</script>
-
-<!--aca termina el apartado de efectos de los iconos de lado derecho-->
-
-
-<!--===============================================================================================================
-esto son los efectos de las imagenes de servicios
-===============================================================================================================-->
-<script>
-    // Seleccionar todas las imágenes dentro del tercer div usando ID
-    const images6 = document.querySelectorAll('.ecomerce');
-
-    // Crear la animación con GSAP y ScrollTrigger
-    gsap.to(images6, {
-
-        opacity: 1,
-        x: 0, // Desplazar las imágenes 200px a la derecha
-        duration: 2, // Duración de la animación
-        stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-        scrollTrigger: {
-            trigger: '#ecomerce', // El contenedor que activa la animación
-            start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-            end: "bottom 80%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-            scrub: true, // Sincroniza la animación con el scroll
-        }
-    });
-</script>
-
-<!--===============================================================================================================
-aca terminan los efectos del apartado de los servicios que ofrecemos abajo del la imagen de inicio
-===============================================================================================================-->
-
-<!--===============================================================================================================
-        aca inician los efectos para la parte de los portafolios
-===============================================================================================================-->
-
-<script>
-// Registrar el plugin ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
-
-// Seleccionar todas las imágenes dentro del tercer div usando ID
-const images9 = document.querySelectorAll('.portafolio-izquierda2');
-
-// Crear la animación con GSAP y ScrollTrigger
-gsap.to(images9, {
-    x: 0, // Desplazar las imágenes 200px a la derecha
-    duration: 3, // Duración de la animación
-    stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
-    opacity: 1,
-    scrollTrigger: {
-        trigger: '#izquierda2', // El contenedor que activa la animación
-        start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-        end: "bottom 90%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-        scrub: true // Sincroniza la animación con el scroll
+        L.marker([lat, lng]).addTo(map)
+            .bindPopup(`
+                <div style="text-align: center;">
+                    <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" 
+                         alt="Logo Oiartzun" 
+                         style="max-width: 80px; display: block; margin: 0 auto; margin-top:25px;">
+                    <b style="margin-top:10px;">Oiartzun, País Vasco</b>
+                </div>
+            `).openPopup();
     }
- });
+
+    createMap('map-oiartzun', 43.29906393296637, -1.8600191715360295);
+});
 </script>
+>>>>>>> 9123d65 (agregar 404)
 
-<!--fin de los efectos en el aparatado de portafiolios-->
-
-<!--aca inician los efectos para el apartado de coemntarios-->
-
+<!-- GSAP: Comentarios -->
 <script>
-// Seleccionar todas las imágenes dentro del tercer div usando ID
-const images10 = document.querySelectorAll('.comentarios');
-
-// Crear la animación con GSAP y ScrollTrigger
-gsap.to(images10, {
-
+gsap.to(document.querySelectorAll('.comentarios'), {
     opacity: 1,
-    x: 0, // Desplazar las imágenes 200px a la derecha
-    duration: 2, // Duración de la animación
-    stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+    x: 0,
+    duration: 2,
     scrollTrigger: {
-        trigger: '#comentarios', // El contenedor que activa la animación
-        start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-        end: "bottom 80%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-        scrub: true, // Sincroniza la animación con el scroll
+        trigger: '#comentarios',
+        start: "top 100%",
+        end: "bottom 80%",
+        scrub: true,
     }
 });
 </script>
 
-<!--aca terminan los efectos para el apartadode comentarios-->
-
-
+<!-- GSAP: Color dinámico -->
 <script>
-// Seleccionar todas las imágenes dentro del tercer div usando ID
-const images11 = document.querySelectorAll('.cambio-color');
-
- // Crear la animación con GSAP y ScrollTrigger
-gsap.to(images11, {
-    // Desplazar las imágenes 200px a la derecha
-     backgroundColor: "blue",
-    duration: 2, // Duración de la animación
-    stagger: 0, // Retrasar cada imagen un poco para un efecto de escalonamiento
+gsap.to(document.querySelectorAll('.cambio-color'), {
+    backgroundColor: "blue",
+    duration: 2,
     scrollTrigger: {
-        trigger: '#backgroud', // El contenedor que activa la animación
-        start: "top 100%", // Inicia la animación cuando el contenedor esté en el centro de la pantalla
-        end: "bottom 25%", // Termina la animación cuando el contenedor salga del centro de la pantalla
-        scrub: true, // Sincroniza la animación con el scroll
+        trigger: '#backgroud',
+        start: "top 100%",
+        end: "bottom 25%",
+        scrub: true,
     }
- });
+});
 </script>
 
+<!-- Cambio de color aleatorio -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    function cambiarColor() {
-         const div = document.getElementById('miDiv');
-        const colorAleatorio =
-             `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
-           div.style.backgroundColor = colorAleatorio;
-    }
-
-     cambiarColor();
- });
+    const div = document.getElementById('miDiv');
+    const colorAleatorio = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+    div.style.backgroundColor = colorAleatorio;
+});
 </script>
 
+<!-- Subtítulos rotativos -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const subtitles = [
@@ -738,18 +663,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const subtitleElement = document.getElementById("changing-subtitle");
 
     function changeSubtitle() {
-        subtitleElement.style.opacity = 0; // Desvanecer texto
+        subtitleElement.style.opacity = 0;
         setTimeout(() => {
             index = (index + 1) % subtitles.length;
             subtitleElement.textContent = subtitles[index];
-            subtitleElement.style.opacity = 1; // Aparecer nuevo texto
-        }, 1000); // Tiempo de desaparición
+            subtitleElement.style.opacity = 1;
+        }, 1000);
     }
 
-    setInterval(changeSubtitle, 2300); // Cambia cada 4 segundos
+    setInterval(changeSubtitle, 2300);
 });
 </script>
 
+<<<<<<< HEAD
 
 
 
@@ -762,23 +688,27 @@ document.addEventListener("DOMContentLoaded", function () {
 <!-- CDN de animate.css para la animación del dropdown -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+=======
+<!-- Cierre automático del menú en móviles al hacer clic -->
+>>>>>>> 9123d65 (agregar 404)
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const navLinks = document.querySelectorAll('.navbar-collapse .nav-link:not(.dropdown-toggle)');
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-  
-      navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-          if (window.innerWidth < 992) { // Solo en móviles
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-            if (bsCollapse) {
-              bsCollapse.hide();
-            }
-          }
-        });
-      });
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link:not(.dropdown-toggle)');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      if (window.innerWidth < 992) {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        if (bsCollapse) {
+          bsCollapse.hide();
+        }
+      }
     });
-  </script>
+  });
+});
+</script>
+
   
 
 </body>
