@@ -47,7 +47,7 @@ def formulario_contactar(request):
             asunto=asunto,
             contenido_html=contenido_html,
             destinatario_email="info@euskodev.eus",
-            destinatario_nombre="Iñaki Retegi"
+            destinatario_nombre="Euskodev"
         )
 
         if resultado:
