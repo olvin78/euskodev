@@ -42,7 +42,13 @@ def formulario_contactar(request):
         <p><strong>Mensaje:</strong><br>{message}</p>
         """
 
-        resultado = enviar_email_brevo(asunto, contenido_html, "info@euskodev.eus")
+        resultado = enviar_email_brevo(
+            asunto="Nuevo mensaje de contacto",
+            contenido_html="<p>Nuevo email de contacto</p>",
+            destinatario_email="info@euskodev.eus",
+            destinatario_nombre="Iñaki Retegi"
+        )
+
 
         if resultado:
             messages.success(request, "Mensaje enviado con éxito.")

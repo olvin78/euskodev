@@ -13,12 +13,17 @@ def enviar_email_brevo(asunto, contenido_html, destinatario_email, destinatario_
         api_instance = TransactionalEmailsApi(ApiClient(configuration))
 
         email = SendSmtpEmail(
-            to=[{"email": destinatario_email, "name": destinatario_nombre}],
-            sender={"email": settings.DEFAULT_FROM_EMAIL, "name": "Euskodev"},
+            to=[{
+                "email": destinatario_email,
+                "name": destinatario_nombre or "Euskodev"  # Si no se pasa nombre, usa uno por defecto
+            }],
+            sender={
+                "email": settings.DEFAULT_FROM_EMAIL,
+                "name": "Euskodev"
+            },
             subject=asunto,
             html_content=contenido_html
         )
-
         response = api_instance.send_transac_email(email)
         return response
 
