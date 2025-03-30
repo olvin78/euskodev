@@ -22,8 +22,36 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 
+from .utils.email_brevo import enviar_email_brevo
 
 def formulario_contactar(request):
+    if request.method == "POST":
+        name = request.POST.get("name", "")
+        email = request.POST.get("email", "")
+        phone = request.POST.get("phone", "")
+        company = request.POST.get("company", "")
+        message = request.POST.get("message", "")
+
+        asunto = f"Nuevo mensaje de contacto de {name}"
+        contenido_html = f"""
+        <h3>Nuevo mensaje desde el formulario</h3>
+        <p><strong>Nombre:</strong> {name}</p>
+        <p><strong>Email:</strong> {email}</p>
+        <p><strong>Teléfono:</strong> {phone}</p>
+        <p><strong>Empresa:</strong> {company}</p>
+        <p><strong>Mensaje:</strong><br>{message}</p>
+        """
+
+        resultado = enviar_email_brevo(asunto, contenido_html, "info@euskodev.eus")
+
+        if resultado:
+            messages.success(request, "Mensaje enviado con éxito.")
+        else:
+            messages.error(request, "Error al enviar el mensaje.")
+
+        return redirect("home_app:home")
+
+def formulario_contactar2(request):
     if request.method == "POST":
         print("post")
         name = request.POST.get("name", "")
