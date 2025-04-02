@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-12 22:34+0000\n"
+"POT-Creation-Date: 2025-04-02 22:00+0200\n"
 "PO-Revision-Date: 2024-07-23 09:30+0000\n"
 "Last-Translator:   <olvind78@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,118 +19,705 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: euskodev/settings.py:148
-msgid "Spanish"
-msgstr "Español"
+#: euskodev/settings.py:179
+msgid "Español"
+msgstr ""
 
-#: euskodev/settings.py:151
-msgid "Basque"
-msgstr "Euskera"
+#: euskodev/settings.py:180
+msgid "Euskara"
+msgstr ""
 
-#: templates/home/Blog.html:28
+#: templates/dashboard/index.html:10
+msgid "Dashboard | Euskodev.eus"
+msgstr ""
+
+#: templates/home/Blog.html:28 templates/home/base copy.html:108
+#: templates/home/base.html:269 templates/home/index.html:74
 msgid "Desarrollo Web"
 msgstr "Web garapena"
 
-#: templates/home/Blog.html:98 templates/home/articulo_completo.html:79
-#: templates/home/index copy 2.html:189 2.html:272 3.html:192 3.html:275
-#: copy.html:147 copy.html:229 templates/home/index.html:193
-#: templates/home/index.html:316
+#: templates/home/Blog.html:97 templates/home/articulo_completo copy.html:79
+#: templates/home/articulo_completo.html:80
+#: templates/home/articulo_completo3.html:75 templates/home/base copy.html:103
+#: templates/home/base.html:266 templates/home/index.html:58
+#: templates/home/index2.html:165 templates/home/index2.html:268
 msgid "Servicios"
 msgstr "zerbitzuak"
 
-#: templates/home/Blog.html:101 templates/home/articulo_completo.html:82
-#: templates/home/index copy 2.html:192 2.html:364 3.html:195 3.html:367
-#: copy.html:150 copy.html:317 templates/home/index.html:196
-#: templates/home/index.html:408
+#: templates/home/Blog.html:100 templates/home/articulo_completo copy.html:82
+#: templates/home/articulo_completo.html:83
+#: templates/home/articulo_completo3.html:78 templates/home/base copy.html:142
+#: templates/home/base.html:279 templates/home/index.html:183
+#: templates/home/index2.html:170 templates/home/index2.html:392
 msgid "Portfolio"
 msgstr "Portfolioa"
 
-#: templates/home/Blog.html:104 templates/home/articulo_completo.html:85
-#: templates/home/index copy 2.html:195 2.html:546 3.html:198 3.html:549
-#: copy.html:153 copy.html:490 templates/home/index.html:199
-#: templates/home/index.html:590
+#: templates/home/Blog.html:103 templates/home/articulo_completo copy.html:85
+#: templates/home/articulo_completo.html:86
+#: templates/home/articulo_completo3.html:81 templates/home/base copy.html:147
+#: templates/home/base.html:280 templates/home/index.html:432
+#: templates/home/index2.html:175 templates/home/index2.html:543
 msgid "Sobre"
 msgstr "Buruz"
 
-#: templates/home/Blog.html:107 templates/home/Blog.html:144
-#: templates/home/articulo_completo.html:88
-#: templates/home/articulo_completo.html:125 templates/home/index copy
-#: 2.html:198 2.html:325 3.html:201 3.html:328 copy.html:156 copy.html:282
-#: templates/home/index.html:202 templates/home/index.html:369
+#: templates/home/Blog.html:106 templates/home/Blog.html:158
+#: templates/home/articulo_completo copy.html:88 copy.html:125
+#: templates/home/articulo_completo.html:89
+#: templates/home/articulo_completo.html:125
+#: templates/home/articulo_completo3.html:84 templates/home/base copy.html:152
+#: templates/home/base.html:281 templates/home/index.html:137
+#: templates/home/index2.html:180 templates/home/index2.html:342
 msgid "Blog"
 msgstr "Blog"
 
-#: templates/home/Blog.html:110 templates/home/articulo_completo.html:91
-msgid "Creadores"
-msgstr "Sortzaileak"
+#: templates/home/Blog.html:109 templates/home/articulo_completo.html:92
+#: templates/home/articulo_completo3.html:87 templates/home/base copy.html:157
+#: templates/home/base.html:283 templates/home/index2.html:185
+msgid "Nosotros"
+msgstr "Gu"
 
-#: templates/home/Blog.html:113 templates/home/articulo_completo.html:94
-#: templates/home/index copy 2.html:204 3.html:207 copy.html:162
-#: templates/home/index.html:208
+#: templates/home/Blog.html:112 templates/home/articulo_completo copy.html:94
+#: templates/home/articulo_completo.html:95
+#: templates/home/articulo_completo3.html:90 templates/home/base copy.html:162
+#: templates/home/base.html:284 templates/home/index2.html:190
 msgid "Contacto"
 msgstr "Kontaktua"
 
-#: templates/home/Blog.html:146
+#: templates/home/Blog.html:160
 msgid "¡Últimas novedades!."
 msgstr "Azken berriak!"
 
-#: templates/home/Blog.html:158
+#: templates/home/Blog.html:172
 msgid "Te puede interesar:"
 msgstr "Interesgarria izan daiteke:"
 
-#: templates/home/Blog.html:173
+#: templates/home/Blog.html:187
 msgid ""
 "Hemos desarrollado esta plataforma para ayudar en la preparación de "
 "oposiciones"
 msgstr "Plataforma hau oposaketak prestatzen laguntzeko garatu dugu"
 
-#: templates/home/Blog.html:221
+#: templates/home/Blog.html:235
 msgid "Leer artículo..."
 msgstr "Irakurri artikulua..."
 
+#: templates/home/aplicaciones_moviles.html:13
+#: templates/home/reservas_y_pagos.html:141
+#: templates/home/sistema_ticket.html:14
+#: templates/home/software_a_medida.html:23
+msgid "Imagen de portada representando los servicios digitales de Euskodev"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:20
+#: templates/home/desarrollo_web.html:50 templates/home/index.html:33
+#: templates/home/inteligencia_artificial.html:105
+#: templates/home/reservas_y_pagos.html:151
+#: templates/home/sistema_ticket.html:23
+#: templates/home/software_a_medida.html:33
+#: templates/home/trabaja_con_nosotros.html:50
+msgid "Tecnología y diseño que impulsan tu éxito"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:21
+#: templates/home/desarrollo_web.html:51 templates/home/index.html:34
+#: templates/home/inteligencia_artificial.html:106
+#: templates/home/reservas_y_pagos.html:152
+#: templates/home/sistema_ticket.html:24
+#: templates/home/software_a_medida.html:34
+#: templates/home/trabaja_con_nosotros.html:51
+#, fuzzy
+#| msgid "Desarrollo de software"
+msgid "Diseño web, desarrollo de software y apps a medida"
+msgstr "Web garapena "
+
+#: templates/home/aplicaciones_moviles.html:31
+#: templates/home/desarrollo_web.html:57 templates/home/index.html:44
+#: templates/home/inteligencia_artificial.html:112
+#: templates/home/sistema_ticket.html:34 templates/home/sistema_ticket.html:237
+#: templates/home/software_a_medida.html:37
+msgid "Solicita Presupuesto Gratis"
+msgstr ""
+
+#: templates/home/articulo_completo copy.html:28
 #: templates/home/articulo_completo.html:28
+#: templates/home/articulo_completo3.html:28
 msgid "Imagen Corporativa"
 msgstr ""
 
+#: templates/home/articulo_completo copy.html:91
+msgid "Creadores"
+msgstr "Sortzaileak"
+
+#: templates/home/articulo_completo copy.html:127
 #: templates/home/articulo_completo.html:127
 msgid "Últimas novedades!."
 msgstr "Azken berriak!"
 
-#: templates/home/index copy 2.html:28 3.html:28 copy.html:28
-#: templates/home/index.html:28
-msgid "Euskodev - Desarrollo Web, App e Imagen Corporativa"
-msgstr "Euskodev - Web garapena, App eta Irudi Korporatiboa"
+#: templates/home/base copy.html:113 templates/home/base.html:270
+msgid "Reservas y Pagos Online"
+msgstr ""
 
-#: templates/home/index copy 2.html:201 3.html:204 copy.html:159
-#: templates/home/index.html:205
-msgid "Nosotros"
-msgstr "Gu"
+#: templates/home/base copy.html:118 templates/home/base.html:271
+#: templates/home/index.html:104
+msgid "Software a Medida"
+msgstr ""
 
-#: templates/home/index copy 2.html:254 copy.html:210
-msgid "Desarrollo Web, APP<br> e Imagen Corporativa"
-msgstr "Web garapena, APP eta Irudi Korporatiboa"
+#: templates/home/base copy.html:123 templates/home/base.html:272
+#: templates/home/index.html:119
+msgid "Inteligencia Artificial"
+msgstr ""
 
-#: templates/home/index copy 2.html:274 3.html:277 copy.html:231
-#: templates/home/index.html:318
+#: templates/home/base copy.html:128 templates/home/base.html:273
+#: templates/home/index.html:89
+msgid "Aplicaciones Móviles"
+msgstr ""
+
+#: templates/home/base copy.html:133 templates/home/base.html:274
+msgid "Sistema de Ticket"
+msgstr ""
+
+#: templates/home/base copy.html:210 templates/home/base.html:340
+#, fuzzy
+#| msgid "Euskodev &copy;tu creador de sitios web 2024"
+msgid "Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025"
+msgstr "Euskodev &copy;zure webgunearen eraikitzailea 2024"
+
+#: templates/home/base copy.html:246 templates/home/base.html:376
+#: templates/home/index2.html:922
+msgid "Políticas de privacidad"
+msgstr ""
+
+#: templates/home/base copy.html:252 templates/home/base.html:382
+#: templates/home/index2.html:925
+#, fuzzy
+#| msgid "Aviso_legal"
+msgid "Aviso legal"
+msgstr "Lege abisua"
+
+#: templates/home/base copy.html:258 templates/home/base.html:388
+#: templates/home/index2.html:929
+#, fuzzy
+#| msgid "politicas de cookies"
+msgid "Políticas de cookies"
+msgstr "cookie politikak"
+
+#: templates/home/base copy.html:285 templates/home/base.html:419
+#: templates/home/index2.html:955
+msgid "Facilitamos Vuestro Aprendizaje"
+msgstr "Zure ikaskuntza errazten dugu"
+
+#: templates/home/base copy.html:293 templates/home/base.html:427
+#: templates/home/index2.html:960
+msgid ""
+" es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia "
+"variedad de test para diferentes puestos de trabajo en el ámbito de la "
+"salud, la educación, la administración y otros sectores."
+msgstr ""
+"Zure atari ezin hobea da zure burua arrakastaz prestatzeko. Webgune honek "
+"hainbat proba eskaintzen dizkizu osasunaren, hezkuntzaren, administrazioaren "
+"eta beste sektore batzuetako lanpostu ezberdinetarako."
+
+#: templates/home/base copy.html:297 templates/home/base.html:431
+#: templates/home/index2.html:965 templates/home/index2.html:1010
+msgid "Personas:"
+msgstr "Jendea"
+
+#: templates/home/base copy.html:298 copy.html:350 copy.html:403
+#: templates/home/base.html:432 templates/home/base.html:483
+#: templates/home/base.html:535
+#, fuzzy
+#| msgid "Category:"
+msgid "Categoría:"
+msgstr "Kategoria"
+
+#: templates/home/base copy.html:303 copy.html:359 templates/home/base.html:437
+#: templates/home/base.html:492 templates/home/index2.html:976
+#: templates/home/index2.html:1021
+msgid "Volver"
+msgstr "Itzuli"
+
+#: templates/home/base copy.html:336 templates/home/base.html:469
+#: templates/home/index2.html:1001
+msgid "Euskodev"
+msgstr "Euskodev"
+
+#: templates/home/base copy.html:337 templates/home/base.html:470
+#, fuzzy
+#| msgid "Desarrollo de software"
+msgid "Desarrollo de software a medida"
+msgstr "Web garapena "
+
+#: templates/home/base copy.html:345 templates/home/base.html:478
+#, fuzzy
+#| msgid ""
+#| "Euskodev: Su aliado en el desarrollo de software <br> Euskodev, un equipo "
+#| "de desarrolladores de software en el País Vasco. especializado en la "
+#| "creación de soluciones digitales a medida, para empresas de todos los "
+#| "tamaños, desde pequeñas startups hasta grandes corporaciones!"
+msgid ""
+"Tu aliado en el desarrollo de software. <br> Euskodev es un equipo de "
+"desarrolladores expertos en el País Vasco, especializados en la creación de "
+"soluciones digitales personalizadas para empresas de todos los tamaños, "
+"desde startups hasta grandes corporaciones."
+msgstr ""
+"Euskodev: zure aliatua software garapenean <br> Euskodev, Euskal Herriko "
+"software garatzaileen taldea. irtenbide digital pertsonalizatuak sortzen "
+"espezializatua, tamaina guztietako enpresentzat, startup txikietatik hasi "
+"eta korporazio handietara!"
+
+#: templates/home/base copy.html:351 templates/home/base.html:484
+#, fuzzy
+#| msgid "Desarrollo de software"
+msgid "Desarrollo de software y soluciones digitales"
+msgstr "Web garapena "
+
+#: templates/home/base copy.html:389 templates/home/base.html:521
+#: templates/home/index2.html:1044
+msgid "Gastrogune"
+msgstr ""
+
+#: templates/home/base copy.html:390 templates/home/base.html:522
+#: templates/home/index2.html:1046
+msgid "GastroGune: La esencia de Euskadi en cada bocado."
+msgstr "GastroGune: Euskadiren esentzia mokadu bakoitzean."
+
+#: templates/home/base copy.html:398 templates/home/base.html:530
+#, fuzzy
+#| msgid ""
+#| "GastroGune: Tu Guía para Descubrir la Gastronomía <br> Vasca Eusko.Gune "
+#| "no solo te acerca la cocina vasca a tu hogar a través de recetas "
+#| "tradicionales, sino que también te sirve como guía para descubrir y "
+#| "disfrutar de los mejores lugares y restaurantes del País Vasco.!"
+msgid ""
+"Tu guía para descubrir la gastronomía vasca. Eusko.Gune no solo te acerca la "
+"cocina vasca a tu hogar con recetas tradicionales, sino que también te ayuda "
+"a encontrar los mejores restaurantes del País Vasco para disfrutar su "
+"auténtica esencia gastronómica."
+msgstr ""
+"GastroGune: Euskal Gastronomia Deskubritzeko Zure Gida Eusko.Gunek euskal "
+"sukaldaritza ohiko errezeta bidez zure etxera ekartzeaz gain, Euskal Herriko "
+"leku eta jatetxe onenak ezagutzeko eta gozatzeko gida ere balio du."
+
+#: templates/home/base copy.html:404 templates/home/base.html:536
+msgid "Gastronomía Vasca y Restaurantes"
+msgstr ""
+
+#: templates/home/base copy.html:412 templates/home/base.html:544
+#, fuzzy
+#| msgid "Close Project"
+msgid "Cerrar Proyecto"
+msgstr "itzuli"
+
+#: templates/home/base.html:282
+msgid "Formar Parte"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:41
+#: templates/home/inteligencia_artificial.html:96
+#: templates/home/trabaja_con_nosotros.html:41
+msgid ""
+"Imagen de portada representando los servicios digitales de diseño web de "
+"Euskodev"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:68
+msgid "Aspectos clave de tu web profesional"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:70
+msgid ""
+"Euskodev te ofrece soluciones web completas centradas en rendimiento, "
+"seguridad y experiencia de usuario."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:83 templates/home/desarrollo_web.html:136
+#: templates/home/index2.html:284
+msgid "E-Commerce"
+msgstr "Merkataritza Elektronikoa"
+
+#: templates/home/desarrollo_web.html:85
+msgid ""
+"Lleva tu negocio al mundo digital con un eCommerce moderno, funcional y "
+"seguro. Amplía tu alcance, aumenta tus ventas y gestiona todo desde un solo "
+"panel."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:98 templates/home/desarrollo_web.html:146
+#, fuzzy
+#| msgid "Sitios Webs Responsives"
+msgid "Diseño Responsive"
+msgstr "Responsives  Webguneak"
+
+#: templates/home/desarrollo_web.html:100
+msgid ""
+"Adaptamos tu sitio a todos los dispositivos: móviles, tablets y ordenadores. "
+"Diseño UX profesional que mejora la experiencia del usuario y tu conversión."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:113
+#: templates/home/desarrollo_web.html:156
+msgid "Seguridad Web"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:115
+msgid ""
+"Protegemos tu sitio con HTTPS, cifrado y protocolos de seguridad web para "
+"mantener tus datos y los de tus usuarios completamente seguros."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:127
+msgid "¿Qué incluye cada servicio?"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:128
+msgid ""
+"Te explicamos en detalle qué obtienes al contratar cada solución digital."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:137
+msgid ""
+"Ventas online con carrito de compra, pagos integrados y gestión de pedidos."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:147
+msgid ""
+"Diseño adaptable a cualquier dispositivo, optimizado para experiencia de "
+"usuario."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:157
+msgid ""
+"Certificados SSL, protección contra ataques y control total del sistema."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:169
+msgid "¿Por qué elegir Euskodev?"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:170
+msgid "Te damos razones reales para confiar en nosotros."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:177
+msgid "Trato humano y directo"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:178
+msgid "Acompañamos tu proyecto como si fuera nuestro, siempre cerca de ti."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:185
+msgid "Eficiencia sin rodeos"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:186
+msgid ""
+"Nos enfocamos en entregarte justo lo que necesitas en el menor tiempo "
+"posible."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:193
+msgid "Resultados medibles"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:194
+msgid "Creamos soluciones que generan impacto real en tu negocio."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:207 templates/home/sistema_ticket.html:50
+msgid "¿Cómo desarrollamos tu proyecto?"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:208 templates/home/sistema_ticket.html:51
+msgid "De la idea al lanzamiento, este es nuestro proceso colaborativo."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:218 templates/home/sistema_ticket.html:61
+msgid "1. Exploramos tus ideas"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:219 templates/home/sistema_ticket.html:62
+msgid ""
+"Analizamos tus necesidades, el sector y tu propuesta de valor para empezar "
+"con claridad."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:229 templates/home/sistema_ticket.html:72
+msgid "2. Diseñamos la experiencia"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:230 templates/home/sistema_ticket.html:73
+msgid ""
+"Creamos wireframes y prototipos atractivos centrados en el usuario y sus "
+"objetivos."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:240 templates/home/sistema_ticket.html:83
+msgid "3. Desarrollamos la solución"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:241 templates/home/sistema_ticket.html:84
+msgid ""
+"Transformamos los diseños en sistemas funcionales, conectando APIs y "
+"servicios reales."
+msgstr ""
+
+#: templates/home/desarrollo_web.html:251 templates/home/sistema_ticket.html:94
+msgid "4. Lanzamos y medimos"
+msgstr ""
+
+#: templates/home/desarrollo_web.html:252 templates/home/sistema_ticket.html:95
+msgid ""
+"Publicamos tu proyecto y monitorizamos resultados para seguir mejorando "
+"contigo."
+msgstr ""
+
+#: templates/home/index.html:25
+msgid "Tu navegador no soporta videos"
+msgstr ""
+
+#: templates/home/index.html:61 templates/home/index2.html:271
 #, fuzzy
 #| msgid "¡Conoce un poco de nuestros servicios!."
 msgid "¡Conoce un poco de nuestros servicios!"
 msgstr "Ikasi pixka bat gure zerbitzuei buruz!"
 
-#: templates/home/index copy 2.html:282 3.html:285 copy.html:239
-#: templates/home/index.html:326
-msgid "E-Commerce"
+#: templates/home/index.html:69
+#, fuzzy
+#| msgid "Desarrollo Web"
+msgid "Icono Desarrollo Web"
+msgstr "Web garapena"
+
+#: templates/home/index.html:77
+msgid "Diseño y creación de sitios web modernos y optimizados para tu negocio."
+msgstr ""
+
+#: templates/home/index.html:84
+msgid "Icono Aplicaciones Móviles"
+msgstr ""
+
+#: templates/home/index.html:92
+msgid ""
+"Apps nativas y multiplataforma para iOS y Android con la mejor experiencia "
+"de usuario."
+msgstr ""
+
+#: templates/home/index.html:99
+msgid "Icono Software a Medida"
+msgstr ""
+
+#: templates/home/index.html:107
+msgid ""
+"Desarrollamos soluciones personalizadas para optimizar la gestión de tu "
+"empresa."
+msgstr ""
+
+#: templates/home/index.html:114
+msgid "Icono Inteligencia Artificial"
+msgstr ""
+
+#: templates/home/index.html:122
+msgid "Integración de IA y Machine Learning para potenciar tu negocio."
+msgstr ""
+
+#: templates/home/index.html:140 templates/home/index2.html:345
+#, fuzzy
+#| msgid "¡Últimas novedades!."
+msgid "¡Últimas publicaciones!"
+msgstr "Azken berriak!"
+
+#: templates/home/index.html:184 templates/home/index2.html:393
+#, fuzzy
+#| msgid "¡Hecha un vistazo!."
+msgid "¡Echa un vistazo!."
+msgstr "Eman begirada bat! ; )"
+
+#: templates/home/index.html:438
+msgid ""
+"Desde Oiartzun, en el corazón del País Vasco, en Euskodev ayudamos a "
+"negocios de Oiartzun, Errenteria, Lezo y Pasajes a digitalizarse con "
+"soluciones que funcionan: webs modernas, tiendas online, apps y software a "
+"medida."
+msgstr ""
+
+#: templates/home/index.html:442
+msgid ""
+"No ofrecemos lo mismo para todos. Nos sentamos contigo, entendemos tu "
+"proyecto y lo adaptamos a lo que realmente necesitas, con cercanía y trato "
+"directo."
+msgstr ""
+
+#: templates/home/index.html:446
+msgid ""
+"Si buscas una empresa local de confianza que hable claro y te acompañe de "
+"verdad, Euskodev es tu aliado digital."
+msgstr ""
+
+#: templates/home/index.html:462 templates/home/index2.html:559
+msgid "Creación y Remodelación de páginas y sitios web"
+msgstr "Orriak eta webguneak sortzea eta birmoldatzea"
+
+#: templates/home/index.html:465 templates/home/index2.html:563
+msgid "¿Tu sitio web necesita un cambio de imagen?"
+msgstr "Zure webguneak aldaketa bat behar al du?"
+
+#: templates/home/index.html:466
+msgid ""
+"En Euskodev rediseñamos y renovamos sitios que ya no cumplen con los "
+"estándares modernos. Desde lo visual hasta la funcionalidad, adaptamos tu "
+"web para que transmita confianza, profesionalismo y conecte con tus clientes."
+msgstr ""
+
+#: templates/home/index.html:480 templates/home/index2.html:578
+msgid "Dominio, hosting y seguridad"
+msgstr "Domeinua, hostinga eta segurtasuna"
+
+#: templates/home/index.html:483
+msgid ""
+"Gestionamos el registro y configuración de tu dominio para que estés online "
+"sin complicaciones."
+msgstr ""
+
+#: templates/home/index.html:484
+msgid ""
+"Alojamos tu sitio en servidores seguros, con certificados SSL, backups "
+"automáticos y protección contra ataques."
+msgstr ""
+
+#: templates/home/index.html:498 templates/home/index2.html:603
+msgid "Sitios Webs Responsives"
+msgstr "Responsives  Webguneak"
+
+#: templates/home/index.html:501
+msgid ""
+"Creamos sitios adaptables a todos los dispositivos, mejorando la experiencia "
+"del usuario en móviles, tablets y ordenadores."
+msgstr ""
+
+#: templates/home/index.html:502
+msgid ""
+"Esto también mejora tu posicionamiento en Google y aumenta el tiempo de "
+"permanencia en la web."
+msgstr ""
+
+#: templates/home/index.html:516 templates/home/index2.html:621
+#, fuzzy
+#| msgid "E-Commerce"
+msgid "E-commerce"
 msgstr "Merkataritza Elektronikoa"
 
-#: templates/home/index copy 2.html:285 3.html:288 copy.html:242
-#: templates/home/index.html:329
+#: templates/home/index.html:519
 msgid ""
-"Eleve su presencia online con las soluciones de eCommerce de euskodev <br> "
-"En el panorama digital actual, un sitio web de eCommerce no es solo un lujo; "
-"es una necesidad para empresas de todos los tamaños. Con un sitio web de "
+"Creamos tiendas online que venden. Desde catálogos hasta pasarelas de pago, "
+"todo pensado para que tu cliente compre fácil y tú gestiones sin dolores de "
+"cabeza."
+msgstr ""
+
+#: templates/home/index.html:520
+msgid ""
+"Ideal para comercios, productos locales y emprendedores que quieren vender "
+"en línea desde el País Vasco al mundo."
+msgstr ""
+
+#: templates/home/index.html:534 templates/home/index2.html:639
+msgid "Diseño Gráfico"
+msgstr "Diseinu grafikoa"
+
+#: templates/home/index.html:537
+msgid ""
+"Creamos identidades visuales coherentes, atractivas y adaptadas a tu público "
+"objetivo. Desde logotipos hasta banners o material impreso."
+msgstr ""
+
+#: templates/home/index.html:538
+msgid ""
+"Un buen diseño fortalece tu marca, genera confianza y hace que tu negocio "
+"destaque entre la competencia."
+msgstr ""
+
+#: templates/home/index.html:552 templates/home/index2.html:664
+msgid "Euskodev: Su socio de SEO para una presencia online próspera"
+msgstr "Euskodev: Zure SEO bazkide online presentzia oparoa izateko"
+
+#: templates/home/index.html:555
+msgid ""
+"Optimizamos tu web con técnicas de SEO técnico y de contenido para aparecer "
+"en los primeros resultados de Google."
+msgstr ""
+
+#: templates/home/index.html:556
+msgid ""
+"Te ayudamos a atraer más visitas orgánicas, mejorar tu reputación digital y "
+"convertir más clientes."
+msgstr ""
+
+#: templates/home/index.html:563 templates/home/index2.html:679
+msgid "¡Se parte <br/> de nuestra <br/> historia!"
+msgstr "Izan zaitez gure <br/> historiaren parte!"
+
+#: templates/home/index.html:577
+msgid "OPINIONES"
+msgstr ""
+
+#: templates/home/index.html:636
+msgid "Tu navegador no soporta el elemento de video."
+msgstr ""
+
+#: templates/home/index.html:644 templates/home/index2.html:739
+msgid "Sobre nosotros"
+msgstr "Guri buruz"
+
+#: templates/home/index.html:646
+msgid "Developers Full Stack y soluciones digitales a medida."
+msgstr ""
+
+#: templates/home/index.html:649
+msgid ""
+"Euskodev es una empresa de desarrollo de software ubicada en Oiartzun, "
+"dedicada a la creación de soluciones digitales personalizadas para empresas "
+"y negocios. Nos especializamos en desarrollo web, automatización de procesos "
+"y digitalización empresarial."
+msgstr ""
+
+#: templates/home/index.html:652
+msgid ""
+"Nuestro equipo está comprometido en ofrecer tecnología innovadora y "
+"eficiente, ayudando a empresas a modernizar sus operaciones y alcanzar "
+"nuevos niveles de productividad."
+msgstr ""
+
+#: templates/home/index.html:664 templates/home/index.html:793
+#: templates/home/index2.html:809
+msgid "Contáctanos"
+msgstr "Kontaktatu"
+
+#: templates/home/index.html:794 templates/home/index2.html:810
+msgid "Sin Fronteras."
+msgstr "Mugarik gabe."
+
+#: templates/home/index2.html:36
+#, fuzzy
+#| msgid "Euskodev - Desarrollo Web, App e Imagen Corporativa"
+msgid "Euskodev | Desarrollo Web, Apps and Profesional técnologies Service"
+msgstr "Euskodev - Web garapena, App eta Irudi Korporatiboa"
+
+#: templates/home/index2.html:286
+#, fuzzy
+#| msgid ""
+#| "Eleve su presencia online con las soluciones de eCommerce de euskodev "
+#| "<br> En el panorama digital actual, un sitio web de eCommerce no es solo "
+#| "un lujo; es una necesidad para empresas de todos los tamaños. Con un "
+#| "sitio web de eCommerce, puede llegar a una audiencia global, ampliar su "
+#| "base de clientes y aumentar sus ventas. Pero crear un sitio web de "
+#| "eCommerce exitoso requiere más que un diseño atractivo. Debe ser "
+#| "funcional, fácil de usar y seguro.."
+msgid ""
+"Eleve su presencia online con las soluciones de eCommerce de Euskodev. En el "
+"panorama digital actual, un sitio web de eCommerce no es solo un lujo; es "
+"una necesidad para empresas de todos los tamaños. Con un sitio web de "
 "eCommerce, puede llegar a una audiencia global, ampliar su base de clientes "
 "y aumentar sus ventas. Pero crear un sitio web de eCommerce exitoso requiere "
-"más que un diseño atractivo. Debe ser funcional, fácil de usar y seguro.."
+"más que un diseño atractivo. Debe ser funcional, fácil de usar y seguro."
 msgstr ""
 "Handitu zure sareko presentzia euskodev-en merkataritza elektronikoko "
 "soluzioekin <br> Gaur egungo panorama digitalean, merkataritza "
@@ -141,13 +728,11 @@ msgstr ""
 "diseinu erakargarria baino gehiago eskatzen du. Funtzionala, erabiltzeko "
 "erraza eta segurua izan behar du."
 
-#: templates/home/index copy 2.html:294 3.html:297 copy.html:251
-#: templates/home/index.html:338
+#: templates/home/index2.html:297
 msgid "Responsive Design"
 msgstr "Responsive Design"
 
-#: templates/home/index copy 2.html:297 3.html:300 copy.html:254
-#: templates/home/index.html:341
+#: templates/home/index2.html:299
 msgid ""
 "Creamos sitios web responsive que se adaptan a la perfección a cualquier "
 "tamaño de pantalla, desde ordenadores de sobremesa y portátiles hasta "
@@ -163,20 +748,25 @@ msgstr ""
 "(UX) paregabea eskaintzen duela gailu guztietan, zure bisitariak arduratuta "
 "mantenduz eta gehiago eskatzeko itzultzeko."
 
-#: templates/home/index copy 2.html:307 3.html:310 copy.html:264
-#: templates/home/index.html:351
+#: templates/home/index2.html:310
 msgid "Web Security"
 msgstr "Web Segurtasuna"
 
-#: templates/home/index copy 2.html:310 3.html:313 copy.html:267
-#: templates/home/index.html:354
+#: templates/home/index2.html:312
+#, fuzzy
+#| msgid ""
+#| "La seguridad del sitio web es primordial. En euskodev, ofrecemos "
+#| "soluciones integrales de seguridad web para proteger tus activos online "
+#| "de las amenazas en constante evolución.. <br><br> HTTPS: Nos aseguramos "
+#| "de que su sitio web utilice HTTPS para cifrar todo el tráfico entre "
+#| "su                        sitio y los navegadores de los visitantes, "
+#| "protegiendo la confidencialidad de los datos."
 msgid ""
-"La seguridad del sitio web es primordial. En euskodev, ofrecemos soluciones "
+"La seguridad del sitio web es primordial. En Euskodev, ofrecemos soluciones "
 "integrales de seguridad web para proteger tus activos online de las amenazas "
-"en constante evolución.. <br><br> HTTPS: Nos aseguramos de que su sitio web "
-"utilice HTTPS para cifrar todo el tráfico entre su                        "
-"sitio y los navegadores de los visitantes, protegiendo la confidencialidad "
-"de los datos."
+"en constante evolución.<br><br>HTTPS: Nos aseguramos de que su sitio web "
+"utilice HTTPS para cifrar todo el tráfico entre su  sitio y los navegadores "
+"de los visitantes, protegiendo la confidencialidad de los datos."
 msgstr ""
 "Webgunearen segurtasuna funtsezkoa da. euskodev-en, zure sareko aktiboak "
 "etengabe eboluzionatzen ari diren mehatxuetatik babesteko web-segurtasun-"
@@ -185,20 +775,7 @@ msgstr ""
 "arakatzaileen arteko trafiko guztia enkriptatzeko, isilpekotasuna babestuz. "
 "datuak."
 
-#: templates/home/index copy 2.html:327 3.html:330 copy.html:284
-#: templates/home/index.html:371
-#, fuzzy
-#| msgid "¡Últimas novedades!."
-msgid "¡Últimas publicaciones!"
-msgstr "Azken berriak!"
-
-#: templates/home/index copy 2.html:366 3.html:369 copy.html:319
-#: templates/home/index.html:410
-msgid "¡Hecha un vistazo!."
-msgstr "Eman begirada bat! ; )"
-
-#: templates/home/index copy 2.html:548 3.html:551 copy.html:492
-#: templates/home/index.html:592
+#: templates/home/index2.html:545
 msgid ""
 "En euskodev somos un equipo apasionado de desarrolladores web, app y diseño "
 "de imagen corporativa, expertos en crear soluciones digitales que impulsan "
@@ -222,18 +799,7 @@ msgstr ""
 "abiarazi eta mantentzera arte. Harro gaude kalitate handiko zerbitzu, "
 "pertsonalizatua eta merkean eskaintzeaz."
 
-#: templates/home/index copy 2.html:562 3.html:565 copy.html:505
-#: templates/home/index.html:606
-msgid "Creación y Remodelación de páginas y sitios web"
-msgstr "Orriak eta webguneak sortzea eta birmoldatzea"
-
-#: templates/home/index copy 2.html:566 3.html:569 copy.html:509
-#: templates/home/index.html:610
-msgid "¿Tu sitio web necesita un cambio de imagen?"
-msgstr "Zure webguneak aldaketa bat behar al du?"
-
-#: templates/home/index copy 2.html:568 3.html:571 copy.html:511
-#: templates/home/index.html:612
+#: templates/home/index2.html:565
 msgid ""
 "En euskodev, ofrecemos servicios profesionales de creación y remodelación de "
 "páginas y sitios web. Somos expertos en transformar sitios web obsoletos o "
@@ -245,18 +811,11 @@ msgstr ""
 "funtzionatzen ez duten webgune moderno, erakargarri eta funtzional "
 "bilakatzen, zure negozio-helburuak lortzen lagunduko dizutenak!"
 
-#: templates/home/index copy 2.html:580 3.html:583 copy.html:522
-#: templates/home/index.html:625
-msgid "Dominio, hosting y seguridad"
-msgstr "Domeinua, hostinga eta segurtasuna"
-
-#: templates/home/index copy 2.html:582 3.html:585 copy.html:524
-#: templates/home/index.html:627
+#: templates/home/index2.html:580
 msgid "campo libre"
 msgstr ""
 
-#: templates/home/index copy 2.html:589 3.html:592 copy.html:531
-#: templates/home/index.html:634
+#: templates/home/index2.html:587
 msgid ""
 "Registro de tu dominio: Elige el nombre perfecto para tu proyecto y nosotros "
 "nos encargamos de registrarlo y configurarlo para que tu sitio web sea "
@@ -276,13 +835,7 @@ msgstr ""
 "arriskuan jar dezaketen ziber-eraso, malware eta bestelako mehatxuak "
 "saihesteko."
 
-#: templates/home/index copy 2.html:605 3.html:608 copy.html:545
-#: templates/home/index.html:650
-msgid "Sitios Webs Responsives"
-msgstr "Responsives  Webguneak"
-
-#: templates/home/index copy 2.html:609 3.html:612 copy.html:549
-#: templates/home/index.html:654
+#: templates/home/index2.html:607
 msgid ""
 "¿Tu sitio web se adapta a todas las pantallas? <br> <br>  En la era digital "
 "actual, donde cada vez más personas acceden a internet desde dispositivos "
@@ -298,15 +851,7 @@ msgstr ""
 "doitzen dena da, mahaigaineko ordenagailu bat, tablet bat edo smartphone bat "
 "izan!"
 
-#: templates/home/index copy 2.html:623 3.html:626 copy.html:562
-#: templates/home/index.html:668
-#, fuzzy
-#| msgid "E-Commerce"
-msgid "E-commerce"
-msgstr "Merkataritza Elektronikoa"
-
-#: templates/home/index copy 2.html:627 3.html:630 copy.html:566
-#: templates/home/index.html:672
+#: templates/home/index2.html:625
 msgid ""
 "Euskodev: Desarrolle su tienda online con expertos en comercio electrónico "
 "En Euskodev, comprendemos el poder transformador del comercio electrónico en "
@@ -320,13 +865,7 @@ msgstr ""
 "sendoa ezartzen laguntzen diegu merkataritza elektronikoko soluzio "
 "pertsonalizatu eta puntakoekin!"
 
-#: templates/home/index copy 2.html:641 3.html:644 copy.html:579
-#: templates/home/index.html:686
-msgid "Diseño Gráfico"
-msgstr "Diseinu grafikoa"
-
-#: templates/home/index copy 2.html:645 3.html:648 copy.html:583
-#: templates/home/index.html:690
+#: templates/home/index2.html:643
 msgid ""
 "Euskodev: Creando experiencias visuales cautivadoras para su presencia "
 "digital En la era digital actual, un sitio web visualmente atractivo y fácil "
@@ -345,13 +884,7 @@ msgstr ""
 "aditu eta sortzaileen taldea gogotsu dago itxura zoragarria ez ezik, "
 "erabiltzaile-esperientzia paregabea eskaintzen duten webguneak sortzeaz."
 
-#: templates/home/index copy 2.html:666 3.html:669 copy.html:602
-#: templates/home/index.html:711
-msgid "Euskodev: Su socio de SEO para una presencia online próspera"
-msgstr "Euskodev: Zure SEO bazkide online presentzia oparoa izateko"
-
-#: templates/home/index copy 2.html:670 3.html:673 copy.html:606
-#: templates/home/index.html:715
+#: templates/home/index2.html:668
 msgid ""
 "En el panorama digital competitivo actual, una presencia online sólida es "
 "crucial para empresas de todos los tamaños. Un sitio web bien optimizado no "
@@ -378,77 +911,23 @@ msgstr ""
 "ulertzen dugu. Gure SEO zerbitzu integralak zure webgunearen ikusgarritasuna "
 "areagotzeko diseinatuta daude"
 
-#: templates/home/index copy 2.html:681 3.html:684 copy.html:617
-#: templates/home/index.html:726
-msgid "¡Se parte <br/> de nuestra <br/> historia!"
-msgstr "Izan zaitez gure <br/> historiaren parte!"
-
-#: templates/home/index copy 2.html:699 3.html:702 copy.html:635
-#: templates/home/index.html:744
-msgid "opiniones"
-msgstr "iritziak"
-
-#: templates/home/index copy 2.html:710 3.html:713 copy.html:645
-#: templates/home/index.html:755
-msgid ""
-"En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon con "
-"atención y entendieron mis necesidades a la perfección."
-msgstr ""
-"Euskodev-en nire negoziorako webgune ezin hobea diseinatu zuten. Arretaz "
-"entzun ninduten eta primeran ulertzen zituzten nire beharrak."
-
-#: templates/home/index copy 2.html:723 3.html:726 copy.html:658
-#: templates/home/index.html:768
-msgid ""
-"Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev me "
-"lo pusieron facilísimo. Desde el principio me escucharon y entendieron lo "
-"que quería. Me hicieron un diseño chulísimo y que funciona a la perfección, "
-"¡hasta me subieron en el buscador! Son majísimos y profesionales."
-msgstr ""
-"Nire negoziorako webgune baten bila nenbilen eta ez nekien nondik hasi. "
-"Euskodev-en oso erraz jarri zidaten. Hasieratik entzun zidaten eta zer nahi "
-"nuen ulertu zuten. Oso diseinu polita egin zidaten, primeran funtzionatzen "
-"duena, bilatzailean ere igo ninduten! Oso atseginak eta profesionalak dira."
-
-#: templates/home/index copy 2.html:735 3.html:738 copy.html:670
-#: templates/home/index.html:780
-msgid ""
-"En Euskodev me entendieron a la perfección. Desde el principio supieron lo "
-"que buscaba para mi negocio online. Me hicieron una web preciosa y que "
-"funciona de maravilla. Además, me ayudaron a que me encontraran en Google, "
-"¡estoy encantado! Son un equipo súper atento y profesional."
-msgstr ""
-"Euskodev-en primeran ulertu ninduten. Hasieratik bazekiten zer bilatzen nuen "
-"nire online negoziorako. Zoragarri funtzionatzen duen webgune eder bat egin "
-"zidaten. Gainera, Google-n aurkitzen lagundu didate, pozik nago! Talde oso "
-"erne eta profesional bat dira."
-
-#: templates/home/index copy 2.html:757 3.html:760 copy.html:692
-#: templates/home/index.html:802
-msgid "Sobre nosotros"
-msgstr "Guri buruz"
-
-#: templates/home/index copy 2.html:758 3.html:761 copy.html:693
-#: templates/home/index.html:803
+#: templates/home/index2.html:740
 msgid "Developers Full Stack."
 msgstr "Full Stack garatzaileak."
 
-#: templates/home/index copy 2.html:766 3.html:769 copy.html:701
-#: templates/home/index.html:811
+#: templates/home/index2.html:748
 #, fuzzy
 #| msgid "Full Stack Developer"
 msgid "Full Stack Developer & Photographer"
 msgstr "Full Stack garatzailea"
 
-#: templates/home/index copy 2.html:801 3.html:804 copy.html:736
-#: templates/home/index.html:846
+#: templates/home/index2.html:765
 #, fuzzy
 #| msgid "Full Stack Developer"
 msgid "Full Stack Developer & Designer"
 msgstr "Full Stack garatzailea"
 
-#: templates/home/index copy 2.html:815 3.html:818 copy.html:750
-#: templates/home/index.html:860
+#: templates/home/index2.html:779
 msgid ""
 "Euskodev: Donde la tecnología se convierte en realidad Si está buscando un "
 "equipo de programadores digitales confiables y experimentados que puedan "
@@ -464,138 +943,19 @@ msgstr ""
 "gaur egungo mundu digitalean aurrera egiteko behar dituzun irtenbide "
 "digitalak emango dizkizu."
 
-#: templates/home/index copy 2.html:888 3.html:891 copy.html:822
-#: templates/home/index.html:932
-msgid "Contáctanos"
-msgstr "Kontaktatu"
-
-#: templates/home/index copy 2.html:889 3.html:892 copy.html:823
-#: templates/home/index.html:934
-msgid "Sin Fronteras."
-msgstr "Mugarik gabe."
-
-#: templates/home/index copy 2.html:906 3.html:909 copy.html:836
-#: templates/home/index.html:951
-msgid "Nombre"
-msgstr "Izena"
-
-#: templates/home/index copy 2.html:908 3.html:911 copy.html:839
-#: templates/home/index.html:953
-msgid "A name is required."
-msgstr "Izena behar da."
-
-#: templates/home/index copy 2.html:913 3.html:916 copy.html:843
-#: templates/home/index.html:958
-msgid "Email"
-msgstr "Posta elektronikoa"
-
-#: templates/home/index copy 2.html:915 3.html:918 copy.html:846
-#: templates/home/index.html:960
-msgid "An email is required"
-msgstr "Posta elektroniko bat behar da"
-
-#: templates/home/index copy 2.html:917 3.html:920 copy.html:848
-#: templates/home/index.html:962
-msgid "Email is not valid."
-msgstr "Posta elektronikoa ez da baliozkoa."
-
-#: templates/home/index copy 2.html:922 3.html:925 copy.html:852
-#: templates/home/index.html:967
-msgid "teléfono"
-msgstr "mugikorra"
-
-#: templates/home/index copy 2.html:924 3.html:927 copy.html:855
-#: templates/home/index.html:969
-msgid "A phone number is required."
-msgstr "Telefono-zenbaki bat behar da."
-
-#: templates/home/index copy 2.html:932 3.html:935 copy.html:862
-#: templates/home/index.html:977
-msgid "Mensaje"
-msgstr "Mezua"
-
-#: templates/home/index copy 2.html:934 3.html:937 copy.html:865
-#: templates/home/index.html:979
-msgid "A message is required."
-msgstr "Mezu bat behar da."
-
-#: templates/home/index copy 2.html:953 3.html:956 copy.html:884
-#: templates/home/index.html:998
-msgid "Error sending message!"
-msgstr "Errore bat gertatu da mezua bidaltzean!"
-
-#: templates/home/index copy 2.html:957 3.html:960 copy.html:888
-#: templates/home/index.html:1002
-msgid "Enviar"
-msgstr "Bidali"
-
-#: templates/home/index copy 2.html:1009 3.html:1012 copy.html:940
-#: templates/home/index.html:1054
+#: templates/home/index2.html:911
 msgid "Euskodev &copy;tu creador de sitios web 2024"
 msgstr "Euskodev &copy;zure webgunearen eraikitzailea 2024"
 
-#: templates/home/index copy 2.html:1020 3.html:1023 copy.html:951
-#: templates/home/index.html:1065
-msgid "Privacy Policy"
-msgstr "Pribatutasun-politika"
-
-#: templates/home/index copy 2.html:1023 3.html:1026 copy.html:954
-#: templates/home/index.html:1068
-msgid "Aviso_legal"
-msgstr "Lege abisua"
-
-#: templates/home/index copy 2.html:1027 3.html:1030 copy.html:958
-#: templates/home/index.html:1072
-msgid "politicas de cookies"
-msgstr "cookie politikak"
-
-#: templates/home/index copy 2.html:1054 3.html:1057 copy.html:985
-#: templates/home/index.html:1099
-msgid "Facilitamos Vuestro Aprendizaje"
-msgstr "Zure ikaskuntza errazten dugu"
-
-#: templates/home/index copy 2.html:1059 3.html:1062 copy.html:989
-#: templates/home/index.html:1104
-msgid ""
-" es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia "
-"variedad de test para diferentes puestos de trabajo en el ámbito de la "
-"salud, la educación, la administración y otros sectores."
-msgstr ""
-"Zure atari ezin hobea da zure burua arrakastaz prestatzeko. Webgune honek "
-"hainbat proba eskaintzen dizkizu osasunaren, hezkuntzaren, administrazioaren "
-"eta beste sektore batzuetako lanpostu ezberdinetarako."
-
-#: templates/home/index copy 2.html:1064 2.html:1109 3.html:1067 3.html:1112
-#: copy.html:994 copy.html:1036 templates/home/index.html:1109
-#: templates/home/index.html:1154
-msgid "Personas:"
-msgstr "Jendea"
-
-#: templates/home/index copy 2.html:1068 2.html:1113 3.html:1071 3.html:1116
-#: copy.html:998 copy.html:1040 templates/home/index.html:1113
-#: templates/home/index.html:1158
+#: templates/home/index2.html:969 templates/home/index2.html:1014
 msgid "Category:"
 msgstr "Kategoria"
 
-#: templates/home/index copy 2.html:1075 2.html:1120 3.html:1078 3.html:1123
-#: copy.html:1005 copy.html:1047 templates/home/index.html:1120
-#: templates/home/index.html:1165
-msgid "Volver"
-msgstr "Itzuli"
-
-#: templates/home/index copy 2.html:1100 3.html:1103 copy.html:1028
-#: templates/home/index.html:1145
-msgid "Euskodev"
-msgstr "Euskodev"
-
-#: templates/home/index copy 2.html:1101 2.html:1114 3.html:1104 3.html:1117
-#: copy.html:1029 copy.html:1041 templates/home/index.html:1146
-#: templates/home/index.html:1159
+#: templates/home/index2.html:1002 templates/home/index2.html:1015
 msgid "Desarrollo de software"
 msgstr "Web garapena "
 
-#: templates/home/index copy 2.html:1105 3.html:1108 copy.html:1032
-#: templates/home/index.html:1150
+#: templates/home/index2.html:1006
 msgid ""
 "Euskodev: Su aliado en el desarrollo de software <br> Euskodev, un equipo de "
 "desarrolladores de software en el País Vasco. especializado en la creación "
@@ -607,23 +967,11 @@ msgstr ""
 "espezializatua, tamaina guztietako enpresentzat, startup txikietatik hasi "
 "eta korporazio handietara!"
 
-#: templates/home/index copy 2.html:1110 3.html:1113 copy.html:1037
-#: templates/home/index.html:1155
+#: templates/home/index2.html:1011
 msgid "Web privada"
 msgstr "webgune pribatua"
 
-#: templates/home/index copy 2.html:1143 3.html:1146 copy.html:1070
-#: templates/home/index.html:1188
-msgid "Gastrogune"
-msgstr ""
-
-#: templates/home/index copy 2.html:1145 3.html:1148 copy.html:1072
-#: templates/home/index.html:1190
-msgid "GastroGune: La esencia de Euskadi en cada bocado."
-msgstr "GastroGune: Euskadiren esentzia mokadu bakoitzean."
-
-#: templates/home/index copy 2.html:1148 3.html:1151 copy.html:1075
-#: templates/home/index.html:1193
+#: templates/home/index2.html:1049
 msgid ""
 "GastroGune: Tu Guía para Descubrir la Gastronomía <br> Vasca Eusko.Gune no "
 "solo te acerca la cocina vasca a tu hogar a través de recetas tradicionales, "
@@ -634,21 +982,236 @@ msgstr ""
 "sukaldaritza ohiko errezeta bidez zure etxera ekartzeaz gain, Euskal Herriko "
 "leku eta jatetxe onenak ezagutzeko eta gozatzeko gida ere balio du."
 
-#: templates/home/index copy 2.html:1158 3.html:1161 copy.html:1085
-#: templates/home/index.html:1203
+#: templates/home/index2.html:1059
 msgid "Gastronomy"
 msgstr "Gastronomia"
 
-#: templates/home/index copy 2.html:1164 3.html:1167 copy.html:1091
-#: templates/home/index.html:1209
+#: templates/home/index2.html:1065
 msgid "Close Project"
 msgstr "itzuli"
 
-#: templates/home/index copy 3.html:256
+#: templates/home/sistema_ticket.html:108
+msgid "Sistema de Tickets de Euskodev"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:110
+msgid ""
+"Gestiona incidencias, solicitudes y soporte técnico desde una única "
+"plataforma ágil y eficiente."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:122
+msgid "¿Qué es?"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:124
+msgid ""
+"Un sistema de tickets es una herramienta digital que permite registrar, "
+"organizar y dar seguimiento a peticiones o problemas reportados por usuarios "
+"o clientes. Euskodev ofrece una solución intuitiva y personalizable que se "
+"adapta a cualquier tipo de negocio o equipo de soporte."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:127
+msgid "¿Cómo funciona?"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:129
+msgid ""
+"Cada usuario puede crear tickets desde una web, correo o sistema embebido. "
+"El equipo los recibe en un panel organizado por prioridad, estado y "
+"categoría. Puedes responder, resolver, reabrir o escalar cada ticket con "
+"notificaciones automatizadas."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:132
+msgid "¿Qué beneficios aporta?"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:134
+msgid "Centraliza toda la atención al cliente."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:135
+msgid "Mejora los tiempos de respuesta."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:136
+msgid "Facilita la trazabilidad y estadísticas de soporte."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:137
+msgid "Permite priorizar y asignar tareas automáticamente."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:140
+msgid "¿Cómo se implementa?"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:142
+msgid ""
+"El sistema se puede integrar fácilmente en tu web o usar como plataforma "
+"independiente. Incluye configuración inicial, branding, usuarios y "
+"capacitación."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:155
+msgid "Beneficios del Sistema de Tickets"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:156
+msgid ""
+"Descubre cómo nuestro sistema de tickets puede mejorar la gestión de "
+"incidencias, solicitudes y atención al cliente en tu empresa."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:166
+msgid "Atención al Cliente Eficiente"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:167
+msgid ""
+"Nuestro sistema centraliza todas las interacciones con los clientes en un "
+"solo lugar, asegurando que no se pierda ninguna solicitud."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:177
+msgid "Reducción de Tiempos de Respuesta"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:178
+msgid ""
+"Con el sistema de tickets, las tareas se asignan automáticamente a los "
+"responsables, lo que reduce el tiempo de respuesta y mejora la eficiencia."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:188
+msgid "Mejora en la Trazabilidad"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:189
+msgid ""
+"Podrás seguir el estado de cada ticket en tiempo real, lo que mejora la "
+"trazabilidad y facilita la toma de decisiones basadas en datos."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:199
+msgid "Priorización y Asignación Automática"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:200
+msgid ""
+"El sistema de tickets permite clasificar y priorizar solicitudes, asegurando "
+"que se atiendan las más urgentes primero."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:210
+msgid "Análisis y Estadísticas"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:211
+msgid ""
+"Genera informes detallados sobre el rendimiento de tu equipo de soporte, "
+"ayudando a identificar áreas de mejora."
+msgstr ""
+
+#: templates/home/sistema_ticket.html:221
+msgid "Seguridad y Confidencialidad"
+msgstr ""
+
+#: templates/home/sistema_ticket.html:222
+msgid ""
+"El sistema protege los datos sensibles y asegura que solo los usuarios "
+"autorizados puedan ver la información confidencial."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:57
+msgid "Trabaja con Nosotros"
+msgstr ""
+
+#~ msgid "Spanish"
+#~ msgstr "Español"
+
+#~ msgid "Basque"
+#~ msgstr "Euskera"
+
+#~ msgid "Desarrollo Web, APP<br> e Imagen Corporativa"
+#~ msgstr "Web garapena, APP eta Irudi Korporatiboa"
+
+#~ msgid "opiniones"
+#~ msgstr "iritziak"
+
+#~ msgid ""
+#~ "En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon "
+#~ "con atención y entendieron mis necesidades a la perfección."
+#~ msgstr ""
+#~ "Euskodev-en nire negoziorako webgune ezin hobea diseinatu zuten. Arretaz "
+#~ "entzun ninduten eta primeran ulertzen zituzten nire beharrak."
+
+#~ msgid ""
+#~ "Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev "
+#~ "me lo pusieron facilísimo. Desde el principio me escucharon y entendieron "
+#~ "lo que quería. Me hicieron un diseño chulísimo y que funciona a la "
+#~ "perfección, ¡hasta me subieron en el buscador! Son majísimos y "
+#~ "profesionales."
+#~ msgstr ""
+#~ "Nire negoziorako webgune baten bila nenbilen eta ez nekien nondik hasi. "
+#~ "Euskodev-en oso erraz jarri zidaten. Hasieratik entzun zidaten eta zer "
+#~ "nahi nuen ulertu zuten. Oso diseinu polita egin zidaten, primeran "
+#~ "funtzionatzen duena, bilatzailean ere igo ninduten! Oso atseginak eta "
+#~ "profesionalak dira."
+
+#~ msgid ""
+#~ "En Euskodev me entendieron a la perfección. Desde el principio supieron "
+#~ "lo que buscaba para mi negocio online. Me hicieron una web preciosa y que "
+#~ "funciona de maravilla. Además, me ayudaron a que me encontraran en "
+#~ "Google, ¡estoy encantado! Son un equipo súper atento y profesional."
+#~ msgstr ""
+#~ "Euskodev-en primeran ulertu ninduten. Hasieratik bazekiten zer bilatzen "
+#~ "nuen nire online negoziorako. Zoragarri funtzionatzen duen webgune eder "
+#~ "bat egin zidaten. Gainera, Google-n aurkitzen lagundu didate, pozik nago! "
+#~ "Talde oso erne eta profesional bat dira."
+
+#~ msgid "Nombre"
+#~ msgstr "Izena"
+
+#~ msgid "A name is required."
+#~ msgstr "Izena behar da."
+
+#~ msgid "Email"
+#~ msgstr "Posta elektronikoa"
+
+#~ msgid "An email is required"
+#~ msgstr "Posta elektroniko bat behar da"
+
+#~ msgid "Email is not valid."
+#~ msgstr "Posta elektronikoa ez da baliozkoa."
+
+#~ msgid "teléfono"
+#~ msgstr "mugikorra"
+
+#~ msgid "A phone number is required."
+#~ msgstr "Telefono-zenbaki bat behar da."
+
+#~ msgid "Mensaje"
+#~ msgstr "Mezua"
+
+#~ msgid "A message is required."
+#~ msgstr "Mezu bat behar da."
+
+#~ msgid "Error sending message!"
+#~ msgstr "Errore bat gertatu da mezua bidaltzean!"
+
+#~ msgid "Enviar"
+#~ msgstr "Bidali"
+
+#~ msgid "Privacy Policy"
+#~ msgstr "Pribatutasun-politika"
+
 #, fuzzy
-#| msgid "Desarrollo Web, APP<br> e Imagen Corporativa"
-msgid "Desarrollo Web<br><br>APP e Imagen<br><br>Corporativa"
-msgstr "Web garapena, APP eta Irudi Korporatiboa"
+#~| msgid "Desarrollo Web, APP<br> e Imagen Corporativa"
+#~ msgid "Desarrollo Web<br><br>APP e Imagen<br><br>Corporativa"
+#~ msgstr "Web garapena, APP eta Irudi Korporatiboa"
 
 #~ msgid "Locations"
 #~ msgstr "Kokalekuak"
