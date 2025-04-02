@@ -208,3 +208,6 @@ def base(request):
     return render(request, 'home/base.html')
     
 
+
+class TrabajaConNosotrosView(TemplateView):
+    template_name = 'home/trabaja_con_nosotros.html'

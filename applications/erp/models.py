@@ -1,8 +1,7 @@
 from django.db import models
 from decimal import Decimal
 from django.db.models import Sum  # ✅ IMPORTA SUM AQUÍ
-
-
+from django.contrib.auth.models import User  # 👈 Importa el modelo de usuario
 # Modelo para los clientes
 from django.db import models
 
@@ -23,12 +22,15 @@ class Client(models.Model):
 
 # Modelo para los presupuestos
 
+
 class Budget(models.Model):
     cliente = models.ForeignKey('Client', on_delete=models.CASCADE, blank=True, null=True)
+    agente = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)  # 👈 ESTE CAMPO DEBE ESTAR
     fecha_creacion = models.DateField(auto_now_add=True, blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)
     total = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)
     impuesto_porcentaje = models.DecimalField(max_digits=5, decimal_places=2, default=21.00, blank=True, null=True)
+
 
     @property
     def calcular_subtotal(self):

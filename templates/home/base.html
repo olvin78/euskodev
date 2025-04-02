@@ -84,13 +84,13 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         font-family: 'Inter', sans-serif;
       }
-  
+
       .main-menu {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
       }
-  
+
       .main-menu .nav-link {
         font-size: 16px;
         font-weight: 500;
@@ -100,13 +100,13 @@
         border-radius: 8px;
         transition: all 0.3s ease;
       }
-  
+
       .main-menu .nav-link:hover {
         border-color: #1ea0c0;
         color: #1ea0c0;
         background-color: rgba(255, 255, 255, 0.05);
       }
-  
+
       .main-menu .dropdown-menu {
         background-color: #1a1a1a;
         border-radius: 10px;
@@ -114,7 +114,7 @@
         padding: 0.5rem;
         margin-top: 0.5rem;
       }
-  
+
       .main-menu .dropdown-item {
         font-size: 15px;
         padding: 0.5rem 1rem;
@@ -163,9 +163,8 @@
       .main-menu {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
-        font-size: 16px;
-        font-family: 'Inter', sans-serif;
+        gap: 1rem;
+        font-size: 20px!important;
       }
   
       .main-menu .nav-link {
@@ -211,7 +210,7 @@
         color: #eee;
         padding: 0.2rem 0.6rem;
         border-radius: 4px;
-        font-size: 13px;
+        font-size: 17px;
         text-transform: uppercase;
       }
   
@@ -280,6 +279,7 @@
             <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#portfolio">{% trans 'Portfolio' %}</a></li>
             <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#about">{% trans 'Sobre' %}</a></li>
             <li class="nav-item"><a class="nav-link text-info px-3 rounded" href="{% url 'home_app:blog' %}">{% trans 'Blog' %}</a></li>
+              <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:trabaja_con_nosotros' %}">{% trans 'Formar Parte' %}</a></li>
             <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#team">{% trans 'Nosotros' %}</a></li>
             <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#contact">{% trans 'Contacto' %}</a></li>
   

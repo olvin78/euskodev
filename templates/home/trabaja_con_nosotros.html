@@ -1,0 +1,481 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+
+
+{% block head %}
+<style>
+.euskodev-detalles {
+  background: linear-gradient(to bottom, #f9fafa, #ffffff);
+}
+
+.detalle-servicio {
+  transition: all 0.3s ease;
+}
+
+.detalle-servicio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+</style>
+
+<style>
+  body {
+  font-family: 'Poppins', sans-serif;
+}
+.container{
+  padding: auto;
+}
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid p-0">
+  <div class="video-container position-relative">
+    <!-- Imagen de fondo -->
+    <img src="{% static 'img/trabaja_con_nosotros_euskodev.png' %}"
+         alt="{% trans 'Imagen de portada representando los servicios digitales de diseño web de Euskodev' %}"
+         class="img-fluid w-100"
+         style="height: 100vh; object-fit: cover; object-position: center;" loading="lazy">
+
+    <!-- Capa oscura -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+
+    <!-- Contenido centrado -->
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3 px-md-5">
+      <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+      <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
+      <div class="text-center mt-4">
+        <a class="btn btn-lg text-uppercase text-white"
+           href="#contact"
+           style="background: linear-gradient(135deg, #5ce9e2, #348D94);
+                  border-radius: 8px;">
+          {% trans 'Trabaja con Nosotros' %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="py-5" style="background-color: #1F1F1F;">
+  <div class="container py-5">
+    <!-- Encabezado -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-4 mb-4" style="color: #2AC3B5;">¿Quieres formar parte de Euskodev?</h2>
+      <p class="lead text-white-50 fs-5" style="max-width: 800px; margin: auto;">
+        En Euskodev no buscamos empleados, buscamos personas con pasión, criterio y ganas de construir cosas que realmente importen. Aquí vas a crecer, aprender y aportar en proyectos reales que mejoran vidas y negocios.
+      </p>
+    </div>
+
+    <!-- Características -->
+    <div class="row g-5">
+      <div class="col-md-4">
+        <div class="text-white text-center px-4">
+          <div class="mb-4">
+            <i class="bi bi-rocket-takeoff-fill" style="font-size: 3rem; color: #2AC3B5;"></i>
+          </div>
+          <h5 class="fw-semibold mb-3 fs-4">Proyectos que inspiran</h5>
+          <p class="text-white-50 fs-6">
+            Desarrollamos plataformas, webs y apps con impacto. Nada de código basura o proyectos sin propósito. Todo lo que hacemos se usa, se valora y se cuida.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-white text-center px-4">
+          <div class="mb-4">
+            <i class="bi bi-house-heart-fill" style="font-size: 3rem; color: #2AC3B5;"></i>
+          </div>
+          <h5 class="fw-semibold mb-3 fs-4">Trabajo con sentido</h5>
+          <p class="text-white-50 fs-6">
+            Apostamos por un modelo flexible, humano y sin postureo. Aquí tienes voz, puedes proponer, aprender y evolucionar sin quemarte por el camino.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-white text-center px-4">
+          <div class="mb-4">
+            <i class="bi bi-person-video3" style="font-size: 3rem; color: #2AC3B5;"></i>
+          </div>
+          <h5 class="fw-semibold mb-3 fs-4">Cultura remota y cercana</h5>
+          <p class="text-white-50 fs-6">
+            Trabajamos desde donde queramos, pero siempre conectados. Comunicación clara, equipo unido, foco en el valor y en las personas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="mailto:talento@euskodev.com" class="btn btn-lg px-5 py-3" style="background-color: #2AC3B5; color: #1F1F1F; font-weight: 600; font-size: 1.1rem;">
+        Quiero unirme a Euskodev
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="py-5" style="background-color: #f4f7fb;">
+  <div class="container py-5">
+    <!-- Encabezado -->
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-5" style="color: #1F1F1F;">Así se trabaja en Euskodev</h2>
+      <p class="lead" style="color: #6c757d; max-width: 720px; margin: auto;">
+        No somos una empresa más. Somos un equipo pequeño, ágil y con visión clara. Así es nuestro día a día, sin filtros ni promesas vacías.
+      </p>
+    </div>
+
+    <!-- Ítems -->
+    <div class="row g-5">
+      <!-- Comunicación -->
+      <div class="col-md-6">
+        <div class="d-flex gap-4 align-items-start">
+          <i class="bi bi-chat-dots-fill fs-1" style="color: #2AC3B5;"></i>
+          <div>
+            <h5 class="fw-semibold mb-2" style="color: #1F1F1F;">Comunicación clara</h5>
+            <p class="text-muted mb-0">
+              Nos hablamos directo y con respeto. Slack, Notion y una cultura donde cada idea vale. Aquí nadie se pierde en la cadena de mando.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Herramientas modernas -->
+      <div class="col-md-6">
+        <div class="d-flex gap-4 align-items-start">
+          <i class="bi bi-cpu-fill fs-1" style="color: #2AC3B5;"></i>
+          <div>
+            <h5 class="fw-semibold mb-2" style="color: #1F1F1F;">Tecnología que suma</h5>
+            <p class="text-muted mb-0">
+              Django, GitHub, Docker, Figma… solo usamos herramientas que realmente nos ayudan. Nada de procesos por inercia.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aprendizaje -->
+      <div class="col-md-6">
+        <div class="d-flex gap-4 align-items-start">
+          <i class="bi bi-journal-code fs-1" style="color: #2AC3B5;"></i>
+          <div>
+            <h5 class="fw-semibold mb-2" style="color: #1F1F1F;">Aprendizaje continuo</h5>
+            <p class="text-muted mb-0">
+              Aquí todos estamos en modo beta: aprendemos, compartimos, investigamos. Si algo mejora nuestro trabajo, lo aplicamos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resultados -->
+      <div class="col-md-6">
+        <div class="d-flex gap-4 align-items-start">
+          <i class="bi bi-graph-up-arrow fs-1" style="color: #2AC3B5;"></i>
+          <div>
+            <h5 class="fw-semibold mb-2" style="color: #1F1F1F;">Enfocados en resultados</h5>
+            <p class="text-muted mb-0">
+              No miramos horarios, miramos impacto. Lo que entregas y lo que solucionas. Tienes libertad, pero también responsabilidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Herramientas y tecnologias que usamos-->
+<section class="py-5" style="background-color: #f4f7fb;">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-5" style="color: #1F1F1F;">Herramientas que usamos en Euskodev</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 720px;">
+        Estas son las tecnologías y herramientas que usamos cada día para desarrollar con calidad, eficiencia y visión profesional.
+      </p>
+    </div>
+
+    <div class="row text-center g-4">
+      <!-- Python -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Python</h6>
+        </div>
+      </div>
+
+      <!-- Django -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Django</h6>
+        </div>
+      </div>
+
+      <!-- SQLite -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">SQLite</h6>
+        </div>
+      </div>
+
+      <!-- PostgreSQL -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">PostgreSQL</h6>
+        </div>
+      </div>
+
+      <!-- GitHub -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">GitHub</h6>
+        </div>
+      </div>
+
+      <!-- PyCharm -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://resources.jetbrains.com/storage/products/pycharm/img/meta/pycharm_logo_300x300.png" alt="PyCharm" width="40" class="mb-2 rounded-2">
+          <h6 class="fw-semibold text-dark mb-0">PyCharm</h6>
+        </div>
+      </div>
+
+      <!-- Bootstrap -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Bootstrap</h6>
+        </div>
+      </div>
+
+      <!-- HTML5 -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">HTML5</h6>
+        </div>
+      </div>
+
+      <!-- CSS3 -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">CSS3</h6>
+        </div>
+      </div>
+
+      <!-- Linux -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Linux</h6>
+        </div>
+      </div>
+
+      <!-- Inteligencia Artificial -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm d-flex flex-column justify-content-center align-items-center">
+          <i class="bi bi-cpu-fill text-info mb-2" style="font-size: 2rem;"></i>
+          <h6 class="fw-semibold text-dark mb-0">Inteligencia Artificial</h6>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+    <div class="col-6 col-md-3">
+      <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" class="mb-2">
+        <h6 class="fw-semibold text-dark mb-0">JavaScript</h6>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="py-5 bg-white border-top">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-5" style="color: #1F1F1F;">¿Qué perfiles buscamos?</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 720px;">
+        En Euskodev valoramos la experiencia, la actitud y la capacidad de aportar al equipo. Estos son algunos de los perfiles que mejor encajan con nuestra forma de trabajar.
+      </p>
+    </div>
+
+    <div class="row g-5">
+      <!-- Autonomía -->
+      <div class="col-md-6 col-lg-4">
+        <div class="h-100 bg-light rounded-4 shadow-sm p-4 text-center">
+          <i class="bi bi-compass fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Personas autónomas</h5>
+          <p class="text-muted mb-0">
+            Que saben organizarse, priorizar tareas y avanzar con criterio sin depender de supervisión constante.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mentalidad técnica -->
+      <div class="col-md-6 col-lg-4">
+        <div class="h-100 bg-light rounded-4 shadow-sm p-4 text-center">
+          <i class="bi bi-code-slash fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Mentalidad técnica</h5>
+          <p class="text-muted mb-0">
+            Amantes del código limpio, con ganas de aprender, compartir conocimiento y mejorar procesos de forma continua.
+          </p>
+        </div>
+      </div>
+
+      <!-- Comunicación -->
+      <div class="col-md-6 col-lg-4">
+        <div class="h-100 bg-light rounded-4 shadow-sm p-4 text-center">
+          <i class="bi bi-chat-dots fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Buena comunicación</h5>
+          <p class="text-muted mb-0">
+            Personas claras, empáticas y capaces de trabajar en equipo con transparencia y respeto mutuo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Visión de producto -->
+      <div class="col-md-6 col-lg-4">
+        <div class="h-100 bg-light rounded-4 shadow-sm p-4 text-center">
+          <i class="bi bi-lightbulb-fill fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Enfoque en producto</h5>
+          <p class="text-muted mb-0">
+            Que entienden que el código es un medio para crear soluciones funcionales, usables y que aporten valor real.
+          </p>
+        </div>
+      </div>
+
+      <!-- Responsabilidad -->
+      <div class="col-md-6 col-lg-4">
+        <div class="h-100 bg-light rounded-4 shadow-sm p-4 text-center">
+          <i class="bi bi-shield-check fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Responsabilidad real</h5>
+          <p class="text-muted mb-0">
+            Que cumplen con lo que prometen, cuidan la calidad y piensan a largo plazo en todo lo que construyen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Curiosidad -->
+      <div class="col-md-6 col-lg-4">
+        <div class="h-100 bg-light rounded-4 shadow-sm p-4 text-center">
+          <i class="bi bi-search-heart fs-1 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Curiosidad constante</h5>
+          <p class="text-muted mb-0">
+            Con ganas de explorar nuevas ideas, probar herramientas, aportar soluciones y mejorar el trabajo del equipo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5" style="background-color: #1F1F1F;">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-5" style="color: #2AC3B5;">Beneficios de trabajar en Euskodev</h2>
+      <p class="lead text-white-50 mx-auto" style="max-width: 720px;">
+        No solo es lo que hacemos, sino cómo lo hacemos. Estos son algunos de los beneficios que disfrutarás siendo parte del equipo.
+      </p>
+    </div>
+
+    <div class="row g-4 text-white">
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-dark bg-opacity-25 rounded-4 p-4 h-100">
+          <i class="bi bi-clock-history fs-2 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Horarios flexibles</h5>
+          <p class="text-white-50 mb-0">Tú organizas tu tiempo. Lo importante es cumplir y aportar, no fichar.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-dark bg-opacity-25 rounded-4 p-4 h-100">
+          <i class="bi bi-house-door-fill fs-2 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Trabajo remoto</h5>
+          <p class="text-white-50 mb-0">Trabaja desde donde quieras, con herramientas colaborativas modernas.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-dark bg-opacity-25 rounded-4 p-4 h-100">
+          <i class="bi bi-journals fs-2 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Formación continua</h5>
+          <p class="text-white-50 mb-0">Acceso a recursos, cursos y entornos reales donde puedes seguir creciendo.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-dark bg-opacity-25 rounded-4 p-4 h-100">
+          <i class="bi bi-megaphone-fill fs-2 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Participación real</h5>
+          <p class="text-white-50 mb-0">Tus ideas no se quedan en el aire. Aquí tu voz se tiene en cuenta desde el primer día.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-dark bg-opacity-25 rounded-4 p-4 h-100">
+          <i class="bi bi-heart-pulse fs-2 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Buen ambiente</h5>
+          <p class="text-white-50 mb-0">Sin postureo, sin tensiones. Un entorno tranquilo, de confianza y colaboración.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="bg-dark bg-opacity-25 rounded-4 p-4 h-100">
+          <i class="bi bi-emoji-smile fs-2 text-info mb-3"></i>
+          <h5 class="fw-semibold mb-2">Estabilidad emocional</h5>
+          <p class="text-white-50 mb-0">Sí, aquí eso también importa. Porque estar bien no es negociable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" style="background-color: #f4f7fb;">
+  <div class="container text-center py-5">
+    <h2 class="display-5 fw-bold mb-4 text-dark">¿Listo para formar parte de algo diferente?</h2>
+    <p class="lead text-muted mb-4" style="max-width: 700px; margin: auto;">
+      En Euskodev no buscamos empleados, buscamos personas que quieran construir el futuro con nosotros. Si esto resuena contigo, estamos deseando conocerte.
+    </p>
+    <a href="mailto:talento@euskodev.com" class="btn btn-lg px-5 py-3" style="background-color: #2AC3B5; color: #1F1F1F; font-weight: 600;">
+      Quiero unirme al equipo
+    </a>
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('[data-gsap]');
+    items.forEach(el => {
+      const anim = el.dataset.gsap;
+      const delay = parseFloat(el.dataset.delay) || 0;
+      if (anim === 'fade-in') {
+        gsap.from(el, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          delay: delay,
+          scrollTrigger: el
+        });
+      } else if (anim === 'fade-up') {
+        gsap.from(el, {
+          opacity: 0,
+          y: 50,
+          duration: 0.9,
+          delay: delay,
+          ease: 'power2.out'
+        });
+      }
+    });
+  });
+</script>
+
+
+
+{% endblock %}

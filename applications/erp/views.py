@@ -1,11 +1,10 @@
-from django.views.generic import TemplateView, DetailView, ListView, UpdateView, ListView
+from django.views.generic import TemplateView, DetailView, ListView, UpdateView, ListView, CreateView
 from django.db.models import Q
 from django.shortcuts import render
 from django.db.models import Count, Sum
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy  # ✅ Corrección aquí
-
 from .models import Client, Budget, BudgetItem
 from .forms import BudgetForm, BudgetItemFormSet, ClientForm
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -47,40 +46,40 @@ class DashboardView(UserPassesTestMixin,TemplateView):
     def handle_no_permission(self):
         messages.error(self.request, "Solo el equipo staff puede acceder a esta página.")
         return redirect("home_app:home")
-        
 
-def create_budget(request):
-    if request.method == 'POST':
-        budget_form = BudgetForm(request.POST)
-        item_formset = BudgetItemFormSet(request.POST)
 
-        if budget_form.is_valid() and item_formset.is_valid():
-            budget = budget_form.save(commit=False)  # No guardamos aún en la BD
-            budget.save()  # Guardamos para obtener un ID válido
+class BudgetCreateView(CreateView):
+    model = Budget
+    form_class = BudgetForm
+    template_name = 'dashboard/presupuesto.html'
+    success_url = reverse_lazy('dashboard_app:budget_list')  # cámbialo según tu proyecto
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.POST:
+            context['item_formset'] = BudgetItemFormSet(self.request.POST)
+        else:
+            context['item_formset'] = BudgetItemFormSet(queryset=BudgetItem.objects.none())
+        return context
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        item_formset = context['item_formset']
+
+        if item_formset.is_valid():
+            self.object = form.save()  # Guardamos el presupuesto
 
             # Guardamos los ítems asociados
-            for form in item_formset:
-                item = form.save(commit=False)
-                item.presupuesto = budget
-                item.save()
+            item_formset.instance = self.object
+            item_formset.save()
 
-            # ✅ Calculamos el total del presupuesto y lo actualizamos
-            budget.total = budget.calcular_total
-            budget.save()
+            # Calculamos el total con impuestos y lo guardamos
+            self.object.total = self.object.calcular_total_con_impuestos
+            self.object.save()
 
-            return redirect('dashboard_app:budget_detail', pk=budget.id)
-
-
-    else:
-        budget_form = BudgetForm()
-        item_formset = BudgetItemFormSet(queryset=BudgetItem.objects.none())
-
-    return render(request, 'dashboard/presupuesto.html', {
-        'budget_form': budget_form,
-        'item_formset': item_formset
-    })
-
-
+            return redirect('dashboard_app:budget_detail', pk=self.object.id)
+        else:
+            return self.form_invalid(form)
     
 
 
@@ -122,7 +121,7 @@ class BudgetUpdateView(UpdateView):
     model = Budget
     form_class = BudgetForm
     template_name = "dashboard/budget_form.html"
-    success_url = reverse_lazy('dashboard_app:budget_list')  
+    success_url = reverse_lazy('dashboard_app:budget_list')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -137,20 +136,23 @@ class BudgetUpdateView(UpdateView):
         item_formset = context['item_formset']
 
         if form.is_valid() and item_formset.is_valid():
-            self.object = form.save()  # Guarda el presupuesto primero
+            self.object = form.save()
 
-            # ✅ Guarda los items actualizados
-            item_formset.instance = self.object
-            item_formset.save()
+            items = item_formset.save(commit=False)
+            for item in items:
+                item.presupuesto = self.object
+                item.save()
 
-            # ✅ Recalcular total del presupuesto basado en los items
-            total = sum(item.subtotal for item in self.object.items.all())  # Suma los subtotales
+            for deleted_item in item_formset.deleted_objects:
+                deleted_item.delete()
+
+            total = sum(item.subtotal for item in self.object.items.all())
             self.object.total = total
             self.object.save()
 
             return super().form_valid(form)
-        else:
-            return self.form_invalid(form)
+
+        return self.form_invalid(form)
 
 
 

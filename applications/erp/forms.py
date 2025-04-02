@@ -45,18 +45,21 @@ class ClientForm(forms.ModelForm):
 BudgetItemFormSet = inlineformset_factory(
     Budget,
     BudgetItem,
-    fields=['descripcion', 'cantidad', 'precio_unitario', 'descuento', 'subtotal'],
-    extra=0,  # No agregar filas extra automáticamente
+    fields=['descripcion', 'cantidad', 'precio_unitario', 'descuento'],
+    extra=1,
     can_delete=True
 )
+
 
 class BudgetForm(forms.ModelForm):
     class Meta:
         model = Budget
-        fields = ['cliente', 'descripcion', 'total', 'impuesto_porcentaje']
+        fields = ['cliente', 'agente', 'descripcion', 'impuesto_porcentaje']
         widgets = {
             'cliente': forms.Select(attrs={'class': 'form-control'}),
+            'agente': forms.Select(attrs={'class': 'form-control'}),
             'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
-            'total': forms.NumberInput(attrs={'class': 'form-control'}),
             'impuesto_porcentaje': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
         }
+
+

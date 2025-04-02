@@ -12074,6 +12074,9 @@ p {
   line-height: 1.75;
 }
 
+/*esta es la seccion sobre los servicios que ofrecemos
+es decir la columna que hay mas grande en la pagina principal*/
+
 .page-section {
   padding: 6rem 0;
 }
@@ -12087,9 +12090,8 @@ p {
 
 .page-section h3.section-subheading,
 .page-section .section-subheading.h3 {
-  font-size: 1rem;
+  font-size: 2.0rem;
   font-weight: 400;
-  font-style: italic;
   font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   margin-bottom: 4rem;
 }
@@ -12128,7 +12130,7 @@ p {
   font-size: 0.75rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 #mainNav .navbar-brand {
@@ -12647,6 +12649,6 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .footer {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }

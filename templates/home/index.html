@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-
+<style>
+    body{
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -421,22 +425,28 @@
 <!-- About -->
 <section class="page-section" id="about" style="background-color: white; text-align: justify;">
     <div class="container">
-        <div class="text-start">
-            <h2 class="section-heading text-uppercase text-center"
-                aria-label="Sobre Euskodev, desarrollo web en Oiartzun y País Vasco"
-                title="Sobre Euskodev, expertos en soluciones digitales">
+            <div class="text-start">
+              <h2 class="section-heading text-uppercase text-center"
+                  aria-label="Sobre Euskodev, desarrollo web en Oiartzun y País Vasco"
+                  title="Sobre Euskodev, expertos en soluciones digitales">
                 {% trans 'Sobre' %}
-            </h2>
-            <h3 class="section-subheading text-muted" style="line-height: 1.8;">
+              </h2>
+
+              <h3 class="section-subheading text-muted"
+                  style="line-height: 1.8; font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 400;">
+
                 {% trans "Desde Oiartzun, en el corazón del País Vasco, en Euskodev ayudamos a negocios de Oiartzun, Errenteria, Lezo y Pasajes a digitalizarse con soluciones que funcionan: webs modernas, tiendas online, apps y software a medida." %}
+
                 <br><br>
+
                 {% trans "No ofrecemos lo mismo para todos. Nos sentamos contigo, entendemos tu proyecto y lo adaptamos a lo que realmente necesitas, con cercanía y trato directo." %}
+
                 <br><br>
+
                 {% trans "Si buscas una empresa local de confianza que hable claro y te acompañe de verdad, Euskodev es tu aliado digital." %}
-            </h3>
-            
-        </div>
-        
+              </h3>
+            </div>
+
 
         <!-- Aquí comienzan los items del timeline ampliados -->
         <ul class="timeline mt-5">
@@ -547,6 +557,13 @@
                     </div>
                 </div>
             </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image simbolEffect" style="background-color:#30C06F;">
+                        <h4>
+                            {% trans '¡Se parte <br/> de nuestra <br/> historia!' %}
+                        </h4>
+                    </div>
+                </li>
         </ul>
     </div>
 </section>
@@ -656,43 +673,115 @@
 
 
 
-<!-- Iconos de aplicaciones usadas -->
-<!-- Contenedor de iconos optimizado para SEO con referencia a Oiartzun -->
-<div class="iconos-container py-5" 
-     style="min-height: 40vh; padding-top: 60px; padding-bottom: 60px; text-align: center;">
-    
-    <img class="icono-wow" src="{% static 'assets/img/logos/python.png' %}" 
-         alt="Logo de Python en Oiartzun, País Vasco - Lenguaje de programación para desarrollo web e inteligencia artificial" height="90" loading="lazy" style="margin: 10px;" />
+<!--Herramientas y tecnologias que usamos-->
+<section class="py-5" style="background-color: #f4f7fb;">
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold display-5" style="color: #1F1F1F;">Herramientas que usamos en Euskodev</h2>
+      <p class="lead  mx-auto" style="max-width: 720px;">
+        Estas son las tecnologías y herramientas que usamos cada día para desarrollar con calidad, eficiencia y visión profesional.
+      </p>
+    </div>
 
-    <img class="icono-wow" src="{% static 'assets/img/logos/artificial.avif' %}" 
-         alt="Inteligencia Artificial en Oiartzun, País Vasco - Algoritmos avanzados y machine learning" 
-         width="80" height="80" loading="lazy" style="margin: 10px;" />
+    <div class="row text-center g-4">
+      <!-- Python -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Python</h6>
+        </div>
+      </div>
 
-    <img class="icono-wow" src="{% static 'assets/img/logos/django.png' %}" 
-         alt="Django en Oiartzun, País Vasco - Framework de desarrollo web en Python" 
-         width="80" height="80" loading="lazy" style="margin: 10px;" />
+      <!-- Django -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Django</h6>
+        </div>
+      </div>
 
-    <img class="icono-wow" src="{% static 'assets/img/logos/triologo.webp' %}" 
-         alt="Triologo en Oiartzun, País Vasco - Soluciones digitales y programación avanzada" 
-         width="80" height="80" loading="lazy" style="margin: 10px;" />
+      <!-- SQLite -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">SQLite</h6>
+        </div>
+      </div>
 
-    <img class="icono-wow" src="{% static 'assets/img/logos/github.jpg' %}" 
-         alt="GitHub en Oiartzun, País Vasco - Plataforma de control de versiones para desarrollo colaborativo" 
-         width="80" height="80" loading="lazy" style="margin: 10px;" />
+      <!-- PostgreSQL -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">PostgreSQL</h6>
+        </div>
+      </div>
 
-    <img class="icono-wow" src="{% static 'assets/img/logos/linux.jpeg' %}" 
-         alt="Linux en Oiartzun, País Vasco - Sistema operativo de código abierto para servidores y desarrollo" 
-         width="80" height="80" loading="lazy" style="margin: 10px;" />
+      <!-- GitHub -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">GitHub</h6>
+        </div>
+      </div>
 
-    <img class="icono-wow" src="{% static 'assets/img/logos/sql.webp' %}" 
-         alt="SQL en Oiartzun, País Vasco - Lenguaje de bases de datos para gestión de información" 
-         width="80" height="80" loading="lazy" style="margin: 10px;" />
+      <!-- PyCharm -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://resources.jetbrains.com/storage/products/pycharm/img/meta/pycharm_logo_300x300.png" alt="PyCharm" width="40" class="mb-2 rounded-2">
+          <h6 class="fw-semibold text-dark mb-0">PyCharm</h6>
+        </div>
+      </div>
 
-    <img class="icono-wow" src="{% static 'assets/img/logos/bootstrap.png' %}" 
-         alt="Bootstrap en Oiartzun, País Vasco - Framework para diseño web responsivo" 
-         width="80" height="80" loading="lazy" style="margin: 10px;" />
-</div>
+      <!-- Bootstrap -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Bootstrap</h6>
+        </div>
+      </div>
 
+      <!-- HTML5 -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">HTML5</h6>
+        </div>
+      </div>
+
+      <!-- CSS3 -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">CSS3</h6>
+        </div>
+      </div>
+
+      <!-- Linux -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="40" class="mb-2">
+          <h6 class="fw-semibold text-dark mb-0">Linux</h6>
+        </div>
+      </div>
+
+      <!-- Inteligencia Artificial -->
+      <div class="col-6 col-md-3">
+        <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm d-flex flex-column justify-content-center align-items-center">
+          <i class="bi bi-cpu-fill text-info mb-2" style="font-size: 2rem;"></i>
+          <h6 class="fw-semibold text-dark mb-0">Inteligencia Artificial</h6>
+        </div>
+      </div>
+
+      <!-- JavaScript -->
+    <div class="col-6 col-md-3">
+      <div class="bg-white rounded-4 py-4 px-3 h-100 shadow-sm">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" class="mb-2">
+        <h6 class="fw-semibold text-dark mb-0">JavaScript</h6>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- Contact-->
@@ -736,8 +825,10 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <textarea class="form-control" id="message" name="message"
-                                      placeholder="Mensaje *" rows="4" required></textarea>
+                        <textarea class="form-control" id="message" name="message"
+                                  placeholder="Mensaje *" required
+                                  style="min-height: 250px;"></textarea>
+
                         </div>
                     </div>
                 </div>

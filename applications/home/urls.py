@@ -1,7 +1,7 @@
 from os import name
 from django.urls import include, path
 from . import views
-
+from .views import TrabajaConNosotrosView
 
 """
 {% url 'home_app:aviso_legal' %}
@@ -92,7 +92,7 @@ urlpatterns = [
 
     path('formulario/', views.formulario_contactar, name='formulario_contactar'),
 
-
+    path('trabaja-con-nosotros/', TrabajaConNosotrosView.as_view(), name='trabaja_con_nosotros'),
 
 # estas son las urls para en apartado del menu de servicios, 
     path('desarrollo-web/', views.desarrollo_web, name='desarrollo_web'),

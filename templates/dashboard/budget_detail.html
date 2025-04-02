@@ -78,6 +78,10 @@
                 {% endwith %}
                 
                 <p class="mb-1"><strong>Vencimiento:</strong> —</p>
+                {% if budget.agente %}
+                 <p class="mb-1"><strong>Agente:</strong> {{ budget.agente.get_full_name|default:budget.agente.username }}</p>
+                {% endif %}
+
             </div>
         </div>
         
