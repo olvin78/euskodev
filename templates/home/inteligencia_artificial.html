@@ -116,33 +116,31 @@
   </div>
 </div>
 
-
 <section class="py-5" style="background-color: #e6f2f4; color: #1a1a1a; font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;">
   <div class="container">
     <div class="row align-items-center">
       
       <!-- Texto descriptivo -->
       <div class="col-md-6 mb-4 mb-md-0">
-        <h2 class="display-5 fw-bold">Asistente Inteligente con IA</h2>
+        <h2 class="display-5 fw-bold">{% trans "Asistente Inteligente con IA" %}</h2>
         <p class="lead">
-          Euskodev te ofrece una solución de inteligencia artificial conversacional para tu negocio. 
-          Automatiza la atención al cliente, responde dudas 24/7 y mejora la experiencia de tus usuarios con un chatbot personalizado.
+          {% trans "Euskodev te ofrece una solución de inteligencia artificial conversacional para tu negocio. Automatiza la atención al cliente, responde dudas 24/7 y mejora la experiencia de tus usuarios con un chatbot personalizado." %}
         </p>
         <ul class="list-unstyled">
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Disponible 24/7</li>
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Entrenado con tus datos</li>
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Fácil de integrar en tu web</li>
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>Traduce conversaciones automáticamente a otros idiomas</li>
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Disponible 24/7" %}</li>
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Entrenado con tus datos" %}</li>
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Fácil de integrar en tu web" %}</li>
+          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Traduce conversaciones automáticamente a otros idiomas" %}</li>
         </ul>
         <a href="#" class="btn btn-lg mt-4 fw-bold text-uppercase w-50"
            style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
-          Solicita una demo
+          {% trans "Solicita una demo" %}
         </a>
       </div>
 
       <!-- Imagen o animación IA -->
       <div class="col-md-6 text-center">
-        <img src="{% static 'img/chatbot-gemini.jpeg' %}" alt="Asistente IA" class="img-fluid rounded shadow" style="max-height: 400px;">
+        <img src="{% static 'img/chatbot-gemini.jpeg' %}" alt="{% trans 'Asistente IA' %}" class="img-fluid rounded shadow" style="max-height: 400px;">
       </div>
     </div>
   </div>
@@ -151,11 +149,10 @@
 
 
 
-
 <div class="container py-5" style="font-family: 'Segoe UI', sans-serif;">
   <div class="text-center mb-5">
-    <h2 class="fw-bold display-6">¿Qué puede hacer tu Asistente Inteligente?</h2>
-    <p class="lead text-secondary">Una solución basada en IA que transforma la atención al cliente, automatiza tareas y mejora la experiencia del usuario desde el primer clic.</p>
+    <h2 class="fw-bold display-6">{% trans "¿Qué puede hacer tu Asistente Inteligente?" %}</h2>
+    <p class="lead text-secondary">{% trans "Una solución basada en IA que transforma la atención al cliente, automatiza tareas y mejora la experiencia del usuario desde el primer clic." %}</p>
   </div>
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
@@ -165,8 +162,8 @@
       <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
         <div class="card-body text-center">
           <i class="bi bi-robot fs-1 text-info"></i>
-          <h5 class="card-title mt-3 fw-semibold">Atención 24/7 con IA</h5>
-          <p class="card-text">Responde automáticamente preguntas frecuentes, dudas de clientes y solicitudes comunes en cualquier momento del día, sin necesidad de intervención humana.</p>
+          <h5 class="card-title mt-3 fw-semibold">{% trans "Atención 24/7 con IA" %}</h5>
+          <p class="card-text">{% trans "Responde automáticamente preguntas frecuentes, dudas de clientes y solicitudes comunes en cualquier momento del día, sin necesidad de intervención humana." %}</p>
         </div>
       </div>
     </div>
@@ -176,8 +173,8 @@
       <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
         <div class="card-body text-center">
           <i class="bi bi-megaphone fs-1 text-success"></i>
-          <h5 class="card-title mt-3 fw-semibold">Promociona en tiempo real</h5>
-          <p class="card-text">Informa al instante sobre promociones activas, descuentos personalizados y campañas según el perfil del visitante.</p>
+          <h5 class="card-title mt-3 fw-semibold">{% trans "Promociona en tiempo real" %}</h5>
+          <p class="card-text">{% trans "Informa al instante sobre promociones activas, descuentos personalizados y campañas según el perfil del visitante." %}</p>
         </div>
       </div>
     </div>
@@ -187,8 +184,8 @@
       <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
         <div class="card-body text-center">
           <i class="bi bi-sliders2 fs-1 text-primary"></i>
-          <h5 class="card-title mt-3 fw-semibold">Totalmente Personalizable</h5>
-          <p class="card-text">El asistente puede adaptarse al tono, lenguaje y necesidades de tu marca. Desde un ecommerce hasta una clínica o gestoría, se ajusta a tu negocio.</p>
+          <h5 class="card-title mt-3 fw-semibold">{% trans "Totalmente Personalizable" %}</h5>
+          <p class="card-text">{% trans "El asistente puede adaptarse al tono, lenguaje y necesidades de tu marca. Desde un ecommerce hasta una clínica o gestoría, se ajusta a tu negocio." %}</p>
         </div>
       </div>
     </div>
@@ -198,8 +195,8 @@
       <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
         <div class="card-body text-center">
           <i class="bi bi-lightbulb fs-1 text-warning"></i>
-          <h5 class="card-title mt-3 fw-semibold">Asesor Virtual Avanzado</h5>
-          <p class="card-text">Guía a tus usuarios en sus decisiones: qué producto elegir, qué servicio contratar o cómo resolver un problema. Como un vendedor experto, pero digital.</p>
+          <h5 class="card-title mt-3 fw-semibold">{% trans "Asesor Virtual Avanzado" %}</h5>
+          <p class="card-text">{% trans "Guía a tus usuarios en sus decisiones: qué producto elegir, qué servicio contratar o cómo resolver un problema. Como un vendedor experto, pero digital." %}</p>
         </div>
       </div>
     </div>
@@ -209,12 +206,13 @@
 
 
 
-
 <section class="py-5" style="background-color: #f4f9fc; font-family: 'Segoe UI', sans-serif;">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="fw-bold">¿Dónde puede ayudarte el Asistente Inteligente?</h2>
-      <p class="lead text-secondary">El asistente de Euskodev se adapta a diferentes sectores y necesidades, ofreciendo soluciones reales para automatizar, vender más y mejorar la experiencia del cliente.</p>
+      <h2 class="fw-bold">{% trans "¿Dónde puede ayudarte el Asistente Inteligente?" %}</h2>
+      <p class="lead text-secondary">
+        {% trans "El asistente de Euskodev se adapta a diferentes sectores y necesidades, ofreciendo soluciones reales para automatizar, vender más y mejorar la experiencia del cliente." %}
+      </p>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -225,9 +223,9 @@
             <div class="text-center mb-3">
               <i class="bi bi-cart-check fs-1 text-primary"></i>
             </div>
-            <h5 class="card-title text-center fw-semibold">Tiendas Online</h5>
+            <h5 class="card-title text-center fw-semibold">{% trans "Tiendas Online" %}</h5>
             <p class="card-text text-secondary">
-              Ayuda a los visitantes a encontrar productos, responder preguntas frecuentes y finalizar sus compras más rápido. Reduce carritos abandonados con atención 24/7.
+              {% trans "Ayuda a los visitantes a encontrar productos, responder preguntas frecuentes y finalizar sus compras más rápido. Reduce carritos abandonados con atención 24/7." %}
             </p>
           </div>
         </div>
@@ -240,9 +238,9 @@
             <div class="text-center mb-3">
               <i class="bi bi-heart-pulse fs-1 text-danger"></i>
             </div>
-            <h5 class="card-title text-center fw-semibold">Clínicas y Centros Médicos</h5>
+            <h5 class="card-title text-center fw-semibold">{% trans "Clínicas y Centros Médicos" %}</h5>
             <p class="card-text text-secondary">
-              Gestiona reservas de citas, responde dudas comunes de pacientes y ofrece información útil sobre tratamientos o especialidades sin saturar tu personal.
+              {% trans "Gestiona reservas de citas, responde dudas comunes de pacientes y ofrece información útil sobre tratamientos o especialidades sin saturar tu personal." %}
             </p>
           </div>
         </div>
@@ -255,9 +253,9 @@
             <div class="text-center mb-3">
               <i class="bi bi-briefcase fs-1 text-success"></i>
             </div>
-            <h5 class="card-title text-center fw-semibold">Servicios y Consultorías</h5>
+            <h5 class="card-title text-center fw-semibold">{% trans "Servicios y Consultorías" %}</h5>
             <p class="card-text text-secondary">
-              Capta clientes respondiendo sus preguntas en tiempo real, ofrece presupuestos estimados y agenda reuniones sin esfuerzo. Ideal para despachos, agencias y más.
+              {% trans "Capta clientes respondiendo sus preguntas en tiempo real, ofrece presupuestos estimados y agenda reuniones sin esfuerzo. Ideal para despachos, agencias y más." %}
             </p>
           </div>
         </div>
@@ -268,12 +266,13 @@
 
 
 
-
 <section class="py-5 bg-white" style="font-family: 'Segoe UI', sans-serif;">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="fw-bold">¿Cómo se integra el Asistente Inteligente?</h2>
-      <p class="lead text-secondary">Nuestro equipo te acompaña paso a paso para implementar el asistente en tu negocio, sin complicaciones técnicas ni instalaciones complejas.</p>
+      <h2 class="fw-bold">{% trans "¿Cómo se integra el Asistente Inteligente?" %}</h2>
+      <p class="lead text-secondary">
+        {% trans "Nuestro equipo te acompaña paso a paso para implementar el asistente en tu negocio, sin complicaciones técnicas ni instalaciones complejas." %}
+      </p>
     </div>
 
     <div class="row g-5">
@@ -282,8 +281,10 @@
         <div class="mb-3">
           <i class="bi bi-chat-dots fs-1 text-info"></i>
         </div>
-        <h5 class="fw-semibold">1. Definimos tu objetivo</h5>
-        <p class="text-secondary">Analizamos qué necesitas: atención al cliente, generación de leads, reservas, ventas o todo junto. El asistente se adapta a ti.</p>
+        <h5 class="fw-semibold">{% trans "1. Definimos tu objetivo" %}</h5>
+        <p class="text-secondary">
+          {% trans "Analizamos qué necesitas: atención al cliente, generación de leads, reservas, ventas o todo junto. El asistente se adapta a ti." %}
+        </p>
       </div>
 
       <!-- Paso 2 -->
@@ -291,8 +292,10 @@
         <div class="mb-3">
           <i class="bi bi-tools fs-1 text-primary"></i>
         </div>
-        <h5 class="fw-semibold">2. Configuramos el asistente</h5>
-        <p class="text-secondary">Personalizamos el flujo de conversación con tus datos, servicios y estilo de comunicación. Puedes incluir respuestas automáticas, botones y enlaces.</p>
+        <h5 class="fw-semibold">{% trans "2. Configuramos el asistente" %}</h5>
+        <p class="text-secondary">
+          {% trans "Personalizamos el flujo de conversación con tus datos, servicios y estilo de comunicación. Puedes incluir respuestas automáticas, botones y enlaces." %}
+        </p>
       </div>
 
       <!-- Paso 3 -->
@@ -300,19 +303,22 @@
         <div class="mb-3">
           <i class="bi bi-plug fs-1 text-success"></i>
         </div>
-        <h5 class="fw-semibold">3. Lo integramos en tu web</h5>
-        <p class="text-secondary">Instalamos el asistente en tu página en minutos. Funciona con WordPress, HTML, tiendas online o cualquier CMS. También se puede usar en WhatsApp o redes.</p>
+        <h5 class="fw-semibold">{% trans "3. Lo integramos en tu web" %}</h5>
+        <p class="text-secondary">
+          {% trans "Instalamos el asistente en tu página en minutos. Funciona con WordPress, HTML, tiendas online o cualquier CMS. También se puede usar en WhatsApp o redes." %}
+        </p>
       </div>
     </div>
 
     <div class="text-center mt-5">
       <a href="#contact" class="btn btn-lg text-uppercase fw-bold"
          style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
-        Quiero integrar mi asistente
+        {% trans "Quiero integrar mi asistente" %}
       </a>
     </div>
   </div>
 </section>
+
 
 
 
@@ -325,12 +331,12 @@
       
       <!-- Lado izquierdo: texto general -->
       <div class="col-md-6 text-center text-md-start mb-5 mb-md-0">
-        <h2 class="fw-bold mb-3">Beneficios reales para tu negocio</h2>
+        <h2 class="fw-bold mb-3">{% trans "Beneficios reales para tu negocio" %}</h2>
         <p class="lead text-secondary">
-          Implementar un asistente inteligente no solo mejora la atención: optimiza recursos, automatiza procesos y hace crecer tus conversiones. 
+          {% trans "Implementar un asistente inteligente no solo mejora la atención: optimiza recursos, automatiza procesos y hace crecer tus conversiones." %}
         </p>
         <p class="text-muted">
-          Euskodev ofrece una solución lista para integrarse a tu web, app o CRM, con IA adaptable a tu marca y objetivos.
+          {% trans "Euskodev ofrece una solución lista para integrarse a tu web, app o CRM, con IA adaptable a tu marca y objetivos." %}
         </p>
       </div>
 
@@ -340,22 +346,22 @@
           <div class="beneficio-animado d-flex align-items-start">
             <i class="bi bi-lightning-charge text-warning beneficio-icono me-3"></i>
             <div>
-              <div class="beneficio-titulo">Respuestas inmediatas</div>
-              <p class="beneficio-texto">Atiende a tus clientes sin esperas, 24/7, con velocidad y precisión.</p>
+              <div class="beneficio-titulo">{% trans "Respuestas inmediatas" %}</div>
+              <p class="beneficio-texto">{% trans "Atiende a tus clientes sin esperas, 24/7, con velocidad y precisión." %}</p>
             </div>
           </div>
           <div class="beneficio-animado d-flex align-items-start">
             <i class="bi bi-currency-euro text-success beneficio-icono me-3"></i>
             <div>
-              <div class="beneficio-titulo">Reducción de costes</div>
-              <p class="beneficio-texto">Disminuye la carga del equipo humano y ahorra en atención repetitiva.</p>
+              <div class="beneficio-titulo">{% trans "Reducción de costes" %}</div>
+              <p class="beneficio-texto">{% trans "Disminuye la carga del equipo humano y ahorra en atención repetitiva." %}</p>
             </div>
           </div>
           <div class="beneficio-animado d-flex align-items-start">
             <i class="bi bi-bar-chart-line text-primary beneficio-icono me-3"></i>
             <div>
-              <div class="beneficio-titulo">Aumento en conversiones</div>
-              <p class="beneficio-texto">Guía a tus usuarios hasta la acción correcta: compra, reserva o contacto.</p>
+              <div class="beneficio-titulo">{% trans "Aumento en conversiones" %}</div>
+              <p class="beneficio-texto">{% trans "Guía a tus usuarios hasta la acción correcta: compra, reserva o contacto." %}</p>
             </div>
           </div>
         </div>
@@ -363,6 +369,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- GSAP ScrollTrigger animation -->
 <script>
