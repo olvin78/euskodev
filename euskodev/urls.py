@@ -4,7 +4,7 @@ from django.urls import include
 from django.conf import settings
 from django.urls import include, re_path
 from django.conf.urls.i18n import i18n_patterns
-from applications import home
+from applications import home, digital_audit
 from django.utils.translation import gettext_lazy as _
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
@@ -31,6 +31,7 @@ if 'rosetta' in settings.INSTALLED_APPS:
 
 urlpatterns += i18n_patterns(
     path('', include('applications.home.urls')),  # Mantén tu aplicación dentro de i18n_patterns
+    path('test/', include('applications.digital_audit.urls')), 
     path("accounts/", include("allauth.urls")), # <-- esta debe estar
 )
 

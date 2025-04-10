@@ -33,15 +33,25 @@
             <h1>{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
             <p id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
             <div class="text-center mt-4">
-                <a class="btn btn-lg text-uppercase" 
+                <a class="btn btn-lg text-uppercase w-50" 
                    href="#contact" 
-                   style="background: linear-gradient(135deg, #5ce9e2, #348D94); 
+                   style="background-color: #348D94;
                           color: white; 
                           padding: 12px 24px; 
                           border-radius: 8px; 
                           font-weight: bold; 
                           transition: 0.3s;">
-                    {% trans 'Solicita Presupuesto Gratis' %}
+                    {% trans 'Solicitar Presupuesto Gratis' %}
+                </a><br>
+                <a class="btn btn-lg text-uppercase w-50" 
+                   href="{% url 'digital_audit_app:form' %}" 
+                   style="background-color: #348D94; 
+                          color: white; 
+                          padding: 12px 24px; 
+                          border-radius: 8px; 
+                          font-weight: bold; 
+                          transition: 0.3s;">
+                    {% trans 'Comenzar análisis automático<br>de digitalización<br>de mi empresa' %}
                 </a>
             </div>
         </div>

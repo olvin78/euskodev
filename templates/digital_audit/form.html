@@ -1,0 +1,99 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+<style>
+  .euskodev-header {
+    background-color: #43C6CF;
+    color: white;
+  }
+
+  .euskodev-button {
+    background-color: #43C6CF;
+    border-color: #43C6CF;
+    color: white;
+  }
+
+  .euskodev-button:hover {
+    background-color: #36a9b1;
+    border-color: #36a9b1;
+  }
+
+  .card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5" style="padding-top:10vh;">
+  <div class="text-center mb-4">
+    <h1 class="mb-3">{% trans "Análisis de digitalización para empresas mediante Inteligencia Artificial" %}</h1>
+    <p class="lead">
+      {% trans "Completa este formulario para obtener un informe personalizado sobre el nivel de digitalización de tu empresa y cómo mejorarlo con tecnología." %}
+    </p>
+  </div>
+{% if form.errors %}
+  <div class="alert alert-danger">
+    <h5>{% trans "Errores al enviar el formulario" %}</h5>
+    <ul>
+      {% for field in form %}
+        {% for error in field.errors %}
+          <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    <!-- Datos de contacto -->
+    <div class="card mb-4">
+      <div class="card-header euskodev-header">{% trans "Datos de contacto" %}</div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            {{ form.company_name.label_tag }}
+            {{ form.company_name }}
+          </div>
+          <div class="col-md-6">
+            {{ form.contact_name.label_tag }}
+            {{ form.contact_name }}
+          </div>
+          <div class="col-md-6">
+            {{ form.company_email.label_tag }}
+            {{ form.company_email }}
+          </div>
+          <div class="col-md-6">
+            {{ form.contact_tel.label_tag }}
+            {{ form.contact_tel }}
+          </div>
+          <div class="col-12">
+            {{ form.business_activity.label_tag }}
+            {{ form.business_activity }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secciones dinámicas -->
+    {% for section_title, field_list in sections %}
+      {% include "digital_audit/section_block.html" with title=section_title fields=field_list %}
+    {% endfor %}
+
+    <!-- Botón de envío -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn euskodev-button btn-lg">
+        {% trans "Enviar diagnóstico" %}
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
