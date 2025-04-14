@@ -7,6 +7,12 @@
     <div class="">
         <div class="">
             <h1 class="text-center">Lista empresas</h1>
+            <div class="d-flex justify-content-end mb-3">
+                <a style="margin:auto;color: #24a9b3;border-color: black;" href="{% url 'companies_app:company_create' %}" class="btn btn-sm shadow-sm">
+                  <i class="bi bi-plus-circle"></i> Agregar empresa
+                </a>
+              </div>
+                          
             <table class="table">
             <thead>
                 <tr>

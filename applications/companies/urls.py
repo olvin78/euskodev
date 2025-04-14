@@ -1,6 +1,6 @@
 from os import name
 from django.urls import include, path
-from .views import ListCompaniesView, MapCompaniesView
+from .views import ListCompaniesView, MapCompaniesView, CompanyCreateView
 from django.conf.urls import handler404
 from . import views
 
@@ -22,4 +22,8 @@ urlpatterns = [
         name='map_companies',
     ),
 
+
+    path('empresa_nueva/', views.CompanyCreateView.as_view(), name='company_create'),
+
+    
 ]

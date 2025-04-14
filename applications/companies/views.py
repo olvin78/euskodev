@@ -5,12 +5,14 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import (
     TemplateView,
     ListView,
-    DetailView
+    DetailView,
+    CreateView
 )
 from .models import Company
 from django.shortcuts import redirect
 from django.contrib import messages
-
+from .forms import CompanyForm
+from django.urls import reverse_lazy
 
 class ListCompaniesView(UserPassesTestMixin, ListView):
     model = Company
@@ -41,3 +43,13 @@ class MapCompaniesView(UserPassesTestMixin, ListView):
     def handle_no_permission(self):
         messages.error(self.request, "Solo el equipo staff puede acceder a esta página.")
         return redirect("home_app:home")
+
+
+
+
+
+class CompanyCreateView(CreateView):
+    model = Company
+    form_class = CompanyForm
+    template_name = "companies/company_form.html"  # Esta plantilla mostrará el formulario
+    success_url = reverse_lazy('companies_app:list_companies')  # O cambia a donde quieras redirigir

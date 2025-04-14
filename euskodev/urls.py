@@ -18,6 +18,8 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),  # Fuera de i18n_patterns (corregido) 
     path('erp/', include('applications.erp.urls')),  # Mantén tu aplicación dentro de i18n_patterns
     path('empresas/', include('applications.companies.urls')),
+    path('mailing/', include('applications.mailing.urls')),
+
  
     path("ads.txt",
          RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),),

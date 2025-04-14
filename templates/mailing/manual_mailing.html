@@ -1,0 +1,52 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load static %}
+{% load widget_tweaks %}  <!-- ✅ Añade esta línea -->
+
+
+{% block content %}
+<div class="container mt-5 mb-5" style="padding-bottom: 520px;">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">📬 Enviar Mailing Manual</h5>
+        </div>
+        <div class="card-body">
+            {% if error %}
+              <div class="alert alert-danger">
+                <strong>⚠️ Error:</strong> {{ error }}
+              </div>
+            {% endif %}
+          
+            {% if sent %}
+              <div class="alert alert-success">✅ Correos enviados correctamente.</div>
+            {% endif %}
+          
+            <form method="post">
+              {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_subject" class="form-label">Asunto</label>
+              {{ form.subject|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+              <label for="id_message" class="form-label">Mensaje</label>
+              {{ form.message|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+              <label for="id_recipients" class="form-label">Destinatarios</label>
+              {{ form.recipients|add_class:"form-control" }}
+              <small class="form-text text-muted">Separa los correos con coma (,)</small>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="btn" style="background-color: #1d8a8a;color: azure;">
+                <i class="bi bi-send"></i> Enviar mailing
+              </button>
+              <a href="{% url 'dashboard_app:home' %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
