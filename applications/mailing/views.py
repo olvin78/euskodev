@@ -1,6 +1,7 @@
 from django.core.mail import get_connection, EmailMessage
 from django.shortcuts import render
 from .forms import MailingForm
+import traceback
 
 def mailing_view(request):
     error = None
@@ -14,19 +15,19 @@ def mailing_view(request):
             recipients = [email.strip() for email in form.cleaned_data['recipients'].split(',')]
 
             try:
-                connection = get_connection()  # usa la configuración global SMTP
+                connection = get_connection()  # Usa la configuración global de settings.py
                 email = EmailMessage(
                     subject=subject,
                     body=message,
-                    from_email='info@euskodev.eus',  # asegúrate de que está verificado en Brevo
+                    from_email='info@euskodev.eus',  # Asegúrate de que está verificado en Brevo
                     to=recipients,
                     connection=connection,
                 )
                 email.send()
                 sent = True
 
-            except Exception as e:
-                error = str(e)  # Muestra el error real en la plantilla
+            except Exception:
+                error = traceback.format_exc()  # Muestra el error completo en la web
 
     else:
         form = MailingForm()
