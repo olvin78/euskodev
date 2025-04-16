@@ -1,7 +1,8 @@
-from django.core.mail import get_connection, EmailMessage
 from django.shortcuts import render
 from .forms import MailingForm
-import traceback
+from django.conf import settings
+import sib_api_v3_sdk
+from sib_api_v3_sdk.rest import ApiException
 
 def mailing_view(request):
     error = None
@@ -15,24 +16,30 @@ def mailing_view(request):
             recipients = [email.strip() for email in form.cleaned_data['recipients'].split(',')]
 
             try:
-                connection = get_connection()  # Usa la configuración global de settings.py
-                email = EmailMessage(
-                    subject=subject,
-                    body=message,
-                    from_email='info@euskodev.eus',  # Asegúrate de que está verificado en Brevo
-                    to=recipients,
-                    connection=connection,
+                configuration = sib_api_v3_sdk.Configuration()
+                configuration.api_key['api-key'] = settings.BREVO_API_KEY  # Asegúrate de tener esto en tu settings.py
+
+                api_instance = sib_api_v3_sdk.TransactionalEmailsApi(
+                    sib_api_v3_sdk.ApiClient(configuration)
                 )
-                email.send()
+
+                send_email = sib_api_v3_sdk.SendSmtpEmail(
+                    subject=subject,
+                    html_content=f"<html><body>{message}</body></html>",
+                    sender={"name": "Euskodev", "email": "info@euskodev.eus"},
+                    to=[{"email": email} for email in recipients],
+                )
+
+                api_instance.send_transac_email(send_email)
                 sent = True
 
-            except Exception:
-                error = traceback.format_exc()  # Muestra el error completo en la web
+            except ApiException as e:
+                error = f"❌ Error al enviar el mailing: {e}"
 
     else:
         form = MailingForm()
 
-    return render(request, 'mailing/manual_mailing.html', {
+    return render(request, 'mailing/mailing.html', {
         'form': form,
         'sent': sent,
         'error': error,
