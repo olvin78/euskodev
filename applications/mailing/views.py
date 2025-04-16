@@ -39,7 +39,7 @@ def mailing_view(request):
     else:
         form = MailingForm()
 
-    return render(request, 'mailing/mailing.html', {
+    return render(request, 'mailing/manual_mailing.html', {
         'form': form,
         'sent': sent,
         'error': error,
