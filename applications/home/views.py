@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import (
     TemplateView,
     ListView,
-    DetailView
+    DetailView,
+    FormView
 )
 
 from .models import Blog
@@ -22,8 +23,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 
+from .forms import JobApplicationForm
+from django.urls import reverse_lazy
+
 
 from .utils.email_brevo import enviar_email_brevo  # asegúrate de tener esta línea
+import os
 
 def formulario_contactar(request):
     if request.method == "POST":
@@ -211,3 +216,41 @@ def base(request):
 
 class TrabajaConNosotrosView(TemplateView):
     template_name = 'home/trabaja_con_nosotros.html'
+
+
+
+
+
+
+
+class EnviarSolicitudView(FormView):
+    template_name = 'jobs/trabaja_con_nosotros_form.html'
+    form_class = JobApplicationForm
+    success_url = reverse_lazy('home_app:trabaja_gracias')
+
+    def form_valid(self, form):
+        print("✅ Entró en form_valid")  # ← Verifica que entra
+
+        nombre = form.cleaned_data['nombre']
+        apellido = form.cleaned_data['apellido']
+        correo = form.cleaned_data['correo']
+        puesto = form.cleaned_data['puesto']
+
+        mensaje = (
+            f"Nuevo mensaje de solicitud:\n\n"
+            f"Nombre: {nombre} {apellido}\n"
+            f"Correo: {correo}\n"
+            f"Puesto: {puesto}"
+        )
+
+        resultado = send_mail(
+            subject=f"Solicitud para {puesto}",
+            message=mensaje,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=['info@euskodev.eus'],
+            fail_silently=False,
+        )
+
+        print(f"📨 Resultado del envío: {resultado}")  # ← Verifica que se envió (debe ser 1)
+
+        return super().form_valid(form)

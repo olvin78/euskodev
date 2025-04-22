@@ -1,13 +1,12 @@
 from os import name
 from django.urls import include, path
 from . import views
-from .views import TrabajaConNosotrosView
+from .views import TrabajaConNosotrosView, EnviarSolicitudView
 
 """
 {% url 'home_app:aviso_legal' %}
 {% url 'home_app:politica_de_privacidad' %}
 {% url 'home_app:politica_de_cookies' %}
-
 
 """
 
@@ -94,6 +93,8 @@ urlpatterns = [
 
     path('trabaja-con-nosotros/', TrabajaConNosotrosView.as_view(), name='trabaja_con_nosotros'),
 
+    path('trabaja-con-nosotros/enviar/', EnviarSolicitudView.as_view(), name='trabaja_con_nosotros_form'),
+
 # estas son las urls para en apartado del menu de servicios, 
     path('desarrollo-web/', views.desarrollo_web, name='desarrollo_web'),
     path('reservas-pagos-online/', views.reservas_y_pagos, name='reservas_pagos'),
@@ -102,8 +103,6 @@ urlpatterns = [
     path('aplicaciones-moviles/', views.aplicaciones_moviles, name='aplicaciones_moviles'),
     path('sistema-de-ticket/', views.sistema_ticket, name='sistema_ticket'),
     path('base/', views.base, name='base'),
-
-
 
 
 ]

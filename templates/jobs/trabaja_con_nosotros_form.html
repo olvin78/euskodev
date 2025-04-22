@@ -1,0 +1,183 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<div class="container position-relative py-5" style="padding-top: 180px!important; padding-bottom: 200px!important;">
+    <h2 class="text-center mb-4 fw-bold">Unirme al equipo de Euskodev</h2>
+
+    <div class="position-relative" style="max-width: 900px; margin: auto;">
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Errores:</strong>
+            <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Formulario -->
+        <form id="jobForm" method="post" enctype="multipart/form-data" class="bg-light p-4 rounded-4 shadow-sm position-relative" style="z-index: 1;" action="{% url 'home_app:trabaja_con_nosotros' %}">
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nombre</label>
+                    {{ form.nombre }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Apellido</label>
+                    {{ form.apellido }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Correo electrónico</label>
+                    {{ form.correo }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">{{ form.puesto.label }}</label>
+                    {{ form.puesto }}
+                </div>
+                <div class="col-12">
+                    <label class="form-label d-block">Sube tu currículum aquí</label>
+                    <label for="curriculum" id="uploadBox" class="upload-box d-flex align-items-center justify-content-center flex-column text-center">
+                        <div id="uploadIcon" class="display-6 text-primary">+</div>
+                        <div id="uploadText" class="text-muted">Haz clic o arrastra tu archivo aquí</div>
+                        {{ form.curriculum }}
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" id="submitBtn" class="btn px-5 py-2 fw-semibold" style="background-color: #3abfd1; color: white;">
+                        Enviar solicitud / Bidali eskaera
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        
+        <!-- Mensaje de éxito -->
+        <div id="successMessage" class="success-box text-center d-none">
+            <div class="icon-wrap mb-3">
+                <svg id="checkIcon" width="100" height="100" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="48" stroke="#3abfd1" stroke-width="4" fill="none" />
+                    <path d="M30 55 L45 70 L75 40" stroke="#3abfd1" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h4 class="mt-3 text-dark">¡Solicitud enviada con éxito!</h4>
+            <p class="text-muted">Gracias por postularte, pronto nos pondremos en contacto contigo.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 🔧 ESTILOS -->
+<style>
+.success-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.upload-box {
+    border: 2px dashed #0d6efd;
+    border-radius: 12px;
+    padding: 40px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+.upload-box:hover {
+    background-color: #f0f8ff;
+}
+.upload-box.active {
+    border-color: #198754;
+    background-color: #e9f9ef;
+}
+
+.icon-wrap svg {
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+@keyframes pulse-glow {
+    0%   { filter: drop-shadow(0 0 0px #3abfd1); }
+    50%  { filter: drop-shadow(0 0 10px #3abfd1); }
+    100% { filter: drop-shadow(0 0 0px #3abfd1); }
+}
+</style>
+
+<!-- ✅ FUNCIONALIDAD -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('jobForm');
+    const button = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const fileInput = document.getElementById('curriculum');
+    const uploadBox = document.getElementById('uploadBox');
+    const uploadText = document.getElementById('uploadText');
+    const uploadIcon = document.getElementById('uploadIcon');
+
+    // ✅ Animación al subir archivo
+    fileInput.addEventListener('change', function () {
+        if (fileInput.files.length > 0) {
+            uploadBox.classList.add('active');
+            uploadIcon.textContent = '✔';
+            uploadText.textContent = 'Archivo cargado: ' + fileInput.files[0].name;
+        }
+    });
+
+    // ✅ Desactiva la primera opción del select
+    const puestoSelect = document.querySelector('select[name="{{ form.puesto.name }}"]');
+    if (puestoSelect) {
+        puestoSelect.options[0].disabled = true;
+    }
+
+    // ✅ Envío simulado del formulario
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        button.disabled = true;
+        button.innerText = "Enviando...";
+
+        setTimeout(() => {
+            form.reset();
+            button.disabled = false;
+            button.innerText = "Enviar solicitud";
+
+            // Mostrar y animar el mensaje de éxito
+            successMessage.classList.remove("d-none");
+            gsap.fromTo(successMessage, 
+                { opacity: 0, scale: 0.8 }, 
+                { 
+                    opacity: 1, 
+                    scale: 1, 
+                    duration: 1, 
+                    ease: "elastic.out(1, 0.5)", 
+                    onComplete: () => {
+                        // Ocultar automáticamente tras 4 segundos
+                        setTimeout(() => {
+                            gsap.to(successMessage, {
+                                opacity: 0,
+                                scale: 0.8,
+                                duration: 0.6,
+                                ease: "power1.in",
+                                onComplete: () => {
+                                    successMessage.classList.add("d-none");
+                                }
+                            });
+                        }, 4000);
+                    }
+                }
+            );
+        }, 1200);
+    });
+});
+</script>
+
+{% endblock %}

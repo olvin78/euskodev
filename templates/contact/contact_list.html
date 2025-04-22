@@ -1,0 +1,132 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Contactos{% endblock %}
+
+{% block head %}
+<style>
+  /* Puedes agregar estilos adicionales aquí si lo necesitas */
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5" style="padding-top: 180px!important; padding-bottom: 700px!important;">
+  <h2 class="form-title text-center mb-4">Lista de Contactos</h2>
+
+  <div class="mb-4 text-end">
+    <a href="{% url 'contact_app:add_contact' %}" class="btn btn-primary">+ Agregar nuevo contacto</a>
+  </div>
+
+  <form method="get" class="mb-4">
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Buscar por nombre, email o teléfono...">
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-secondary w-100">Filtrar</button>
+      </div>
+    </div>
+  </form>
+
+  {% if contacts %}
+  <form method="post" action="#">  <!-- aquí podrías definir acciones futuras -->
+    {% csrf_token %}
+    <div class="table-responsive">
+      <table class="table table-hover bg-white">
+        <thead class="table-light">
+          <tr>
+            <th style="width: 40px;"><input type="checkbox" id="selectAll"></th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contact in contacts %}
+          <tr>
+            <td><input type="checkbox" name="selected_contacts" value="{{ contact.id }}"></td>
+            <td>{{ contact.first_name }} {{ contact.last_name }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.email }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="mt-3 text-end">
+      <button type="button" class="btn" style="background-color: rgb(50, 120, 160); color: white;" data-bs-toggle="modal" data-bs-target="#mailingModal">
+        Hacer mailing
+      </button>
+      <button type="button" class="btn" style="background-color: rgb(185, 45, 45); color: white;" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+        Eliminar seleccionados
+      </button>
+      <a href="{% url 'contact_app:contact_list' %}" class="btn" style="background-color: rgb(170, 170, 170); color: white;">
+        Cancelar
+      </a>
+    </div>
+  </form>
+
+  {% else %}
+    <div class="alert alert-warning mt-4 text-center">
+      No hay contactos disponibles.
+    </div>
+  {% endif %}
+</div>
+
+<!-- Modal de confirmación de eliminación -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-3 shadow">
+      <div class="modal-header text-white" style="background-color: rgb(80, 160, 143);">
+        <h5 class="modal-title" id="confirmDeleteModalLabel" style="color: white;">Confirmar eliminación</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar los contactos seleccionados? Esta acción no se puede deshacer.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn" style="background-color: rgb(80, 160, 143); color: white;">Sí, eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para hacer mailing -->
+<div class="modal fade" id="mailingModal" tabindex="-1" aria-labelledby="mailingModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 rounded-3 shadow">
+      <div class="modal-header" style="background-color: rgb(80, 160, 143); color: white;">
+        <h5 class="modal-title text-white" id="mailingModalLabel">Confirmar envío de mailing</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¿Quieres enviar un correo masivo a los contactos seleccionados?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <a href="{% url 'mailing_app:manual' %}">
+          <button type="submit" class="btn" style="background-color: rgb(80, 160, 143); color: white;">
+            Sí, Hacer mailing
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const selectAll = document.getElementById("selectAll");
+    const checkboxes = document.querySelectorAll('input[name="selected_contacts"]');
+
+    if (selectAll) {
+      selectAll.addEventListener("change", function () {
+        checkboxes.forEach(cb => cb.checked = selectAll.checked);
+      });
+    }
+  });
+</script>
+
+{% endblock %}

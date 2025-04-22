@@ -51,7 +51,7 @@
       <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
       <div class="text-center mt-4">
         <a class="btn btn-lg text-uppercase text-white"
-           href="#contact"
+           href="{% url 'home_app:trabaja_con_nosotros_form' %}"
            style="background: linear-gradient(135deg, #5ce9e2, #348D94);
                   border-radius: 8px;">
           {% trans 'Trabaja con Nosotros' %}
@@ -111,7 +111,7 @@
 
     <!-- CTA -->
     <div class="text-center mt-5">
-      <a href="mailto:talento@euskodev.com" class="btn btn-lg px-5 py-3" style="background-color: #2AC3B5; color: #1F1F1F; font-weight: 600; font-size: 1.1rem;">
+      <a href="{% url 'home_app:trabaja_con_nosotros_form' %}" class="btn btn-lg px-5 py-3" style="background-color: #2AC3B5; color: #1F1F1F; font-weight: 600; font-size: 1.1rem;">
         {% trans "Quiero unirme a Euskodev" %}
       </a>
     </div>
@@ -443,7 +443,7 @@
     <p class="lead text-muted mb-4" style="max-width: 700px; margin: auto;">
       {% trans "En Euskodev no buscamos empleados, buscamos personas que quieran construir el futuro con nosotros. Si esto resuena contigo, estamos deseando conocerte." %}
     </p>
-    <a href="mailto:info@euskodev.eus" class="btn btn-lg px-5 py-3" style="background-color: #2AC3B5; color: #1F1F1F; font-weight: 600;">
+    <a href="{% url 'home_app:trabaja_con_nosotros_form' %}" class="btn btn-lg px-5 py-3" style="background-color: #2AC3B5; color: #1F1F1F; font-weight: 600;">
       {% trans "Quiero unirme al equipo" %}
     </a>
   </div>

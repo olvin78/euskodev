@@ -19,6 +19,8 @@ urlpatterns = [
     path('erp/', include('applications.erp.urls')),  # Mantén tu aplicación dentro de i18n_patterns
     path('empresas/', include('applications.companies.urls')),
     path('mailing/', include('applications.mailing.urls')),
+    path('contact/', include('applications.contact.urls')),  # ✅ también corrige aquí si usas aplicaciones.
+
 
  
     path("ads.txt",

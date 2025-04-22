@@ -49,4 +49,19 @@
     </div>
   </div>
 </div>
+
+
+<script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
+
+
+<script>
+  tinymce.init({
+    selector: '#id_message',
+    menubar: false,
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent',
+    height: 300,
+  });
+</script>
+
+
 {% endblock %}
