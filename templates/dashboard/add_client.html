@@ -1,10 +1,11 @@
 {% load i18n %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% trans'Agregar Cliente' %}</title>
+    <title>{% trans "Agregar Cliente" %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -98,11 +99,11 @@ h2 {
 
     {% block content %}
     <div class="container">
-        <h2>{% trans'Agregar Cliente Nuevo' %}</h2>
+        <h2>{% trans "Agregar Cliente Nuevo" %}</h2>
 
         <!-- 🔍 Filtro de clientes -->
         <div class="mb-3">
-            <label for="cliente-search">{% trans'Buscar Cliente' %}:</label>
+            <label for="cliente-search">{% trans "Buscar Cliente" %}:</label>
             <input type="text" id="cliente-search" class="form-control" placeholder="Escribe el nombre o NIF...">
             <ul id="cliente-list" class="list-group mt-2"></ul>
         </div>
@@ -144,8 +145,8 @@ h2 {
         </div>
     </div>
     <div class="btn-container">
-        <button type="submit" class="btn-submit">{% trans'Guardar Cliente' %}</button>
-        <a href="{% url 'dashboard_app:create_budget' %}" class="btn-cancel text-center">{% trans'Cancelar' %}</a>
+        <button type="submit" class="btn-submit">{% trans "Guardar Cliente" %}</button>
+        <a href="{% url 'dashboard_app:create_budget' %}" class="btn-cancel text-center">{% trans "Cancelar" %}</a>
     </div>
 </form>
 

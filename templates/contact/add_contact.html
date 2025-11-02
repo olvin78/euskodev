@@ -1,6 +1,6 @@
-{% load i18n %}
-{% extends 'dashboard/base_dashboard.html' %}
 
+{% extends 'dashboard/base_dashboard.html' %}
+{% load i18n %}
 {% block title %}Agregar contacto{% endblock %}
 
 {% block extra_css %}
@@ -10,7 +10,7 @@
 
 {% block content %}
 <div class="container py-5">
-  <h2 class="form-title text-center mb-4">Agregar Contacto</h2>
+  <h2 class="form-title text-center mb-4">{% trans "Agregar Contacto" %}</h2>
 
   <div class="form-wrapper shadow-lg p-5 rounded-3 bg-white">
     <form method="post">
@@ -184,8 +184,8 @@
 
       <!-- Botones de acción -->
       <div class="d-flex justify-content-between mt-4">
-        <button type="submit" class="btn btn-primary">{% trans'Guardar' %}</button>
-        <a href="{% url 'contact_app:contact_list' %}" class="btn btn-secondary">{% trans'Cancelar' %}</a>
+        <button type="submit" class="btn btn-primary">{% trans "Guardar" %}</button>
+        <a href="{% url 'contact_app:contact_list' %}" class="btn btn-secondary">{% trans "Cancelar" %}</a>
       </div>
     </form>
   </div>

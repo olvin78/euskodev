@@ -1,7 +1,9 @@
+
 {% extends 'dashboard/base_dashboard.html' %}
 
 {% block title %}Contactos{% endblock %}
 
+{% load i18n %}
 {% block head %}
 <style>
   /* Puedes agregar estilos adicionales aquí si lo necesitas */
@@ -10,10 +12,10 @@
 
 {% block content %}
 <div class="container py-5" style="padding-top: 180px!important; padding-bottom: 700px!important;">
-  <h2 class="form-title text-center mb-4">Lista de Contactos</h2>
+  <h2 class="form-title text-center mb-4">{% trans "Lista de Contactos" %}</h2>
 
   <div class="mb-4 text-end">
-    <a href="{% url 'contact_app:add_contact' %}" class="btn btn-primary">+ Agregar nuevo contacto</a>
+    <a href="{% url 'contact_app:add_contact' %}" class="btn btn-primary">+ {% trans "Agregar nuevo contacto" %}</a>
   </div>
 
   <form method="get" class="mb-4">
@@ -22,7 +24,7 @@
         <input type="text" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Buscar por nombre, email o teléfono...">
       </div>
       <div class="col-md-2">
-        <button type="submit" class="btn btn-secondary w-100">Filtrar</button>
+        <button type="submit" class="btn btn-secondary w-100">{% trans "Filtrar" %}</button>
       </div>
     </div>
   </form>
@@ -35,9 +37,9 @@
         <thead class="table-light">
           <tr>
             <th style="width: 40px;"><input type="checkbox" id="selectAll"></th>
-            <th>Nombre</th>
-            <th>Teléfono</th>
-            <th>Email</th>
+            <th>{% trans "Nombre" %}</th>
+            <th>{% trans "Teléfono" %}</th>
+            <th>{% trans "Email" %}</th>
           </tr>
         </thead>
         <tbody>
@@ -56,20 +58,20 @@
     <!-- Botones de acción -->
     <div class="mt-3 text-end">
       <button type="button" class="btn" style="background-color: rgb(50, 120, 160); color: white;" data-bs-toggle="modal" data-bs-target="#mailingModal">
-        Hacer mailing
+        {% trans "Hacer mailing" %}
       </button>
       <button type="button" class="btn" style="background-color: rgb(185, 45, 45); color: white;" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
-        Eliminar seleccionados
+        {% trans "Eliminar seleccionados" %}
       </button>
       <a href="{% url 'contact_app:contact_list' %}" class="btn" style="background-color: rgb(170, 170, 170); color: white;">
-        Cancelar
+        {% trans "Cancelar" %}
       </a>
     </div>
   </form>
 
   {% else %}
     <div class="alert alert-warning mt-4 text-center">
-      No hay contactos disponibles.
+      {% trans "No hay contactos disponibles." %}
     </div>
   {% endif %}
 </div>
@@ -79,15 +81,15 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0 rounded-3 shadow">
       <div class="modal-header text-white" style="background-color: rgb(80, 160, 143);">
-        <h5 class="modal-title" id="confirmDeleteModalLabel" style="color: white;">Confirmar eliminación</h5>
+        <h5 class="modal-title" id="confirmDeleteModalLabel" style="color: white;">{% trans "Confirmar eliminación" %}</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        ¿Estás seguro de que deseas eliminar los contactos seleccionados? Esta acción no se puede deshacer.
+        {% trans "¿Estás seguro de que deseas eliminar los contactos seleccionados? Esta acción no se puede deshacer." %}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn" style="background-color: rgb(80, 160, 143); color: white;">Sí, eliminar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cancelar" %}</button>
+        <button type="submit" class="btn" style="background-color: rgb(80, 160, 143); color: white;">{% trans "Sí, eliminar" %}</button>
       </div>
     </div>
   </div>
@@ -98,17 +100,17 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0 rounded-3 shadow">
       <div class="modal-header" style="background-color: rgb(80, 160, 143); color: white;">
-        <h5 class="modal-title text-white" id="mailingModalLabel">Confirmar envío de mailing</h5>
+        <h5 class="modal-title text-white" id="mailingModalLabel">{% trans "Confirmar envío de mailing" %}</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        ¿Quieres enviar un correo masivo a los contactos seleccionados?
+        {% trans "¿Quieres enviar un correo masivo a los contactos seleccionados?" %}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cancelar" %}</button>
         <a href="{% url 'mailing_app:manual' %}">
           <button type="submit" class="btn" style="background-color: rgb(80, 160, 143); color: white;">
-            Sí, Hacer mailing
+            {% trans "Sí, Hacer mailing" %}
           </button>
         </a>
       </div>

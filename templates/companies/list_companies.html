@@ -8,32 +8,32 @@
 <div class="" style="min-height:80vh; margin-top:15vh;">
     <div class="">
         <div class="">
-            <h1 class="text-center">{% trans'Lista empresas' %}</h1>
+            <h1 class="text-center">{% trans "Lista empresas" %}</h1>
             <div class="d-flex justify-content-end mb-3">
                 <a style="margin:auto;color: #24a9b3;border-color: black;" href="{% url 'companies_app:company_create' %}" class="btn btn-sm shadow-sm">
-                  <i class="bi bi-plus-circle"></i> {% trans'Agregar empresa' %}
+                  <i class="bi bi-plus-circle"></i> {% trans "Agregar empresa" %}
                 </a>
               </div>
                           
             <table class="table">
             <thead>
                 <tr>
-                <th scope="col">{% trans'Nombre' %}</th>
-                <th scope="col">{% trans'Ciudad' %}</th>
-                <th scope="col">{% trans'Dirección' %}</th>
-                <th scope="col">{% trans'Email' %}</th>
-                <th scope="col">{% trans'Phone' %}</th>
-                <th scope="col">{% trans'Web' %}</th>
-                <th scope="col">{% trans'¿Tiene Web?' %}</th>
-                <th scope="col">{% trans'¿Tiene APP?' %}</th>
-                <th scope="col">{% trans'¿Tiene ERP?' %}</th>
-                <th scope="col">{% trans'¿Tiene IA?' %}</th>
-                <th scope="col">{% trans'Gerente' %}</th>
-                <th scope="col">{% trans'Tel.Gerente' %}</th>
-                <th scope="col">{% trans'Email.Gerente' %}</th>
-                <th scope="col">{% trans'¿Visitado?' %}</th>
-                <th scope="col">{% trans'¿Fecha visita?' %}</th>
-                <th scope="col">{% trans'Comentario' %}</th>
+                <th scope="col">{% trans "Nombre" %}</th>
+                <th scope="col">{% trans "Ciudad" %}</th>
+                <th scope="col">{% trans "Dirección" %}</th>
+                <th scope="col">{% trans "Email" %}</th>
+                <th scope="col">{% trans "Phone" %}</th>
+                <th scope="col">{% trans "Web" %}</th>
+                <th scope="col">{% trans "¿Tiene Web?" %}</th>
+                <th scope="col">{% trans "¿Tiene APP?" %}</th>
+                <th scope="col">{% trans "¿Tiene ERP?" %}</th>
+                <th scope="col">{% trans "¿Tiene IA?" %}</th>
+                <th scope="col">{% trans "Gerente" %}</th>
+                <th scope="col">{% trans "Tel.Gerente" %}</th>
+                <th scope="col">{% trans "Email.Gerente" %}</th>
+                <th scope="col">{% trans "¿Visitado?" %}</th>
+                <th scope="col">{% trans "¿Fecha visita?" %}</th>
+                <th scope="col">{% trans "Comentario" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,37 +45,37 @@
                 <td>{{ dato.address }}</td>
                 <td>{{ dato.email }}</td>
                 <td><a href="tel:{{ dato.phone }}">{{ dato.phone }}</td>
-                <td><a href="{{ dato.website }}" target="_blank"><button class="btn">VER</button></a></td>
+                <td><a href="{{ dato.website }}" target="_blank"><button class="btn">{% trans "ER" %}</button></a></td>
 
                 
                     {% if dato.has_website %}
-                <td class="bg-success text-center text-white">Sí</td>
+                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
                     {% elif dato.has_website == False %}
-                <td class="bg-danger text-center text-white">No</td>
+                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
                     {% else %}
                 <td class="bg-light text-center text-white">?</td>
                     {% endif %}
 
                  {% if dato.has_mobile_app %}
-                <td class="bg-success text-center text-white">Sí</td>
+                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
                     {% elif dato.has_mobile_app == False %}
-                <td class="bg-danger text-center text-white">No</td>
+                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
                     {% else %}
                 <td class="bg-secondary text-center text-white">?</td>
                     {% endif %}
 
                  {% if dato.has_custom_software %}
-                <td class="bg-success text-center text-white">Sí</td>
+                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
                     {% elif dato.has_custom_software == False %}
-                <td class="bg-danger text-center text-white">No</td>
+                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
                     {% else %}
                 <td class="bg-secondary text-center text-white">?</td>
                     {% endif %}
 
                  {% if dato.uses_ai %}
-                <td class="bg-success text-center text-white">Sí</td>
+                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
                     {% elif dato.uses_ai == False %}
-                <td class="bg-danger text-center text-white">No</td>
+                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
                     {% else %}
                 <td class="bg-secondary text-center text-white">?</td>
                     {% endif %}
@@ -86,9 +86,9 @@
                 <td>{{ dato.manager_email }}</td>
 
                 {% if dato.visited %}
-                <td class="text-center">Sí</td>
+                <td class="text-center">{% trans "Sí" %}</td>
                 {% else %}
-                <td class="text-center">No</td>
+                <td class="text-center">{% trans "No" %}</td>
                 {% endif %}
 
                 <td>{{ dato.visited_date }}</td>
