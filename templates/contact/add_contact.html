@@ -1,3 +1,4 @@
+{% load i18n %}
 {% extends 'dashboard/base_dashboard.html' %}
 
 {% block title %}Agregar contacto{% endblock %}
@@ -183,8 +184,8 @@
 
       <!-- Botones de acción -->
       <div class="d-flex justify-content-between mt-4">
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="{% url 'contact_app:contact_list' %}" class="btn btn-secondary">Cancelar</a>
+        <button type="submit" class="btn btn-primary">{% trans'Guardar' %}</button>
+        <a href="{% url 'contact_app:contact_list' %}" class="btn btn-secondary">{% trans'Cancelar' %}</a>
       </div>
     </form>
   </div>

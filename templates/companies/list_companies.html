@@ -1,37 +1,39 @@
 {% extends "home/base.html" %}
 {% load static %}
+{% load i18n %}
+
 
 {% block content %}
 
 <div class="" style="min-height:80vh; margin-top:15vh;">
     <div class="">
         <div class="">
-            <h1 class="text-center">Lista empresas</h1>
+            <h1 class="text-center">{% trans'Lista empresas' %}</h1>
             <div class="d-flex justify-content-end mb-3">
                 <a style="margin:auto;color: #24a9b3;border-color: black;" href="{% url 'companies_app:company_create' %}" class="btn btn-sm shadow-sm">
-                  <i class="bi bi-plus-circle"></i> Agregar empresa
+                  <i class="bi bi-plus-circle"></i> {% trans'Agregar empresa' %}
                 </a>
               </div>
                           
             <table class="table">
             <thead>
                 <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Ciudad</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Web</th>
-                <th scope="col">¿Tiene Web?</th>
-                <th scope="col">¿Tiene APP?</th>
-                <th scope="col">¿Tiene ERP?</th>
-                <th scope="col">¿Tiene IA?</th>
-                <th scope="col">Gerente</th>
-                <th scope="col">Tel.Gerente</th>
-                <th scope="col">Email.Gerente</th>
-                <th scope="col">¿Visitado?</th>
-                <th scope="col">¿Fecha visita?</th>
-                <th scope="col">Comentario</th>
+                <th scope="col">{% trans'Nombre' %}</th>
+                <th scope="col">{% trans'Ciudad' %}</th>
+                <th scope="col">{% trans'Dirección' %}</th>
+                <th scope="col">{% trans'Email' %}</th>
+                <th scope="col">{% trans'Phone' %}</th>
+                <th scope="col">{% trans'Web' %}</th>
+                <th scope="col">{% trans'¿Tiene Web?' %}</th>
+                <th scope="col">{% trans'¿Tiene APP?' %}</th>
+                <th scope="col">{% trans'¿Tiene ERP?' %}</th>
+                <th scope="col">{% trans'¿Tiene IA?' %}</th>
+                <th scope="col">{% trans'Gerente' %}</th>
+                <th scope="col">{% trans'Tel.Gerente' %}</th>
+                <th scope="col">{% trans'Email.Gerente' %}</th>
+                <th scope="col">{% trans'¿Visitado?' %}</th>
+                <th scope="col">{% trans'¿Fecha visita?' %}</th>
+                <th scope="col">{% trans'Comentario' %}</th>
                 </tr>
             </thead>
             <tbody>

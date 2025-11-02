@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-02 22:00+0200\n"
+"POT-Creation-Date: 2025-11-02 14:45+0100\n"
 "PO-Revision-Date: 2024-07-23 09:30+0000\n"
 "Last-Translator:   <olvind78@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,87 +19,453 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: euskodev/settings.py:179
+#: applications/digital_audit/models.py:7
+msgid "Sí"
+msgstr ""
+
+#: applications/digital_audit/models.py:8
+msgid "No"
+msgstr ""
+
+#: applications/digital_audit/models.py:9
+msgid "No lo sé"
+msgstr ""
+
+#: applications/digital_audit/models.py:13
+msgid "Nombre de la empresa"
+msgstr ""
+
+#: applications/digital_audit/models.py:14
+msgid "Nombre de contacto"
+msgstr ""
+
+#: applications/digital_audit/models.py:15
+msgid "Correo electrónico de contacto"
+msgstr ""
+
+#: applications/digital_audit/models.py:16
+msgid "Teléfono de contacto (opcional)"
+msgstr ""
+
+#: applications/digital_audit/models.py:20
+msgid "La empresa tiene una página web corporativa"
+msgstr ""
+
+#: applications/digital_audit/models.py:21
+msgid "La web es responsive y se adapta a móviles"
+msgstr ""
+
+#: applications/digital_audit/models.py:22
+msgid "La web está optimizada para buscadores (SEO)"
+msgstr ""
+
+#: applications/digital_audit/models.py:23
+msgid "La empresa tiene ficha en Google Business"
+msgstr ""
+
+#: applications/digital_audit/models.py:24
+msgid "Utiliza herramientas como Google Analytics"
+msgstr ""
+
+#: applications/digital_audit/models.py:27
+msgid "Tiene presencia activa en redes sociales"
+msgstr ""
+
+#: applications/digital_audit/models.py:28
+msgid "Hace campañas en redes o Google Ads"
+msgstr ""
+
+#: applications/digital_audit/models.py:29
+msgid "Envía newsletters o emails promocionales"
+msgstr ""
+
+#: applications/digital_audit/models.py:30
+msgid "Utiliza un CRM para gestión de contactos/clientes"
+msgstr ""
+
+#: applications/digital_audit/models.py:31
+msgid "Realiza campañas de captación de leads"
+msgstr ""
+
+#: applications/digital_audit/models.py:34
+msgid "Vende productos o servicios online"
+msgstr ""
+
+#: applications/digital_audit/models.py:35
+msgid "Acepta pagos digitales"
+msgstr ""
+
+#: applications/digital_audit/models.py:36
+msgid "Tiene un sistema de reservas online"
+msgstr ""
+
+#: applications/digital_audit/models.py:37
+msgid "Tiene carrito de compras en su web"
+msgstr ""
+
+#: applications/digital_audit/models.py:40
+msgid "Utiliza un ERP para la gestión interna"
+msgstr ""
+
+#: applications/digital_audit/models.py:41
+msgid "Usa facturación digital"
+msgstr ""
+
+#: applications/digital_audit/models.py:42
+msgid "Automatiza procesos repetitivos"
+msgstr ""
+
+#: applications/digital_audit/models.py:43
+msgid "Utiliza software colaborativo"
+msgstr ""
+
+#: applications/digital_audit/models.py:44
+msgid "Tiene copias de seguridad automatizadas"
+msgstr ""
+
+#: applications/digital_audit/models.py:47
+msgid "Tiene un chatbot o asistente virtual"
+msgstr ""
+
+#: applications/digital_audit/models.py:48
+msgid "Utiliza WhatsApp Business u otro canal directo"
+msgstr ""
+
+#: applications/digital_audit/models.py:49
+msgid "Tiene sistema de soporte o tickets"
+msgstr ""
+
+#: applications/digital_audit/models.py:50
+msgid "Responde rápidamente en canales digitales"
+msgstr ""
+
+#: applications/digital_audit/models.py:53
+msgid "Tiene una app móvil propia"
+msgstr ""
+
+#: applications/digital_audit/models.py:54
+msgid "Tiene una zona privada o funcionalidades especiales"
+msgstr ""
+
+#: applications/digital_audit/models.py:55
+msgid "Los empleados pueden trabajar desde el móvil"
+msgstr ""
+
+#: applications/digital_audit/models.py:56
+msgid "Utiliza apps móviles de productividad"
+msgstr ""
+
+#: applications/digital_audit/models.py:59
+msgid "Analiza métricas de ventas y clientes"
+msgstr ""
+
+#: applications/digital_audit/models.py:60
+msgid "Utiliza dashboards para decisiones"
+msgstr ""
+
+#: applications/digital_audit/models.py:61
+msgid "Mide objetivos digitales (KPI)"
+msgstr ""
+
+#: applications/digital_audit/models.py:64
+msgid "Su web tiene certificado SSL"
+msgstr ""
+
+#: applications/digital_audit/models.py:65
+msgid "Usa contraseñas seguras y doble factor"
+msgstr ""
+
+#: applications/digital_audit/models.py:66
+msgid "Está adaptado a la normativa RGPD"
+msgstr ""
+
+#: applications/digital_audit/models.py:67
+msgid "Realiza auditorías de seguridad"
+msgstr ""
+
+#: applications/digital_audit/models.py:69
+msgid "Fecha de envío"
+msgstr ""
+
+#: euskodev/settings.py:200
 msgid "Español"
 msgstr ""
 
-#: euskodev/settings.py:180
+#: euskodev/settings.py:201
 msgid "Euskara"
 msgstr ""
 
-#: templates/dashboard/index.html:10
+#: templates/dashboard/base_dashboard.html:10
 msgid "Dashboard | Euskodev.eus"
 msgstr ""
 
-#: templates/home/Blog.html:28 templates/home/base copy.html:108
-#: templates/home/base.html:269 templates/home/index.html:74
-msgid "Desarrollo Web"
-msgstr "Web garapena"
+#: templates/digital_audit/form.html:33
+msgid ""
+"Análisis de digitalización para empresas mediante Inteligencia Artificial"
+msgstr ""
 
-#: templates/home/Blog.html:97 templates/home/articulo_completo copy.html:79
-#: templates/home/articulo_completo.html:80
+#: templates/digital_audit/form.html:35
+msgid ""
+"Completa este formulario para obtener un informe personalizado sobre el "
+"nivel de digitalización de tu empresa y cómo mejorarlo con tecnología."
+msgstr ""
+
+#: templates/digital_audit/form.html:40
+msgid "Errores al enviar el formulario"
+msgstr ""
+
+#: templates/digital_audit/form.html:59
+msgid "Datos de contacto"
+msgstr ""
+
+#: templates/digital_audit/form.html:94
+msgid "Enviar diagnóstico"
+msgstr ""
+
+#: templates/digital_audit/thank_you.html:32
+msgid ""
+"Gracias por completar el test. ; )<br>En breve recibirás un informe con un "
+"análisis sobre la digitalización de tu empresa realizado mediante "
+"inteligencia artificial."
+msgstr ""
+
+#: templates/home/Blog.html:118 templates/home/articulo_completo copy.html:118
+#: templates/home/articulo_completo.html:101
 #: templates/home/articulo_completo3.html:75 templates/home/base copy.html:103
-#: templates/home/base.html:266 templates/home/index.html:58
+#: templates/home/base.html:263 templates/home/index.html:89
 #: templates/home/index2.html:165 templates/home/index2.html:268
 msgid "Servicios"
 msgstr "zerbitzuak"
 
-#: templates/home/Blog.html:100 templates/home/articulo_completo copy.html:82
-#: templates/home/articulo_completo.html:83
+#: templates/home/Blog.html:121 templates/home/articulo_completo copy.html:121
+#: templates/home/base copy.html:108 templates/home/base.html:266
+#: templates/home/index.html:105
+msgid "Desarrollo Web"
+msgstr "Web garapena"
+
+#: templates/home/Blog.html:122 templates/home/articulo_completo copy.html:122
+#: templates/home/base copy.html:113 templates/home/base.html:267
+msgid "Reservas y Pagos Online"
+msgstr ""
+
+#: templates/home/Blog.html:123 templates/home/articulo_completo copy.html:123
+#: templates/home/base copy.html:118 templates/home/base.html:268
+#: templates/home/index.html:135
+msgid "Software a Medida"
+msgstr ""
+
+#: templates/home/Blog.html:124 templates/home/articulo_completo copy.html:124
+#: templates/home/base copy.html:123 templates/home/base.html:269
+#: templates/home/index.html:150 templates/home/trabaja_con_nosotros.html:285
+msgid "Inteligencia Artificial"
+msgstr ""
+
+#: templates/home/Blog.html:125 templates/home/articulo_completo copy.html:125
+#: templates/home/base copy.html:128 templates/home/base.html:270
+#: templates/home/index.html:120
+msgid "Aplicaciones Móviles"
+msgstr ""
+
+#: templates/home/Blog.html:126 templates/home/articulo_completo copy.html:126
+#: templates/home/base copy.html:133 templates/home/base.html:271
+msgid "Sistema de Ticket"
+msgstr ""
+
+#: templates/home/Blog.html:131 templates/home/articulo_completo copy.html:131
+#: templates/home/articulo_completo.html:102
 #: templates/home/articulo_completo3.html:78 templates/home/base copy.html:142
-#: templates/home/base.html:279 templates/home/index.html:183
+#: templates/home/base.html:276 templates/home/index.html:214
 #: templates/home/index2.html:170 templates/home/index2.html:392
 msgid "Portfolio"
 msgstr "Portfolioa"
 
-#: templates/home/Blog.html:103 templates/home/articulo_completo copy.html:85
-#: templates/home/articulo_completo.html:86
+#: templates/home/Blog.html:132 templates/home/articulo_completo copy.html:132
+#: templates/home/articulo_completo.html:103
 #: templates/home/articulo_completo3.html:81 templates/home/base copy.html:147
-#: templates/home/base.html:280 templates/home/index.html:432
+#: templates/home/base.html:277 templates/home/index.html:463
 #: templates/home/index2.html:175 templates/home/index2.html:543
 msgid "Sobre"
 msgstr "Buruz"
 
-#: templates/home/Blog.html:106 templates/home/Blog.html:158
-#: templates/home/articulo_completo copy.html:88 copy.html:125
-#: templates/home/articulo_completo.html:89
-#: templates/home/articulo_completo.html:125
+#: templates/home/Blog.html:133 templates/home/Blog.html:182
+#: templates/home/articulo_completo copy.html:133 copy.html:169
+#: templates/home/articulo_completo.html:104
+#: templates/home/articulo_completo.html:137
 #: templates/home/articulo_completo3.html:84 templates/home/base copy.html:152
-#: templates/home/base.html:281 templates/home/index.html:137
+#: templates/home/base.html:278 templates/home/index.html:168
 #: templates/home/index2.html:180 templates/home/index2.html:342
 msgid "Blog"
 msgstr "Blog"
 
-#: templates/home/Blog.html:109 templates/home/articulo_completo.html:92
+#: templates/home/Blog.html:134 templates/home/articulo_completo copy.html:134
+#: templates/home/base.html:279
+msgid "Formar Parte"
+msgstr ""
+
+#: templates/home/Blog.html:135 templates/home/articulo_completo copy.html:135
+#: templates/home/articulo_completo.html:105
 #: templates/home/articulo_completo3.html:87 templates/home/base copy.html:157
-#: templates/home/base.html:283 templates/home/index2.html:185
+#: templates/home/base.html:280 templates/home/index2.html:185
 msgid "Nosotros"
 msgstr "Gu"
 
-#: templates/home/Blog.html:112 templates/home/articulo_completo copy.html:94
-#: templates/home/articulo_completo.html:95
+#: templates/home/Blog.html:136 templates/home/articulo_completo copy.html:136
+#: templates/home/articulo_completo.html:106
 #: templates/home/articulo_completo3.html:90 templates/home/base copy.html:162
-#: templates/home/base.html:284 templates/home/index2.html:190
+#: templates/home/base.html:281 templates/home/index2.html:190
 msgid "Contacto"
 msgstr "Kontaktua"
 
-#: templates/home/Blog.html:160
+#: templates/home/Blog.html:184
 msgid "¡Últimas novedades!."
 msgstr "Azken berriak!"
 
-#: templates/home/Blog.html:172
+#: templates/home/Blog.html:196
 msgid "Te puede interesar:"
 msgstr "Interesgarria izan daiteke:"
 
-#: templates/home/Blog.html:187
+#: templates/home/Blog.html:211
 msgid ""
 "Hemos desarrollado esta plataforma para ayudar en la preparación de "
 "oposiciones"
 msgstr "Plataforma hau oposaketak prestatzen laguntzeko garatu dugu"
 
-#: templates/home/Blog.html:235
+#: templates/home/Blog.html:259
 msgid "Leer artículo..."
 msgstr "Irakurri artikulua..."
+
+#: templates/home/Politicas_de_privacidad.html:81
+msgid "Política de Privacidad - Euskodev"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:84
+msgid "Esta Política de Privacidad describe cómo"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:85
+msgid "con domicilio en"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:86
+msgid ""
+"recopila, utiliza y protege la información personal de los usuarios de "
+"nuestros servicios digitales."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:89
+msgid "📌 Recopilación de Información"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:91
+msgid "Podemos recopilar información personal a través de diferentes métodos:"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:94
+msgid "Información proporcionada directamente:"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:94
+msgid "Nombre, correo electrónico, teléfono y datos de contacto."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:95
+msgid "Datos de navegación:"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:95
+msgid "Páginas visitadas, tiempo de permanencia y dispositivos usados."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:96
+msgid "Cookies y tecnologías de seguimiento:"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:96
+msgid "Utilizamos herramientas para mejorar la experiencia del usuario."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:99
+msgid "📌 Uso de la Información"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:101
+msgid "Los datos recopilados se utilizan para:"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:104
+#, fuzzy
+#| msgid "¡Conoce un poco de nuestros servicios!."
+msgid "Brindar y mejorar nuestros servicios."
+msgstr "Ikasi pixka bat gure zerbitzuei buruz!"
+
+#: templates/home/Politicas_de_privacidad.html:105
+msgid "Enviar comunicaciones sobre actualizaciones y novedades."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:106
+msgid "Personalizar la experiencia del usuario."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:107
+msgid "Mostrar publicidad relevante."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:110
+msgid "📌 Protección de la Información"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:112
+msgid ""
+"Implementamos medidas de seguridad para proteger la información personal, "
+"pero recomendamos no compartir datos sensibles en plataformas públicas."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:114
+msgid "📌 Sus Derechos"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:116
+#, fuzzy
+#| msgid "Te puede interesar:"
+msgid "Usted puede solicitar:"
+msgstr "Interesgarria izan daiteke:"
+
+#: templates/home/Politicas_de_privacidad.html:118
+msgid "Acceder a su información personal."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:119
+msgid "Modificar o eliminar sus datos."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:120
+msgid "Restringir el uso de su información con fines comerciales."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:123
+msgid "📌 Cambios en la Política"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:125
+msgid ""
+"Nos reservamos el derecho de actualizar esta política. Cualquier cambio será "
+"notificado en nuestra web."
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:127
+#, fuzzy
+#| msgid "Contacto"
+msgid "📌 Contacto"
+msgstr "Kontaktua"
+
+#: templates/home/Politicas_de_privacidad.html:130
+msgid "Para dudas o solicitudes, contáctenos en"
+msgstr ""
+
+#: templates/home/Politicas_de_privacidad.html:135
+#: templates/home/politicas_de_cookies.html:124
+msgid "© 2025 Euskodev | Todos los derechos reservados"
+msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:13
 #: templates/home/reservas_y_pagos.html:141
@@ -109,8 +475,8 @@ msgid "Imagen de portada representando los servicios digitales de Euskodev"
 msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:20
-#: templates/home/desarrollo_web.html:50 templates/home/index.html:33
-#: templates/home/inteligencia_artificial.html:105
+#: templates/home/desarrollo_web.html:50
+#: templates/home/inteligencia_artificial.html:104
 #: templates/home/reservas_y_pagos.html:151
 #: templates/home/sistema_ticket.html:23
 #: templates/home/software_a_medida.html:33
@@ -119,8 +485,8 @@ msgid "Tecnología y diseño que impulsan tu éxito"
 msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:21
-#: templates/home/desarrollo_web.html:51 templates/home/index.html:34
-#: templates/home/inteligencia_artificial.html:106
+#: templates/home/desarrollo_web.html:51 templates/home/index.html:52
+#: templates/home/inteligencia_artificial.html:105
 #: templates/home/reservas_y_pagos.html:152
 #: templates/home/sistema_ticket.html:24
 #: templates/home/software_a_medida.html:34
@@ -131,82 +497,323 @@ msgid "Diseño web, desarrollo de software y apps a medida"
 msgstr "Web garapena "
 
 #: templates/home/aplicaciones_moviles.html:31
-#: templates/home/desarrollo_web.html:57 templates/home/index.html:44
-#: templates/home/inteligencia_artificial.html:112
+#: templates/home/desarrollo_web.html:57
+#: templates/home/inteligencia_artificial.html:111
 #: templates/home/sistema_ticket.html:34 templates/home/sistema_ticket.html:237
 #: templates/home/software_a_medida.html:37
 msgid "Solicita Presupuesto Gratis"
 msgstr ""
 
-#: templates/home/articulo_completo copy.html:28
-#: templates/home/articulo_completo.html:28
+#: templates/home/aplicaciones_moviles.html:41
+msgid "¿Qué es una aplicación móvil moderna?"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:42
+msgid ""
+"Una app móvil ya no es solo una pantalla con botones. Hoy es una extensión "
+"real de tu negocio, accesible en cualquier momento y desde cualquier lugar."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:48
+msgid "Diseñada para funcionar en la palma de la mano"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:49
+msgid ""
+"Tu app debe verse bien, cargar rápido y ser intuitiva. Pensamos primero en "
+"la experiencia del usuario móvil. Nada de cosas genéricas."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:55
+msgid "Conectada a tu negocio en tiempo real"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:56
+msgid ""
+"Con un backend robusto en Django, todo se sincroniza en tiempo real: "
+"usuarios, reservas, pagos, notificaciones y más."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:62
+msgid "Personalizada para tus objetivos"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:63
+msgid ""
+"No usamos plantillas. Creamos desde cero lo que tu negocio necesita: desde "
+"apps internas hasta plataformas comerciales."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:77
+msgid "¿Qué incluye nuestro servicio de desarrollo de apps móviles?"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:78
+msgid ""
+"No solo programamos. En Euskodev desarrollamos soluciones móviles completas, "
+"conectadas y listas para crecer contigo."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:87
+msgid "Diseño UI/UX personalizado"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:88
+msgid ""
+"Diseñamos interfaces atractivas, limpias y enfocadas en usabilidad. Tu app "
+"se verá bien y será fácil de usar."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:97
+msgid "Desarrollo móvil con Expo"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:98
+msgid ""
+"Creamos apps nativas para iOS y Android usando React Native (Expo), con "
+"rendimiento alto y desarrollo rápido."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:108
+msgid "Backend en Django"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:109
+msgid ""
+"Conectamos tu app a un backend potente, donde se gestionan usuarios, datos, "
+"lógica y seguridad."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:118
+msgid "Pagos integrados"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:119
+msgid ""
+"Tu app puede aceptar pagos con Stripe, Bizum, Redsys, TPVs u otras "
+"plataformas. Todo automatizado y seguro."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:129
+msgid "Notificaciones push"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:130
+msgid ""
+"Envía alertas, recordatorios o novedades directamente al móvil de tus "
+"usuarios."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:139
+msgid "Publicación en tiendas"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:140
+msgid ""
+"Te ayudamos a lanzar tu app en Google Play y App Store, lista para ser "
+"descargada por tus clientes."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:151
+msgid "¿Qué gana tu negocio con una app móvil?"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:153
+msgid ""
+"Una aplicación no es solo un canal digital. Es una herramienta estratégica "
+"que impulsa la experiencia del cliente, la productividad y tus resultados."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:154
+msgid "En"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:154
+msgid "desarrollamos apps móviles para negocios y profesionales de"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:155
+msgid "y toda la zona de"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:162
+msgid "Accesibilidad total"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:164
+msgid ""
+"Tus servicios estarán disponibles las 24 horas, desde cualquier lugar. Ideal "
+"para comercios locales de"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:165
+msgid "empresas de"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:165
+msgid "o autónomos de"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:166
+msgid "que quieren ofrecer disponibilidad total a sus clientes."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:172
+msgid ""
+"Aplicaciones móviles personalizadas en Oiartzun, Errenteria, Pasajes y Lezo"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:173
+msgid "Apps accesibles 24/7 para negocios de Oiartzun, Errenteria y Lezo"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:180
+msgid "Aumento de conversiones"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:182
+msgid ""
+"Una app bien diseñada guía al usuario a comprar, reservar o contactar con "
+"rapidez. En municipios como"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:183
+msgid "o"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:184
+msgid ""
+"donde el ritmo es ágil, esto marca la diferencia en la experiencia del "
+"cliente."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:190
+msgid "Desarrollo de apps móviles para aumentar ventas en Pasajes y Errenteria"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:191
+msgid "Aplicaciones móviles que mejoran la conversión en Pasajes y alrededores"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:198
+#, fuzzy
+#| msgid "Artificial Intelligence"
+msgid "Automatización inteligente"
+msgstr "Inteligentzia artifiziala"
+
+#: templates/home/aplicaciones_moviles.html:200
+msgid ""
+"Automatiza tareas repetitivas, recordatorios o formularios. Perfecto para "
+"pymes de"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:201
+#, fuzzy
+#| msgid "e-comerce"
+msgid "comercios de"
+msgstr "Merkataritza elektronikoa"
+
+#: templates/home/aplicaciones_moviles.html:201
+msgid "o centros de servicios de"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:202
+msgid "que quieren ahorrar tiempo y recursos."
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:208
+msgid "Automatización de procesos con apps móviles en Lezo y Oiartzun"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:209
+msgid "Apps móviles con automatización inteligente para empresas de Gipuzkoa"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:216
+msgid "Imagen de marca premium"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:218
+msgid ""
+"Tener una app propia transmite innovación y profesionalismo. Ideal para "
+"negocios en"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:220
+msgid ""
+"que quieren destacarse en el entorno digital con una solución de calidad "
+"hecha por"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:227
+msgid "Aplicaciones móviles profesionales en Errenteria, Lezo y Pasajes"
+msgstr ""
+
+#: templates/home/aplicaciones_moviles.html:228
+msgid "Desarrollo de apps premium en Errenteria y alrededores con Euskodev"
+msgstr ""
+
+#: templates/home/articulo_completo copy.html:171
+#: templates/home/articulo_completo.html:139
+msgid "Últimas novedades!."
+msgstr "Azken berriak!"
+
+#: templates/home/articulo_completo copy.html:196
+#, fuzzy
+#| msgid ""
+#| "Hemos desarrollado esta plataforma para ayudar en la preparación de "
+#| "oposiciones"
+msgid ""
+"Hemos desarrollado esta plataforma para ayudar en la preparación de "
+"oposiciones."
+msgstr "Plataforma hau oposaketak prestatzen laguntzeko garatu dugu"
+
+#: templates/home/articulo_completo.html:12
+msgid ""
+"Especialistas en imagen corporativa y branding digital en Euskadi, con "
+"servicios en Errenteria, Pasajes, Lezo, Oiartzun, Irun y Hondarribia. "
+"Creamos la identidad visual que tu empresa necesita."
+msgstr ""
+
+#: templates/home/articulo_completo.html:16
+msgid "Imagen Corporativa en Gipuzkoa - Euskodev"
+msgstr ""
+
 #: templates/home/articulo_completo3.html:28
 msgid "Imagen Corporativa"
 msgstr ""
 
-#: templates/home/articulo_completo copy.html:91
-msgid "Creadores"
-msgstr "Sortzaileak"
-
-#: templates/home/articulo_completo copy.html:127
-#: templates/home/articulo_completo.html:127
-msgid "Últimas novedades!."
-msgstr "Azken berriak!"
-
-#: templates/home/base copy.html:113 templates/home/base.html:270
-msgid "Reservas y Pagos Online"
-msgstr ""
-
-#: templates/home/base copy.html:118 templates/home/base.html:271
-#: templates/home/index.html:104
-msgid "Software a Medida"
-msgstr ""
-
-#: templates/home/base copy.html:123 templates/home/base.html:272
-#: templates/home/index.html:119
-msgid "Inteligencia Artificial"
-msgstr ""
-
-#: templates/home/base copy.html:128 templates/home/base.html:273
-#: templates/home/index.html:89
-msgid "Aplicaciones Móviles"
-msgstr ""
-
-#: templates/home/base copy.html:133 templates/home/base.html:274
-msgid "Sistema de Ticket"
-msgstr ""
-
-#: templates/home/base copy.html:210 templates/home/base.html:340
+#: templates/home/base copy.html:210 templates/home/base.html:337
 #, fuzzy
 #| msgid "Euskodev &copy;tu creador de sitios web 2024"
 msgid "Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025"
 msgstr "Euskodev &copy;zure webgunearen eraikitzailea 2024"
 
-#: templates/home/base copy.html:246 templates/home/base.html:376
+#: templates/home/base copy.html:246 templates/home/base.html:373
 #: templates/home/index2.html:922
 msgid "Políticas de privacidad"
 msgstr ""
 
-#: templates/home/base copy.html:252 templates/home/base.html:382
+#: templates/home/base copy.html:252 templates/home/base.html:379
 #: templates/home/index2.html:925
 #, fuzzy
 #| msgid "Aviso_legal"
 msgid "Aviso legal"
 msgstr "Lege abisua"
 
-#: templates/home/base copy.html:258 templates/home/base.html:388
+#: templates/home/base copy.html:258 templates/home/base.html:385
 #: templates/home/index2.html:929
 #, fuzzy
 #| msgid "politicas de cookies"
 msgid "Políticas de cookies"
 msgstr "cookie politikak"
 
-#: templates/home/base copy.html:285 templates/home/base.html:419
+#: templates/home/base copy.html:285 templates/home/base.html:416
 #: templates/home/index2.html:955
 msgid "Facilitamos Vuestro Aprendizaje"
 msgstr "Zure ikaskuntza errazten dugu"
 
-#: templates/home/base copy.html:293 templates/home/base.html:427
+#: templates/home/base copy.html:293 templates/home/base.html:424
 #: templates/home/index2.html:960
 msgid ""
 " es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia "
@@ -217,37 +824,37 @@ msgstr ""
 "hainbat proba eskaintzen dizkizu osasunaren, hezkuntzaren, administrazioaren "
 "eta beste sektore batzuetako lanpostu ezberdinetarako."
 
-#: templates/home/base copy.html:297 templates/home/base.html:431
+#: templates/home/base copy.html:297 templates/home/base.html:428
 #: templates/home/index2.html:965 templates/home/index2.html:1010
 msgid "Personas:"
 msgstr "Jendea"
 
 #: templates/home/base copy.html:298 copy.html:350 copy.html:403
-#: templates/home/base.html:432 templates/home/base.html:483
-#: templates/home/base.html:535
+#: templates/home/base.html:429 templates/home/base.html:480
+#: templates/home/base.html:533
 #, fuzzy
 #| msgid "Category:"
 msgid "Categoría:"
 msgstr "Kategoria"
 
-#: templates/home/base copy.html:303 copy.html:359 templates/home/base.html:437
-#: templates/home/base.html:492 templates/home/index2.html:976
+#: templates/home/base copy.html:303 copy.html:359 templates/home/base.html:434
+#: templates/home/base.html:489 templates/home/index2.html:976
 #: templates/home/index2.html:1021
 msgid "Volver"
 msgstr "Itzuli"
 
-#: templates/home/base copy.html:336 templates/home/base.html:469
+#: templates/home/base copy.html:336 templates/home/base.html:466
 #: templates/home/index2.html:1001
 msgid "Euskodev"
 msgstr "Euskodev"
 
-#: templates/home/base copy.html:337 templates/home/base.html:470
+#: templates/home/base copy.html:337 templates/home/base.html:467
 #, fuzzy
 #| msgid "Desarrollo de software"
 msgid "Desarrollo de software a medida"
 msgstr "Web garapena "
 
-#: templates/home/base copy.html:345 templates/home/base.html:478
+#: templates/home/base copy.html:345 templates/home/base.html:475
 #, fuzzy
 #| msgid ""
 #| "Euskodev: Su aliado en el desarrollo de software <br> Euskodev, un equipo "
@@ -265,23 +872,23 @@ msgstr ""
 "espezializatua, tamaina guztietako enpresentzat, startup txikietatik hasi "
 "eta korporazio handietara!"
 
-#: templates/home/base copy.html:351 templates/home/base.html:484
+#: templates/home/base copy.html:351 templates/home/base.html:481
 #, fuzzy
 #| msgid "Desarrollo de software"
 msgid "Desarrollo de software y soluciones digitales"
 msgstr "Web garapena "
 
-#: templates/home/base copy.html:389 templates/home/base.html:521
+#: templates/home/base copy.html:389 templates/home/base.html:519
 #: templates/home/index2.html:1044
 msgid "Gastrogune"
 msgstr ""
 
-#: templates/home/base copy.html:390 templates/home/base.html:522
+#: templates/home/base copy.html:390 templates/home/base.html:520
 #: templates/home/index2.html:1046
 msgid "GastroGune: La esencia de Euskadi en cada bocado."
 msgstr "GastroGune: Euskadiren esentzia mokadu bakoitzean."
 
-#: templates/home/base copy.html:398 templates/home/base.html:530
+#: templates/home/base copy.html:398 templates/home/base.html:528
 #, fuzzy
 #| msgid ""
 #| "GastroGune: Tu Guía para Descubrir la Gastronomía <br> Vasca Eusko.Gune "
@@ -298,22 +905,18 @@ msgstr ""
 "sukaldaritza ohiko errezeta bidez zure etxera ekartzeaz gain, Euskal Herriko "
 "leku eta jatetxe onenak ezagutzeko eta gozatzeko gida ere balio du."
 
-#: templates/home/base copy.html:404 templates/home/base.html:536
+#: templates/home/base copy.html:404 templates/home/base.html:534
 msgid "Gastronomía Vasca y Restaurantes"
 msgstr ""
 
-#: templates/home/base copy.html:412 templates/home/base.html:544
+#: templates/home/base copy.html:412 templates/home/base.html:542
 #, fuzzy
 #| msgid "Close Project"
 msgid "Cerrar Proyecto"
 msgstr "itzuli"
 
-#: templates/home/base.html:282
-msgid "Formar Parte"
-msgstr ""
-
 #: templates/home/desarrollo_web.html:41
-#: templates/home/inteligencia_artificial.html:96
+#: templates/home/inteligencia_artificial.html:95
 #: templates/home/trabaja_con_nosotros.html:41
 msgid ""
 "Imagen de portada representando los servicios digitales de diseño web de "
@@ -472,67 +1075,83 @@ msgid ""
 "contigo."
 msgstr ""
 
-#: templates/home/index.html:25
+#: templates/home/index.html:43
 msgid "Tu navegador no soporta videos"
 msgstr ""
 
-#: templates/home/index.html:61 templates/home/index2.html:271
+#: templates/home/index.html:51
+msgid "WEB, APP, SOFTWARE<br>e Inteligencia Artificial"
+msgstr ""
+
+#: templates/home/index.html:62
+msgid "Solicitar Presupuesto"
+msgstr ""
+
+#: templates/home/index.html:72
+msgid "Análisis online<br>gratis"
+msgstr ""
+
+#: templates/home/index.html:76
+msgid "...estamos en Oiartzun, Gipuzkoa."
+msgstr ""
+
+#: templates/home/index.html:92 templates/home/index2.html:271
 #, fuzzy
 #| msgid "¡Conoce un poco de nuestros servicios!."
 msgid "¡Conoce un poco de nuestros servicios!"
 msgstr "Ikasi pixka bat gure zerbitzuei buruz!"
 
-#: templates/home/index.html:69
+#: templates/home/index.html:100
 #, fuzzy
 #| msgid "Desarrollo Web"
 msgid "Icono Desarrollo Web"
 msgstr "Web garapena"
 
-#: templates/home/index.html:77
+#: templates/home/index.html:108
 msgid "Diseño y creación de sitios web modernos y optimizados para tu negocio."
 msgstr ""
 
-#: templates/home/index.html:84
+#: templates/home/index.html:115
 msgid "Icono Aplicaciones Móviles"
 msgstr ""
 
-#: templates/home/index.html:92
+#: templates/home/index.html:123
 msgid ""
 "Apps nativas y multiplataforma para iOS y Android con la mejor experiencia "
 "de usuario."
 msgstr ""
 
-#: templates/home/index.html:99
+#: templates/home/index.html:130
 msgid "Icono Software a Medida"
 msgstr ""
 
-#: templates/home/index.html:107
+#: templates/home/index.html:138
 msgid ""
 "Desarrollamos soluciones personalizadas para optimizar la gestión de tu "
 "empresa."
 msgstr ""
 
-#: templates/home/index.html:114
+#: templates/home/index.html:145
 msgid "Icono Inteligencia Artificial"
 msgstr ""
 
-#: templates/home/index.html:122
+#: templates/home/index.html:153
 msgid "Integración de IA y Machine Learning para potenciar tu negocio."
 msgstr ""
 
-#: templates/home/index.html:140 templates/home/index2.html:345
+#: templates/home/index.html:171 templates/home/index2.html:345
 #, fuzzy
 #| msgid "¡Últimas novedades!."
 msgid "¡Últimas publicaciones!"
 msgstr "Azken berriak!"
 
-#: templates/home/index.html:184 templates/home/index2.html:393
+#: templates/home/index.html:215 templates/home/index2.html:393
 #, fuzzy
 #| msgid "¡Hecha un vistazo!."
 msgid "¡Echa un vistazo!."
 msgstr "Eman begirada bat! ; )"
 
-#: templates/home/index.html:438
+#: templates/home/index.html:469
 msgid ""
 "Desde Oiartzun, en el corazón del País Vasco, en Euskodev ayudamos a "
 "negocios de Oiartzun, Errenteria, Lezo y Pasajes a digitalizarse con "
@@ -540,138 +1159,138 @@ msgid ""
 "medida."
 msgstr ""
 
-#: templates/home/index.html:442
+#: templates/home/index.html:473
 msgid ""
 "No ofrecemos lo mismo para todos. Nos sentamos contigo, entendemos tu "
 "proyecto y lo adaptamos a lo que realmente necesitas, con cercanía y trato "
 "directo."
 msgstr ""
 
-#: templates/home/index.html:446
+#: templates/home/index.html:477
 msgid ""
 "Si buscas una empresa local de confianza que hable claro y te acompañe de "
 "verdad, Euskodev es tu aliado digital."
 msgstr ""
 
-#: templates/home/index.html:462 templates/home/index2.html:559
+#: templates/home/index.html:493 templates/home/index2.html:559
 msgid "Creación y Remodelación de páginas y sitios web"
 msgstr "Orriak eta webguneak sortzea eta birmoldatzea"
 
-#: templates/home/index.html:465 templates/home/index2.html:563
+#: templates/home/index.html:496 templates/home/index2.html:563
 msgid "¿Tu sitio web necesita un cambio de imagen?"
 msgstr "Zure webguneak aldaketa bat behar al du?"
 
-#: templates/home/index.html:466
+#: templates/home/index.html:497
 msgid ""
 "En Euskodev rediseñamos y renovamos sitios que ya no cumplen con los "
 "estándares modernos. Desde lo visual hasta la funcionalidad, adaptamos tu "
 "web para que transmita confianza, profesionalismo y conecte con tus clientes."
 msgstr ""
 
-#: templates/home/index.html:480 templates/home/index2.html:578
+#: templates/home/index.html:511 templates/home/index2.html:578
 msgid "Dominio, hosting y seguridad"
 msgstr "Domeinua, hostinga eta segurtasuna"
 
-#: templates/home/index.html:483
+#: templates/home/index.html:514
 msgid ""
 "Gestionamos el registro y configuración de tu dominio para que estés online "
 "sin complicaciones."
 msgstr ""
 
-#: templates/home/index.html:484
+#: templates/home/index.html:515
 msgid ""
 "Alojamos tu sitio en servidores seguros, con certificados SSL, backups "
 "automáticos y protección contra ataques."
 msgstr ""
 
-#: templates/home/index.html:498 templates/home/index2.html:603
+#: templates/home/index.html:529 templates/home/index2.html:603
 msgid "Sitios Webs Responsives"
 msgstr "Responsives  Webguneak"
 
-#: templates/home/index.html:501
+#: templates/home/index.html:532
 msgid ""
 "Creamos sitios adaptables a todos los dispositivos, mejorando la experiencia "
 "del usuario en móviles, tablets y ordenadores."
 msgstr ""
 
-#: templates/home/index.html:502
+#: templates/home/index.html:533
 msgid ""
 "Esto también mejora tu posicionamiento en Google y aumenta el tiempo de "
 "permanencia en la web."
 msgstr ""
 
-#: templates/home/index.html:516 templates/home/index2.html:621
+#: templates/home/index.html:547 templates/home/index2.html:621
 #, fuzzy
 #| msgid "E-Commerce"
 msgid "E-commerce"
 msgstr "Merkataritza Elektronikoa"
 
-#: templates/home/index.html:519
+#: templates/home/index.html:550
 msgid ""
 "Creamos tiendas online que venden. Desde catálogos hasta pasarelas de pago, "
 "todo pensado para que tu cliente compre fácil y tú gestiones sin dolores de "
 "cabeza."
 msgstr ""
 
-#: templates/home/index.html:520
+#: templates/home/index.html:551
 msgid ""
 "Ideal para comercios, productos locales y emprendedores que quieren vender "
 "en línea desde el País Vasco al mundo."
 msgstr ""
 
-#: templates/home/index.html:534 templates/home/index2.html:639
+#: templates/home/index.html:565 templates/home/index2.html:639
 msgid "Diseño Gráfico"
 msgstr "Diseinu grafikoa"
 
-#: templates/home/index.html:537
+#: templates/home/index.html:568
 msgid ""
 "Creamos identidades visuales coherentes, atractivas y adaptadas a tu público "
 "objetivo. Desde logotipos hasta banners o material impreso."
 msgstr ""
 
-#: templates/home/index.html:538
+#: templates/home/index.html:569
 msgid ""
 "Un buen diseño fortalece tu marca, genera confianza y hace que tu negocio "
 "destaque entre la competencia."
 msgstr ""
 
-#: templates/home/index.html:552 templates/home/index2.html:664
+#: templates/home/index.html:583 templates/home/index2.html:664
 msgid "Euskodev: Su socio de SEO para una presencia online próspera"
 msgstr "Euskodev: Zure SEO bazkide online presentzia oparoa izateko"
 
-#: templates/home/index.html:555
+#: templates/home/index.html:586
 msgid ""
 "Optimizamos tu web con técnicas de SEO técnico y de contenido para aparecer "
 "en los primeros resultados de Google."
 msgstr ""
 
-#: templates/home/index.html:556
+#: templates/home/index.html:587
 msgid ""
 "Te ayudamos a atraer más visitas orgánicas, mejorar tu reputación digital y "
 "convertir más clientes."
 msgstr ""
 
-#: templates/home/index.html:563 templates/home/index2.html:679
+#: templates/home/index.html:594 templates/home/index2.html:679
 msgid "¡Se parte <br/> de nuestra <br/> historia!"
 msgstr "Izan zaitez gure <br/> historiaren parte!"
 
-#: templates/home/index.html:577
+#: templates/home/index.html:608
 msgid "OPINIONES"
 msgstr ""
 
-#: templates/home/index.html:636
+#: templates/home/index.html:667
 msgid "Tu navegador no soporta el elemento de video."
 msgstr ""
 
-#: templates/home/index.html:644 templates/home/index2.html:739
+#: templates/home/index.html:675 templates/home/index2.html:739
 msgid "Sobre nosotros"
 msgstr "Guri buruz"
 
-#: templates/home/index.html:646
+#: templates/home/index.html:677
 msgid "Developers Full Stack y soluciones digitales a medida."
 msgstr ""
 
-#: templates/home/index.html:649
+#: templates/home/index.html:680
 msgid ""
 "Euskodev es una empresa de desarrollo de software ubicada en Oiartzun, "
 "dedicada a la creación de soluciones digitales personalizadas para empresas "
@@ -679,19 +1298,19 @@ msgid ""
 "y digitalización empresarial."
 msgstr ""
 
-#: templates/home/index.html:652
+#: templates/home/index.html:683
 msgid ""
 "Nuestro equipo está comprometido en ofrecer tecnología innovadora y "
 "eficiente, ayudando a empresas a modernizar sus operaciones y alcanzar "
 "nuevos niveles de productividad."
 msgstr ""
 
-#: templates/home/index.html:664 templates/home/index.html:793
+#: templates/home/index.html:695 templates/home/index.html:824
 #: templates/home/index2.html:809
 msgid "Contáctanos"
 msgstr "Kontaktatu"
 
-#: templates/home/index.html:794 templates/home/index2.html:810
+#: templates/home/index.html:825 templates/home/index2.html:810
 msgid "Sin Fronteras."
 msgstr "Mugarik gabe."
 
@@ -990,6 +1609,555 @@ msgstr "Gastronomia"
 msgid "Close Project"
 msgstr "itzuli"
 
+#: templates/home/inteligencia_artificial.html:124
+msgid "Asistente Inteligente con IA"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:126
+msgid ""
+"Euskodev te ofrece una solución de inteligencia artificial conversacional "
+"para tu negocio. Automatiza la atención al cliente, responde dudas 24/7 y "
+"mejora la experiencia de tus usuarios con un chatbot personalizado."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:129
+msgid "Disponible 24/7"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:130
+msgid "Entrenado con tus datos"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:131
+msgid "Fácil de integrar en tu web"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:132
+msgid "Traduce conversaciones automáticamente a otros idiomas"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:136
+msgid "Solicita una demo"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:142
+msgid "Asistente IA"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:153
+msgid "¿Qué puede hacer tu Asistente Inteligente?"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:154
+msgid ""
+"Una solución basada en IA que transforma la atención al cliente, automatiza "
+"tareas y mejora la experiencia del usuario desde el primer clic."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:164
+msgid "Atención 24/7 con IA"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:165
+msgid ""
+"Responde automáticamente preguntas frecuentes, dudas de clientes y "
+"solicitudes comunes en cualquier momento del día, sin necesidad de "
+"intervención humana."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:175
+msgid "Promociona en tiempo real"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:176
+msgid ""
+"Informa al instante sobre promociones activas, descuentos personalizados y "
+"campañas según el perfil del visitante."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:186
+msgid "Totalmente Personalizable"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:187
+msgid ""
+"El asistente puede adaptarse al tono, lenguaje y necesidades de tu marca. "
+"Desde un ecommerce hasta una clínica o gestoría, se ajusta a tu negocio."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:197
+msgid "Asesor Virtual Avanzado"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:198
+msgid ""
+"Guía a tus usuarios en sus decisiones: qué producto elegir, qué servicio "
+"contratar o cómo resolver un problema. Como un vendedor experto, pero "
+"digital."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:211
+msgid "¿Dónde puede ayudarte el Asistente Inteligente?"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:213
+msgid ""
+"El asistente de Euskodev se adapta a diferentes sectores y necesidades, "
+"ofreciendo soluciones reales para automatizar, vender más y mejorar la "
+"experiencia del cliente."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:225
+msgid "Tiendas Online"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:227
+msgid ""
+"Ayuda a los visitantes a encontrar productos, responder preguntas frecuentes "
+"y finalizar sus compras más rápido. Reduce carritos abandonados con atención "
+"24/7."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:240
+msgid "Clínicas y Centros Médicos"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:242
+msgid ""
+"Gestiona reservas de citas, responde dudas comunes de pacientes y ofrece "
+"información útil sobre tratamientos o especialidades sin saturar tu personal."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:255
+msgid "Servicios y Consultorías"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:257
+msgid ""
+"Capta clientes respondiendo sus preguntas en tiempo real, ofrece "
+"presupuestos estimados y agenda reuniones sin esfuerzo. Ideal para "
+"despachos, agencias y más."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:271
+msgid "¿Cómo se integra el Asistente Inteligente?"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:273
+msgid ""
+"Nuestro equipo te acompaña paso a paso para implementar el asistente en tu "
+"negocio, sin complicaciones técnicas ni instalaciones complejas."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:283
+msgid "1. Definimos tu objetivo"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:285
+msgid ""
+"Analizamos qué necesitas: atención al cliente, generación de leads, "
+"reservas, ventas o todo junto. El asistente se adapta a ti."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:294
+msgid "2. Configuramos el asistente"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:296
+msgid ""
+"Personalizamos el flujo de conversación con tus datos, servicios y estilo de "
+"comunicación. Puedes incluir respuestas automáticas, botones y enlaces."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:305
+msgid "3. Lo integramos en tu web"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:307
+msgid ""
+"Instalamos el asistente en tu página en minutos. Funciona con WordPress, "
+"HTML, tiendas online o cualquier CMS. También se puede usar en WhatsApp o "
+"redes."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:315
+msgid "Quiero integrar mi asistente"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:333
+msgid "Beneficios reales para tu negocio"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:335
+msgid ""
+"Implementar un asistente inteligente no solo mejora la atención: optimiza "
+"recursos, automatiza procesos y hace crecer tus conversiones."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:338
+msgid ""
+"Euskodev ofrece una solución lista para integrarse a tu web, app o CRM, con "
+"IA adaptable a tu marca y objetivos."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:348
+msgid "Respuestas inmediatas"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:349
+msgid "Atiende a tus clientes sin esperas, 24/7, con velocidad y precisión."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:355
+#: templates/home/software_a_medida.html:181
+msgid "Reducción de costes"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:356
+msgid "Disminuye la carga del equipo humano y ahorra en atención repetitiva."
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:362
+msgid "Aumento en conversiones"
+msgstr ""
+
+#: templates/home/inteligencia_artificial.html:363
+msgid ""
+"Guía a tus usuarios hasta la acción correcta: compra, reserva o contacto."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:82
+#, fuzzy
+#| msgid "politicas de cookies"
+msgid "Política de Cookies - Euskodev"
+msgstr "cookie politikak"
+
+#: templates/home/politicas_de_cookies.html:84
+msgid "📌 1. Introducción"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:85
+msgid ""
+"En Euskodev utilizamos cookies para mejorar la experiencia de navegación de "
+"nuestros usuarios. Esta política explica qué son las cookies, cómo las "
+"utilizamos y cómo puedes gestionarlas."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:87
+msgid "📌 2. ¿Qué son las cookies?"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:88
+msgid ""
+"Las cookies son pequeños archivos de texto almacenados en tu dispositivo "
+"cuando visitas un sitio web. Permiten reconocer tu dispositivo y recordar "
+"información sobre tu navegación."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:90
+msgid "📌 3. Tipos de cookies que utilizamos"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:91
+msgid "En Euskodev utilizamos los siguientes tipos de cookies:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:93
+msgid "Cookies esenciales:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:93
+msgid "Necesarias para el funcionamiento del sitio web."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:94
+msgid "Cookies de rendimiento:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:94
+msgid "Analizan la interacción de los usuarios para mejorar la experiencia."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:95
+msgid "Cookies de funcionalidad:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:95
+msgid "Guardan preferencias personalizadas."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:96
+msgid "Cookies de publicidad:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:96
+msgid "Permiten mostrar anuncios relevantes."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:99
+msgid "📌 4. Cómo utilizamos las cookies"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:100
+msgid "Usamos cookies para:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:102
+msgid "Recordar tus preferencias y configuraciones."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:103
+msgid "Analizar el tráfico y mejorar la navegación."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:104
+msgid "Mostrar anuncios personalizados."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:107
+msgid "📌 5. Gestión de cookies"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:108
+msgid "Puedes administrar las cookies en la configuración de tu navegador:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:110
+msgid "Google Chrome:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:110
+msgid "Configuración > Privacidad y seguridad > Cookies."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:111
+msgid "Mozilla Firefox:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:111
+msgid "Opciones > Privacidad y seguridad > Cookies."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:112
+msgid "Safari:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:112
+msgid "Preferencias > Privacidad > Gestionar datos."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:113
+msgid "Microsoft Edge:"
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:113
+msgid "Configuración > Privacidad y servicios > Cookies."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:115
+msgid ""
+"Si decides desactivar las cookies, algunas funciones del sitio pueden verse "
+"afectadas."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:117
+#, fuzzy
+#| msgid "politicas de cookies"
+msgid "📌 6. Cambios en la Política de Cookies"
+msgstr "cookie politikak"
+
+#: templates/home/politicas_de_cookies.html:118
+msgid ""
+"Nos reservamos el derecho a actualizar esta política. Cualquier cambio será "
+"publicado en esta página."
+msgstr ""
+
+#: templates/home/politicas_de_cookies.html:120
+#, fuzzy
+#| msgid "Contacto"
+msgid "📌 7. Contacto"
+msgstr "Kontaktua"
+
+#: templates/home/politicas_de_cookies.html:121
+msgid "Si tienes preguntas, contáctanos en"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:154
+msgid "Solicita tu Presupuesto Gratis"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:166
+msgid "Pagos y Reservas Online"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:169
+msgid ""
+"Facilitamos herramientas digitales para que tus clientes puedan pagar y "
+"reservar en línea de forma segura, rápida y sencilla."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:178
+msgid "Pagos Seguros"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:179
+msgid "Stripe, PayPal o Redsys integrados para cobrar sin complicaciones."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:186
+msgid "Reservas Inteligentes"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:187
+msgid ""
+"Disponibilidad en tiempo real, recordatorios automáticos y control total."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:194
+msgid "Soluciones a Medida"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:195
+msgid "Sistemas desarrollados para adaptarse a tus procesos específicos."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:202
+msgid "Código Profesional"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:203
+msgid "Backend limpio, seguro, escalable y documentado desde cero."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:209
+#: templates/home/reservas_y_pagos.html:277
+#: templates/home/reservas_y_pagos.html:365
+msgid "Solicita tu sistema ahora"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:218
+msgid "Soluciones digitales a tu medida"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:220
+msgid ""
+"Gestiona pagos, reservas y procesos personalizados con tecnología moderna y "
+"segura adaptada a tu negocio."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:232
+msgid "Pagos Integrados"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:233
+msgid ""
+"Permite que tus clientes paguen desde tu web con Stripe, PayPal o Redsys de "
+"forma segura y rápida."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:244
+msgid "Reservas Online"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:245
+msgid ""
+"Clientes reservan online 24/7 con confirmaciones, recordatorios y "
+"disponibilidad actualizada."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:256
+msgid "Soluciones a medida"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:257
+msgid ""
+"Creamos software que se adapta a tus procesos internos y mejora tu "
+"eficiencia diaria."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:268
+#, fuzzy
+#| msgid "Desarrollo de software"
+msgid "Desarrollo Profesional"
+msgstr "Web garapena "
+
+#: templates/home/reservas_y_pagos.html:269
+msgid ""
+"Plataformas escalables con paneles de gestión, APIs limpias y código de "
+"calidad."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:288
+msgid "¿Por qué ofrecer pagos y reservas online?"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:290
+msgid ""
+"Ya sea que tengas un restaurante, un hotel o una tienda, digitalizar tu "
+"sistema mejora la experiencia de tus clientes y optimiza tu negocio."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:300
+#: templates/home/software_a_medida.html:173
+msgid "Ahorro de tiempo"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:302
+msgid ""
+"Automatiza tareas repetitivas como confirmar reservas o registrar pagos, y "
+"dedica ese tiempo a lo que realmente importa."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:311
+msgid "Más ventas y reservas"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:313
+msgid ""
+"Estás disponible 24/7 para recibir pagos y reservas incluso mientras "
+"duermes. Sin límites ni intermediarios."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:322
+msgid "Mejor experiencia para tus clientes"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:324
+msgid ""
+"Reservar una mesa o pagar un producto con pocos clics desde el móvil mejora "
+"la percepción de tu marca y fideliza al cliente."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:333
+msgid "Mayor seguridad y control"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:335
+msgid ""
+"Todos los pagos son cifrados. Tú decides políticas de cancelación, horarios "
+"y disponibilidad sin depender de terceros."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:344
+msgid "Gestión eficiente del cliente"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:346
+msgid ""
+"Recoge datos útiles de tus clientes, ofrece recordatorios automáticos y crea "
+"campañas personalizadas."
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:355
+msgid "Digitaliza y escala tu negocio"
+msgstr ""
+
+#: templates/home/reservas_y_pagos.html:357
+msgid ""
+"Empieza con una solución simple y hazla crecer según tus necesidades. Abre "
+"nuevos canales de venta fácilmente."
+msgstr ""
+
 #: templates/home/sistema_ticket.html:108
 msgid "Sistema de Tickets de Euskodev"
 msgstr ""
@@ -1125,9 +2293,499 @@ msgid ""
 "autorizados puedan ver la información confidencial."
 msgstr ""
 
+#: templates/home/software_a_medida.html:50
+#, fuzzy
+#| msgid "Desarrollo de software"
+msgid "¿Qué es el software a medida?"
+msgstr "Web garapena "
+
+#: templates/home/software_a_medida.html:52
+msgid ""
+"Una herramienta digital creada exclusivamente para ti. Sin plantillas. Sin "
+"límites."
+msgstr ""
+
+#: templates/home/software_a_medida.html:60
+msgid "¿Qué es \\"
+msgstr ""
+
+#: templates/home/software_a_medida.html:62
+msgid ""
+"Es toda herramienta digital diseñada para resolver tareas específicas: "
+"reservas, ventas, cobros, gestión de usuarios, automatización… está en todas "
+"partes. Y lo desarrollamos para que funcione exactamente como tú lo "
+"necesitas."
+msgstr ""
+
+#: templates/home/software_a_medida.html:70
+msgid "¿Qué significa \\"
+msgstr ""
+
+#: templates/home/software_a_medida.html:72
+msgid ""
+"Que no usas un sistema genérico que limita tu negocio, sino uno construido "
+"desde cero para ti: tus procesos, tu lógica, tu equipo, tus clientes. "
+"Flexible, escalable y único."
+msgstr ""
+
+#: templates/home/software_a_medida.html:81
+#, fuzzy
+#| msgid "Desarrollo de software"
+msgid "¿Por qué elegir software a medida?"
+msgstr "Web garapena "
+
+#: templates/home/software_a_medida.html:83
+msgid ""
+"✔ Control total sobre funcionalidades, sin depender de servicios externos."
+msgstr ""
+
+#: templates/home/software_a_medida.html:84
+msgid "✔ Se adapta a cómo tú trabajas, no al revés."
+msgstr ""
+
+#: templates/home/software_a_medida.html:85
+msgid "✔ Escalable: crece contigo, se ajusta a nuevos objetivos."
+msgstr ""
+
+#: templates/home/software_a_medida.html:86
+msgid "✔ Mejora productividad y experiencia del cliente."
+msgstr ""
+
+#: templates/home/software_a_medida.html:87
+msgid ""
+"✔ Inversión inteligente a largo plazo, sin pagar por funciones que no usas."
+msgstr ""
+
+#: templates/home/software_a_medida.html:99
+msgid "¿Qué tipo de software desarrollamos?"
+msgstr ""
+
+#: templates/home/software_a_medida.html:101
+msgid ""
+"Soluciones funcionales, útiles y listas para escalar. Creamos herramientas "
+"digitales que realmente ayudan a tu negocio."
+msgstr ""
+
+#: templates/home/software_a_medida.html:109
+msgid "Sistemas de reservas"
+msgstr ""
+
+#: templates/home/software_a_medida.html:112
+msgid ""
+"Agenda automática de citas, sincronización con calendarios, recordatorios "
+"por correo o WhatsApp."
+msgstr ""
+
+#: templates/home/software_a_medida.html:120
+msgid "Generadores de presupuestos"
+msgstr ""
+
+#: templates/home/software_a_medida.html:123
+msgid ""
+"Plataformas que permiten crear, enviar y gestionar presupuestos "
+"automáticamente, desde el navegador."
+msgstr ""
+
+#: templates/home/software_a_medida.html:131
+msgid "Pagos en línea"
+msgstr ""
+
+#: templates/home/software_a_medida.html:134
+msgid ""
+"Integración con Stripe, Bizum, Redsys, etc. para vender productos, servicios "
+"o cobrar reservas."
+msgstr ""
+
+#: templates/home/software_a_medida.html:142
+msgid "Aplicaciones con IA"
+msgstr ""
+
+#: templates/home/software_a_medida.html:145
+msgid ""
+"Desde asistentes inteligentes hasta predicción de datos o automatización "
+"basada en comportamiento."
+msgstr ""
+
+#: templates/home/software_a_medida.html:154
+msgid "Empecemos tu software"
+msgstr ""
+
+#: templates/home/software_a_medida.html:164
+msgid "¿Cómo te beneficia un software a medida?"
+msgstr ""
+
+#: templates/home/software_a_medida.html:165
+msgid ""
+"Más eficiencia, menos errores, total libertad. Estas son algunas de las "
+"ventajas reales de tener una solución hecha solo para ti."
+msgstr ""
+
+#: templates/home/software_a_medida.html:174
+msgid ""
+"Automatiza tareas repetitivas, evita errores y enfócate en lo que realmente "
+"importa."
+msgstr ""
+
+#: templates/home/software_a_medida.html:182
+msgid ""
+"Evita pagar por funciones innecesarias o licencias de herramientas que no "
+"usas."
+msgstr ""
+
+#: templates/home/software_a_medida.html:189
+msgid "Mayor productividad"
+msgstr ""
+
+#: templates/home/software_a_medida.html:190
+msgid ""
+"Optimiza tus procesos, mejora la experiencia del equipo y acelera resultados."
+msgstr ""
+
+#: templates/home/software_a_medida.html:197
+msgid "Adaptado a ti"
+msgstr ""
+
+#: templates/home/software_a_medida.html:198
+msgid ""
+"Cada función está diseñada para encajar con tus procesos, clientes y estilo "
+"de trabajo."
+msgstr ""
+
+#: templates/home/software_a_medida.html:205
+msgid "Más seguridad"
+msgstr ""
+
+#: templates/home/software_a_medida.html:206
+msgid ""
+"Tú decides qué se almacena, cómo se protege y quién accede. Sin sorpresas "
+"externas."
+msgstr ""
+
+#: templates/home/software_a_medida.html:213
+msgid "Experiencia premium"
+msgstr ""
+
+#: templates/home/software_a_medida.html:214
+msgid ""
+"Ofrece una plataforma profesional que transmite calidad y confianza a tus "
+"usuarios."
+msgstr ""
+
+#: templates/home/software_a_medida.html:227
+#, fuzzy
+#| msgid "Desarrollo de software"
+msgid "¿Cómo desarrollamos tu software?"
+msgstr "Web garapena "
+
+#: templates/home/software_a_medida.html:228
+msgid ""
+"En Euskodev trabajamos contigo paso a paso para transformar tu idea en una "
+"solución digital potente y funcional."
+msgstr ""
+
+#: templates/home/software_a_medida.html:236
+msgid "1. Escuchamos"
+msgstr ""
+
+#: templates/home/software_a_medida.html:237
+msgid ""
+"Nos cuentas tu idea, tu problema o tu objetivo. Nosotros escuchamos, "
+"preguntamos y te proponemos una solución realista."
+msgstr ""
+
+#: templates/home/software_a_medida.html:244
+msgid "2. Diseñamos"
+msgstr ""
+
+#: templates/home/software_a_medida.html:245
+msgid ""
+"Creamos la estructura, los módulos, la experiencia de usuario y todas las "
+"piezas que tendrá tu software."
+msgstr ""
+
+#: templates/home/software_a_medida.html:252
+#, fuzzy
+#| msgid "Desarrollo Web"
+msgid "3. Desarrollamos"
+msgstr "Web garapena"
+
+#: templates/home/software_a_medida.html:253
+msgid ""
+"Codificamos todo desde cero. Tú puedes ir viendo el progreso real y "
+"validando el resultado."
+msgstr ""
+
+#: templates/home/software_a_medida.html:260
+msgid "4. Lanzamos"
+msgstr ""
+
+#: templates/home/software_a_medida.html:261
+msgid ""
+"Probamos, corregimos, y lanzamos tu software en producción. Con o sin "
+"mantenimiento, tú eliges."
+msgstr ""
+
 #: templates/home/trabaja_con_nosotros.html:57
 msgid "Trabaja con Nosotros"
 msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:69
+msgid "¿Quieres formar parte de Euskodev?"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:71
+msgid ""
+"En Euskodev no buscamos empleados, buscamos personas con pasión, criterio y "
+"ganas de construir cosas que realmente importen. Aquí vas a crecer, aprender "
+"y aportar en proyectos reales que mejoran vidas y negocios."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:82
+msgid "Proyectos que inspiran"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:84
+msgid ""
+"Desarrollamos plataformas, webs y apps con impacto. Nada de código basura o "
+"proyectos sin propósito. Todo lo que hacemos se usa, se valora y se cuida."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:93
+msgid "Trabajo con sentido"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:95
+msgid ""
+"Apostamos por un modelo flexible, humano y sin postureo. Aquí tienes voz, "
+"puedes proponer, aprender y evolucionar sin quemarte por el camino."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:104
+msgid "Cultura remota y cercana"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:106
+msgid ""
+"Trabajamos desde donde queramos, pero siempre conectados. Comunicación "
+"clara, equipo unido, foco en el valor y en las personas."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:115
+msgid "Quiero unirme a Euskodev"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:126
+msgid "Así se trabaja en Euskodev"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:128
+msgid ""
+"No somos una empresa más. Somos un equipo pequeño, ágil y con visión clara. "
+"Así es nuestro día a día, sin filtros ni promesas vacías."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:139
+msgid "Comunicación clara"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:141
+msgid ""
+"Nos hablamos directo y con respeto. Slack, Notion y una cultura donde cada "
+"idea vale. Aquí nadie se pierde en la cadena de mando."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:152
+msgid "Tecnología que suma"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:154
+msgid ""
+"Django, GitHub, Docker, Figma… solo usamos herramientas que realmente nos "
+"ayudan. Nada de procesos por inercia."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:165
+#, fuzzy
+#| msgid "Aprendizaje"
+msgid "Aprendizaje continuo"
+msgstr "Ikaskuntza"
+
+#: templates/home/trabaja_con_nosotros.html:167
+msgid ""
+"Aquí todos estamos en modo beta: aprendemos, compartimos, investigamos. Si "
+"algo mejora nuestro trabajo, lo aplicamos."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:178
+msgid "Enfocados en resultados"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:180
+msgid ""
+"No miramos horarios, miramos impacto. Lo que entregas y lo que solucionas. "
+"Tienes libertad, pero también responsabilidad."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:194
+msgid "Herramientas que usamos en Euskodev"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:196
+msgid ""
+"Estas son las tecnologías y herramientas que usamos cada día para "
+"desarrollar con calidad, eficiencia y visión profesional."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:304
+msgid "¿Qué perfiles buscamos?"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:306
+msgid ""
+"En Euskodev valoramos la experiencia, la actitud y la capacidad de aportar "
+"al equipo. Estos son algunos de los perfiles que mejor encajan con nuestra "
+"forma de trabajar."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:315
+msgid "Personas autónomas"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:317
+msgid ""
+"Que saben organizarse, priorizar tareas y avanzar con criterio sin depender "
+"de supervisión constante."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:326
+msgid "Mentalidad técnica"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:328
+msgid ""
+"Amantes del código limpio, con ganas de aprender, compartir conocimiento y "
+"mejorar procesos de forma continua."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:337
+msgid "Buena comunicación"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:339
+msgid ""
+"Personas claras, empáticas y capaces de trabajar en equipo con transparencia "
+"y respeto mutuo."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:348
+msgid "Enfoque en producto"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:350
+msgid ""
+"Que entienden que el código es un medio para crear soluciones funcionales, "
+"usables y que aporten valor real."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:359
+msgid "Responsabilidad real"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:361
+msgid ""
+"Que cumplen con lo que prometen, cuidan la calidad y piensan a largo plazo "
+"en todo lo que construyen."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:370
+msgid "Curiosidad constante"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:372
+msgid ""
+"Con ganas de explorar nuevas ideas, probar herramientas, aportar soluciones "
+"y mejorar el trabajo del equipo."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:385
+msgid "Beneficios de trabajar en Euskodev"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:387
+msgid ""
+"No solo es lo que hacemos, sino cómo lo hacemos. Estos son algunos de los "
+"beneficios que disfrutarás siendo parte del equipo."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:395
+msgid "Horarios flexibles"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:396
+msgid "Tú organizas tu tiempo. Lo importante es cumplir y aportar, no fichar."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:402
+msgid "Trabajo remoto"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:403
+msgid "Trabaja desde donde quieras, con herramientas colaborativas modernas."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:409
+msgid "Formación continua"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:410
+msgid ""
+"Acceso a recursos, cursos y entornos reales donde puedes seguir creciendo."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:416
+msgid "Participación real"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:417
+msgid ""
+"Tus ideas no se quedan en el aire. Aquí tu voz se tiene en cuenta desde el "
+"primer día."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:423
+msgid "Buen ambiente"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:424
+msgid ""
+"Sin postureo, sin tensiones. Un entorno tranquilo, de confianza y "
+"colaboración."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:430
+msgid "Estabilidad emocional"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:431
+msgid "Sí, aquí eso también importa. Porque estar bien no es negociable."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:441
+msgid "¿Listo para formar parte de algo diferente?"
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:443
+msgid ""
+"En Euskodev no buscamos empleados, buscamos personas que quieran construir "
+"el futuro con nosotros. Si esto resuena contigo, estamos deseando conocerte."
+msgstr ""
+
+#: templates/home/trabaja_con_nosotros.html:446
+msgid "Quiero unirme al equipo"
+msgstr ""
+
+#~ msgid "Creadores"
+#~ msgstr "Sortzaileak"
 
 #~ msgid "Spanish"
 #~ msgstr "Español"
@@ -1226,17 +2884,8 @@ msgstr ""
 #~ "Ongi etorri gure estudiora <br> <br style=\"text-shadow: 2px 2px 5px "
 #~ "black;\">of"
 
-#~ msgid "Aprendizaje"
-#~ msgstr "Ikaskuntza"
-
-#~ msgid "e-comerce"
-#~ msgstr "Merkataritza elektronikoa"
-
 #~ msgid "Creadores de la web"
 #~ msgstr "Webguneen sortzaileak"
-
-#~ msgid "Artificial Intelligence"
-#~ msgstr "Inteligentzia artifiziala"
 
 #~ msgid ""
 #~ "Euskodev fue un placer trabajar con ellos. Siempre estuvieron disponibles "
