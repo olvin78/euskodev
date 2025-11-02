@@ -77,3 +77,5 @@ euskodev/settings.py
 locale/**/django.mo
 # Settings locales
  euskodev/settings[2-9].py
+
+locale/**/django.mo
