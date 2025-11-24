@@ -174,6 +174,101 @@
             .btn { display: none !important; }
         }
     </style>
+
+
+
+    <style>
+.btn-action {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-action:hover::before {
+    left: 100%;
+}
+
+.btn-back {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+}
+
+.btn-back:hover {
+    background: linear-gradient(135deg, #5a6268, #3d4348);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #E9C46A, #F4A261);
+    color: #1D3557;
+}
+
+.btn-edit:hover {
+    background: linear-gradient(135deg, #d4b15f, #e6955e);
+    color: #1D3557;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 196, 106, 0.4);
+}
+
+.btn-print {
+    background: linear-gradient(135deg, #457B9D, #1D3557);
+    color: white;
+}
+
+.btn-print:hover {
+    background: linear-gradient(135deg, #3a6a8a, #172a45);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 53, 87, 0.4);
+}
+
+/* Efectos adicionales para los botones */
+.btn-action:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn-action {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .btn-action i {
+        margin-right: 6px;
+    }
+}
+
+/* Asegurar que no se impriman los botones */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+    </style>
 </head>
 
 <body>
@@ -290,11 +385,18 @@
     </div>
 </div>
 
-<!-- 🔹 BOTONES -->
-<div class="d-flex justify-content-end gap-2 mt-4 no-print">
-    <a href="{% url 'dashboard_app:budget_list' %}" class="btn btn-secondary">Volver</a>
-    <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-warning">Actualizar</a>
-    <button onclick="window.print()" class="btn btn-primary">Imprimir</button>
+
+<!-- 🔹 BOTONES MEJORADOS -->
+<div class="d-flex justify-content-end gap-3 mt-4 no-print">
+    <a href="{% url 'dashboard_app:budget_list' %}" class="btn btn-action btn-back">
+        <i class="bi bi-arrow-left me-2"></i>Volver
+    </a>
+    <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-action btn-edit">
+        <i class="bi bi-pencil-square me-2"></i>Actualizar
+    </a>
+    <button onclick="window.print()" class="btn btn-action btn-print">
+        <i class="bi bi-printer me-2"></i>Imprimir
+    </button>
 </div>
 
 </body>
