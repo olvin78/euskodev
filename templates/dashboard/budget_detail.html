@@ -26,7 +26,6 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        /* ENCABEZADO CON LOGO Y CONTACTO SIMPLE */
         .header {
             display: flex;
             justify-content: space-between;
@@ -96,7 +95,6 @@
             color: #1D3557;
         }
 
-        /* EL RESTO DEL CSS SE MANTIENE IGUAL */
         .datos {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -180,7 +178,8 @@
 
 <body>
 <div class="factura">
-    <!-- ENCABEZADO CON LOGO Y CONTACTO SIMPLE -->
+
+    <!-- ENCABEZADO -->
     <div class="header">
         <div class="logo-container">
             <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" alt="Logo" class="logo">
@@ -205,95 +204,93 @@
         </div>
     </div>
 
+    <!-- 🔹 DATOS CLIENTE Y DATOS PROFESIONAL -->
     <div class="datos">
-    
-    <!-- INFORMACIÓN DEL CLIENTE -->
-    <div class="seccion">
-        <h6><b>Información del Cliente</b></h6>
-        <p><strong>Nombre:</strong> {{ budget.cliente.nombre }}<br>
-        <strong>Empresa:</strong> {{ budget.cliente.empresa }}<br>
-        <strong>NIF:</strong> {{ budget.cliente.nif|default:"-" }}<br>
-        <strong>Email:</strong> {{ budget.cliente.email|default:"-" }}<br>
-        <strong>Teléfono:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
-        <strong>Dirección:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
-    </div>
+        <div class="seccion">
+            <h6><b>Información del Cliente</b></h6>
+            <p><strong>Nombre:</strong> {{ budget.cliente.nombre }}<br>
+            <strong>Empresa:</strong> {{ budget.cliente.empresa }}<br>
+            <strong>NIF:</strong> {{ budget.cliente.nif|default:"-" }}<br>
+            <strong>Email:</strong> {{ budget.cliente.email|default:"-" }}<br>
+            <strong>Teléfono:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
+            <strong>Dirección:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
+        </div>
 
-    <!-- DATOS DEL PROFESIONAL -->
-    <div class="seccion">
-        <h6><b>Datos del Profesional</b></h6>
-        <p>
-        <strong>Nombre:</strong> {{ company.nombre }}<br>
-        <strong>Nombre comercial:</strong> {{ company.nombre_comercial }}<br>
-        <strong>NIF/NIE:</strong> {{ company.nif|default:"-" }}<br>
-        <strong>Dirección Fiscal:</strong> {{ company.direccion_fiscal|default:"-" }}<br>
-        </p>
-
-        {% if company.mostrar_datos_pago_en_presupuesto %}
-            <hr style="margin:8px 0;">
-            <h6><b>Datos de Pago</b></h6>
+        <div class="seccion">
+            <h6><b>Datos del Profesional</b></h6>
             <p>
-                <strong>Forma de pago:</strong> {{ company.get_forma_pago_display }}<br>
-                {% if company.forma_pago == "TRANSFERENCIA" %}
-                    <strong>Cuenta bancaria:</strong> {{ company.cuenta_bancaria }}<br>
-                    <strong>Banco:</strong> {{ company.get_banco_display }}<br>
-                {% endif %}
+            <strong>Nombre:</strong> {{ company.nombre }}<br>
+            <strong>Nombre comercial:</strong> {{ company.nombre_comercial }}<br>
+            <strong>NIF/NIE:</strong> {{ company.nif|default:"-" }}<br>
+            <strong>Dirección Fiscal:</strong> {{ company.direccion_fiscal|default:"-" }}<br>
             </p>
-        {% endif %}
+
+            {% if company.mostrar_datos_pago_en_presupuesto %}
+                <hr style="margin:8px 0;">
+                <h6><b>Datos de Pago</b></h6>
+                <p>
+                    <strong>Forma de pago:</strong> {{ company.get_forma_pago_display }}<br>
+                    {% if company.forma_pago == "TRANSFERENCIA" %}
+                        <strong>Cuenta bancaria:</strong> {{ company.cuenta_bancaria }}<br>
+                        <strong>Banco:</strong> {{ company.get_banco_display }}<br>
+                    {% endif %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 🔹 TABLA DE ÍTEMS -->
+    <table class="table table-bordered tabla">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Cant</th>
+                <th>Desc (%)</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td class="text-center">{{ forloop.counter }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td class="text-center">{{ item.precio_unitario }} €</td>
+                <td class="text-center">{{ item.cantidad }}</td>
+                <td class="text-center">{{ item.descuento }}%</td>
+                <td class="text-center">{{ item.subtotal }} €</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- 🔹 TOTALES CORREGIDOS -->
+    <div class="totales">
+        <p><strong>Subtotal:</strong> {{ budget.calcular_subtotal|floatformat:2 }} €</p>
+        <p><strong>Impuestos ({{ budget.impuesto_porcentaje }}%):</strong> {{ budget.calcular_impuestos|floatformat:2 }} €</p>
+        <p class="total-final">TOTAL: {{ budget.calcular_total_con_impuestos|floatformat:2 }} €</p>
+    </div>
+
+    <!-- 🔹 CONDICIONES -->
+    <div class="condiciones">
+        <strong>Condiciones de Pago</strong><br>
+        Este presupuesto es válido por 15 días desde su emisión.<br>
+        Para iniciar el desarrollo del proyecto, se requiere el abono del <strong>50% del total</strong> o el <strong>100%</strong> en caso de acuerdo completo.<br>
+        El pago se realizará mediante transferencia bancaria a los datos indicados.<br><br>
+        <strong>Gestión de horas:</strong><br>
+        Si sobran horas del presupuesto, se acumularán en una bolsa de horas para mantenimiento o mejoras.<br>
+        Si se requieren más horas, se notificará para acordar el ajuste.
+    </div>
+
+    <!-- 🔹 FIRMA -->
+    <div class="firma">
+        <div class="linea-firma"></div>
+        <div style="font-size: 11px;">Firma del cliente</div>
     </div>
 </div>
 
-<!-- TABLA DE ÍTEMS -->
-<table class="table table-bordered tabla">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th><b>Descripción</b></th>
-            <th><b>Precio</b></th>
-            <th><b>Cant</b></th>
-            <th><b>Desc (%)</b></th>
-            <th><b>Total</b></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for item in items %}
-        <tr>
-            <td class="text-center">{{ forloop.counter }}</td>
-            <td>{{ item.descripcion }}</td>
-            <td class="text-center">{{ item.precio_unitario }} €</td>
-            <td class="text-center">{{ item.cantidad }}</td>
-            <td class="text-center">{{ item.descuento }}%</td>
-            <td class="text-center">{{ item.subtotal }} €</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-<!-- TOTALES -->
-<div class="totales">
-    <p><strong>Subtotal:</strong> {{ subtotal }} €</p>
-    <p><strong>Impuestos ({{ budget.impuesto_porcentaje }}%):</strong> {{ impuestos }} €</p>
-    <p class="total-final">TOTAL: {{ total_con_impuestos }} €</p>
-</div>
-
-<!-- CONDICIONES -->
-<div class="condiciones">
-    <strong>Condiciones de Pago</strong><br>
-    Este presupuesto es válido por 15 días desde su emisión.<br>
-    Para iniciar el desarrollo del proyecto, se requiere el abono del <strong>50% del total</strong> o el <strong>100%</strong> en caso de acuerdo completo.<br>
-    El pago se realizará mediante transferencia bancaria a los datos indicados.<br><br>
-    <strong>Gestión de horas:</strong><br>
-    Si sobran horas del presupuesto, se acumularán en una bolsa de horas para mantenimiento o mejoras.<br>
-    Si se requieren más horas, se notificará para acordar el ajuste.
-</div>
-
-<!-- FIRMA -->
-<div class="firma">
-    <div class="linea-firma"></div>
-    <div style="font-size: 11px;">Firma del cliente</div>
-</div>
-</div>
-
-<!-- BOTONES DE ACCIÓN -->
+<!-- 🔹 BOTONES -->
 <div class="d-flex justify-content-end gap-2 mt-4 no-print">
     <a href="{% url 'dashboard_app:budget_list' %}" class="btn btn-secondary">Volver</a>
     <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-warning">Actualizar</a>
