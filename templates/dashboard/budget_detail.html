@@ -2,179 +2,303 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Presupuesto #{{ budget.id }}</title>
-
-    <!-- Bootstrap CSS + Icons -->
+    <meta charset="utf-8">
+    <title>Presupuesto #{{ budget.numero_presupuesto }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
         body {
-            background-color:white;
-            margin-top: 55px;
+            background: #F1FAEE;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+            margin: 0;
+            padding: 20px;
         }
 
-        .documento {
+        .factura {
             max-width: 900px;
-            margin: auto;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .tabla-azul th {
-            background-color: #0d6efd;
+        /* ENCABEZADO CON LOGO Y CONTACTO SIMPLE */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #1D3557;
+            padding-bottom: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+        }
+
+        .contacto {
+            font-size: 13px;
+            color: #1D3557;
+            line-height: 1.5;
+            text-align: left;
+            padding-left: 80px;
+        }
+
+        .titulo {
+            text-align: right;
+        }
+
+        .titulo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1D3557;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .numero {
+            background: #1D3557;
+            color: white;
+            padding: 6px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .datos-presupuesto {
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+            background: #F8FCFF;
+            padding: 10px 50px;
+            border-radius: 4px;
+            border: 1px solid #E3EDF7;
+        }
+
+        .datos-presupuesto .label {
+            font-weight: bold;
+            width: 85px;
+            display: inline-block;
+            color: #1D3557;
+        }
+
+        /* EL RESTO DEL CSS SE MANTIENE IGUAL */
+        .datos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .seccion {
+            background: #F8FCFF;
+            border: 1px solid #E3EDF7;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .seccion h6 {
+            background: #457B9D;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .tabla th {
+            background: #457B9D !important;
             color: white;
             text-align: center;
+            font-size: 11px;
+        }
+
+        .tabla td {
+            font-size: 11px;
+            padding: 6px;
+            vertical-align: middle;
+        }
+
+        .totales {
+            text-align: right;
+            margin: 25px 0;
+            font-size: 12px;
+        }
+
+        .total-final {
+            font-size: 15px;
+            font-weight: bold;
+            color: #1D3557;
+            border-top: 2px solid #457B9D;
+            padding-top: 10px;
+        }
+
+        .condiciones {
+            background: #E9F4FB;
+            padding: 15px 20px;
+            border-radius: 6px;
+            border-left: 4px solid #457B9D;
+            margin-top: 30px;
+            line-height: 1.5;
         }
 
         .firma {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .linea-firma {
+            width: 300px;
+            margin: 0 auto;
+            border-bottom: 1px solid #457B9D;
             padding-top: 20px;
-            margin-top: 30px;
         }
 
-        .datos-cliente {
-            width: 49%;
-            float: left;
+        @media print {
+            @page { margin: 0.4cm; }
+            body { margin: 0; padding: 0; }
+            .factura { box-shadow: none; border: none; padding: 10px; }
+            .btn { display: none !important; }
         }
-
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    @media print {
-    .btn, nav, footer {
-        display: none !important;
-        }
-
-    .documento {
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        padding: 0 !important;
-        }
-    }
     </style>
 </head>
+
 <body>
-
-<div class="documento">
-
-    <!-- ENCABEZADO -->
-    <div class="d-flex justify-content-between align-items-start mb-4">
-        <div>
-            <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" alt="Logo" height="70">
-        </div>
-        <div class="d-flex justify-content-center">
-            <div style="text-align: left;">
-                <h5 class="text-primary fw-bold text-center mb-3">PRESUPUESTO</h5>
-                
-                <p class="mb-1"><strong>Nº:</strong> {{ budget.id }}</p>
-                
-                {% with budget.fecha_creacion as fecha %}
-                    <p class="mb-1"><strong>Fecha:</strong> {{ fecha.day }} de {{ fecha|date:"F" }} de {{ fecha.year }}</p>
-                {% endwith %}
-                
-                <p class="mb-1"><strong>Vencimiento:</strong> —</p>
-                {% if budget.agente %}
-                 <p class="mb-1"><strong>Agente:</strong> {{ budget.agente.get_full_name|default:budget.agente.username }}</p>
-                {% endif %}
-
+<div class="factura">
+    <!-- ENCABEZADO CON LOGO Y CONTACTO SIMPLE -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" alt="Logo" class="logo">
+            <div class="contacto">
+                Tel: {{ company.telefono }}<br>
+                Email: {{ company.email }}<br>
+                Web: {{ company.web }}
             </div>
         </div>
-        
+
+        <div class="titulo">
+            <h1>PRESUPUESTO</h1>
+            <div class="numero"><b>N° {{ budget.numero_presupuesto }}</b></div>
+
+            <div class="datos-presupuesto">
+                <div><span class="label">Fecha:</span> {{ budget.fecha_creacion|date:"d/m/Y" }}</div>
+                <div><span class="label">Vencimiento:</span> {{ budget.fecha_vencimiento|date:"d/m/Y" }}</div>
+                {% if budget.agente %}
+                <div><span class="label">Agente:</span> {{ budget.agente.get_full_name|default:budget.agente.username }}</div>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
-    <!-- DATOS CLIENTE Y EMPRESA -->
-    <div class="mb-4">
-        <table class="table table-borderless table-sm w-100 align-top">
-            <tr>
-                <!-- DATOS DEL CLIENTE -->
-                <td class="w-50 pe-4 align-top">
-                    <h6 class="text-uppercase text-secondary fw-bold border-bottom pb-1 mb-2">Información del Cliente</h6>
-                    <p class="mb-1"><strong>Nombre:</strong> {{ budget.cliente.nombre }}</p>
-                    <p class="mb-1"><strong>Empresa:</strong> {{ budget.cliente.empresa }}</p>
-                    <p class="mb-1"><strong>NIF:</strong> {{ budget.cliente.nif|default:"-" }}</p>
-                    <p class="mb-1"><strong>Email:</strong> {{ budget.cliente.email|default:"No disponible" }}</p>
-                    <p class="mb-1"><strong>Teléfono:</strong> {{ budget.cliente.telefono|default:"-" }}</p>
-                    <p class="mb-1"><strong>Dirección:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
-                </td>
+    <div class="datos">
     
-                <!-- DATOS DE PAGO -->
-                <td class="w-50 ps-4 align-top border-start">
-                    <h6 class="text-uppercase text-secondary fw-bold border-bottom pb-1 mb-2">Datos de Pago</h6>
-                    <p class="mb-1"><strong>Cuenta:</strong> XXXXXX</p>
-                    <p class="mb-1"><strong>Banco:</strong> CaixaBank, S.A</p>
-                    <p class="mb-1"><strong>Empresa:</strong> Euskodev SRL</p>
-                </td>
-            </tr>
-        </table>
-    </div>
-    
-
-    <!-- TABLA DE ÍTEMS -->
-    <table class="table table-bordered tabla-azul">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Cant</th>
-                <th>Desc (%)</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in items %}
-            <tr>
-                <td class="text-center">{{ forloop.counter }}</td>
-                <td>{{ item.descripcion }}</td>
-                <td style="width: 100px;text-align: center;">{{ item.precio_unitario }} €</td>
-                <td style="width: 70px;text-align: center;">{{ item.cantidad }}</td>
-                <td style="width: 90px;">{{ item.descuento }}%</td>
-                <td style="width: 100px;text-align: center;">{{ item.subtotal }} €</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <!-- TOTALES -->
-    <div class="text-end">
-        <p><strong>Subtotal: </strong> {{ subtotal }} €</p>
-        <p><strong>Impuestos ({{ budget.impuesto_porcentaje }}%): </strong> {{ impuestos }} €</p>
-        <h5 class="text-primary"><strong>TOTAL: {{ total_con_impuestos }} €</strong></h5>
+    <!-- INFORMACIÓN DEL CLIENTE -->
+    <div class="seccion">
+        <h6><b>Información del Cliente</b></h6>
+        <p><strong>Nombre:</strong> {{ budget.cliente.nombre }}<br>
+        <strong>Empresa:</strong> {{ budget.cliente.empresa }}<br>
+        <strong>NIF:</strong> {{ budget.cliente.nif|default:"-" }}<br>
+        <strong>Email:</strong> {{ budget.cliente.email|default:"-" }}<br>
+        <strong>Teléfono:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
+        <strong>Dirección:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
     </div>
 
-<!-- CONDICIONES DE PAGO -->
-<div class="mt-5">
-    <h6 class="text-primary text-uppercase">Condiciones de Pago</h6>
-    <p class="mb-0">
-        Este presupuesto es válido por 15 días desde su emisión.  
-        Para iniciar el desarrollo del proyecto, se requiere el abono del <strong>50% del total</strong> o el <strong>100% en caso de acuerdo completo</strong>.  
-        El pago se realizará mediante transferencia bancaria a los datos indicados en este documento.
-    </p>
-</div>
+    <!-- DATOS DEL PROFESIONAL -->
+    <div class="seccion">
+        <h6><b>Datos del Profesional</b></h6>
+        <p>
+        <strong>Nombre:</strong> {{ company.nombre }}<br>
+        <strong>Nombre comercial:</strong> {{ company.nombre_comercial }}<br>
+        <strong>NIF/NIE:</strong> {{ company.nif|default:"-" }}<br>
+        <strong>Dirección Fiscal:</strong> {{ company.direccion_fiscal|default:"-" }}<br>
+        </p>
 
-
-
-
-    <!-- BOTONES -->
-    <div class="d-flex justify-content-end gap-2 mt-4 d-print-none">
-        <a href="{% url 'dashboard_app:budget_list' %}" class="btn btn-secondary">
-            <i class="bi bi-arrow-left"></i> Volver
-        </a>
-        <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-warning">
-            <i class="bi bi-pencil"></i> Actualizar
-        </a>
-        <button onclick="window.print()" class="btn btn-primary">
-            <i class="bi bi-printer"></i> Imprimir
-        </button>
+        {% if company.mostrar_datos_pago_en_presupuesto %}
+            <hr style="margin:8px 0;">
+            <h6><b>Datos de Pago</b></h6>
+            <p>
+                <strong>Forma de pago:</strong> {{ company.get_forma_pago_display }}<br>
+                {% if company.forma_pago == "TRANSFERENCIA" %}
+                    <strong>Cuenta bancaria:</strong> {{ company.cuenta_bancaria }}<br>
+                    <strong>Banco:</strong> {{ company.get_banco_display }}<br>
+                {% endif %}
+            </p>
+        {% endif %}
     </div>
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- TABLA DE ÍTEMS -->
+<table class="table table-bordered tabla">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th><b>Descripción</b></th>
+            <th><b>Precio</b></th>
+            <th><b>Cant</b></th>
+            <th><b>Desc (%)</b></th>
+            <th><b>Total</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td class="text-center">{{ forloop.counter }}</td>
+            <td>{{ item.descripcion }}</td>
+            <td class="text-center">{{ item.precio_unitario }} €</td>
+            <td class="text-center">{{ item.cantidad }}</td>
+            <td class="text-center">{{ item.descuento }}%</td>
+            <td class="text-center">{{ item.subtotal }} €</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- TOTALES -->
+<div class="totales">
+    <p><strong>Subtotal:</strong> {{ subtotal }} €</p>
+    <p><strong>Impuestos ({{ budget.impuesto_porcentaje }}%):</strong> {{ impuestos }} €</p>
+    <p class="total-final">TOTAL: {{ total_con_impuestos }} €</p>
+</div>
+
+<!-- CONDICIONES -->
+<div class="condiciones">
+    <strong>Condiciones de Pago</strong><br>
+    Este presupuesto es válido por 15 días desde su emisión.<br>
+    Para iniciar el desarrollo del proyecto, se requiere el abono del <strong>50% del total</strong> o el <strong>100%</strong> en caso de acuerdo completo.<br>
+    El pago se realizará mediante transferencia bancaria a los datos indicados.<br><br>
+    <strong>Gestión de horas:</strong><br>
+    Si sobran horas del presupuesto, se acumularán en una bolsa de horas para mantenimiento o mejoras.<br>
+    Si se requieren más horas, se notificará para acordar el ajuste.
+</div>
+
+<!-- FIRMA -->
+<div class="firma">
+    <div class="linea-firma"></div>
+    <div style="font-size: 11px;">Firma del cliente</div>
+</div>
+</div>
+
+<!-- BOTONES DE ACCIÓN -->
+<div class="d-flex justify-content-end gap-2 mt-4 no-print">
+    <a href="{% url 'dashboard_app:budget_list' %}" class="btn btn-secondary">Volver</a>
+    <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-warning">Actualizar</a>
+    <button onclick="window.print()" class="btn btn-primary">Imprimir</button>
+</div>
+
 </body>
 </html>

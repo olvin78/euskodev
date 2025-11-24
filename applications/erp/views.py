@@ -1,45 +1,49 @@
-from django.views.generic import TemplateView, DetailView, ListView, UpdateView, ListView, CreateView
-from django.db.models import Q
-from django.shortcuts import render
-from django.db.models import Count, Sum
+from django.views.generic import TemplateView, DetailView, ListView, UpdateView, CreateView
+from django.db.models import Q, Count, Sum
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
 from django.http import HttpResponse
-from django.urls import reverse_lazy  # ✅ Corrección aquí
-from .models import Client, Budget, BudgetItem
-from .forms import BudgetForm, BudgetItemFormSet, ClientForm
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib import messages
 
-class DashboardView(UserPassesTestMixin,TemplateView):
+# 🔹 Modelos
+from .models import Client, Budget, BudgetItem
+from applications.erp.models import CompanyInfo  # ✅ Import correcto
+
+# 🔹 Formularios
+from .forms import BudgetForm, BudgetItemFormSet, ClientForm
+
+# ===============================
+# DASHBOARD
+# ===============================
+class DashboardView(UserPassesTestMixin, TemplateView):
     template_name = "dashboard/index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Datos generales
-        context['total_clientes'] = Client.objects.count()  # Total de clientes
-        context['lista_clientes'] = Client.objects.all()  # Total de clientes
-        context['total_facturas'] = Budget.objects.count()  # Total de facturas
-        context['total_presupuesto_monto'] = Budget.objects.aggregate(Sum('total'))['total__sum'] or 0  # Suma de presupuestos
+        # 📊 Datos generales
+        context['total_clientes'] = Client.objects.count()
+        context['lista_clientes'] = Client.objects.all()
+        context['total_facturas'] = Budget.objects.count()
+        context['total_presupuesto_monto'] = Budget.objects.aggregate(Sum('total'))['total__sum'] or 0
 
-        # 📌 DATOS PARA GRÁFICOS
-        # 1️⃣ Obtener clientes y facturas por semana
+        # 📊 Gráficos por semana
         clients_weekly = Client.objects.extra({'created_week': "strftime('%%W', date_joined)"}).values('created_week').annotate(count=Count('id')).order_by('created_week')
         budgets_weekly = Budget.objects.extra({'created_week': "strftime('%%W', fecha_creacion)"}).values('created_week').annotate(count=Count('id')).order_by('created_week')
 
-        # 2️⃣ Obtener clientes y facturas por mes
+        # 📊 Gráficos por mes
         clients_monthly = Client.objects.extra({'created_month': "strftime('%%m', date_joined)"}).values('created_month').annotate(count=Count('id')).order_by('created_month')
         budgets_monthly = Budget.objects.extra({'created_month': "strftime('%%m', fecha_creacion)"}).values('created_month').annotate(count=Count('id')).order_by('created_month')
 
-        # 3️⃣ Convertir datos en listas de números para los gráficos
+        # 🔹 Enviar datos al template
         context['chart_data_week_clients'] = [data['count'] for data in clients_weekly]
         context['chart_data_week_budgets'] = [data['count'] for data in budgets_weekly]
-
         context['chart_data_month_clients'] = [data['count'] for data in clients_monthly]
         context['chart_data_month_budgets'] = [data['count'] for data in budgets_monthly]
 
         return context
-    
+
     def test_func(self):
         return self.request.user.is_staff
 
@@ -48,11 +52,14 @@ class DashboardView(UserPassesTestMixin,TemplateView):
         return redirect("home_app:home")
 
 
+# ===============================
+# CREAR PRESUPUESTO
+# ===============================
 class BudgetCreateView(CreateView):
     model = Budget
     form_class = BudgetForm
     template_name = 'dashboard/presupuesto.html'
-    success_url = reverse_lazy('dashboard_app:budget_list')  # cámbialo según tu proyecto
+    success_url = reverse_lazy('dashboard_app:budget_list')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -67,56 +74,58 @@ class BudgetCreateView(CreateView):
         item_formset = context['item_formset']
 
         if item_formset.is_valid():
-            self.object = form.save()  # Guardamos el presupuesto
+            self.object = form.save()
 
-            # Guardamos los ítems asociados
             item_formset.instance = self.object
             item_formset.save()
 
-            # Calculamos el total con impuestos y lo guardamos
             self.object.total = self.object.calcular_total_con_impuestos
             self.object.save()
 
             return redirect('dashboard_app:budget_detail', pk=self.object.id)
-        else:
-            return self.form_invalid(form)
-    
+        return self.form_invalid(form)
 
 
+# ===============================
+# ACTUALIZAR ÍTEM DE PRESUPUESTO
+# ===============================
 def delete_budget_item(request, item_id):
     item = get_object_or_404(BudgetItem, id=item_id)
     item.delete()
-    return redirect('create_budget') 
+    return redirect('create_budget')
 
 
-
+# ===============================
+# AÑADIR CLIENTE
+# ===============================
 def add_client(request):
     if request.method == 'POST':
         form = ClientForm(request.POST)
         if form.is_valid():
-            form.save()  # ✅ Guarda el cliente en la base de datos
-            return redirect('dashboard_app:create_budget')  # ✅ Redirige tras guardar
+            form.save()
+            return redirect('dashboard_app:create_budget')
     else:
         form = ClientForm()
 
-    clientes = Client.objects.all()  # ✅ Obtiene todos los clientes para la búsqueda
+    clientes = Client.objects.all()
 
     return render(request, 'dashboard/add_client.html', {
         'form': form,
-        'clientes': clientes  # ✅ Pasamos los clientes para el filtro
+        'clientes': clientes
     })
 
 
-
+# ===============================
+# CONFIRMACIÓN TRAS CREAR PRESUPUESTO
+# ===============================
 def budget_success(request, pk):
-    """Vista de éxito después de crear un presupuesto"""
-    budget = get_object_or_404(Budget, pk=pk)  # ✅ Obtiene el presupuesto usando el pk
+    budget = get_object_or_404(Budget, pk=pk)
     return redirect('dashboard_app:budget_detail', pk=budget.id)
 
 
-
-
-
+# ===============================
+# EDITAR PRESUPUESTO
+# ===============================
 class BudgetUpdateView(UpdateView):
     model = Budget
     form_class = BudgetForm
@@ -155,9 +164,9 @@ class BudgetUpdateView(UpdateView):
         return self.form_invalid(form)
 
 
-
-
-
+# ===============================
+# LISTAR PRESUPUESTOS
+# ===============================
 class BudgetListView(ListView):
     model = Budget
     template_name = "dashboard/budget_list.html"
@@ -174,8 +183,10 @@ class BudgetListView(ListView):
         return queryset.order_by('-id')
 
 
-
-
+# ===============================
+# VER DETALLE DE PRESUPUESTO
+# 🔹 Aquí agregamos CompanyInfo correctamente
+# ===============================
 class BudgetDetailView(DetailView):
     model = Budget
     template_name = "dashboard/budget_detail.html"
@@ -184,6 +195,9 @@ class BudgetDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         budget = self.get_object()
+
+        context["company"] = CompanyInfo.objects.first()  # ✅ AÑADIDO
+
         context["subtotal"] = budget.calcular_subtotal
         context["impuestos"] = budget.calcular_impuestos
         context["total_con_impuestos"] = budget.calcular_total_con_impuestos

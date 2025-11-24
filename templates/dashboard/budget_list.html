@@ -75,7 +75,7 @@
                         <i class="bi bi-file-earmark-text"></i>
                     </div>
                     <a href="{% url 'dashboard_app:budget_detail' budget.id %}"><div>
-                        <div class="fw-bold">Presupuesto #{{ budget.id }}</div>
+                        <div class="fw-bold">Presupuesto #{{ budget.numero_presupuesto }}</div>
                         <small class="text-muted">{{ budget.fecha_creacion }} — {{ budget.cliente.nombre }}</small>
                     </div>
                     </a>
