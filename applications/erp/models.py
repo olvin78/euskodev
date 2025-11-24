@@ -116,8 +116,18 @@ class Budget(models.Model):
     def calcular_total_con_impuestos(self):
         return self.calcular_subtotal + self.calcular_impuestos
 
+    def update_totals(self):
+        """Recalcula subtotal, impuestos y total con impuestos y guarda en BD."""
+        subtotal = self.calcular_subtotal
+        impuestos = self.calcular_impuestos
+        total_final = self.calcular_total_con_impuestos
+
+        self.total = total_final
+        self.save(update_fields=['total'])
+
     def __str__(self):
         return f"Presupuesto #{self.numero_presupuesto} - {self.cliente}"
+
 
 
 # ===========================
