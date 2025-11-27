@@ -1,9 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="eu">
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Aurrekontua #{{ budget.numero_presupuesto }}</title>
+    <title>Presupuesto #{{ budget.numero_presupuesto }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -175,6 +175,8 @@
         }
     </style>
 
+
+
     <style>
 .btn-action {
     padding: 12px 24px;
@@ -242,6 +244,13 @@
     box-shadow: 0 6px 20px rgba(29, 53, 87, 0.4);
 }
 
+/* Efectos adicionales para los botones */
+.btn-action:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .btn-action {
         padding: 10px 16px;
@@ -253,14 +262,13 @@
     }
 }
 
+/* Asegurar que no se impriman los botones */
 @media print {
     .no-print {
         display: none !important;
     }
 }
     </style>
-
-    
 </head>
 
 <body>
@@ -278,14 +286,14 @@
         </div>
 
         <div class="titulo">
-            <h1>AURREKONTUA</h1>
+            <h1>PRESUPUESTO</h1>
             <div class="numero"><b>N° {{ budget.numero_presupuesto }}</b></div>
 
             <div class="datos-presupuesto">
-                <div><span class="label">Data:</span> {{ budget.fecha_creacion|date:"d/m/Y" }}</div>
-                <div><span class="label">Iraungitze-data:</span> {{ budget.fecha_vencimiento|date:"d/m/Y" }}</div>
+                <div><span class="label">Fecha:</span> {{ budget.fecha_creacion|date:"d/m/Y" }}</div>
+                <div><span class="label">Vencimiento:</span> {{ budget.fecha_vencimiento|date:"d/m/Y" }}</div>
                 {% if budget.agente %}
-                <div><span class="label">Agentea:</span> {{ budget.agente.get_full_name|default:budget.agente.username }}</div>
+                <div><span class="label">Agente:</span> {{ budget.agente.get_full_name|default:budget.agente.username }}</div>
                 {% endif %}
             </div>
         </div>
@@ -294,32 +302,32 @@
     <!-- 🔹 DATOS CLIENTE Y DATOS PROFESIONAL -->
     <div class="datos">
         <div class="seccion">
-            <h6><b>Bezeroaren Informazioa</b></h6>
-            <p><strong>Izena:</strong> {{ budget.cliente.nombre }}<br>
-            <strong>Enpresa:</strong> {{ budget.cliente.empresa }}<br>
-            <strong>IFK:</strong> {{ budget.cliente.nif|default:"-" }}<br>
-            <strong>Emaila:</strong> {{ budget.cliente.email|default:"-" }}<br>
-            <strong>Telefonoa:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
-            <strong>Helbidea:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
+            <h6><b>Información del Cliente</b></h6>
+            <p><strong>Nombre:</strong> {{ budget.cliente.nombre }}<br>
+            <strong>Empresa:</strong> {{ budget.cliente.empresa }}<br>
+            <strong>NIF:</strong> {{ budget.cliente.nif|default:"-" }}<br>
+            <strong>Email:</strong> {{ budget.cliente.email|default:"-" }}<br>
+            <strong>Teléfono:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
+            <strong>Dirección:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
         </div>
 
         <div class="seccion">
-            <h6><b>Profesionalaren Datuak</b></h6>
+            <h6><b>Datos del Profesional</b></h6>
             <p>
-            <strong>Izena:</strong> {{ company.nombre }}<br>
-            <strong>Izen komertziala:</strong> {{ company.nombre_comercial }}<br>
-            <strong>IFK/NAN:</strong> {{ company.nif|default:"-" }}<br>
-            <strong>Helbide Fiskala:</strong> {{ company.direccion_fiscal|default:"-" }}<br>
+            <strong>Nombre:</strong> {{ company.nombre }}<br>
+            <strong>Nombre comercial:</strong> {{ company.nombre_comercial }}<br>
+            <strong>NIF/NIE:</strong> {{ company.nif|default:"-" }}<br>
+            <strong>Dirección Fiscal:</strong> {{ company.direccion_fiscal|default:"-" }}<br>
             </p>
 
             {% if company.mostrar_datos_pago_en_presupuesto %}
                 <hr style="margin:8px 0;">
-                <h6><b>Ordainketa Datuak</b></h6>
+                <h6><b>Datos de Pago</b></h6>
                 <p>
-                    <strong>Ordainketa mota:</strong> {{ company.get_forma_pago_display }}<br>
+                    <strong>Forma de pago:</strong> {{ company.get_forma_pago_display }}<br>
                     {% if company.forma_pago == "TRANSFERENCIA" %}
-                        <strong>Banku-kontua:</strong> {{ company.cuenta_bancaria }}<br>
-                        <strong>Bankua:</strong> {{ company.get_banco_display }}<br>
+                        <strong>Cuenta bancaria:</strong> {{ company.cuenta_bancaria }}<br>
+                        <strong>Banco:</strong> {{ company.get_banco_display }}<br>
                     {% endif %}
                 </p>
             {% endif %}
@@ -331,11 +339,11 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Deskribapena</th>
-                <th>Prezioa</th>
-                <th>Kant</th>
-                <th>Desk (%)</th>
-                <th>Guztira</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Cant</th>
+                <th>Desc (%)</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
@@ -354,43 +362,46 @@
 
     <!-- 🔹 TOTALES CORREGIDOS -->
     <div class="totales">
-        <p><strong>Azpitotala:</strong> {{ budget.calcular_subtotal|floatformat:2 }} €</p>
-        <p><strong>Zergak ({{ budget.impuesto_porcentaje }}%):</strong> {{ budget.calcular_impuestos|floatformat:2 }} €</p>
-        <p class="total-final">GUZTIRA: {{ budget.calcular_total_con_impuestos|floatformat:2 }} €</p>
+        <p><strong>Subtotal:</strong> {{ budget.calcular_subtotal|floatformat:2 }} €</p>
+        <p><strong>Impuestos ({{ budget.impuesto_porcentaje }}%):</strong> {{ budget.calcular_impuestos|floatformat:2 }} €</p>
+        <p class="total-final">TOTAL: {{ budget.calcular_total_con_impuestos|floatformat:2 }} €</p>
     </div>
 
     <!-- 🔹 CONDICIONES -->
     <div class="condiciones">
-        <strong>Ordainketa Baldintzak</strong><br>
-        Aurrekontu hau baliozkoa da igorri eta 15 egunera arte.<br>
-        Proiektua hasteko, guztizkoaren <strong>%50a</strong> edo <strong>%100a</strong> ordaindu beharko da adostasunaren arabera.<br>
-        Ordainketa banku-transferentzia bidez egingo da adierazitako datuetara.<br><br>
+        <strong>Condiciones de Pago</strong><br>
+        Este presupuesto es válido por 15 días desde su emisión.<br>
+        Para iniciar el desarrollo del proyecto, se requiere el abono del <strong>50% del total</strong> o el <strong>100%</strong> en caso de acuerdo completo.<br>
+        El pago se realizará mediante transferencia bancaria a los datos indicados.<br><br>
 
-        <strong>Orduen kudeaketa:</strong><br>
-        Aurrekontuan geratzen diren orduak mantentzerako edo hobekuntzetarako erabili ahal izango dira.<br>
-        Ordu gehiago behar izanez gero, abisua egingo da eta adostuko da.<br><br>
+        <strong>Gestión de horas:</strong><br>
+        Si sobran horas del presupuesto, se acumularán en una bolsa de horas para mantenimiento o mejoras.<br>
+        Si se requieren más horas, se notificará para acordar el ajuste.<br><br>
 
-        <strong>Estrak eta esparrua:</strong><br>
-        Dokumentu honetan jasota ez dauden funtzionalitate, plugin edo zerbitzu gehigarriak aparte baloratuko eta aurrekontatuko dira.
+        <strong>Extras y alcance:</strong><br>
+Cualquier funcionalidad, plugin o servicio adicional no incluido en este documento será valorado y presupuestado por separado.
+
     </div>
+
 
     <!-- 🔹 FIRMA -->
     <div class="firma">
         <div class="linea-firma"></div>
-        <div style="font-size: 11px;">Bezeroaren sinadura</div>
+        <div style="font-size: 11px;">Firma del cliente</div>
     </div>
 </div>
+
 
 <!-- 🔹 BOTONES MEJORADOS -->
 <div class="d-flex justify-content-end gap-3 mt-4 no-print">
     <a href="{% url 'dashboard_app:budget_list' %}" class="btn btn-action btn-back">
-        <i class="bi bi-arrow-left me-2"></i>Itzuli
+        <i class="bi bi-arrow-left me-2"></i>Volver
     </a>
     <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-action btn-edit">
-        <i class="bi bi-pencil-square me-2"></i>Eguneratu
+        <i class="bi bi-pencil-square me-2"></i>Actualizar
     </a>
     <button onclick="window.print()" class="btn btn-action btn-print">
-        <i class="bi bi-printer me-2"></i>Inprimatu
+        <i class="bi bi-printer me-2"></i>Imprimir
     </button>
 </div>
 
