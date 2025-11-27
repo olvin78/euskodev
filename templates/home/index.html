@@ -911,6 +911,79 @@
 
 
 
+
+
+<!-- Modal Mantenimiento -->
+<!-- Modal Mantenimiento - Euskodev -->
+<div class="modal fade" id="modalMantenimiento" tabindex="-1" aria-labelledby="modalMantenimientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0" style="border-radius: 12px;">
+      
+      <!-- Header -->
+      <div class="modal-header" style="background-color:#1D3557; border-radius: 12px 12px 0 0;">
+        <h5 class="modal-title fw-semibold text-white" id="modalMantenimientoLabel">
+          <i class="bi bi-shield-lock-fill me-2"></i> Mantenimiento en proceso
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body text-center" style="background-color:#F1FAEE;">
+        <i class="bi bi-gear-wide-connected display-5 mb-3" style="color:#457B9D;"></i>
+        
+        <p class="text-dark mb-3">
+          Este apartado de <strong>Euskodev</strong> se encuentra actualmente en 
+          <strong style="color:#E63946;">mantenimiento</strong> para mejorar la 
+          <strong>seguridad y protección de tus datos</strong>.
+        </p>
+
+        <p class="mb-2">Puedes contactarnos directamente mediante:</p>
+
+        <div class="p-3 rounded" style="background-color:#A8DADC;">
+          <p class="mb-1"><i class="bi bi-envelope"></i> <strong>info@euskodev.eus</strong></p>
+          <p class="mb-0"><i class="bi bi-envelope-fill"></i> <strong>euskodev@gmail.com</strong></p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer justify-content-center" style="background-color:#F1FAEE;">
+        <button type="button" class="btn px-4" style="background-color:#457B9D; color:white;" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<style>
+.modal-content {
+    animation: fadeScale 0.3s ease-in-out;
+    border: 1px solid #A8DADC;
+}
+@keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const botonEnviar = document.querySelector(".boton-enviar");
+
+    botonEnviar.addEventListener("click", function (e) {
+        e.preventDefault(); 
+        const modal = new bootstrap.Modal(document.getElementById('modalMantenimiento'));
+        modal.show();
+    });
+});
+</script>
+
+
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     function createMap(id, lat, lng) {

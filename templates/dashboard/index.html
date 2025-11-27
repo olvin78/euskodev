@@ -1,266 +1,495 @@
 {% extends "dashboard/base_dashboard.html" %}
 
 {% load static %}
-
 {% load i18n %}
 
-
-
 {% block content %}
-<div class="container-fluid" style="padding: 110px;">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<style>
+:root {
+    --primary: #667eea;
+    --primary-dark: #5a6fd8;
+    --secondary: #764ba2;
+    --light: #f8fafc;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --border: #e2e8f0;
+}
 
-      <!-- [ Main Content ] start -->
-      <div class="row">
-        <!-- [ sample-page ] start -->
-         
-        <div class="col-md-6 col-xl-3">
-          <a href="">
-            <div class="card">
-              <div class="card-body">
-                <h6 class="mb-2 f-w-400 text-muted">Total De Clientes</h6>
-                <h4 class="mb-3">{{ total_clientes }} <span class="badge bg-light-primary border border-primary"><i
-                      class="ti ti-trending-up"></i> 59.3%</span></h4>
-                <p class="mb-0 text-muted text-sm">You made an extra <span class="text-primary">35,000</span> this year
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-      
-        <div class="col-md-6 col-xl-3">
-          <a href="">
-            <div class="card">
-              <div class="card-body">
-                <h6 class="mb-2 f-w-400 text-muted">Total De Facturas</h6>
-                <h4 class="mb-3">{{ total_facturas }} <span class="badge bg-light-success border border-success"><i
-                      class="ti ti-trending-up"></i> 70.5%</span></h4>
-                <p class="mb-0 text-muted text-sm">You made an extra <span class="text-success">8,900</span> this year</p>
-              </div>
-            </div>
-          </a>
-        </div>
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
 
-        <div class="col-md-6 col-xl-3">
-          <a href="">
-            <div class="card">
-              <div class="card-body">
-                <h6 class="mb-2 f-w-400 text-muted">Total De Presupuesto</h6>
-                <h4 class="mb-3">18,800 <span class="badge bg-light-warning border border-warning"><i
-                      class="ti ti-trending-down"></i> 27.4%</span></h4>
-                <p class="mb-0 text-muted text-sm">You made an extra <span class="text-warning">1,943</span> this year</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-xl-3">
-          <a href="#" class="text-decoration-none">
-              <div class="card">
-                  <div class="card-body">
-                      <h6 class="mb-2 f-w-400 text-muted">Total Sales</h6>
-                      <!-- Contenedor de botones con separación -->
-                      <div class="d-flex justify-content-between mb-3">
-                          <!-- Tres botones dentro del div con separación entre ellos -->
-                          <button class="btn mx-2 text-white" style="background-color: rgb(158, 124, 221);">Crear Factura</button>
-                          <a href="{% url 'dashboard_app:create_budget' %}"><button class="btn mx-2 text-white" style="background-color: rgb(3, 128, 76);">Crear Presupuesto</button></a>
-                          <a href="{% url 'dashboard_app:budget_list' %}"><button class="btn mx-2 text-white" style="background-color: rgb(50, 209, 209);">Ver presupuestos</button></a>
-                      </div>
-                      <p class="mb-0 text-muted text-sm">
-                          Puedes crear una factura <span class="text-danger">o hacer presupuestos</span>
-                      </p>
-                  </div>
-              </div>
-          </a>
-      </div>
-      
+.dashboard-container {
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+}
 
+/* Header (igual que antes) */
+.dashboard-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 80px 0 60px 0;
+    margin-bottom: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
 
-        <div class="col-md-12 col-xl-8">
-          <div class="d-flex align-items-center justify-content-between mb-3">
-              <h5 class="mb-0">Resumen de Actividad</h5>
-              <ul class="nav nav-pills justify-content-end mb-0">
-                  <li class="nav-item">
-                      <button class="nav-link active" id="chart-week" data-period="week">Semana</button>
-                  </li>
-                  <li class="nav-item">
-                      <button class="nav-link" id="chart-month" data-period="month">Mes</button>
-                  </li>
-              </ul>
-          </div>
-      
-          <div class="card">
-              <div class="card-body">
-                  <div id="activity-chart"></div>
-              </div>
-          </div>
-      </div>
+.dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,50 1000,100 0,100"/></svg>');
+    background-size: cover;
+}
 
-      
-      
-        <div class="col-md-12 col-xl-4">
-          <h5 class="mb-3">Income Overview</h5>
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">This Week Statistics</h6>
-              <h3 class="mb-3">$7,650</h3>
-              <div id="income-overview-chart"></div>
-            </div>
-          </div>
-        </div>
+.header-content {
+    position: relative;
+    z-index: 2;
+}
 
-        <div class="col-md-12 col-xl-8">
-          <h5 class="mb-3">Ordenes Recientes</h5>
-          <div class="card tbl-card">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-hover table-borderless mb-0">
-                  <thead>
-                    <tr>
-                      <th>Número de Factura.</th>
-                      <th>Nombre de Producto</th>
-                      <th>TOTAL de Ordenes</th>
-                      <th>Estado</th>
-                      <th class="text-end">Monto Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Camera Lens</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>En proceso</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Laptop</td>
-                      <td>300</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-warning f-10 m-r-5"></i>Pendinente</span>
-                      </td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Aprovado</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+.dashboard-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
 
+.dashboard-subtitle {
+    opacity: 0.9;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
 
+.brand-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
 
-        <div class="col-md-12 col-xl-8">
-          <h5 class="mb-3">Clientes</h5>
-          <div class="card tbl-card">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-hover table-borderless mb-0">
-                  <thead>
-                    <tr>
-                      <th>Nombre de Cliente</th>
-                      <th>Número de Empresa</th>
-                      <th>Total de Ordenes</th>
-                      <th>Estado</th>
-                      <th class="text-end">Monto Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for datos in lista_clientes %}
-                    <tr>
-                      <td><a href="#" class="text-muted">{{ datos.nombre }}</a></td>
-                      <td>{{ datos.empresa }}</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>En proceso</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    {% endfor %}
+.brand-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+}
 
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+.brand-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+}
 
+.brand-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+}
 
-        <div class="col-md-12 col-xl-4">
-          <h5 class="mb-3">Transaction History</h5>
-          <div class="card">
-            <div class="list-group list-group-flush">
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-success bg-light-success">
-                      <i class="ti ti-gift f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #002434</h6>
-                    <p class="mb-0 text-muted">Today, 2:00 AM</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">+ $1,430</h6>
-                    <p class="mb-0 text-muted">78%</P>
-                  </div>
+.brand-tagline {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Stats - 3 Columnas */
+.stats-section {
+    background: white;
+    padding: 3rem 0;
+    margin-top: -2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.stat-card:nth-child(2) .stat-icon {
+    background: linear-gradient(135deg, #34a853, #2e8b57);
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.stat-value {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Quick Actions - 4 Columnas */
+.quick-actions {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 3rem 0;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+}
+
+.quick-actions h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.action-card {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+    text-decoration: none;
+    color: inherit;
+}
+
+.action-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.action-card:nth-child(2) .action-icon {
+    background: linear-gradient(135deg, #34a853, #2e8b57);
+}
+
+.action-card:nth-child(3) .action-icon {
+    background: linear-gradient(135deg, #ea4335, #d93025);
+}
+
+.action-card:nth-child(4) .action-icon {
+    background: linear-gradient(135deg, #fbbc05, #e6a800);
+}
+
+.action-card:nth-child(5) .action-icon {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.action-card:nth-child(6) .action-icon {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.action-card:nth-child(7) .action-icon {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.action-card:nth-child(8) .action-icon {
+    background: linear-gradient(135deg, #84cc16, #65a30d);
+}
+
+.action-title {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.action-desc {
+    color: var(--gray);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .action-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .action-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        padding: 60px 0 40px 0;
+    }
+    
+    .dashboard-title {
+        font-size: 2.2rem;
+    }
+    
+    .brand-name {
+        font-size: 1.5rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .action-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .quick-actions {
+        padding: 2rem;
+        margin: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+    
+    .brand-name {
+        font-size: 1.3rem;
+    }
+    
+    .stat-card {
+        padding: 2rem 1.5rem;
+    }
+}
+</style>
+
+<div class="dashboard-container">
+    <!-- Header -->
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="header-content text-center">
+                <h1 class="dashboard-title">Panel de Control</h1>
+                <p class="dashboard-subtitle">Gestión empresarial integral</p>
+                
+                <div class="brand-section">
+                    <div class="brand-name">EUSKODEV</div>
+                    <div class="brand-tagline">Desarrollo & Soluciones Tecnológicas</div>
                 </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-primary bg-light-primary">
-                      <i class="ti ti-message-circle f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #984947</h6>
-                    <p class="mb-0 text-muted">5 August, 1:45 PM</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">- $302</h6>
-                    <p class="mb-0 text-muted">8%</P>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-danger bg-light-danger">
-                      <i class="ti ti-settings f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #988784</h6>
-                    <p class="mb-0 text-muted">7 hours ago</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">- $682</h6>
-                    <p class="mb-0 text-muted">16%</P>
-                  </div>
-                </div>
-              </a>
             </div>
-          </div>
         </div>
-      </div>
-      
+    </div>
+
+    <!-- Stats Section - 3 Columnas -->
+    <div class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value">24</div>
+                    <div class="stat-label">Clientes Totales</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="stat-value">156</div>
+                    <div class="stat-label">Facturas Emitidas</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="stat-value">18</div>
+                    <div class="stat-label">Presupuestos Activos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions - 4 Columnas -->
+    <div class="container">
+        <div class="quick-actions">
+            <h3>Acciones Rápidas</h3>
+            <div class="action-grid">
+                <a href="{% url 'dashboard_app:create_budget' %}" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="action-title">Nuevo Presupuesto</div>
+                    <div class="action-desc">Crear presupuesto para cliente</div>
+                </a>
+
+                <a href="{% url 'dashboard_app:budget_list' %}" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <div class="action-title">Ver Presupuestos</div>
+                    <div class="action-desc">Lista completa de presupuestos</div>
+                </a>
+
+                <a href="#" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="action-title">Agregar Cliente</div>
+                    <div class="action-desc">Registrar nuevo cliente</div>
+                </a>
+
+                <a href="#" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="action-title">Lista Clientes</div>
+                    <div class="action-desc">Gestionar clientes existentes</div>
+                </a>
+
+                <a href="#" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="action-title">Crear Factura</div>
+                    <div class="action-desc">Generar nueva factura</div>
+                </a>
+
+                <a href="#" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <div class="action-title">Historial Facturas</div>
+                    <div class="action-desc">Ver facturas emitidas</div>
+                </a>
+
+                <a href="#" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="action-title">Reportes</div>
+                    <div class="action-desc">Generar reportes financieros</div>
+                </a>
+
+                <a href="#" class="action-card">
+                    <div class="action-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="action-title">Configuración</div>
+                    <div class="action-desc">Ajustes del sistema</div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-  <!-- [ Main Content ] end -->
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Efecto hover suave
+    const cards = document.querySelectorAll('.stat-card, .action-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+</script>
 {% endblock %}
-
