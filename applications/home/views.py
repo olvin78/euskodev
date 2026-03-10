@@ -32,6 +32,19 @@ import os
 
 def formulario_contactar(request):
     if request.method == "POST":
+        # Validación de reCAPTCHA
+        recaptcha_response = request.POST.get("g-recaptcha-response")
+        data = {
+            'secret': settings.RECAPTCHA_PRIVATE_KEY,
+            'response': recaptcha_response
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+        result = r.json()
+
+        if not result.get('success') and not settings.RECAPTCHA_VERIFY_REQUESTS == False:
+            messages.error(request, "Error en la validación de reCAPTCHA. Inténtalo de nuevo.")
+            return redirect("home_app:home")
+
         name = request.POST.get("name", "")
         email = request.POST.get("email", "")
         phone = request.POST.get("phone", "")
@@ -51,7 +64,7 @@ def formulario_contactar(request):
         resultado = enviar_email_brevo(
             asunto=asunto,
             contenido_html=contenido_html,
-            destinatario_email="info@euskodev.eus",
+            destinatario_email="euskodev@gmail.com",
             destinatario_nombre="Euskodev"
         )
 
@@ -63,6 +76,7 @@ def formulario_contactar(request):
         return redirect("home_app:home")
 
     return redirect("home_app:home")
+
 
 def formulario_contactar2(request):
     if request.method == "POST":
@@ -117,16 +131,9 @@ class HomePageView(ListView):
     template_name = "home/index.html"
     model = Blog
     context_object_name = 'entradas_blog'
+    
     def get_queryset(self):
-        # Obtenemos el queryset original
-        queryset = super().get_queryset()
-        # Filtramos y seleccionamos el primer objeto
-        first_item = queryset.first()
-        # Si no hay objetos en el queryset, devolvemos un queryset vacío
-        if first_item is None:
-            return queryset.none()
-        # Devolvemos un queryset que contiene solo el primer objeto
-        return queryset.order_by('-id')[:3]
+        return Blog.objects.order_by('-id')[:6]
 
 
 class PoliticasdeprivacidadView(TemplateView):

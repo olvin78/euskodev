@@ -4,96 +4,1063 @@
 
 {% block head %}
 <style>
-  .euskodev-header {
-    background-color: #43C6CF;
-    color: white;
+  .ai-page {
+    padding-top: 80px;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
 
-  .euskodev-button {
-    background-color: #43C6CF;
-    border-color: #43C6CF;
-    color: white;
+  .ai-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(0, 229, 196, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+    z-index: 0;
   }
 
-  .euskodev-button:hover {
-    background-color: #36a9b1;
-    border-color: #36a9b1;
+  .hero-ai {
+    position: relative;
+    padding: 40px 0 30px;
+    text-align: center;
   }
 
-  .card {
-    border-radius: 0.5rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 229, 196, 0.1);
+    border: 1px solid rgba(0, 229, 196, 0.2);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    color: #00e5c4;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title .gradient {
+    background: linear-gradient(135deg, #00e5c4 0%, #7c3aed 50%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  .floating-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .shape-1 { width: 250px; height: 250px; background: #00e5c4; top: 5%; left: -5%; }
+  .shape-2 { width: 180px; height: 180px; background: #7c3aed; top: 40%; right: -3%; animation-delay: 2s; }
+  .shape-3 { width: 120px; height: 120px; background: #f59e0b; bottom: 10%; left: 25%; animation-delay: 4s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature-card {
+    background: var(--dark-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #00e5c4;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(0, 229, 196, 0.1), rgba(124, 58, 237, 0.1));
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+  }
+
+  .feature-icon i { font-size: 1.25rem; color: #00e5c4; }
+  .feature-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; }
+  .feature-desc { color: var(--text-muted); font-size: 0.75rem; line-height: 1.4; }
+
+  .form-section { position: relative; z-index: 1; padding-bottom: 40px; }
+
+  .quiz-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .progress-container {
+    margin-bottom: 30px;
+  }
+
+  .progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: var(--surface);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00e5c4, #7c3aed);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
+  .step-card {
+    display: none;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+
+  .step-card.active { 
+    display: block; 
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+  }
+
+  @keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-card.active { display: block; animation: fadeIn 0.4s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+  }
+
+  .step-title i { color: #00e5c4; }
+
+  .question-item {
+    margin-bottom: 25px;
+  }
+
+  .question-label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .quiz-options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+  }
+
+  .quiz-option {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 0;
+    transition: all 0.4s ease;
+  }
+
+  .quiz-option span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+  }
+
+  .quiz-option:hover span {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+
+  .quiz-option input[type="radio"] { display: none; }
+
+  .quiz-option:has(input:checked) span {
+    color: #00e5c4;
+    text-shadow: 0 0 20px rgba(0, 229, 196, 0.5);
+  }
+
+  /* Animated Underline for options */
+  .quiz-option::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00e5c4;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(-50%);
+  }
+
+  .quiz-option:has(input:checked)::after {
+    width: 100%;
+  }
+
+  /* Contact form */
+  .contact-form {
+    background: var(--dark-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+  }
+
+  .contact-form .form-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .form-group { margin-bottom: 20px; }
+
+  .form-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #fff;
+    opacity: 0.9;
+  }
+
+  .form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 1.25rem;
+    transition: all 0.5s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-bottom-color: #00e5c4;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .btn-nav {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .btn-prev, .btn-next, .btn-submit {
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .btn-prev {
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    color: var(--text);
+  }
+
+  .btn-prev:hover { border-color: #00e5c4; }
+
+  /* Premium Modular Data Input */
+  .modular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+  }
+
+  .data-block {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 30px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  .data-block:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(0, 229, 196, 0.2);
+    transform: translateY(-5px);
+  }
+
+  .data-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+  }
+
+  .data-block:focus-within .data-label {
+    color: #00e5c4;
+  }
+
+  .modular-input {
+    width: 100%;
+    background: transparent !important;
+    border: none;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 0;
+  }
+
+  .modular-input:focus {
+    outline: none;
+  }
+
+  /* Fix for browser autofill white background */
+  .modular-input:-webkit-autofill,
+  .modular-input:-webkit-autofill:hover,
+  .modular-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+    background: transparent !important;
+  }
+
+  .modular-input::placeholder {
+    color: rgba(255, 255, 255, 0.1);
+  }
+
+  .data-block::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #00e5c4, #7c3aed);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .data-block:focus-within::after {
+    width: 100%;
+  }
+
+  .full-width {
+    grid-column: span 2;
+  }
+
+  .btn-next, .btn-submit {
+    background: linear-gradient(135deg, #00e5c4, #7c3aed);
+    color: #050508;
+  }
+
+  .btn-next:hover, .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 229, 196, 0.3);
+  }
+
+  .step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--glass-border);
+    transition: all 0.3s ease;
+  }
+
+  .step-dot.active { background: #00e5c4; transform: scale(1.2); }
+  .step-dot.completed { background: #00e5c4; opacity: 0.5; }
+
+  @media (max-width: 768px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .quiz-options { flex-direction: column; }
+    .step-card, .contact-form { padding: 25px; }
   }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="container my-5" style="padding-top:10vh;">
-  <div class="text-center mb-4">
-    <h1 class="mb-3">{% trans "Análisis de digitalización para empresas mediante Inteligencia Artificial" %}</h1>
-    <p class="lead">
-      {% trans "Completa este formulario para obtener un informe personalizado sobre el nivel de digitalización de tu empresa y cómo mejorarlo con tecnología." %}
-    </p>
-  </div>
-{% if form.errors %}
-  <div class="alert alert-danger">
-    <h5>{% trans "Errores al enviar el formulario" %}</h5>
-    <ul>
-      {% for field in form %}
-        {% for error in field.errors %}
-          <li><strong>{{ field.label }}:</strong> {{ error }}</li>
-        {% endfor %}
-      {% endfor %}
-      {% for error in form.non_field_errors %}
-        <li>{{ error }}</li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endif %}
 
-  <form method="post" novalidate>
-    {% csrf_token %}
+<div class="ai-page">
+  <div class="floating-shapes">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
 
-    <!-- Datos de contacto -->
-    <div class="card mb-4">
-      <div class="card-header euskodev-header">{% trans "Datos de contacto" %}</div>
-      <div class="card-body">
-        <div class="row g-3">
-          <div class="col-md-6">
-            {{ form.company_name.label_tag }}
-            {{ form.company_name }}
-          </div>
-          <div class="col-md-6">
-            {{ form.contact_name.label_tag }}
-            {{ form.contact_name }}
-          </div>
-          <div class="col-md-6">
-            {{ form.company_email.label_tag }}
-            {{ form.company_email }}
-          </div>
-          <div class="col-md-6">
-            {{ form.contact_tel.label_tag }}
-            {{ form.contact_tel }}
-          </div>
-          <div class="col-12">
-            {{ form.business_activity.label_tag }}
-            {{ form.business_activity }}
-          </div>
+  <!-- Hero Section -->
+  <section class="hero-ai">
+    <div class="container">
+      <div class="hero-badge">
+        {% trans 'Análisis con Inteligencia Artificial' %}
+      </div>
+      
+      <h1 class="hero-title">
+        {% trans 'Descubre tu nivel de' %} <span class="gradient">{% trans 'digitalización' %}
+      </h1>
+      
+      <p class="hero-subtitle">
+        {% trans 'Responde a unas simples preguntas y obtén un informe personalizado. Solo tarda 2 minutos.' %}
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-cpu"></i></div>
+          <h4 class="feature-title">{% trans 'Análisis con IA' %}</h4>
+          <p class="feature-desc">{% trans 'IA analiza tu empresa' %}</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-file-earmark-text"></i></div>
+          <h4 class="feature-title">{% trans 'Informe detallado' %}</h4>
+          <p class="feature-desc">{% trans 'Recomendaciones' %}</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="bi bi-lightning-charge"></i></div>
+          <h4 class="feature-title">{% trans '100% Gratis' %}</h4>
+          <p class="feature-desc">{% trans 'Sin compromiso' %}</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Secciones dinámicas -->
-    {% for section_title, field_list in sections %}
-      {% include "digital_audit/section_block.html" with title=section_title fields=field_list %}
-    {% endfor %}
+  <!-- Quiz Form -->
+  <section class="form-section">
+    <div class="container">
+      <div class="quiz-container">
+        
+        <form method="post" id="quizForm" novalidate>
+          {% csrf_token %}
 
-    <!-- Botón de envío -->
-    <div class="text-center mt-4">
-      <button type="submit" class="btn euskodev-button btn-lg">
-        {% trans "Enviar diagnóstico" %}
-      </button>
+          <!-- Step 1: Contact -->
+          <div class="step-card active" data-step="1">
+            <div class="mb-3" style="text-align: center;">
+              <span class="text-primary fw-bold text-uppercase tracking-wider" style="font-size: 0.9rem; letter-spacing: 4px;">Auditoría Estratégica</span>
+            </div>
+            
+            <div class="modular-grid">
+              <div class="data-block full-width">
+                <label class="data-label">Nombre de la Empresa</label>
+                <input type="text" class="modular-input" name="company_name" placeholder="Escribe el nombre de tu marca..." required>
+              </div>
+              
+              <div class="data-block">
+                <label class="data-label">Persona de Contacto</label>
+                <input type="text" class="modular-input" name="contact_name" placeholder="Tu nombre y apellidos" required>
+              </div>
+              
+              <div class="data-block">
+                <label class="data-label">Correo Corporativo</label>
+                <input type="email" class="modular-input" name="company_email" placeholder="hola@tuempresa.com" required>
+              </div>
+              
+              <div class="data-block">
+                <label class="data-label">Sector Principal</label>
+                <input type="text" class="modular-input" name="business_activity" placeholder="ej: Consultoría, Retail, IA">
+              </div>
+              
+              <div class="data-block">
+                <label class="data-label">Teléfono de Contacto</label>
+                <input type="tel" class="modular-input" name="contact_tel" placeholder="+34 000 000 000">
+              </div>
+            </div>
+            <div class="btn-nav">
+              <button type="button" class="btn-next" onclick="nextStep()">
+                Siguiente <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Presencia Online -->
+          <div class="step-card" data-step="2">
+            <h3 class="step-title">
+              <i class="bi bi-globe"></i>
+              {% trans 'Tu presencia en internet' %}
+            </h3>
+            
+            <div class="question-item">
+              <label class="question-label">¿Tu empresa tiene página web?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="has_website" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="has_website" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Tu web se ve bien en el móvil?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="website_responsive" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="website_responsive" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Apareces en Google cuando alguien busca tu negocio?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="seo_optimized" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="seo_optimized" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-nav">
+              <button type="button" class="btn-prev" onclick="prevStep()">
+                <i class="bi bi-arrow-left me-2"></i> Anterior
+              </button>
+              <button type="button" class="btn-next" onclick="nextStep()">
+                Siguiente <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Redes y Marketing -->
+          <div class="step-card" data-step="3">
+            <h3 class="step-title">
+              <i class="bi bi-share"></i>
+              {% trans 'Redes sociales y clientes' %}
+            </h3>
+            
+            <div class="question-item">
+              <label class="question-label">¿Tienes perfil de empresa en Instagram, Facebook o LinkedIn?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="active_social_media" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="active_social_media" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Pagas publicidad en Google o redes sociales para conseguir clientes?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="does_ads" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="does_ads" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Guardas los datos de tus clientes en un sistema (Excel, archivo, CRM)?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="uses_crm" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="uses_crm" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-nav">
+              <button type="button" class="btn-prev" onclick="prevStep()">
+                <i class="bi bi-arrow-left me-2"></i> Anterior
+              </button>
+              <button type="button" class="btn-next" onclick="nextStep()">
+                Siguiente <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 4: Comercio y Gestión -->
+          <div class="step-card" data-step="4">
+            <h3 class="step-title">
+              <i class="bi bi-cart"></i>
+              {% trans 'Vender online y gestión' %}
+            </h3>
+            
+            <div class="question-item">
+              <label class="question-label">¿Los clientes pueden comprarte por internet?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="sells_online" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="sells_online" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Aceptas pago con tarjeta, Bizum o PayPal?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="accepts_online_payments" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="accepts_online_payments" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Gestoras el stock, facturación o clientes con un programa?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="uses_erp" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="uses_erp" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-nav">
+              <button type="button" class="btn-prev" onclick="prevStep()">
+                <i class="bi bi-arrow-left me-2"></i> Anterior
+              </button>
+              <button type="button" class="btn-next" onclick="nextStep()">
+                Siguiente <i class="bi bi-arrow-right ms-2"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 5: Comunicación y Seguridad -->
+          <div class="step-card" data-step="5">
+            <h3 class="step-title">
+              <i class="bi bi-shield-check"></i>
+              {% trans 'Comunicación y seguridad' %}
+            </h3>
+            
+            <div class="question-item">
+              <label class="question-label">¿Usas WhatsApp Business para hablar con clientes?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="uses_whatsapp" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="uses_whatsapp" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Tu web tiene el candado verde (es segura)?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="has_ssl" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="has_ssl" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="question-item">
+              <label class="question-label">¿Tienes un aviso de cookies y política de privacidad en tu web?</label>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="gdpr_compliant" value="True">
+                  <span class="option-icon">✓</span>
+                  <span>Sí</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="gdpr_compliant" value="False">
+                  <span class="option-icon">✗</span>
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-nav">
+              <button type="button" class="btn-prev" onclick="prevStep()">
+                <i class="bi bi-arrow-left me-2"></i> Anterior
+              </button>
+              <button type="submit" class="btn-submit">
+                <i class="bi bi-stars me-2"></i> Obtener mi análisis gratis
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
     </div>
-  </form>
+  </section>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+// Auto-resize inputs
+const inputs = document.querySelectorAll('.sentence-input');
+inputs.forEach(input => {
+    input.addEventListener('input', () => {
+        const tempSpan = document.createElement('span');
+        tempSpan.style.visibility = 'hidden';
+        tempSpan.style.position = 'absolute';
+        tempSpan.style.whiteSpace = 'pre';
+        tempSpan.style.font = window.getComputedStyle(input).font;
+        tempSpan.textContent = input.value || input.placeholder;
+        document.body.appendChild(tempSpan);
+        input.style.width = (tempSpan.offsetWidth + 10) + 'px';
+        document.body.removeChild(tempSpan);
+    });
+    // Trigger initial width
+    input.dispatchEvent(new Event('input'));
+});
+
+// GSAP Animations
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.from(".interactive-sentence span, .interactive-sentence .field-wrapper", {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        stagger: 0.1,
+        ease: "power4.out"
+    });
+});
+
+let currentStep = 1;
+const totalSteps = 5;
+
+function updateProgress() {
+    const progress = (currentStep / totalSteps) * 100;
+    // Assuming .progress-fill and #currentStepText exist elsewhere in the HTML
+    // document.querySelector('.progress-fill').style.width = progress + '%';
+    // document.getElementById('currentStepText').textContent = currentStep;
+    
+    // Update dots
+    document.querySelectorAll('.step-dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx + 1 === currentStep);
+        dot.classList.toggle('completed', idx + 1 < currentStep);
+    });
+
+    // GSAP Step Transition
+    gsap.from(`.step-card[data-step="${currentStep}"] > *`, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "expo.out"
+    });
+}
+
+function showStep(step) {
+  document.querySelectorAll('.step-card').forEach(card => {
+    card.classList.remove('active');
+  });
+  document.querySelector(`[data-step="${step}"]`).classList.add('active');
+  updateProgress();
+}
+
+function nextStep() {
+  if (currentStep < totalSteps) {
+    currentStep++;
+    showStep(currentStep);
+  }
+}
+
+function prevStep() {
+  if (currentStep > 1) {
+    currentStep--;
+    showStep(currentStep);
+  }
+}
+
+updateProgress();
+
+document.getElementById('quizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = {};
+    
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    
+    const submitBtn = form.querySelector('.btn-submit');
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Analizando...';
+    submitBtn.disabled = true;
+    
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+    fetch('/es/test/procesar/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.error) {
+            alert('Error: ' + result.error);
+            submitBtn.innerHTML = '<i class="bi bi-stars me-2"></i> Obtener mi análisis gratis';
+            submitBtn.disabled = false;
+            return;
+        }
+        
+        document.querySelector('.quiz-container').innerHTML = `
+            <div class="result-dossier" style="animation: slideUpFade 0.8s ease; background: rgba(10, 10, 15, 0.4); backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.05); border-radius: 60px; padding: 80px; box-shadow: 0 50px 150px rgba(0,0,0,0.6); max-width: 1300px; margin: 0 auto;">
+                
+                <!-- Main Header Row -->
+                <div class="row g-5 mb-5 align-items-center">
+                    <div class="col-lg-3 text-center">
+                        <div style="position: relative; width: 180px; height: 180px; margin: 0 auto;">
+                            <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+                                <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="2" />
+                                <circle cx="18" cy="18" r="16" fill="none" stroke="#00e5c4" stroke-width="2.5" stroke-dasharray="${result.score || result.porcentaje}, 100" stroke-linecap="round" style="transition: stroke-dasharray 2s ease-out; filter: drop-shadow(0 0 10px rgba(0, 229, 196, 0.5));" />
+                            </svg>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                <span style="display: block; font-size: 3rem; font-weight: 800; color: #fff; line-height: 1;">${result.score || result.porcentaje}%</span>
+                                <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;">Score</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div style="text-align: left;">
+                            <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 229, 196, 0.08); padding: 8px 16px; border-radius: 50px; color: #00e5c4; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; border: 1px solid rgba(0, 229, 196, 0.2);">
+                                <i class="bi bi-stars"></i> CONSULTORÍA ESTRATÉGICA
+                                ${result.ai_powered ? '<span style="border-left: 1px solid rgba(0,229,196,0.3); padding-left: 10px; margin-left: 10px;">CDO AI ON</span>' : ''}
+                            </div>
+                            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; line-height: 1.1;">
+                                Dossier <span style="background: linear-gradient(135deg, #00e5c4, #7c3aed); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">${result.nivel}</span>
+                            </h2>
+                            <p style="color: var(--text-muted); font-size: 1.4rem; font-weight: 300;">Análisis para <strong>${data.company_name}</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                         <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                            <div style="font-size: 0.75rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Tu perfil</div>
+                            <div style="font-size: 1.1rem; color: #fff; font-weight: 600;">${data.business_activity || data.business_activity}</div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Summary (NEW WIDE DESIGN) -->
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-12">
+                         <div style="background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent); padding: 40px; border-radius: 35px; border-left: 5px solid #00e5c4;">
+                            <h4 style="font-size: 1.25rem; margin-bottom: 20px; color: #fff; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 2px;">Visión Ejecutiva</h4>
+                            <p style="color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.2rem; margin-bottom: 0;">${result.descripcion}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The "Why this matters" (WIDE GRID) -->
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-12">
+                        <div style="background: rgba(10, 10, 15, 0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 40px; padding: 50px;">
+                            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; margin-bottom: 30px; display: flex; align-items: center; gap: 20px;">
+                                <span style="width: 40px; height: 3px; background: #7c3aed; border-radius: 50px;"></span> ¿Qué significa esto para ti?
+                            </h3>
+                            <div style="color: rgba(255,255,255,0.7); line-height: 2; font-size: 1.15rem; white-space: pre-line;">
+                                ${result.analisis_profundo}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roadmaps Row (SIDE BY SIDE) -->
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-6">
+                        <div style="height: 100%; background: rgba(245, 158, 11, 0.03); border: 1px solid rgba(245, 158, 11, 0.08); border-radius: 40px; padding: 45px; transition: all 0.4s ease;">
+                            <h5 style="color: #f59e0b; margin-bottom: 30px; font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; gap: 15px;">
+                                <i class="bi bi-compass" style="font-size: 1.6rem;"></i> Pasos Estratégicos
+                            </h5>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${(result.oportunidades || []).map(opp => `
+                                    <li style="margin-bottom: 20px; display: flex; gap: 15px; color: rgba(255,255,255,0.7); font-size: 1.05rem; align-items: flex-start;">
+                                        <i class="bi bi-check2-circle" style="color: #f59e0b; font-size: 1.3rem; margin-top: -2px;"></i>
+                                        <span>${opp}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div style="height: 100%; background: rgba(0, 229, 196, 0.03); border: 1px solid rgba(0, 229, 196, 0.08); border-radius: 40px; padding: 45px; transition: all 0.4s ease;">
+                            <h5 style="color: #00e5c4; margin-bottom: 30px; font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; gap: 15px;">
+                                <i class="bi bi-box-seam" style="font-size: 1.6rem;"></i> Soluciones Euskodev
+                            </h5>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${(result.recomendaciones || result.recomendaciones_ai || []).map(rec => `
+                                    <li style="margin-bottom: 20px; display: flex; gap: 15px; color: rgba(255,255,255,0.7); font-size: 1.05rem; align-items: flex-start;">
+                                        <i class="bi bi-arrow-right-square" style="color: #00e5c4; font-size: 1.3rem; margin-top: -2px;"></i>
+                                        <span>${rec}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 60px;">
+                    <a href="/" class="btn-gradient" style="padding: 22px 60px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 1.1rem; box-shadow: 0 20px 50px rgba(0, 229, 196, 0.2);">
+                        Solicitar mi Hoja de Ruta Personalizada <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <p style="margin-top: 25px; color: var(--text-muted); font-size: 0.85rem;">Estás a un paso de liderar tu mercado.</p>
+                </div>
+            </div>
+        `;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al procesar. Inténtalo de nuevo.');
+        submitBtn.innerHTML = '<i class="bi bi-stars me-2"></i> Obtener mi análisis gratis';
+        submitBtn.disabled = false;
+    });
+});
+</script>
+
 {% endblock %}

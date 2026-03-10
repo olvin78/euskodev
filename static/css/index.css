@@ -1,86 +1,24 @@
-
-.cambio-color {
-    background-color: green;
+:root {
+    --primary: #00d4aa;
+    --primary-dark: #00b894;
+    --secondary: #6c5ce7;
+    --dark: #0a0a0f;
+    --dark-card: #12121a;
+    --text: #f5f5f7;
+    --text-muted: #8b8b9a;
+    --gradient: linear-gradient(135deg, #00d4aa 0%, #6c5ce7 100%);
 }
 
-/*==========================================================================
-             Estilos para el apartado de el blog, nuevas publicasiones
-============================================================================ */
-
-/* Sección del Blog */
-.blog-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 50px 15px;
+body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background: var(--dark);
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Encabezado del Blog */
-.section-heading {
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.section-subheading {
-    font-size: 1.3rem;
-    font-weight: normal;
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Tarjetas del Blog */
-.blog-card {
-    padding: 15px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.blog-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
-}
-
-/* Enlace del blog */
-.blog-entry-link {
-    text-decoration: none;
-    display: block;
-    color: inherit;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.blog-entry-link:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Fecha de publicación */
-.blog-date {
-    color: #bbb;
-    font-size: 0.9rem;
-    text-align: left;
-}
-
-/* Imagen destacada */
-.blog-image {
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-/* Título del Blog */
-.blog-title {
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-/* Descripción del Blog (si se usa en el futuro) */
-.blog-description {
-    color: #bbb;
-    text-align: left;
-    font-size: 1rem;
-    display: none;
-    /* Oculto hasta que haya contenido */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

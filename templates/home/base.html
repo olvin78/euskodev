@@ -39,6 +39,7 @@
     <!-- Bootstrap Icons CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Bootstrap CSS -->
@@ -240,66 +241,69 @@
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top shadow">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05);">
     <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center me-4" href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
-        <img src="{% static 'img/logo-euskodev-azul-blanco.png' %}" alt="Euskodev - Desarrollo Web en Euskadi" style="height: 60px;">
+      <a class="navbar-brand d-flex align-items-center" href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
+        <img src="{% static 'img/logo-euskodev-azul-blanco.png' %}" alt="Euskodev" style="height: 50px;">
       </a>
   
-      <!-- Botón hamburguesa -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegación">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegación">
         <span class="navbar-toggler-icon"></span>
       </button>
   
-      <!-- Menú principal -->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <div class="mobile-nav-scroll w-100">
-          <ul class="navbar-nav ms-auto text-uppercase align-items-lg-center w-100 gap-3 main-menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+          <!-- Servicios Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3 py-2 rounded" href="#" id="serviciosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #f8fafc;">
+              {% trans 'Servicios' %}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark shadow-lg rounded-3 border-0" style="background: #141419; min-width: 220px;" aria-labelledby="serviciosDropdown">
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:desarrollo_web' %}"><i class="bi bi-code-slash me-2"></i>{% trans 'Desarrollo Web' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:reservas_pagos' %}"><i class="bi bi-calendar-check me-2"></i>{% trans 'Reservas y Pagos' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:software_a_medida' %}"><i class="bi bi-laptop me-2"></i>{% trans 'Software a Medida' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:inteligencia_artificial' %}"><i class="bi bi-cpu me-2"></i>{% trans 'Inteligencia Artificial' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:aplicaciones_moviles' %}"><i class="bi bi-phone me-2"></i>{% trans 'Apps Móviles' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:sistema_ticket' %}"><i class="bi bi-ticket-detailed me-2"></i>{% trans 'Sistema de Ticket' %}</a></li>
+            </ul>
+          </li>
   
-            <!-- Servicios Dropdown -->
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle px-3 rounded" href="#" id="serviciosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {% trans 'Servicios' %}
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end animate__animated animate__fadeIn shadow-lg px-2 py-2 rounded" aria-labelledby="serviciosDropdown">
-                <li><a class="dropdown-item text-white py-2" href="{% url 'home_app:desarrollo_web' %}">{% trans 'Desarrollo Web' %}</a></li>
-                <li><a class="dropdown-item text-white py-2" href="{% url 'home_app:reservas_pagos' %}">{% trans 'Reservas y Pagos Online' %}</a></li>
-                <li><a class="dropdown-item text-white py-2" href="{% url 'home_app:software_a_medida' %}">{% trans 'Software a Medida' %}</a></li>
-                <li><a class="dropdown-item text-white py-2" href="{% url 'home_app:inteligencia_artificial' %}">{% trans 'Inteligencia Artificial' %}</a></li>
-                <li><a class="dropdown-item text-white py-2" href="{% url 'home_app:aplicaciones_moviles' %}">{% trans 'Aplicaciones Móviles' %}</a></li>
-                <li><a class="dropdown-item text-white py-2" href="{% url 'home_app:sistema_ticket' %}">{% trans 'Sistema de Ticket' %}</a></li>
-              </ul>
-            </li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:home' %}#portfolio">{% trans 'Portfolio' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:home' %}#about">{% trans 'Nosotros' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:blog' %}" style="color: #00e5c4;">{% trans 'Blog' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:trabaja_con_nosotros' %}">{% trans 'Únete' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:home' %}#contact">{% trans 'Contacto' %}</a></li>
   
-            <!-- Enlaces principales -->
-            <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#portfolio">{% trans 'Portfolio' %}</a></li>
-            <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#about">{% trans 'Sobre' %}</a></li>
-            <li class="nav-item"><a class="nav-link text-info px-3 rounded" href="{% url 'home_app:blog' %}">{% trans 'Blog' %}</a></li>
-            <!--<li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:trabaja_con_nosotros' %}">{% trans 'Formar Parte' %}</a></li>-->
-            <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#team">{% trans 'Nosotros' %}</a></li>
-            <li class="nav-item"><a class="nav-link px-3 rounded" href="{% url 'home_app:home' %}#contact">{% trans 'Contacto' %}</a></li>
+          <!-- Botón Análisis IA -->
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2 rounded" href="{% url 'digital_audit_app:form' %}" style="background: linear-gradient(135deg, #00e5c4, #7c3aed); color: #050508; font-weight: 600;">
+              <i class="bi bi-stars me-1"></i>{% trans 'IA' %}
+            </a>
+          </li>
   
-            <!-- Idiomas -->
-            <li class="nav-item lang-switcher">
-              {% get_current_language as CURRENT_LANGUAGE %}
+          <!-- Idiomas -->
+          <li class="nav-item dropdown ms-lg-2">
+            <a class="nav-link dropdown-toggle px-2 py-2 rounded" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #94a3b8;">
+              {% get_current_language as CURRENT_LANGUAGE %}{{ CURRENT_LANGUAGE|upper }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark border-0 rounded-2" style="min-width: 100px; background: #141419;">
               {% get_available_languages as AVAILABLE_LANGUAGES %}
               {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
               {% for language in languages %}
-                <form action="{% url 'set_language' %}" method="post" class="d-inline">
-                  {% csrf_token %}
-                  <input type="hidden" name="language" value="{{ language.code }}">
-                  <input type="hidden" name="next" value="{{ request.path }}">
-                  <button type="submit"
-                          class="border-0 bg-transparent text-white mx-1 {% if language.code == CURRENT_LANGUAGE %}active{% endif %}">
-                    {{ language.code }}
-                  </button>
-                </form>
+                <li>
+                  <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="language" value="{{ language.code }}">
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button type="submit" class="dropdown-item py-2 rounded w-100 text-start {% if language.code == CURRENT_LANGUAGE %}active{% endif %}" style="color: {% if language.code == CURRENT_LANGUAGE %}#00e5c4{% else %}#f8fafc{% endif %};">
+                      {{ language.code|upper }}
+                    </button>
+                  </form>
+                </li>
               {% endfor %}
-            </li>
-  
-          </ul>
-        </div>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -323,71 +327,84 @@
 
 
 
-<!-- Footer Mejorado -->
-<footer class="footer py-5 mt-0" style="background: linear-gradient(135deg, #1a1a1a, #333); color: white;">
+<!-- Footer Premium -->
+<footer style="background: #0a0a0f; color: #f8fafc; padding: 80px 0 30px; border-top: 1px solid rgba(255,255,255,0.05);">
     <div class="container">
-        <div class="row align-items-center text-center text-lg-start">
+        <div class="row g-5 mb-5">
+            <!-- Logo y descripción -->
+            <div class="col-lg-4">
+                <img src="{% static 'img/logo-euskodev-azul-blanco.png' %}" alt="Euskodev" style="height: 50px; margin-bottom: 20px;">
+                <p class="text-muted mb-4" style="line-height: 1.8;">
+                    {% trans 'Desarrollo web, apps y software a medida en Oiartzun. Transformamos tu visión en tecnología.' %}
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="https://www.linkedin.com/company/euskodev/" target="_blank" class="d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; color: #f8fafc; transition: all 0.3s;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/euskodev/" target="_blank" class="d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; color: #f8fafc; transition: all 0.3s;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/euskodev/" target="_blank" class="d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; color: #f8fafc; transition: all 0.3s;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
             
-            <!-- Información de la empresa -->
-            <div class="col-lg-4 mb-4 mb-lg-0">
-                <address class="mb-2">
-                    <p>📍 Oiartzun, Gipuzkoa</p>
-                    <p>📧 <a href="mailto:info@euskodev.eus" class="text-white text-decoration-none">info@euskodev.eus</a></p>
-                </address>
-                <p class="mb-0">{% trans 'Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025' %}</p>
+            <!-- Enlaces rápidos -->
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4" style="font-weight: 600;">{% trans 'Servicios' %}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="{% url 'home_app:desarrollo_web' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Desarrollo Web' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:aplicaciones_moviles' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Apps Móviles' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:software_a_medida' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Software a Medida' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:inteligencia_artificial' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Inteligencia Artificial' %}</a></li>
+                </ul>
             </div>
-    
-            <!-- Redes sociales -->
-            <div class="col-lg-4 d-flex justify-content-center my-3 my-lg-0">
-                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
-                href="https://www.linkedin.com/company/euskodev/" 
-                aria-label="Euskodev en LinkedIn" 
-                target="_blank" 
-                rel="noopener noreferrer">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-
-                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
-                href="https://www.instagram.com/euskodev/" 
-                aria-label="Euskodev en Instagram" 
-                target="_blank" 
-                rel="noopener noreferrer">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                
-                <a class="btn btn-outline-light btn-social mx-2 social-icon" 
-                href="https://www.facebook.com/euskodev/" 
-                aria-label="Euskodev en Facebook" 
-                target="_blank" 
-                rel="noopener noreferrer">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
+            
+            <!-- Empresa -->
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4" style="font-weight: 600;">{% trans 'Empresa' %}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="{% url 'home_app:home' %}#about" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Sobre Nosotros' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:home' %}#portfolio" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Portfolio' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:blog' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Blog' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:home' %}#contact" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Contacto' %}</a></li>
+                </ul>
             </div>
-
-            <!-- Enlaces legales -->
-            <div class="col-lg-4 text-lg-end">
-                <a class="text-white text-decoration-none me-2" 
-                   href="{% url 'home_app:politicas_de_privacidad' %}" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    {% trans 'Políticas de privacidad' %}
-                </a> •
-                <a class="text-white text-decoration-none mx-2" 
-                   href="{% url 'home_app:aviso_legal' %}" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    {% trans 'Aviso legal' %}
-                </a> •
-                <a class="text-white text-decoration-none ms-2" 
-                   href="{% url 'home_app:politicas_de_cookies' %}" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
-                    {% trans 'Políticas de cookies' %}
-                </a>
+            
+            <!-- Contacto -->
+            <div class="col-lg-4 col-md-4">
+                <h5 class="mb-4" style="font-weight: 600;">{% trans 'Contacto' %}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-center gap-2">
+                        <i class="fas fa-map-marker-alt" style="color: #00e5c4;"></i>
+                        <span class="text-muted">Oiartzun, Gipuzkoa</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-center gap-2">
+                        <i class="fas fa-phone" style="color: #00e5c4;"></i>
+                        <a href="tel:+34747478842" class="text-muted text-decoration-none">+34 747 47 88 42</a>
+                    </li>
+                    <li class="mb-3 d-flex align-items-center gap-2">
+                        <i class="fas fa-envelope" style="color: #00e5c4;"></i>
+                        <a href="mailto:info@euskodev.eus" class="text-muted text-decoration-none">info@euskodev.eus</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bottom bar -->
+        <div class="row pt-4" style="border-top: 1px solid rgba(255,255,255,0.05);">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <p class="mb-0 text-muted" style="font-size: 0.9rem;">&copy; 2025 <span style="color: #00e5c4;">Euskodev</span>. {% trans 'Todos los derechos reservados.' %}</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="{% url 'home_app:politicas_de_privacidad' %}" class="text-muted text-decoration-none me-3" style="font-size: 0.9rem;">{% trans 'Privacidad' %}</a>
+                <a href="{% url 'home_app:aviso_legal' %}" class="text-muted text-decoration-none me-3" style="font-size: 0.9rem;">{% trans 'Aviso Legal' %}</a>
+                <a href="{% url 'home_app:politicas_de_cookies' %}" class="text-muted text-decoration-none" style="font-size: 0.9rem;">{% trans 'Cookies' %}</a>
             </div>
         </div>
     </div>
-    </footer>
+</footer>
     
     
     <!--fin del  footer-->
@@ -581,32 +598,43 @@
 <!-- SweetAlert2 para alertas -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- GSAP: Comentarios -->
+<!-- Premium GSAP Animations -->
 <script>
-gsap.to(document.querySelectorAll('.comentarios'), {
-    opacity: 1,
-    x: 0,
-    duration: 2,
-    scrollTrigger: {
-        trigger: '#comentarios',
-        start: "top 100%",
-        end: "bottom 80%",
-        scrub: true,
-    }
-});
-</script>
+document.addEventListener("DOMContentLoaded", function() {
+    gsap.registerPlugin(ScrollTrigger);
 
-<!-- GSAP: Color dinámico -->
-<script>
-gsap.to(document.querySelectorAll('.cambio-color'), {
-    backgroundColor: "blue",
-    duration: 2,
-    scrollTrigger: {
-        trigger: '#backgroud',
-        start: "top 100%",
-        end: "bottom 25%",
-        scrub: true,
-    }
+    // Fade reveal animation
+    gsap.utils.toArray('.reveal-up').forEach(elem => {
+        gsap.from(elem, { 
+            opacity: 0, 
+            y: 30, 
+            duration: 1, 
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 90%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // Staggered reveal for cards
+    gsap.utils.toArray('.row').forEach(row => {
+        const cards = row.querySelectorAll('.glass-card, .opinion-card-premium');
+        if (cards.length > 0) {
+            gsap.from(cards, {
+                opacity: 0,
+                y: 40,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "power1.out",
+                scrollTrigger: {
+                    trigger: row,
+                    start: "top 80%"
+                }
+            });
+        }
+    });
 });
 </script>
 

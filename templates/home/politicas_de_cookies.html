@@ -1,131 +1,41 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Cookies - Euskodev</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+{% block head %}
+<style>
+    .legal-page { padding-top: 120px; padding-bottom: 60px; }
+    .legal-content { max-width: 800px; margin: 0 auto; }
+    .legal-content h1 { margin-bottom: 30px; }
+    .legal-content h2 { margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; }
+    .legal-content p, .legal-content li { color: var(--text-muted); line-height: 1.8; }
+</style>
+{% endblock %}
 
-        /* Contenedor principal */
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+{% block content %}
 
-        /* Encabezado principal */
-        h1{
-            font-size: 26px;
-            color: #30C06F;
-            text-align: center;
-            border-bottom: 2px solid #30C06F;
-            padding-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 20px;
-            color: #222;
-            margin-top: 25px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        /* Listas */
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        /* Enlaces */
-        a {
-            color: #30C06F;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Pie de página */
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-            color: #666;
-        }
-    </style>
-</head>
-
-<body>
-
+<div class="legal-page">
     <div class="container">
-        <h1>{% trans "Política de Cookies - Euskodev" %}</h1>
-      
-        <h2>{% trans "📌 1. Introducción" %}</h2>
-        <p>{% trans "En Euskodev utilizamos cookies para mejorar la experiencia de navegación de nuestros usuarios. Esta política explica qué son las cookies, cómo las utilizamos y cómo puedes gestionarlas." %}</p>
-      
-        <h2>{% trans "📌 2. ¿Qué son las cookies?" %}</h2>
-        <p>{% trans "Las cookies son pequeños archivos de texto almacenados en tu dispositivo cuando visitas un sitio web. Permiten reconocer tu dispositivo y recordar información sobre tu navegación." %}</p>
-      
-        <h2>{% trans "📌 3. Tipos de cookies que utilizamos" %}</h2>
-        <p>{% trans "En Euskodev utilizamos los siguientes tipos de cookies:" %}</p>
-        <ul>
-          <li><strong>{% trans "Cookies esenciales:" %}</strong> {% trans "Necesarias para el funcionamiento del sitio web." %}</li>
-          <li><strong>{% trans "Cookies de rendimiento:" %}</strong> {% trans "Analizan la interacción de los usuarios para mejorar la experiencia." %}</li>
-          <li><strong>{% trans "Cookies de funcionalidad:" %}</strong> {% trans "Guardan preferencias personalizadas." %}</li>
-          <li><strong>{% trans "Cookies de publicidad:" %}</strong> {% trans "Permiten mostrar anuncios relevantes." %}</li>
-        </ul>
-      
-        <h2>{% trans "📌 4. Cómo utilizamos las cookies" %}</h2>
-        <p>{% trans "Usamos cookies para:" %}</p>
-        <ul>
-          <li>{% trans "Recordar tus preferencias y configuraciones." %}</li>
-          <li>{% trans "Analizar el tráfico y mejorar la navegación." %}</li>
-          <li>{% trans "Mostrar anuncios personalizados." %}</li>
-        </ul>
-      
-        <h2>{% trans "📌 5. Gestión de cookies" %}</h2>
-        <p>{% trans "Puedes administrar las cookies en la configuración de tu navegador:" %}</p>
-        <ul>
-          <li><strong>{% trans "Google Chrome:" %}</strong> {% trans "Configuración > Privacidad y seguridad > Cookies." %}</li>
-          <li><strong>{% trans "Mozilla Firefox:" %}</strong> {% trans "Opciones > Privacidad y seguridad > Cookies." %}</li>
-          <li><strong>{% trans "Safari:" %}</strong> {% trans "Preferencias > Privacidad > Gestionar datos." %}</li>
-          <li><strong>{% trans "Microsoft Edge:" %}</strong> {% trans "Configuración > Privacidad y servicios > Cookies." %}</li>
-        </ul>
-        <p>{% trans "Si decides desactivar las cookies, algunas funciones del sitio pueden verse afectadas." %}</p>
-      
-        <h2>{% trans "📌 6. Cambios en la Política de Cookies" %}</h2>
-        <p>{% trans "Nos reservamos el derecho a actualizar esta política. Cualquier cambio será publicado en esta página." %}</p>
-      
-        <h2>{% trans "📌 7. Contacto" %}</h2>
-        <p>{% trans "Si tienes preguntas, contáctanos en" %} <a href="mailto:euskodev@gmail.com">euskodev@gmail.com</a>.</p>
-      
-        <div class="footer">
-          {% trans "© 2025 Euskodev | Todos los derechos reservados" %}
+        <div class="legal-content">
+            <h1>{% trans 'Política de Cookies' %}</h1>
+            
+            <h2>{% trans '1. ¿Qué son las cookies?' %}</h2>
+            <p>{% trans 'Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web.' %}</p>
+            
+            <h2>{% trans '2. Tipos de cookies que usamos' %}</h2>
+            <ul>
+                <li><strong>{% trans 'Cookies esenciales:' %}</strong> {% trans 'Necesarias para el funcionamiento del sitio.' %}</li>
+                <li><strong>{% trans 'Cookies analíticas:' %}</strong> {% trans 'Nos ayudan a entender cómo interactúas con el sitio.' %}</li>
+                <li><strong>{% trans 'Cookies de marketing:' %}</strong> {% trans 'Usadas para mostrarte publicidad relevante.' %}</p>
+            </ul>
+            
+            <h2>{% trans '3. Cómo gestionar las cookies' %}</h2>
+            <p>{% trans 'Puedes configurar tu navegador para rechazar todas las cookies o para avisarte cuando se envía una cookie.' %}</p>
+            
+            <h2>{% trans '4. Actualizaciones' %}</h2>
+            <p>{% trans 'Esta política puede actualizarse periódicamente. Te notificaremos de cualquier cambio significativo.' %}</p>
         </div>
-      </div>
-      
+    </div>
+</div>
 
-</body>
-
-</html>
+{% endblock %}

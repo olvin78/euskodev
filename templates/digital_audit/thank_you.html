@@ -4,31 +4,91 @@
 
 {% block head %}
 <style>
-  .euskodev-header {
-    background-color: #43C6CF;
-    color: white;
+  .thank-you-page {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
-  .euskodev-button {
-    background-color: #43C6CF;
-    border-color: #43C6CF;
-    color: white;
+  .thank-you-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #00e5c4, #7c3aed);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    animation: pulse 2s ease-in-out infinite;
   }
 
-  .euskodev-button:hover {
-    background-color: #36a9b1;
-    border-color: #36a9b1;
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 229, 196, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(0, 229, 196, 0); }
   }
 
-  .card {
-    border-radius: 0.5rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  .thank-you-icon i {
+    font-size: 40px;
+    color: #050508;
+  }
+
+  .thank-you-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #00e5c4, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .thank-you-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+
+  .back-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #00e5c4, #7c3aed);
+    color: #050508;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 229, 196, 0.3);
+    color: #050508;
   }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="container" style="padding:30vh;">
-<h3 class="" style="color:#36a9b1;">{% trans 'Gracias por completar el test. ; )<br>En breve recibirás un informe con un análisis sobre la digitalización de tu empresa realizado mediante inteligencia artificial.' %}</h3>
+
+<div class="thank-you-page">
+  <div class="container">
+    <div class="thank-you-icon">
+      <i class="bi bi-stars"></i>
+    </div>
+    <h1 class="thank-you-title">{% trans "¡Gracias!" %}</h1>
+    <p class="thank-you-text">
+      {% trans "Tu análisis de digitalización está siendo procesado por nuestra inteligencia artificial. En breve recibirás un informe detallado en tu email." %}
+    </p>
+    <a href="{% url 'home_app:home' %}" class="back-btn">
+      <i class="bi bi-arrow-left me-2"></i>
+      {% trans "Volver al inicio" %}
+    </a>
+  </div>
 </div>
+
 {% endblock %}
