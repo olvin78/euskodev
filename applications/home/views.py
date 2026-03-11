@@ -27,23 +27,44 @@ from .forms import JobApplicationForm
 from django.urls import reverse_lazy
 
 
-from .utils.email_brevo import enviar_email_brevo  # asegúrate de tener esta línea
+from .utils.email_api import enviar_email_brevo_api as enviar_email_brevo
 import os
 
 def formulario_contactar(request):
     if request.method == "POST":
         # Validación de reCAPTCHA
-        recaptcha_response = request.POST.get("g-recaptcha-response")
-        data = {
-            'secret': settings.RECAPTCHA_PRIVATE_KEY,
-            'response': recaptcha_response
-        }
-        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-        result = r.json()
+        if settings.RECAPTCHA_VERIFY_REQUESTS:
+            recaptcha_response = request.POST.get("g-recaptcha-response")
+            if not recaptcha_response:
+                messages.error(request, "Por favor, completa la validación de reCAPTCHA.")
+                return redirect("home_app:home")
 
-        if not result.get('success') and not settings.RECAPTCHA_VERIFY_REQUESTS == False:
-            messages.error(request, "Error en la validación de reCAPTCHA. Inténtalo de nuevo.")
-            return redirect("home_app:home")
+            recaptcha_secret = getattr(settings, "RECAPTCHA_PRIVATE_KEY", "")
+            if not recaptcha_secret:
+                print("❌ Error: RECAPTCHA_PRIVATE_KEY no está configurado.")
+                messages.error(request, "No se pudo validar reCAPTCHA. Inténtalo de nuevo.")
+                return redirect("home_app:home")
+
+            data = {
+                'secret': recaptcha_secret,
+                'response': recaptcha_response
+            }
+
+            try:
+                r = requests.post(
+                    'https://www.google.com/recaptcha/api/siteverify',
+                    data=data,
+                    timeout=6
+                )
+                result = r.json()
+            except requests.RequestException as e:
+                print(f"❌ Error al validar reCAPTCHA: {type(e).__name__}: {e}")
+                messages.error(request, "No se pudo validar reCAPTCHA. Inténtalo de nuevo.")
+                return redirect("home_app:home")
+
+            if not result.get('success'):
+                messages.error(request, "Error en la validación de reCAPTCHA. Inténtalo de nuevo.")
+                return redirect("home_app:home")
 
         name = request.POST.get("name", "")
         email = request.POST.get("email", "")
@@ -64,13 +85,15 @@ def formulario_contactar(request):
         resultado = enviar_email_brevo(
             asunto=asunto,
             contenido_html=contenido_html,
-            destinatario_email="euskodev@gmail.com",
+            destinatario_email="info@euskodev.eus", # Cambiado de euskodev@gmail.com
             destinatario_nombre="Euskodev"
         )
 
         if resultado:
+            print(f"✅ Email enviado con éxito a info@euskodev.eus")
             messages.success(request, "Mensaje enviado con éxito.")
         else:
+            print(f"❌ Error al enviar email desde formulario_contactar")
             messages.error(request, "Error al enviar el mensaje.")
 
         return redirect("home_app:home")
