@@ -251,6 +251,8 @@
         font-weight: 700;
         margin-bottom: 16px;
         letter-spacing: -0.02em;
+        color: var(--text);
+        text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
     }
 
     .section-subtitle { font-size: 1.125rem; color: var(--text-muted); }
@@ -301,14 +303,15 @@
         margin-bottom: 20px;
     }
 
-    .service-title {
+    .service-card .service-title {
         font-family: 'Space Grotesk', sans-serif;
         font-size: 1.25rem;
         font-weight: 600;
         margin-bottom: 12px;
+        color: #ffffff;
     }
 
-    .service-desc { color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; }
+    .service-card .service-desc { color: #cbd5e1; line-height: 1.7; margin-bottom: 16px; font-size: 1.06rem; }
 
     .service-link {
         display: inline-flex;
@@ -1033,7 +1036,7 @@
             <!-- La Fortuna Trip -->
             <div class="col-lg-4 col-md-6 animate-in">
                 <div class="portfolio-item" style="aspect-ratio: 4/3;">
-                    <img src="{% static "portfolio/la-fortuna-trip/assets/img/hero-bg.jpg" %}" alt="La Fortuna Trip">
+                    <img src="{% static "img/la-fortuna-desarrollo-web-donostia.jpg" %}" alt="La Fortuna Trip">
                     <div class="portfolio-overlay">
                         <span class="portfolio-category">Turismo</span>
                         <h4 class="portfolio-title">La Fortuna Trip</h4>

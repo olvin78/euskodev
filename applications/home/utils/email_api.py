@@ -17,7 +17,7 @@ def enviar_email_brevo_api(asunto, contenido_html, destinatario_email, destinata
     payload = {
         "sender": {
             "name": "Euskodev",
-            "email": "info@euskodev.eus"
+            "email": "euskodev@gmail.com"
         },
         "to": [
             {

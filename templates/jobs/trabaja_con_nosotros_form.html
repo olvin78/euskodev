@@ -21,7 +21,7 @@
         {% endif %}
 
         <!-- Formulario -->
-        <form id="jobForm" method="post" enctype="multipart/form-data" class="bg-light p-4 rounded-4 shadow-sm position-relative" style="z-index: 1;" action="{% url 'home_app:trabaja_con_nosotros' %}">
+        <form id="jobForm" method="post" enctype="multipart/form-data" class="join-apply-form position-relative" style="z-index: 1;" action="{% url 'home_app:trabaja_con_nosotros' %}">
             {% csrf_token %}
             <div class="row g-3">
                 <div class="col-md-6">
@@ -49,7 +49,7 @@
                     </label>
                 </div>
                 <div class="text-center">
-                    <button type="submit" id="submitBtn" class="btn px-5 py-2 fw-semibold" style="background-color: #3abfd1; color: white;">
+                    <button type="submit" id="submitBtn" class="join-apply-btn">
                         Enviar solicitud / Bidali eskaera
                     </button>
                 </div>
@@ -73,6 +73,59 @@
 
 <!-- 🔧 ESTILOS -->
 <style>
+.join-apply-form {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.92));
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(6px);
+}
+
+.join-apply-form .form-label {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.join-apply-form input,
+.join-apply-form select,
+.join-apply-form textarea {
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    padding: 10px 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.join-apply-form input:focus,
+.join-apply-form select:focus,
+.join-apply-form textarea:focus {
+    border-color: #2ac3b5;
+    box-shadow: 0 0 0 4px rgba(42, 195, 181, 0.15);
+    outline: none;
+}
+
+.join-apply-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, #2ac3b5, #148a83);
+    color: #0b0f1a;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 18px 40px rgba(26, 195, 181, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.join-apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 50px rgba(26, 195, 181, 0.3);
+    filter: saturate(1.08);
+}
+
 .success-box {
     position: absolute;
     top: 0;
@@ -86,19 +139,19 @@
 }
 
 .upload-box {
-    border: 2px dashed #0d6efd;
-    border-radius: 12px;
+    border: 2px dashed rgba(42, 195, 181, 0.7);
+    border-radius: 14px;
     padding: 40px;
     cursor: pointer;
-    background-color: white;
+    background-color: rgba(248, 250, 252, 0.9);
     transition: all 0.3s ease;
 }
 .upload-box:hover {
-    background-color: #f0f8ff;
+    background-color: rgba(42, 195, 181, 0.08);
 }
 .upload-box.active {
-    border-color: #198754;
-    background-color: #e9f9ef;
+    border-color: #2ac3b5;
+    background-color: rgba(42, 195, 181, 0.15);
 }
 
 .icon-wrap svg {
