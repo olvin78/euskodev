@@ -82,19 +82,26 @@ def formulario_contactar(request):
         <p><strong>Mensaje:</strong><br>{message}</p>
         """
 
-        resultado = enviar_email_brevo(
-            asunto=asunto,
-            contenido_html=contenido_html,
-            destinatario_email="info@euskodev.eus", # Cambiado de euskodev@gmail.com
-            destinatario_nombre="Euskodev"
-        )
+        destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["info@euskodev.eus", "euskodev@gmail.com"])
+        
+        exito_total = True
+        for dest in destinatarios:
+            resultado = enviar_email_brevo(
+                asunto=asunto,
+                contenido_html=contenido_html,
+                destinatario_email=dest,
+                destinatario_nombre="Euskodev"
+            )
+            if resultado:
+                print(f"✅ Email enviado con éxito a {dest}")
+            else:
+                print(f"❌ Error al enviar email a {dest}")
+                exito_total = False
 
-        if resultado:
-            print(f"✅ Email enviado con éxito a info@euskodev.eus")
+        if exito_total:
             messages.success(request, "Mensaje enviado con éxito.")
         else:
-            print(f"❌ Error al enviar email desde formulario_contactar")
-            messages.error(request, "Error al enviar el mensaje.")
+            messages.warning(request, "El mensaje se envió, pero hubo problemas con algún destinatario.")
 
         return redirect("home_app:home")
 
@@ -273,11 +280,13 @@ class EnviarSolicitudView(FormView):
             f"Puesto: {puesto}"
         )
 
+        destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["info@euskodev.eus", "euskodev@gmail.com"])
+        
         resultado = send_mail(
             subject=f"Solicitud para {puesto}",
             message=mensaje,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=['info@euskodev.eus'],
+            recipient_list=destinatarios,
             fail_silently=False,
         )
 
