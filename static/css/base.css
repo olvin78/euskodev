@@ -93,3 +93,16 @@
 .dropdown-menu{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.dropdown-menu-dark {
+    --bs-dropdown-link-hover-bg: #2a2f3a;
+    --bs-dropdown-link-active-bg: #2a2f3a;
+    --bs-dropdown-link-hover-color: #f8fafc;
+    --bs-dropdown-link-active-color: #f8fafc;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #2a2f3a;
+    color: #f8fafc;
+}

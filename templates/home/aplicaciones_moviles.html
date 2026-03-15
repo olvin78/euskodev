@@ -2,257 +2,407 @@
 {% load i18n %}
 {% load static %}
 
+{% block head %}
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-teal: #348D94;
+    --primary-light: #48B0B8;
+    --accent-blue: #2A5A6B;
+    --dark-bg: #0F172A;
+    --text-dark: #0F172A;
+    --text-light: #F8FAFC;
+    --text-muted: #475569;
+    --bg-light: #F8FAFC;
+    --bg-white: #FFFFFF;
+    --bg-alt: #F1F5F9;
+  }
 
+  body { font-family: 'Inter', sans-serif; color: var(--text-dark); -webkit-font-smoothing: antialiased; }
+  
+  /* Modern Title Styles */
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+  }
+
+  /* Modern Link Styling - Elegant Hover */
+  a { text-decoration: none !important; transition: all 0.3s ease; color: inherit; }
+  .modern-link {
+    position: relative;
+    color: var(--primary-teal);
+    font-weight: 700;
+    display: inline-block;
+  }
+  .modern-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-teal);
+    transition: width 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  .modern-link:hover::after { width: 100%; }
+
+  .hero-software {
+    background: radial-gradient(circle at top right, rgba(52, 141, 148, 0.1), transparent),
+                radial-gradient(circle at bottom left, rgba(42, 90, 107, 0.05), transparent),
+                var(--bg-white);
+    padding: 160px 0 100px;
+    overflow: hidden;
+  }
+
+  .btn-premium {
+    background: linear-gradient(135deg, var(--primary-teal), var(--accent-blue));
+    color: white !important;
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(52, 141, 148, 0.25);
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(52, 141, 148, 0.4);
+  }
+
+  .service-box {
+    background: var(--bg-white);
+    padding: 3rem 2.5rem;
+    border-radius: 32px;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-box:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.12);
+    border-color: var(--primary-teal);
+  }
+
+  .service-icon {
+    width: 68px;
+    height: 68px;
+    background: rgba(52, 141, 148, 0.08);
+    color: var(--primary-teal);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .img-frame {
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.2);
+    background: var(--bg-alt);
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+
+  .section-padding { padding: 140px 0; }
+  
+  .bg-dark-premium {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+  }
+
+  .bg-dark-premium .hero-title { color: var(--text-light) !important; }
+  .bg-dark-premium .lead, .bg-dark-premium p { color: rgba(248, 250, 252, 0.85) !important; }
+
+  .tech-pill {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.4s ease;
+  }
+
+  .tech-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-teal);
+    transform: scale(1.05);
+  }
+
+  .process-timeline {
+    position: relative;
+    padding-left: 4rem;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 15px;
+    bottom: 15px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-teal), var(--primary-light), transparent);
+  }
+
+  .process-item {
+    position: relative;
+    margin-bottom: 4rem;
+  }
+
+  .process-dot {
+    position: absolute;
+    left: -4rem;
+    top: 5px;
+    width: 24px;
+    height: 24px;
+    background: var(--primary-teal);
+    border: 5px solid var(--bg-white);
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(52, 141, 148, 0.1);
+    z-index: 2;
+  }
+
+  .bg-dark-premium .process-dot { border-color: var(--dark-bg); }
+
+  .reveal { opacity: 0; transform: translateY(40px); }
+
+  .luxury-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-teal);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* Fix for text visibility in specific sections */
+  .feature-block h2, .feature-block p, .feature-block h5 {
+    color: var(--text-dark) !important;
+  }
+  
+  .bg-dark-premium h2, .bg-dark-premium p, .bg-dark-premium span {
+    color: var(--text-light) !important;
+  }
+
+  /* Elegant Divider */
+  .divider-elegant {
+    width: 60px;
+    height: 4px;
+    background: var(--primary-teal);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+  }
+
+</style>
+{% endblock %}
 
 {% block content %}
 
-
-<div class="container-fluid p-0">
-  <div class="video-container">
-      <!-- Video de fondo -->
-      <img class="w-100" src="{% static 'img/expo_app.png' %}" alt="{% trans 'Imagen de portada representando los servicios digitales de Euskodev' %}" loading="lazy">
-
-      <!-- Capa negra semi-transparente -->
-      <div class="video-overlay-dark"></div>
-
-      <!-- Texto dentro del video -->
-      <div class="video-overlay">
-          <h1>{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
-          <p id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
-          <div class="text-center mt-4">
-              <a class="btn btn-lg text-uppercase" 
-                 href="#contact" 
-                 style="background: linear-gradient(135deg, #5ce9e2, #348D94); 
-                        color: white; 
-                        padding: 12px 24px; 
-                        border-radius: 8px; 
-                        font-weight: bold; 
-                        transition: 0.3s;">
-                  {% trans 'Solicita Presupuesto Gratis' %}
-              </a>
-          </div>
-      </div>
-  </div>
-</div>
-
-
-<section class="py-5" style="background-color: #eaf6f7; font-family: 'Segoe UI', sans-serif;">
-  <div class="container text-center">
-    <h2 class="fw-bold display-5 mb-4">{% trans '¿Qué es una aplicación móvil moderna?' %}</h2>
-    <p class="fs-5 text-muted mb-5">{% trans 'Una app móvil ya no es solo una pantalla con botones. Hoy es una extensión real de tu negocio, accesible en cualquier momento y desde cualquier lugar.' %}</p>
-
-    <div class="row g-5 justify-content-center">
-      
-      <div class="col-lg-10">
-        <div class="bg-white rounded-4 shadow p-4 text-start app-block">
-          <h4 class="fw-semibold text-primary mb-2"><i class="bi bi-phone me-2"></i>{% trans 'Diseñada para funcionar en la palma de la mano' %}</h4>
-          <p class="fs-5 text-dark mb-0">{% trans 'Tu app debe verse bien, cargar rápido y ser intuitiva. Pensamos primero en la experiencia del usuario móvil. Nada de cosas genéricas.' %}</p>
+<!-- Hero Section -->
+<section class="hero-software">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <span class="luxury-tag">{% trans "Especialistas en Multiplataforma" %}</span>
+        <h1 class="hero-title display-3">{% trans "Apps Nativa" %} <span style="color: var(--primary-teal);">{% trans "alto impacto." %}</span></h1>
+        <p class="lead mb-5" style="font-size: 1.35rem; color: var(--text-muted) !important;">{% trans "Llevamos la potencia de tu negocio a la palma de la mano de tus clientes. Soluciones móviles robustas, escalables y con un diseño de clase mundial." %}</p>
+        <div class="d-flex gap-4 flex-wrap align-items-center">
+          <a href="#proceso" class="btn-premium px-5 py-4 fs-5">{% trans "Descubrir Metodología" %}</a>
+          <a href="/#contact" class="modern-link fs-5">{% trans "Contactar con Ingeniería" %}</a>
         </div>
       </div>
-
-      <div class="col-lg-10">
-        <div class="bg-white rounded-4 shadow p-4 text-start app-block">
-          <h4 class="fw-semibold text-success mb-2"><i class="bi bi-cloud-check me-2"></i>{% trans 'Conectada a tu negocio en tiempo real' %}</h4>
-          <p class="fs-5 text-dark mb-0">{% trans 'Con un backend robusto en Django, todo se sincroniza en tiempo real: usuarios, reservas, pagos, notificaciones y más.' %}</p>
+      <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+        <div class="img-frame">
+          <img src="{% static 'img/mobile_app_hero_v2.png' %}" class="w-100" alt="Euskodev High-End Mobile Project">
         </div>
       </div>
-
-      <div class="col-lg-10">
-        <div class="bg-white rounded-4 shadow p-4 text-start app-block">
-          <h4 class="fw-semibold text-warning mb-2"><i class="bi bi-stars me-2"></i>{% trans 'Personalizada para tus objetivos' %}</h4>
-          <p class="fs-5 text-dark mb-0">{% trans 'No usamos plantillas. Creamos desde cero lo que tu negocio necesita: desde apps internas hasta plataformas comerciales.' %}</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-  
-
-
-<section class="py-5" style="background-color: #ffffff; font-family: 'Segoe UI', sans-serif;">
+<!-- Features Deep Dive -> Tus servicios... -->
+<section class="section-padding bg-light feature-block">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold display-6">{% trans "¿Qué incluye nuestro servicio de desarrollo de apps móviles?" %}</h2>
-      <p class="lead text-muted">{% trans "No solo programamos. En Euskodev desarrollamos soluciones móviles completas, conectadas y listas para crecer contigo." %}</p>
-    </div>
-
     <div class="row g-5 align-items-center">
-      <!-- Bloque 1 -->
-      <div class="col-md-6">
-        <div class="d-flex align-items-start">
-          <i class="bi bi-brush fs-1 me-3 text-info"></i>
-          <div>
-            <h5 class="fw-bold mb-2">{% trans "Diseño UI/UX personalizado" %}</h5>
-            <p class="text-muted mb-0">{% trans "Diseñamos interfaces atractivas, limpias y enfocadas en usabilidad. Tu app se verá bien y será fácil de usar." %}</p>
+      <div class="col-lg-6 reveal">
+        <div class="pe-lg-5">
+          <div class="divider-elegant"></div>
+          <h2 class="hero-title fs-1 mb-4">{% trans "Tus servicios, siempre en el bolsillo del cliente." %}</h2>
+          <p class="lead mb-5" style="color: var(--text-muted) !important;">{% trans "Creamos herramientas digitales que se integran nativamente con las funciones del dispositivo, desde notificaciones inteligentes hasta biometría y geolocalización." %}</p>
+          
+          <div class="row g-4">
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-phone-fill text-primary fs-4 me-3"></i>
+                <h5 class="fw-800 m-0 text-dark">{% trans "React Native" %}</h5>
+              </div>
+              <p class="text-muted small">{% trans "Un solo código base para una experiencia fluida en iOS y Android." %}</p>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-lightning-charge-fill text-warning fs-4 me-3"></i>
+                <h5 class="fw-800 m-0 text-dark">{% trans "Velocidad Extrema" %}</h5>
+              </div>
+              <p class="text-muted small">{% trans "Arquitecturas optimizadas para una respuesta instantánea." %}</p>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="col-md-6">
-        <div class="d-flex align-items-start">
-          <i class="bi bi-phone fs-1 me-3 text-primary"></i>
-          <div>
-            <h5 class="fw-bold mb-2">{% trans "Desarrollo móvil con Expo" %}</h5>
-            <p class="text-muted mb-0">{% trans "Creamos apps nativas para iOS y Android usando React Native (Expo), con rendimiento alto y desarrollo rápido." %}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bloque 2 -->
-      <div class="col-md-6">
-        <div class="d-flex align-items-start">
-          <i class="bi bi-hdd-network fs-1 me-3 text-success"></i>
-          <div>
-            <h5 class="fw-bold mb-2">{% trans "Backend en Django" %}</h5>
-            <p class="text-muted mb-0">{% trans "Conectamos tu app a un backend potente, donde se gestionan usuarios, datos, lógica y seguridad." %}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="d-flex align-items-start">
-          <i class="bi bi-wallet2 fs-1 me-3 text-warning"></i>
-          <div>
-            <h5 class="fw-bold mb-2">{% trans "Pagos integrados" %}</h5>
-            <p class="text-muted mb-0">{% trans "Tu app puede aceptar pagos con Stripe, Bizum, Redsys, TPVs u otras plataformas. Todo automatizado y seguro." %}</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bloque 3 -->
-      <div class="col-md-6">
-        <div class="d-flex align-items-start">
-          <i class="bi bi-bell-fill fs-1 me-3 text-danger"></i>
-          <div>
-            <h5 class="fw-bold mb-2">{% trans "Notificaciones push" %}</h5>
-            <p class="text-muted mb-0">{% trans "Envía alertas, recordatorios o novedades directamente al móvil de tus usuarios." %}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="d-flex align-items-start">
-          <i class="bi bi-upload fs-1 me-3 text-secondary"></i>
-          <div>
-            <h5 class="fw-bold mb-2">{% trans "Publicación en tiendas" %}</h5>
-            <p class="text-muted mb-0">{% trans "Te ayudamos a lanzar tu app en Google Play y App Store, lista para ser descargada por tus clientes." %}</p>
-          </div>
+      <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+        <div class="img-frame">
+          <img src="{% static 'img/mobile_app_quality_v2.png' %}" class="w-100" alt="Premium Mobile Engineering">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-5" style="background-color: #ffffff; font-family: 'Segoe UI', sans-serif;">
+<!-- Tech Stack (Dark) -->
+<section class="section-padding bg-dark-premium">
+  <div class="container text-center">
+    <span class="luxury-tag" style="color: var(--primary-teal);">{% trans "Performance & Scalability" %}</span>
+    <h2 class="hero-title fs-1 text-white mb-5">{% trans "Tecnología de última generación" %}</h2>
+    <div class="row g-4 justify-content-center reveal">
+      <div class="col-md-auto">
+        <div class="tech-pill">
+          <i class="bi bi-cpu-fill text-info fs-4"></i>
+          <span class="fw-700 text-white">React Native & Expo</span>
+        </div>
+      </div>
+      <div class="col-md-auto">
+        <div class="tech-pill">
+          <i class="bi bi-database-fill-check text-warning fs-4"></i>
+          <span class="fw-700 text-white">Python Django REST API</span>
+        </div>
+      </div>
+      <div class="col-md-auto">
+        <div class="tech-pill">
+          <i class="bi bi-shield-lock-fill text-success fs-4"></i>
+          <span class="fw-700 text-white">OAuth2 & SSL Security</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What we can build -> ¿Qué podemos construir para ti? -->
+<section class="section-padding bg-white feature-block">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-4 fw-bold">{% trans "¿Qué gana tu negocio con una app móvil?" %}</h2>
-      <p class="fs-5 text-muted">
-        {% trans "Una aplicación no es solo un canal digital. Es una herramienta estratégica que impulsa la experiencia del cliente, la productividad y tus resultados." %}
-        {% trans "En" %} <strong>Euskodev</strong> {% trans "desarrollamos apps móviles para negocios y profesionales de" %}
-        <strong>Oiartzun, Errenteria, Pasajes, Lezo</strong> {% trans "y toda la zona de" %} <strong>Oarsoaldea</strong>.
-      </p>
+    <div class="text-center mb-5 pb-5 reveal">
+      <h2 class="hero-title fs-1">{% trans "¿Qué podemos construir para ti?" %}</h2>
+      <p class="lead mx-auto" style="max-width: 700px; color: var(--text-muted) !important;">{% trans "Desde complejos sistemas de gestión interna hasta plataformas de cara al público con miles de usuarios concurrentes." %}</p>
     </div>
-
-    <!-- BLOQUE 1 -->
-    <div class="row align-items-center py-5">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <h4 class="fw-bold">📲 {% trans "Accesibilidad total" %}</h4>
-        <p class="fs-5 text-muted">
-          {% trans "Tus servicios estarán disponibles las 24 horas, desde cualquier lugar. Ideal para comercios locales de" %}
-          <strong>Oiartzun</strong>, {% trans "empresas de" %} <strong>Errenteria</strong> {% trans "o autónomos de" %} <strong>Lezo</strong>
-          {% trans "que quieren ofrecer disponibilidad total a sus clientes." %}
-        </p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box">
+          <div class="service-icon"><i class="bi bi-basket-fill"></i></div>
+          <h5 class="fw-800 text-dark">{% trans "Retail & E-Commerce" %}</h5>
+          <p class="text-muted small">{% trans "Experiencias de compra rápidas con pagos integrados." %}</p>
+        </div>
       </div>
-      <div class="col-md-6">
-        <img src="{% static 'img/accesibilidad_app.png' %}" 
-             class="img-fluid rounded-4 shadow-lg" 
-             alt="{% trans 'Aplicaciones móviles personalizadas en Oiartzun, Errenteria, Pasajes y Lezo' %}" 
-             title="{% trans 'Apps accesibles 24/7 para negocios de Oiartzun, Errenteria y Lezo' %}">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box">
+          <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
+          <h5 class="fw-800 text-dark">{% trans "Gestión Interna" %}</h5>
+          <p class="text-muted small">{% trans "Digitaliza tu empresa con apps de control y reportes." %}</p>
+        </div>
       </div>
-    </div>
-
-    <!-- BLOQUE 2 -->
-    <div class="row align-items-center py-5">
-      <div class="col-md-6 order-md-2 mb-4 mb-md-0">
-        <h4 class="fw-bold">🚀 {% trans "Aumento de conversiones" %}</h4>
-        <p class="fs-5 text-muted">
-          {% trans "Una app bien diseñada guía al usuario a comprar, reservar o contactar con rapidez. En municipios como" %}
-          <strong>Pasajes</strong> {% trans "o" %} <strong>Errenteria</strong>,
-          {% trans "donde el ritmo es ágil, esto marca la diferencia en la experiencia del cliente." %}
-        </p>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box">
+          <div class="service-icon"><i class="bi bi-star-fill"></i></div>
+          <h5 class="fw-800 text-dark">{% trans "Sistemas de Lealtad" %}</h5>
+          <p class="text-muted small">{% trans "Fideliza a tus clientes con beneficios exclusivos." %}</p>
+        </div>
       </div>
-      <div class="col-md-6 order-md-1">
-        <img src="{% static 'img/aumento_de_conversaciones.png' %}" 
-             class="img-fluid rounded-4 shadow-lg" 
-             alt="{% trans 'Desarrollo de apps móviles para aumentar ventas en Pasajes y Errenteria' %}" 
-             title="{% trans 'Aplicaciones móviles que mejoran la conversión en Pasajes y alrededores' %}">
-      </div>
-    </div>
-
-    <!-- BLOQUE 3 -->
-    <div class="row align-items-center py-5">
-      <div class="col-md-6 mb-4 mb-md-0">
-        <h4 class="fw-bold">🧠 {% trans "Automatización inteligente" %}</h4>
-        <p class="fs-5 text-muted">
-          {% trans "Automatiza tareas repetitivas, recordatorios o formularios. Perfecto para pymes de" %}
-          <strong>Lezo</strong>, {% trans "comercios de" %} <strong>Pasajes</strong> {% trans "o centros de servicios de" %} <strong>Oiartzun</strong>
-          {% trans "que quieren ahorrar tiempo y recursos." %}
-        </p>
-      </div>
-      <div class="col-md-6">
-        <img src="{% static 'img/automatizacion.png' %}" 
-             class="img-fluid rounded-4 shadow-lg" 
-             alt="{% trans 'Automatización de procesos con apps móviles en Lezo y Oiartzun' %}" 
-             title="{% trans 'Apps móviles con automatización inteligente para empresas de Gipuzkoa' %}">
-      </div>
-    </div>
-
-    <!-- BLOQUE 4 -->
-    <div class="row align-items-center py-5">
-      <div class="col-md-6 order-md-2 mb-4 mb-md-0">
-        <h4 class="fw-bold">✨ {% trans "Imagen de marca premium" %}</h4>
-        <p class="fs-5 text-muted">
-          {% trans "Tener una app propia transmite innovación y profesionalismo. Ideal para negocios en" %}
-          <strong>{% trans 'Errenteria, Lezo o Pasajes' %}</strong>
-          {% trans "que quieren destacarse en el entorno digital con una solución de calidad hecha por" %}
-          <strong>Euskodev</strong>.
-        </p>
-      </div>
-      <div class="col-md-6 order-md-1">
-        <img src="{% static 'img/marca_premium_profesional_app.png' %}" 
-             class="img-fluid rounded-4 shadow-lg" 
-             alt="{% trans 'Aplicaciones móviles profesionales en Errenteria, Lezo y Pasajes' %}" 
-             title="{% trans 'Desarrollo de apps premium en Errenteria y alrededores con Euskodev' %}">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box">
+          <div class="service-icon"><i class="bi bi-headset"></i></div>
+          <h5 class="fw-800 text-dark">{% trans "Apps de Servicio" %}</h5>
+          <p class="text-muted small">{% trans "Soporte y atención al cliente en tiempo real." %}</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Methodology -> Nuestro Proceso de Ingeniería -->
+<section id="proceso" class="section-padding bg-light feature-block">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 reveal">
+        <div class="divider-elegant"></div>
+        <h2 class="hero-title fs-1 mb-4">{% trans "Nuestro Proceso de Ingeniería" %}</h2>
+        <p class="lead mb-5" style="color: var(--text-muted) !important;">{% trans "Un flujo de trabajo transparente, ágil y centrado en la calidad técnica. No improvisamos, ejecutamos con precisión." %}</p>
+        <div class="process-timeline mt-5">
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-800 text-dark">{% trans "01. Arquitectura & UX" %}</h5>
+            <p class="text-muted small">{% trans "Antes de programar, diseñamos la base técnica y la experiencia de usuario." %}</p>
+          </div>
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-800 text-dark">{% trans "02. Desarrollo Ágil" %}</h5>
+            <p class="text-muted small">{% trans "Sprints semanales donde podrás ver y probar avances reales en tu móvil." %}</p>
+          </div>
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-800 text-dark">{% trans "03. QA & Seguridad" %}</h5>
+            <p class="text-muted small">{% trans "Tests exhaustivos para garantizar un funcionamiento impecable." %}</p>
+          </div>
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-800 text-dark">{% trans "04. Publicación Total" %}</h5>
+            <p class="text-muted small">{% trans "Gestionamos el lanzamiento en App Store y Google Play Store por ti." %}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+        <div class="img-frame">
+          <img src="{% static 'img/mobile_app_process_v2.png' %}" class="w-100" alt="Industrial Standard Process">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- GSAP efecto scroll suave -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.utils.toArray(".app-block").forEach((el, i) => {
-        gsap.fromTo(el, 
-          { opacity: 0, y: 60 }, 
-          {
-            opacity: 1, y: 0,
-            duration: 1,
-            ease: "power2.out",
-            delay: i * 0.1,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              toggleActions: "play none none none"
-            }
-          }
-        );
+<!-- Final CTA (Dark) -->
+<section class="section-padding text-center bg-dark-premium">
+  <div class="container reveal">
+    <h2 class="hero-title fs-1 mb-4">{% trans "¿Hablamos de tu próxima App?" %}</h2>
+    <p class="lead mb-5 mx-auto" style="max-width: 650px;">{% trans "Estamos listos para construir la herramienta que te hará destacar frente a la competencia. Cuéntanos tu idea y te daremos la mejor solución técnica." %}</p>
+    <a href="/#contact" class="btn-premium px-5 py-5 fs-4">{% trans "Solicitar Consulta de Ingeniería" %}</a>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".reveal").forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out"
       });
     });
-  </script>
-  
+  });
+</script>
+
 {% endblock %}

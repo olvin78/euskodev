@@ -12647,6 +12647,14 @@ section#contact form#contactForm :-ms-input-placeholder {
   color: #ced4da;
 }
 
+section#contact .recaptcha-center {
+  text-align: center;
+}
+
+section#contact .recaptcha-center .g-recaptcha {
+  display: inline-block;
+}
+
 .footer {
   text-align: center;
   font-size: 1.2rem;
