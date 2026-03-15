@@ -326,3 +326,7 @@ class EnviarSolicitudView(FormView):
         print(f"📨 Resultado del envío: {resultado}")  # ← Verifica que se envió (debe ser 1)
 
         return super().form_valid(form)
+
+
+class TrabajaGraciasView(TemplateView):
+    template_name = 'jobs/trabaja_gracias.html'

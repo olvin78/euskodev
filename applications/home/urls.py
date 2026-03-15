@@ -105,4 +105,5 @@ urlpatterns = [
     path('base/', views.base, name='base'),
 
 
+    path('trabaja-con-nosotros/gracias/', views.TrabajaGraciasView.as_view(), name='trabaja_gracias'),
 ]

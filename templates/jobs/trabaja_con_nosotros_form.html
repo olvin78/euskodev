@@ -21,7 +21,7 @@
         {% endif %}
 
         <!-- Formulario -->
-        <form id="jobForm" method="post" enctype="multipart/form-data" class="join-apply-form position-relative" style="z-index: 1;" action="{% url 'home_app:trabaja_con_nosotros' %}">
+        <form id="jobForm" method="post" enctype="multipart/form-data" class="join-apply-form position-relative" style="z-index: 1;" action="{% url 'home_app:trabaja_con_nosotros_form' %}">
             {% csrf_token %}
             <div class="row g-3">
                 <div class="col-md-6">
@@ -196,11 +196,66 @@ document.addEventListener('DOMContentLoaded', function () {
         puestoSelect.options[0].disabled = true;
     }
 
-    // ✅ Envío real del formulario (Eliminado preventDefault para procesar en servidor)
+    // ✅ Envío real mediante Fetch para no recargar la página y mostrar la animación
     form.addEventListener('submit', function (e) {
+        e.preventDefault();
         button.disabled = true;
         button.innerText = "Enviando...";
-        // No hay e.preventDefault() para que el formulario se envíe realmente
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                form.reset();
+                uploadBox.classList.remove('active');
+                uploadIcon.textContent = '+';
+                uploadText.textContent = 'Haz clic o arrastra tu archivo aquí';
+
+                // Mostrar y animar el mensaje de éxito
+                successMessage.classList.remove("d-none");
+                gsap.fromTo(successMessage, 
+                    { opacity: 0, scale: 0.8 }, 
+                    { 
+                        opacity: 1, 
+                        scale: 1, 
+                        duration: 1, 
+                        ease: "elastic.out(1, 0.5)", 
+                        onComplete: () => {
+                            setTimeout(() => {
+                                gsap.to(successMessage, {
+                                    opacity: 0,
+                                    scale: 0.8,
+                                    duration: 0.6,
+                                    ease: "power1.in",
+                                    onComplete: () => {
+                                        successMessage.classList.add("d-none");
+                                        button.disabled = false;
+                                        button.innerText = "Enviar solicitud";
+                                    }
+                                });
+                            }, 4000);
+                        }
+                    }
+                );
+            } else {
+                alert("Error al enviar la solicitud. Por favor, revisa los campos e intenta de nuevo.");
+                button.disabled = false;
+                button.innerText = "Enviar solicitud";
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Ocurrió un error inesperado. Por favor, inténtalo más tarde.");
+            button.disabled = false;
+            button.innerText = "Enviar solicitud";
+        });
     });
 });
 </script>

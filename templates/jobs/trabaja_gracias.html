@@ -1,0 +1,12 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5 text-center" style="padding-top: 180px!important; padding-bottom: 200px!important;">
+    <h2 class="display-4 fw-bold">{% trans '¡Gracias por tu interés!' %}</h2>
+    <p class="lead text-muted">{% trans 'Hemos recibido tu solicitud correctamente. Nuestro equipo revisará tu perfil y se pondrá en contacto contigo lo antes posible.' %}</p>
+    <div class="mt-4">
+        <a href="{% url 'home_app:home' %}" class="btn btn-primary btn-lg rounded-pill px-4">{% trans 'Volver al inicio' %}</a>
+    </div>
+</div>
+{% endblock %}
