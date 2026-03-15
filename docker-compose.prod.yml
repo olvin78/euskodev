@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: euskodev
+      POSTGRES_USER: euskodev
+      POSTGRES_PASSWORD: euskodev
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+
+  web:
+    build:
+      context: /home/minipc/Documentos/proyectos/euskodev
+      dockerfile: Dockerfile
+    command: >-
+      sh -c "python manage.py migrate
+      && python manage.py collectstatic --noinput
+      && gunicorn euskodev.wsgi:application --bind 0.0.0.0:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: euskodev.settings
+      DATABASE_URL: postgres://euskodev:euskodev@db:5432/euskodev
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - static_data:/euskodev/static
+      - media_data:/euskodev/media
+    restart: always
+
+volumes:
+  db_data:
+  static_data:
+  media_data:

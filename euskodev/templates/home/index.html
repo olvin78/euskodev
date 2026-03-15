@@ -1,0 +1,1661 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+<style>
+    :root {
+        --primary: #00e5c4;
+        --primary-glow: rgba(0, 229, 196, 0.4);
+        --secondary: #7c3aed;
+        --accent: #f59e0b;
+        --dark: #050508;
+        --dark-soft: #0f0f14;
+        --dark-card: #141419;
+        --surface: #1a1a22;
+        --text: #f8fafc;
+        --text-muted: #94a3b8;
+        --glass: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.06);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Outfit', sans-serif;
+        background: var(--dark);
+        color: var(--text);
+        overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-mesh {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background:
+            radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 229, 196, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse 60% 40% at 80% 60%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+            radial-gradient(ellipse 40% 30% at 50% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
+        animation: meshMove 20s ease-in-out infinite;
+    }
+
+    @keyframes meshMove {
+
+        0%,
+        100% {
+            transform: scale(1) translate(0, 0);
+        }
+
+        50% {
+            transform: scale(1.05) translate(-2%, -2%);
+        }
+    }
+
+    .bg-mesh::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        opacity: 0.02;
+        pointer-events: none;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 120px 0 80px;
+        overflow: hidden;
+    }
+
+    .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .hero-media video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%) brightness(0.75) contrast(1.05);
+        opacity: 0.35;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(7, 11, 20, 0.6) 0%, rgba(7, 11, 20, 0.35) 50%, rgba(7, 11, 20, 0.7) 100%);
+        z-index: 1;
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--glass);
+        border: 1px solid var(--glass-border);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-bottom: 24px;
+    }
+
+    .hero-badge span {
+        width: 8px;
+        height: 8px;
+        background: var(--primary);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 0.5;
+            transform: scale(1.2);
+        }
+    }
+
+    .hero-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        font-weight: 700;
+        line-height: 1.05;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.02em;
+    }
+
+    .hero-title .gradient {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        max-width: 540px;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 3rem;
+    }
+
+    .btn-gradient {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border: none;
+        color: var(--dark);
+        padding: 16px 36px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-gradient:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 50px rgba(0, 229, 196, 0.3);
+        color: var(--dark);
+    }
+
+    .btn-outline-gradient {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        padding: 14px 34px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-outline-gradient:hover {
+        background: var(--primary);
+        color: var(--dark);
+    }
+
+    .hero-stats {
+        display: flex;
+        gap: 48px;
+    }
+
+    .hero-stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .hero-stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-contact {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .hero-contact h4 {
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    /* Floating Cards */
+    .floating-card {
+        position: absolute;
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 16px 20px;
+        animation: float 6s ease-in-out infinite;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        z-index: 3;
+    }
+
+    .floating-card-1 {
+        top: 20%;
+        right: 5%;
+        animation-delay: 0s;
+    }
+
+    .floating-card-2 {
+        bottom: 20%;
+        right: 10%;
+        animation-delay: 2s;
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-20px) rotate(2deg);
+        }
+    }
+
+    /* Section Styles */
+    .section {
+        padding: 120px 0;
+        position: relative;
+    }
+
+    .section-header {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto 64px;
+    }
+
+    .section-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--text-muted);
+    }
+
+    /* Services Grid */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .service-card {
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 32px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--glass-border);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .service-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 20px;
+    }
+
+    .service-card .service-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #ffffff;
+    }
+
+    .service-card .service-desc {
+        color: #cbd5e1;
+        line-height: 1.7;
+        margin-bottom: 16px;
+        font-size: 1.06rem;
+    }
+
+    .service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #f8fafc;
+        font-weight: 500;
+        text-decoration: none;
+        transition: gap 0.3s ease;
+    }
+
+    .service-link:hover {
+        gap: 12px;
+        color: #00e5c4;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(2, 300px);
+        gap: 24px;
+    }
+
+    .portfolio-item {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        grid-column: span 4;
+    }
+
+    .portfolio-item:nth-child(1) {
+        grid-column: span 8;
+    }
+
+    .portfolio-item:nth-child(4) {
+        grid-column: span 8;
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .portfolio-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(5, 5, 8, 0.95) 0%, rgba(5, 5, 8, 0.4) 50%, transparent 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 32px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+
+    .portfolio-category {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--primary);
+        margin-bottom: 8px;
+    }
+
+    .portfolio-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+
+    /* Blog Section */
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+    }
+
+    .blog-card {
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .blog-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .blog-body {
+        padding: 22px;
+    }
+
+    .blog-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        line-height: 1.35;
+    }
+
+    .blog-excerpt {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+        .blog-img {
+            height: 190px;
+        }
+    }
+
+    /* About Section */
+    .about-section {
+        background: var(--dark-soft);
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .about-text p {
+        font-size: 1.125rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+        margin-bottom: 24px;
+    }
+
+    .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 48px;
+    }
+
+    .about-stat {
+        text-align: center;
+        padding: 24px;
+        background: var(--dark-card);
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+    }
+
+    .about-stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    .about-stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    .about-image img {
+        width: 100%;
+        border-radius: 32px;
+    }
+
+    /* Tech Stack */
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px;
+    }
+
+    .tech-floating-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .floating-tech {
+        position: absolute;
+        font-size: 3rem;
+        opacity: 0.06;
+        animation: floatTech 15s ease-in-out infinite;
+        color: var(--primary);
+    }
+
+    @keyframes floatTech {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg) scale(1);
+            opacity: 0.06;
+        }
+
+        25% {
+            transform: translateY(-30px) rotate(5deg) scale(1.1);
+            opacity: 0.1;
+        }
+
+        50% {
+            transform: translateY(-10px) rotate(-3deg) scale(0.95);
+            opacity: 0.05;
+        }
+
+        75% {
+            transform: translateY(-40px) rotate(8deg) scale(1.05);
+            opacity: 0.08;
+        }
+    }
+
+    .tech-item {
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .tech-item:hover {
+        border-color: var(--primary);
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 229, 196, 0.15);
+    }
+
+    .tech-item img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 12px;
+    }
+
+    .tech-item h6 {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .testimonial-card {
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 40px;
+        position: relative;
+    }
+
+    .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 8rem;
+        font-family: Georgia, serif;
+        color: var(--primary);
+        opacity: 0.08;
+        line-height: 1;
+    }
+
+    .testimonial-text {
+        font-size: 1.0625rem;
+        line-height: 1.8;
+        margin-bottom: 32px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .testimonial-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        background: linear-gradient(180deg, var(--dark) 0%, var(--dark-soft) 100%);
+    }
+
+    .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+    }
+
+    .contact-info h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .contact-info>p {
+        color: var(--text-muted);
+        font-size: 1.125rem;
+        margin-bottom: 40px;
+    }
+
+    .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+        border-color: var(--primary);
+    }
+
+    .contact-icon {
+        width: 56px;
+        height: 56px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--dark);
+        flex-shrink: 0;
+    }
+
+    .contact-details h5 {
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .contact-details p {
+        color: var(--text-muted);
+        margin: 0;
+    }
+
+    .contact-form {
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 32px;
+        padding: 48px;
+    }
+
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    .form-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .form-input {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: var(--text);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(0, 229, 196, 0.1);
+    }
+
+    .form-input::placeholder {
+        color: var(--text-muted);
+    }
+
+    textarea.form-input {
+        min-height: 140px;
+        resize: vertical;
+    }
+
+    .submit-btn {
+        width: 100%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border: none;
+        color: var(--dark);
+        padding: 18px 36px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px rgba(0, 229, 196, 0.25);
+    }
+
+    .map-container {
+        height: 450px;
+        border-radius: 24px;
+        overflow: hidden;
+        margin-top: 80px;
+        border: 1px solid var(--glass-border);
+    }
+
+    /* Fix for Leaflet "strange lines" and styling */
+    .leaflet-container img {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+
+    .leaflet-container {
+        background: var(--dark) !important;
+    }
+
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+        background: var(--dark-card) !important;
+        color: var(--text) !important;
+        border: 1px solid var(--primary) !important;
+        backdrop-filter: blur(10px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .portfolio-grid {
+            grid-template-rows: repeat(3, 250px);
+        }
+
+        .portfolio-item,
+        .portfolio-item:nth-child(1),
+        .portfolio-item:nth-child(4) {
+            grid-column: span 6;
+        }
+
+        .about-content {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        .testimonials-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .tech-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding: 100px 0 60px;
+        }
+
+        .hero-stats {
+            gap: 32px;
+        }
+
+        .hero-stat-number {
+            font-size: 2rem;
+        }
+
+        .floating-card {
+            display: none;
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .portfolio-grid {
+            grid-template-rows: repeat(4, 220px);
+        }
+
+        .portfolio-item,
+        .portfolio-item:nth-child(1),
+        .portfolio-item:nth-child(4) {
+            grid-column: span 12;
+        }
+
+        .about-stats {
+            grid-template-columns: 1fr;
+        }
+
+        .contact-form {
+            padding: 32px 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .tech-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Animations */
+    .animate-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .animate-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="bg-mesh"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-media">
+        <video autoplay muted loop playsinline preload="auto">
+            <source src="{% static 'videos/video_portada.mp4' %}" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="hero-badge animate-in">
+                    <span></span>
+                    {% trans "Desarrollo Web & Software en Oiartzun" %}
+                </div>
+
+                <h1 class="hero-title animate-in" style="animation-delay: 0.1s;">
+                    {% trans "Web, App, Software" %} <span class="gradient">{% trans "& IA" %}</span>
+                </h1>
+
+                <p class="hero-subtitle animate-in" style="animation-delay: 0.2s;">
+                    {% trans "Diseño web, desarrollo de software y apps a medida con calidad premium." %}
+                </p>
+
+                <div class="hero-buttons animate-in" style="animation-delay: 0.3s;">
+                    <a href="#contact" class="btn-gradient">{% trans "Solicitar Presupuesto" %}</a>
+                    <a href="{% url 'digital_audit_app:form' %}" class="btn-outline-gradient">{% trans "Análisis Gratis"
+                        %}</a>
+                </div>
+
+                <div class="hero-stats animate-in" style="animation-delay: 0.4s;">
+                    <div>
+                        <div class="hero-stat-number">50+</div>
+                        <div class="hero-stat-label">{% trans "Proyectos" %}</div>
+                    </div>
+                    <div>
+                        <div class="hero-stat-number">100%</div>
+                        <div class="hero-stat-label">{% trans "Éxito" %}</div>
+                    </div>
+                    <div>
+                        <div class="hero-stat-number">5★</div>
+                        <div class="hero-stat-label">{% trans "Valoración" %}</div>
+                    </div>
+                </div>
+
+                <div class="hero-contact animate-in" style="animation-delay: 0.5s;">
+                    <h4><i class="bi bi-telephone-fill me-2"></i>747 478 842</h4>
+                    <p class="text-muted mb-0">{% trans "Oiartzun, Gipuzkoa" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-card floating-card-1 d-none d-xl-block">
+        <div class="d-flex align-items-center gap-3">
+            <div
+                style="width: 40px; height: 40px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-code-slash text-dark"></i>
+            </div>
+            <div>
+                <p class="mb-0 fw-semibold">{% trans "Django & Python" %}</p>
+                <p class="mb-0 small text-muted">{% trans "Backend Expert" %}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-card floating-card-2 d-none d-xl-block">
+        <div class="d-flex align-items-center gap-3">
+            <div
+                style="width: 40px; height: 40px; background: var(--secondary); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-lightning-charge text-white"></i>
+            </div>
+            <div>
+                <p class="mb-0 fw-semibold">{% trans "IA & Automation" %}</p>
+                <p class="mb-0 small text-muted">{% trans "Next Level" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+{% if entradas_blog %}
+<section class="section" id="blog">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h2 class="section-title text-start mb-0">{% trans "Últimas Publicaciones" %}</h2>
+                <p class="text-muted mt-3">{% trans "Descubre nuestras últimas innovaciones y noticias" %}</p>
+            </div>
+            <a href="{% url 'home_app:blog' %}" class="btn-gradient btn-sm">{% trans "Ver todo" %}</a>
+        </div>
+
+        <div class="blog-grid">
+            {% for entrada in entradas_blog %}
+            <article class="blog-card">
+                <a href="{% url 'home_app:blog-detail' entrada.id %}">
+                    {% if entrada.imagen %}
+                    <img src="{{ entrada.imagen.url }}" class="blog-img" alt="{{ entrada.titulo }}">
+                    {% else %}
+                    <img src="{% static 'img/portada.jpg' %}" class="blog-img" alt="{{ entrada.titulo }}">
+                    {% endif %}
+                </a>
+                <div class="blog-body">
+                    <h5 class="blog-title">{{ entrada.titulo|safe }}</h5>
+                    <p class="blog-excerpt">{{ entrada.resumen|safe|striptags|truncatechars:110 }}</p>
+                    <a href="{% url 'home_app:blog-detail' entrada.id %}" class="service-link">{% trans "Leer más" %} <i
+                            class="bi bi-arrow-right"></i></a>
+                </div>
+            </article>
+            {% empty %}
+            <p class="text-muted">{% trans "No hay entradas todavía" %}</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="section" id="blog">
+    <div class="container text-center">
+        <h2 class="section-title">{% trans "Últimas Publicaciones" %}</h2>
+        <p class="text-muted">{% trans "Próximamente más artículos..." %}</p>
+    </div>
+</section>
+{% endif %}
+
+<!-- Services Section -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-header animate-in">
+            <h2 class="section-title">{% trans "Nuestros Servicios" %}</h2>
+            <p class="section-subtitle">{% trans "Soluciones tecnológicas de alto nivel para impulsar tu negocio" %}</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card animate-in">
+                <img src="{% static 'img/desarrollo_web_hero_cozy.png' %}" class="service-img" alt="Desarrollo Web">
+                <h4 class="service-title">{% trans "Desarrollo Web" %}</h4>
+                <p class="service-desc">{% trans "Webs modernas, rápidas y optimizadas para SEO. Diseño responsive y
+                    experiencia de usuario excepcional." %}</p>
+                <a href="{% url 'home_app:desarrollo_web' %}" class="service-link">{% trans "Leer más" %} <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card animate-in">
+                <img src="{% static 'img/mobile_app_hero_v2.png' %}" class="service-img" alt="Apps Móviles">
+                <h4 class="service-title">{% trans "Apps Móviles" %}</h4>
+                <p class="service-desc">{% trans "Aplicaciones nativas e híbridas para iOS y Android. Tu negocio en el
+                    bolsillo de tus clientes." %}</p>
+                <a href="{% url 'home_app:aplicaciones_moviles' %}" class="service-link">{% trans "Leer más" %} <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card animate-in">
+                <img src="{% static 'img/software_hero_v2.png' %}" class="service-img" alt="Software a Medida">
+                <h4 class="service-title">{% trans "Software a Medida" %}</h4>
+                <p class="service-desc">{% trans "Soluciones personalizadas que se adaptan a tus procesos.
+                    Automatización y eficiencia garantizada." %}</p>
+                <a href="{% url 'home_app:software_a_medida' %}" class="service-link">{% trans "Leer más" %} <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card animate-in">
+                <img src="{% static 'img/workspace_real_v4.png' %}" class="service-img" alt="Inteligencia Artificial">
+                <h4 class="service-title">{% trans "Inteligencia Artificial" %}</h4>
+                <p class="service-desc">{% trans "Chatbots, automatización con IA y soluciones de machine learning para
+                    tu empresa." %}</p>
+                <a href="{% url 'home_app:inteligencia_artificial' %}" class="service-link">{% trans "Leer más" %} <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card animate-in">
+                <img src="{% static 'img/reservas_y_pagos_hero_premium.png' %}" class="service-img"
+                    alt="Reservas y Pagos">
+                <h4 class="service-title">{% trans "Reservas y Pagos" %}</h4>
+                <p class="service-desc">{% trans "Sistemas de reservas online y pasarelas de pago integradas. Gestiona
+                    tu negocio 24/7." %}</p>
+                <a href="{% url 'home_app:reservas_pagos' %}" class="service-link">{% trans "Leer más" %} <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card animate-in">
+                <img src="{% static 'img/ticket_hero_v5.png' %}" class="service-img" alt="Sistema de Ticket">
+                <h4 class="service-title">{% trans "Sistema de Ticket" %}</h4>
+                <p class="service-desc">{% trans "Gestión de incidencias y soporte al cliente. Optimiza tu atención y
+                    seguimiento." %}</p>
+                <a href="{% url 'home_app:sistema_ticket' %}" class="service-link">{% trans "Leer más" %} <i
+                        class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI Analysis Section -->
+<section class="section"
+    style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(0, 229, 196, 0.1) 100%);">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 animate-in">
+                <div style="position: relative;">
+                    <img src="{% static 'img/tuasistenteinteligente.png' %}" alt="{% trans " Análisis de IA" %}"
+                        class="img-fluid" style="border-radius: 24px;">
+                    <div
+                        style="position: absolute; bottom: 20px; left: 20px; background: var(--dark-card); border: 1px solid var(--glass-border); border-radius: 16px; padding: 16px 24px;">
+                        <div class="d-flex align-items-center gap-3">
+                            <div
+                                style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-brain text-white fs-4"></i>
+                            </div>
+                            <div>
+                                <p class="mb-0 fw-bold">{% trans "Análisis de IA" %}</p>
+                                <p class="mb-0 small text-muted">{% trans "100% Gratuito" %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 animate-in">
+                <h2 class="section-title text-start">{% trans "Análisis Inteligente de tu Negocio" %}</h2>
+                <p class="text-muted fs-5 mb-4">{% trans "Utiliza nuestra inteligencia artificial para analizar tu
+                    presencia digital y recibir recomendaciones personalizadas." %}</p>
+                <ul class="list-unstyled mb-4">
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 fs-5"></i>
+                        <span>{% trans "Análisis de tu web actual" %}</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 fs-5"></i>
+                        <span>{% trans "Recomendaciones SEO" %}</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 fs-5"></i>
+                        <span>{% trans "Sugerencias de mejora" %}</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 fs-5"></i>
+                        <span>{% trans "Informe detallado en minutos" %}</span>
+                    </li>
+                </ul>
+                <a href="{% url 'digital_audit_app:form' %}" class="btn-gradient">{% trans "Hacer Análisis Gratis"
+                    %}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="section" id="portfolio">
+    <div class="container">
+        <div class="section-header animate-in">
+            <h2 class="section-title">{% trans "Portfolio" %}</h2>
+            <p class="section-subtitle">{% trans "Proyectos que definen nuestra experiencia" %}</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Sun And Surf -->
+            <div class="col-lg-4 col-md-6 animate-in">
+                <div class="portfolio-item" style="aspect-ratio: 4/3;">
+                    <img src="{% static 'portfolio/sun-and-surf/img/tablas4.jpg' %}" alt="Sun And Surf">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">{% trans "Web App" %}</span>
+                        <h4 class="portfolio-title">Sun And Surf</h4>
+                        <a href="{% url 'home_app:sun-and-surf' %}" class="btn-gradient btn-sm" target="_blank">{% trans
+                            "Ver Proyecto" %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atenea Gastronómica -->
+            <div class="col-lg-4 col-md-6 animate-in">
+                <div class="portfolio-item" style="aspect-ratio: 4/3;">
+                    <img src="{% static 'portfolio/atenea-gastronomica/assets/img/portada.png' %}" alt="Atenea">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">{% trans "Plataforma" %}</span>
+                        <h4 class="portfolio-title">Atenea Gastronómica</h4>
+                        <a href="{% url 'home_app:atenea-gastronomica' %}" class="btn-gradient btn-sm"
+                            target="_blank">{% trans "Ver Proyecto" %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- La Maison du Bordeaux -->
+            <div class="col-lg-4 col-md-6 animate-in">
+                <div class="portfolio-item" style="aspect-ratio: 4/3;">
+                    <img src="{% static 'portfolio/la-maison-du-bordeaux/assets/img/chocolates-06.jpg' %}"
+                        alt="La Maison">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">{% trans "E-commerce" %}</span>
+                        <h4 class="portfolio-title">La Maison du Bordeaux</h4>
+                        <a href="{% url 'home_app:la-maison-du-bordeaux' %}" class="btn-gradient btn-sm"
+                            target="_blank">{% trans "Ver Proyecto" %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- De Mi Tierra -->
+            <div class="col-lg-4 col-md-6 animate-in">
+                <div class="portfolio-item" style="aspect-ratio: 4/3;">
+                    <img src="{% static 'portfolio/de-mi-tierra/assets/img/hero-bg.jpg' %}" alt="De Mi Tierra">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">{% trans "Restaurante" %}</span>
+                        <h4 class="portfolio-title">De Mi Tierra</h4>
+                        <a href="{% url 'home_app:de-mi-tierra' %}" class="btn-gradient btn-sm" target="_blank">{% trans
+                            "Ver Proyecto" %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- La Fortuna Trip -->
+            <div class="col-lg-4 col-md-6 animate-in">
+                <div class="portfolio-item" style="aspect-ratio: 4/3;">
+                    <img src="{% static 'img/la-fortuna-desarrollo-web-donostia.jpg' %}" alt="La Fortuna Trip">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">{% trans "Turismo" %}</span>
+                        <h4 class="portfolio-title">La Fortuna Trip</h4>
+                        <a href="{% url 'home_app:la-fortuna-trip' %}" class="btn-gradient btn-sm" target="_blank">{%
+                            trans "Ver Proyecto" %}</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tu Asistente Inteligente -->
+            <div class="col-lg-4 col-md-6 animate-in">
+                <div class="portfolio-item" style="aspect-ratio: 4/3;">
+                    <img src="{% static 'img/tuasistenteinteligente.png' %}" alt="Tu Asistente Inteligente">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">{% trans "Inteligencia Artificial" %}</span>
+                        <h4 class="portfolio-title">{% trans "Tu Asistente Inteligente" %}</h4>
+                        <a href="https://tuasistenteinteligente.com/" class="btn-gradient btn-sm" target="_blank">{%
+                            trans "Ver Proyecto" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section about-section" id="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text animate-in">
+                <h2 class="section-title text-start">{% trans "Sobre Euskodev" %}</h2>
+                <p>{% trans "Desde Oiartzun, en el corazón del País Vasco, ayudamos a empresas de la región a
+                    digitalizarse con soluciones que realmente funcionan." %}</p>
+                <p>{% trans "Somos desarrolladores full-stack especializados en crear experiencias digitales únicas. No
+                    solo hacemos webs, creamos soluciones que impulsan tu negocio." %}</p>
+
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <div class="about-stat-number">50+</div>
+                        <div class="about-stat-label">{% trans "Proyectos" %}</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">100%</div>
+                        <div class="about-stat-label">{% trans "Éxito" %}</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="about-stat-number">5★</div>
+                        <div class="about-stat-label">{% trans "Valoración" %}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-image animate-in">
+                <video class="w-100" autoplay loop muted playsinline style="border-radius: 32px;">
+                    <source src="{% static 'videos/quienes_somo_euskodev.mp4' %}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section class="section" id="tech" style="background: var(--dark-soft); position: relative; overflow: hidden;">
+    <!-- Floating tech elements background -->
+    <div class="tech-floating-bg">
+        <span class="floating-tech" style="top: 10%; left: 5%; animation-delay: 0s;"><i
+                class="fab fa-python"></i></span>
+        <span class="floating-tech" style="top: 20%; right: 10%; animation-delay: 1s;"><i
+                class="fab fa-docker"></i></span>
+        <span class="floating-tech" style="top: 60%; left: 8%; animation-delay: 2s;"><i class="fab fa-react"></i></span>
+        <span class="floating-tech" style="top: 70%; right: 5%; animation-delay: 3s;"><i class="fab fa-aws"></i></span>
+        <span class="floating-tech" style="top: 40%; left: 3%; animation-delay: 4s;"><i class="fas fa-brain"></i></span>
+        <span class="floating-tech" style="top: 80%; left: 15%; animation-delay: 5s;"><i class="fab fa-js"></i></span>
+        <span class="floating-tech" style="top: 30%; right: 20%; animation-delay: 1.5s;"><i
+                class="fas fa-database"></i></span>
+        <span class="floating-tech" style="top: 50%; right: 8%; animation-delay: 2.5s;"><i
+                class="fab fa-linux"></i></span>
+    </div>
+
+    <div class="container position-relative">
+        <div class="section-header animate-in">
+            <h2 class="section-title">{% trans "Stack Tecnológico" %}</h2>
+            <p class="section-subtitle">{% trans "Utilizamos las herramientas más modernas y potentes" %}</p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                <h6>Python</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="25">
+                <i class="fas fa-rocket" style="font-size: 40px; color: #7dd3fc; margin-bottom: 12px;"></i>
+                <h6>Antigravity</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="50">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+                <h6>Django</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                    alt="Bootstrap">
+                <h6>Bootstrap</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                <h6>React</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="250">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                <h6>Docker</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-brain" style="font-size: 40px; color: #00e5c4; margin-bottom: 12px;"></i>
+                <h6>AI / LLM</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="350">
+                <i class="fab fa-aws" style="font-size: 40px; color: #ff9900; margin-bottom: 12px;"></i>
+                <h6>AWS</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript">
+                <h6>JavaScript</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="450">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                <h6>HTML5</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="500">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                <h6>CSS3</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="550">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+                <h6>Linux</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="600">
+                <i class="fas fa-leaf" style="font-size: 40px; color: #4dc9a8; margin-bottom: 12px;"></i>
+                <h6>Leaflet</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="650">
+                <i class="fas fa-tasks" style="font-size: 40px; color: #63c53b; margin-bottom: 12px;"></i>
+                <h6>Celery</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="700">
+                <i class="fab fa-redis" style="font-size: 40px; color: #dc382d; margin-bottom: 12px;"></i>
+                <h6>Redis</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="750">
+                <i class="fab fa-vuejs" style="font-size: 40px; color: #42b883; margin-bottom: 12px;"></i>
+                <h6>Vue.js</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="800">
+                <i class="fab fa-node" style="font-size: 40px; color: #68a063; margin-bottom: 12px;"></i>
+                <h6>Node.js</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="850">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                    alt="Tailwind">
+                <h6>Tailwind</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="900">
+                <i class="fab fa-github" style="font-size: 40px; color: #f0f6fc; margin-bottom: 12px;"></i>
+                <h6>GitHub</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="950">
+                <i class="fas fa-database" style="font-size: 40px; color: #3b5998; margin-bottom: 12px;"></i>
+                <h6>SQLite</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="1000">
+                <i class="fas fa-code" style="font-size: 40px; #6366f1; margin-bottom: 12px; color: #6366f1;"></i>
+                <h6>OpenCode</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="1050">
+                <i class="fab fa-git-alt" style="font-size: 40px; color: #f05032; margin-bottom: 12px;"></i>
+                <h6>Git</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="1100">
+                <i class="fas fa-mobile-alt" style="font-size: 40px; color: #00e5c4; margin-bottom: 12px;"></i>
+                <h6>Flutter</h6>
+            </div>
+            <div class="tech-item animate-in" data-aos="fade-up" data-aos-delay="1150">
+                <i class="fab fa-swift" style="font-size: 40px; color: #fa7343; margin-bottom: 12px;"></i>
+                <h6>Swift</h6>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section" id="testimonials">
+    <div class="container">
+        <div class="section-header animate-in">
+            <h2 class="section-title">{% trans "Lo que dicen nuestros clientes" %}</h2>
+            <p class="section-subtitle">{% trans "La confianza de quienes trabajan con nosotros" %}</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-in">
+                <p class="testimonial-text">{% trans "En Euskodev me diseñaron una web perfecta para mi negocio. Me
+                    escucharon con atención y entendieron mis necesidades a la perfección." %}</p>
+                <div class="testimonial-author">
+                    <img src="{% static 'assets/img/opiniones/primera.jpeg' %}" class="testimonial-avatar" alt="Mertxe">
+                    <div>
+                        <h5 class="mb-0">Mertxe</h5>
+                        <p class="text-muted mb-0 small">{% trans "Cliente Satisfecho" %}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-in">
+                <p class="testimonial-text">{% trans "Buscaba una web para mi negocio y no sabía por dónde empezar. En
+                    Euskodev me lo pusieron facilísmo. ¡Son profesionales y majísimos!" %}</p>
+                <div class="testimonial-author">
+                    <img src="{% static 'assets/img/opiniones/segundaa.jpeg' %}" class="testimonial-avatar"
+                        alt="Jose Luis">
+                    <div>
+                        <h5 class="mb-0">Jose Luis</h5>
+                        <p class="text-muted mb-0 small">{% trans "Emprendedor" %}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate-in">
+                <p class="testimonial-text">{% trans "Supieron exactamente lo que buscaba para mi negocio online. Me
+                    hicieron una web preciosa y que funciona de maravilla." %}</p>
+                <div class="testimonial-author">
+                    <img src="{% static 'assets/img/opiniones/tercera.jpeg' %}" class="testimonial-avatar"
+                        alt="Luis Diego">
+                    <div>
+                        <h5 class="mb-0">Luis Diego</h5>
+                        <p class="text-muted mb-0 small">{% trans "Dueño de Negocio" %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section contact-section" id="contact">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info animate-in">
+                <h3>{% trans "¿Tienes un proyecto en mente?" %}</h3>
+                <p>{% trans "Estamos listos para transformar tus ideas en realidades digitales." %}</p>
+
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="contact-details">
+                        <h5>WhatsApp</h5>
+                        <p>+34 747 47 88 42</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-details">
+                        <h5>{% trans "Email" %}</h5>
+                        <p>info@euskodev.eus</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-details">
+                        <h5>{% trans "Ubicación" %}</h5>
+                        <p>{% trans "Oiartzun, Gipuzkoa" %}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form animate-in">
+                <form id="contactForm" method="post" action="{% url 'home_app:formulario_contactar' %}">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label">{% trans "Nombre" %}</label>
+                            <input class="form-input" id="name" name="name" type="text" placeholder="{% trans " Tu
+                                nombre" %}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">{% trans "Email" %}</label>
+                            <input class="form-input" id="email" name="email" type="email" placeholder="{% trans "
+                                tu@email.com" %}" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">{% trans "Teléfono" %}</label>
+                            <input class="form-input" id="phone" name="phone" type="tel" placeholder="{% trans " Tu
+                                número" %}" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">{% trans "Mensaje" %}</label>
+                            <textarea class="form-input" id="message" name="message" placeholder="{% trans " ¿Cómo
+                                podemos ayudarte?" %}" required></textarea>
+                        </div>
+                        <div class="col-12 recaptcha-center">
+                            <div class="g-recaptcha d-inline-block mb-4"
+                                data-sitekey="6LfjFPEqAAAAAL23CYZsif_KdPGU2189i0UMjIgk"></div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="submit-btn">{% trans "ENVIAR MENSAJE" %}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-container animate-in">
+            <div id="map-oiartzun" style="height: 100%;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Mantenimiento -->
+<div class="modal fade" id="modalMantenimiento" tabindex="-1" aria-labelledby="modalMantenimientoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content"
+            style="background: var(--dark-card); border: 1px solid var(--glass-border); border-radius: 16px;">
+            <div class="modal-header" style="border-bottom: 1px solid var(--glass-border);">
+                <h5 class="modal-title" style="color: var(--primary);"><i class="bi bi-shield-lock-fill me-2"></i>
+                    Mantenimiento en proceso</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center" style="padding: 32px;">
+                <i class="bi bi-gear-wide-connected display-5 mb-3" style="color: var(--primary);"></i>
+                <p>Este apartado de <strong>Euskodev</strong> se encuentra actualmente en <strong
+                        style="color: #f59e0b;">mantenimiento</strong> para mejorar la seguridad y protección de tus
+                    datos.</p>
+                <p class="text-muted">Puedes contactarnos directamente:</p>
+                <div style="background: var(--surface); border-radius: 12px; padding: 16px;">
+                    <p class="mb-1"><i class="bi bi-envelope me-2"></i><strong>info@euskodev.eus</strong></p>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid var(--glass-border);">
+                <button type="button" class="btn-gradient" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Premium Light Google-style tiles (Voyager)
+        var map = L.map('map-oiartzun', {
+            scrollWheelZoom: true,
+            zoomControl: true,
+            touchZoom: true,
+            dragging: true,
+            tap: true
+        }).setView([43.3015, -1.8595], 16);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        // Custom Interactive Branded Marker - Euskodev
+        var cyanIcon = L.divIcon({
+            className: 'custom-div-icon',
+            html: "<div class='marker-pulse' style='background: linear-gradient(135deg, #00e5c4, #7c3aed); width: 20px; height: 20px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 20px rgba(0, 229, 196, 0.5); display: flex; align-items: center; justify-content: center;'><i class='bi bi-code-slash' style='color: #050508; font-size: 10px;'></i></div>",
+            iconSize: [20, 20],
+            iconAnchor: [10, 10]
+        });
+
+        var marker = L.marker([43.299, -1.860], { icon: cyanIcon }).addTo(map)
+            .bindPopup('<div style="text-align: center; min-width: 150px;"><b style="color: #00e5c4; font-size: 14px;">Euskodev HQ</b><br><span style="color: #666; font-size: 12px;">Oiartzun, Gipuzkoa</span><br><a href="https://www.google.com/maps/dir/?api=1&destination=43.299,-1.860" target="_blank" style="color: #7c3aed; text-decoration: none; font-weight: 600; font-size: 12px;">¿Cómo llegar?</a></div>')
+            .openPopup();
+
+        // Lugares de referencia (Landmarks) - Oiartzun Centro
+        var refIcon = L.divIcon({
+            className: 'ref-marker',
+            html: "<div style='background-color: #7c3aed; width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2);'></div>",
+            iconSize: [10, 10],
+            iconAnchor: [5, 5]
+        });
+
+        // Lugares alrededor de la plaza de Oiartzun
+        var landmarks = [
+            { coords: [43.3015, -1.8595], name: "Plaza de Oiartzun" },
+            { coords: [43.299, -1.860], name: "Euskodev (Oficinas)" },
+            { coords: [43.3022, -1.8598], name: "Ayuntamiento de Oiartzun" },
+            { coords: [43.3010, -1.8602], name: "Iglesia de San Esteban" },
+            { coords: [43.3005, -1.8585], name: "Frontón Municipal" },
+            { coords: [43.3028, -1.8605], name: "Casa del Pueblo" },
+            { coords: [43.2985, -1.8610], name: "Polideportivo Elorsoro" },
+            { coords: [43.3018, -1.8578], name: "Banco Santander" },
+            { coords: [43.3002, -1.8592], name: "Farmacia Central" },
+            { coords: [43.3030, -1.8588], name: "Colegio Publico" },
+        ];
+
+        landmarks.forEach(function (place) {
+            L.marker(place.coords, { icon: refIcon }).addTo(map).bindTooltip(place.name, {
+                permanent: false,
+                direction: 'top',
+                className: 'landmark-tooltip'
+            });
+        });
+
+        // Add interactivity: Fly to marker on scroll/focus if needed or just keep it active
+        marker.on('mouseover', function () { this.openPopup(); });
+
+        // CSS for marker pulse in mapping
+        const styleHeader = document.createElement('style');
+        styleHeader.innerHTML = `
+        @keyframes markerPulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 229, 196, 0.7); }
+            70% { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(0, 229, 196, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 229, 196, 0); }
+        }
+        .marker-pulse { animation: markerPulse 2s infinite; }
+        .leaflet-popup-content-wrapper { border-radius: 12px; }
+        .landmark-tooltip { background: #141419; color: #fff; border-radius: 6px; padding: 4px 8px; font-size: 12px; }
+    `;
+        document.head.appendChild(styleHeader);
+
+        // Smooth reveal remains
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    });
+</script>
+
+{% endblock %}

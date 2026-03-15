@@ -1,0 +1,504 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Agregar Cliente" %} | Euskodev</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1D3557;
+            --secondary: #457B9D;
+            --accent: #A8DADC;
+            --success: #2A9D8F;
+            --light-bg: #F1FAEE;
+            --border: #E2E8F0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #1D3557 0%, #457B9D 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f1faee 0%, #e9f4fb 100%);
+            min-height: 100vh;
+            color: #1e293b;
+            padding: 20px;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-container {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            display: inline-block;
+        }
+
+        .logo-container img {
+            height: 50px;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .form-control-custom {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-control-custom:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(69, 123, 157, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Buscador mejorado */
+        .search-container {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 2px dashed var(--accent);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(69, 123, 157, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary);
+        }
+
+        .client-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .client-item {
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        .client-item:hover {
+            background: var(--light-bg);
+            border-color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2px;
+        }
+
+        .client-details {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* Botones */
+        .btn-primary-custom {
+            background: var(--gradient);
+            border: none;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(29, 53, 87, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(29, 53, 87, 0.4);
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background: #64748b;
+            border: none;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .btn-secondary-custom:hover {
+            background: #475569;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .actions-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .actions-container .btn {
+            min-width: 150px;
+            justify-content: center;
+        }
+
+        /* Grid responsive */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 25px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .actions-container {
+                flex-direction: column;
+            }
+            
+            .actions-container .btn {
+                min-width: 100%;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .form-section {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container fade-in">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="logo-container">
+                <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" alt="Euskodev Logo">
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <h1 class="page-title">{% trans "Agregar Cliente Nuevo" %}</h1>
+            <p class="page-subtitle">Complete la información del cliente para continuar con el presupuesto</p>
+
+            <!-- 🔍 Buscador de clientes existentes -->
+            <div class="search-container">
+                <h3 class="section-title">
+                    <i class="bi bi-search me-2"></i>Buscar Cliente Existente
+                </h3>
+                <div class="search-box">
+                    <input type="text" id="cliente-search" class="search-input" placeholder="Escribe el nombre, empresa o NIF del cliente...">
+                    <i class="bi bi-search search-icon"></i>
+                </div>
+                <div id="cliente-list" class="client-list"></div>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <h3 class="section-title">
+                    <i class="bi bi-person-plus me-2"></i>Información del Cliente
+                </h3>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="id_nombre">
+                            <i class="bi bi-person me-2"></i>Nombre Completo *
+                        </label>
+                        {{ form.nombre }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_empresa">
+                            <i class="bi bi-building me-2"></i>Empresa
+                        </label>
+                        {{ form.empresa }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_nif">
+                            <i class="bi bi-card-text me-2"></i>NIF/CIF
+                        </label>
+                        {{ form.nif }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_email">
+                            <i class="bi bi-envelope me-2"></i>Email
+                        </label>
+                        {{ form.email }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_telefono">
+                            <i class="bi bi-telephone me-2"></i>Teléfono
+                        </label>
+                        {{ form.telefono }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_ciudad">
+                            <i class="bi bi-geo-alt me-2"></i>Ciudad
+                        </label>
+                        {{ form.ciudad }}
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="id_codigo_postal">
+                            <i class="bi bi-mailbox me-2"></i>Código Postal
+                        </label>
+                        {{ form.codigo_postal }}
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="id_direccion">
+                            <i class="bi bi-house me-2"></i>Dirección Completa
+                        </label>
+                        {{ form.direccion }}
+                    </div>
+                </div>
+
+                <!-- Acciones -->
+                <div class="actions-container">
+                    <button type="submit" class="btn-primary-custom">
+                        <i class="bi bi-check-circle"></i> Guardar Cliente
+                    </button>
+                    
+                    <a href="{% url 'dashboard_app:create_budget' %}" class="btn-secondary-custom">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const clientes = [
+                {% for cliente in clientes %}
+                    {
+                        "id": "{{ cliente.id }}",
+                        "nombre": "{{ cliente.nombre }}",
+                        "empresa": "{{ cliente.empresa }}",
+                        "nif": "{{ cliente.nif }}",
+                        "email": "{{ cliente.email }}",
+                        "telefono": "{{ cliente.telefono }}",
+                        "ciudad": "{{ cliente.ciudad }}",
+                        "codigo_postal": "{{ cliente.codigo_postal }}",
+                        "direccion": "{{ cliente.direccion }}"
+                    },
+                {% endfor %}
+            ];
+
+            const searchInput = document.getElementById("cliente-search");
+            const resultList = document.getElementById("cliente-list");
+
+            searchInput.addEventListener("input", function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                resultList.innerHTML = "";
+
+                if (searchTerm.length > 1) {
+                    const filteredClients = clientes.filter(cliente =>
+                        cliente.nombre.toLowerCase().includes(searchTerm) || 
+                        cliente.nif.toLowerCase().includes(searchTerm) ||
+                        (cliente.empresa && cliente.empresa.toLowerCase().includes(searchTerm))
+                    );
+
+                    if (filteredClients.length > 0) {
+                        filteredClients.forEach(cliente => {
+                            const listItem = document.createElement("div");
+                            listItem.className = "client-item";
+                            listItem.innerHTML = `
+                                <div class="client-name">${cliente.nombre}</div>
+                                <div class="client-details">
+                                    ${cliente.empresa ? cliente.empresa + ' • ' : ''}${cliente.nif}
+                                    ${cliente.ciudad ? ' • ' + cliente.ciudad : ''}
+                                </div>
+                            `;
+                            listItem.addEventListener("click", function() {
+                                rellenarFormulario(cliente);
+                                resultList.innerHTML = "";
+                                searchInput.value = "";
+                            });
+                            resultList.appendChild(listItem);
+                        });
+                    } else {
+                        const noResults = document.createElement("div");
+                        noResults.className = "client-item";
+                        noResults.innerHTML = '<div class="text-muted">No se encontraron clientes</div>';
+                        resultList.appendChild(noResults);
+                    }
+                }
+            });
+
+            function rellenarFormulario(cliente) {
+                document.getElementById("id_nombre").value = cliente.nombre || '';
+                document.getElementById("id_empresa").value = cliente.empresa || '';
+                document.getElementById("id_nif").value = cliente.nif || '';
+                document.getElementById("id_email").value = cliente.email || '';
+                document.getElementById("id_telefono").value = cliente.telefono || '';
+                document.getElementById("id_ciudad").value = cliente.ciudad || '';
+                document.getElementById("id_codigo_postal").value = cliente.codigo_postal || '';
+                document.getElementById("id_direccion").value = cliente.direccion || '';
+                
+                // Mostrar mensaje de éxito
+                const successMsg = document.createElement("div");
+                successMsg.className = "alert alert-success mt-3";
+                successMsg.innerHTML = `<i class="bi bi-check-circle me-2"></i>Datos de <strong>${cliente.nombre}</strong> cargados correctamente`;
+                resultList.parentNode.insertBefore(successMsg, resultList.nextSibling);
+                
+                setTimeout(() => successMsg.remove(), 3000);
+            }
+
+            // Mejorar los estilos de los campos del formulario
+            document.querySelectorAll('input, textarea, select').forEach(element => {
+                if (!element.className.includes('form-control-custom')) {
+                    element.className = 'form-control-custom';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

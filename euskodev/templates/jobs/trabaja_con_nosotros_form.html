@@ -1,0 +1,292 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<div class="container position-relative py-5" style="padding-top: 180px!important; padding-bottom: 200px!important;">
+    <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-4 text-white">Unirme al equipo de Euskodev</h2>
+        <div class="d-inline-flex align-items-center justify-content-center p-4 rounded-4 position-relative overflow-hidden" 
+             style="background: rgba(255, 255, 255, 0.08)!important; border: 1px solid rgba(255, 255, 255, 0.15)!important; backdrop-filter: blur(15px); box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(42, 195, 181, 0.1), transparent); pointer-events: none;"></div>
+            <span id="wavingHand" class="fs-1 me-4" style="display: inline-block; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));">👋</span>
+            <div class="text-start position-relative">
+                <h5 class="fw-bold mb-1 text-white">{% trans '¡Hola! Qué bueno verte por aquí' %}</h5>
+                <p class="text-white small mb-0 opacity-75">{% trans 'Estamos deseando conocer tu talento. ¡Mucha suerte!' %}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="position-relative" style="max-width: 900px; margin: auto;">
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Errores:</strong>
+            <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Formulario -->
+        <form id="jobForm" method="post" enctype="multipart/form-data" class="join-apply-form position-relative" style="z-index: 1;" action="{% url 'home_app:trabaja_con_nosotros_form' %}">
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nombre</label>
+                    {{ form.nombre }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Apellido</label>
+                    {{ form.apellido }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Correo electrónico</label>
+                    {{ form.correo }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Teléfono de contacto</label>
+                    {{ form.telefono }}
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">{{ form.puesto.label }}</label>
+                    {{ form.puesto }}
+                </div>
+                <div class="col-12">
+                    <label class="form-label">{{ form.mensaje.label }}</label>
+                    {{ form.mensaje }}
+                </div>
+                <div class="col-12">
+                    <label class="form-label d-block">Sube tu currículum aquí</label>
+                    <label for="curriculum" id="uploadBox" class="upload-box d-flex align-items-center justify-content-center flex-column text-center">
+                        <div id="uploadIcon" class="display-6 text-primary">+</div>
+                        <div id="uploadText" class="text-muted">Haz clic o arrastra tu archivo aquí</div>
+                        {{ form.curriculum }}
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button type="submit" id="submitBtn" class="join-apply-btn">
+                        Enviar solicitud / Bidali eskaera
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        
+        <!-- Mensaje de éxito -->
+        <div id="successMessage" class="success-box text-center d-none">
+            <div class="icon-wrap mb-3">
+                <svg id="checkIcon" width="100" height="100" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="48" stroke="#3abfd1" stroke-width="4" fill="none" />
+                    <path d="M30 55 L45 70 L75 40" stroke="#3abfd1" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h4 class="mt-3 fw-bold text-dark">¡Recibido con éxito! 🚀</h4>
+            <p class="text-muted lead">{% trans 'Gracias por postularte. Revisaremos tu CV con mucho cariño y nos pondremos en contacto contigo lo antes posible.' %}</p>
+        </div>
+    </div>
+</div>
+
+<!-- 🔧 ESTILOS -->
+<style>
+.join-apply-form {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.92));
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(6px);
+}
+
+.join-apply-form .form-label {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.join-apply-form input,
+.join-apply-form select,
+.join-apply-form textarea {
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    padding: 10px 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.join-apply-form input:focus,
+.join-apply-form select:focus,
+.join-apply-form textarea:focus {
+    border-color: #2ac3b5;
+    box-shadow: 0 0 0 4px rgba(42, 195, 181, 0.15);
+    outline: none;
+}
+
+.join-apply-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: linear-gradient(135deg, #2ac3b5, #148a83);
+    color: #0b0f1a;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 18px 40px rgba(26, 195, 181, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.join-apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 50px rgba(26, 195, 181, 0.3);
+    filter: saturate(1.08);
+}
+
+.success-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    padding: 60px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.upload-box {
+    border: 2px dashed rgba(42, 195, 181, 0.7);
+    border-radius: 14px;
+    padding: 40px;
+    cursor: pointer;
+    background-color: rgba(248, 250, 252, 0.9);
+    transition: all 0.3s ease;
+}
+.upload-box:hover {
+    background-color: rgba(42, 195, 181, 0.08);
+}
+.upload-box.active {
+    border-color: #2ac3b5;
+    background-color: rgba(42, 195, 181, 0.15);
+}
+
+.icon-wrap svg {
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+@keyframes pulse-glow {
+    0%   { filter: drop-shadow(0 0 0px #3abfd1); }
+    50%  { filter: drop-shadow(0 0 10px #3abfd1); }
+    100% { filter: drop-shadow(0 0 0px #3abfd1); }
+}
+</style>
+
+<!-- ✅ FUNCIONALIDAD -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('jobForm');
+    const button = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    const fileInput = document.getElementById('curriculum');
+    const uploadBox = document.getElementById('uploadBox');
+    const uploadText = document.getElementById('uploadText');
+    const uploadIcon = document.getElementById('uploadIcon');
+    const wavingHand = document.getElementById('wavingHand');
+
+    // ✅ Animación GSAP natural para la manito (Saludando)
+    if (wavingHand) {
+        gsap.to(wavingHand, {
+            rotation: 15,
+            duration: 0.8,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            transformOrigin: "bottom center",
+            scale: 1.1
+        });
+    }
+
+    // ✅ Animación al subir archivo
+    fileInput.addEventListener('change', function () {
+        if (fileInput.files.length > 0) {
+            uploadBox.classList.add('active');
+            uploadIcon.textContent = '✔';
+            uploadText.textContent = 'Archivo cargado: ' + fileInput.files[0].name;
+        }
+    });
+
+    // ✅ Desactiva la primera opción del select
+    const puestoSelect = document.querySelector('select[name="{{ form.puesto.name }}"]');
+    if (puestoSelect) {
+        puestoSelect.options[0].disabled = true;
+    }
+
+    // ✅ Envío real mediante Fetch para no recargar la página y mostrar la animación
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        button.disabled = true;
+        button.innerText = "Enviando...";
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                form.reset();
+                uploadBox.classList.remove('active');
+                uploadIcon.textContent = '+';
+                uploadText.textContent = 'Haz clic o arrastra tu archivo aquí';
+
+                // Mostrar y animar el mensaje de éxito
+                successMessage.classList.remove("d-none");
+                gsap.fromTo(successMessage, 
+                    { opacity: 0, scale: 0.8 }, 
+                    { 
+                        opacity: 1, 
+                        scale: 1, 
+                        duration: 1, 
+                        ease: "elastic.out(1, 0.5)", 
+                        onComplete: () => {
+                            setTimeout(() => {
+                                gsap.to(successMessage, {
+                                    opacity: 0,
+                                    scale: 0.8,
+                                    duration: 0.6,
+                                    ease: "power1.in",
+                                    onComplete: () => {
+                                        successMessage.classList.add("d-none");
+                                        button.disabled = false;
+                                        button.innerText = "Enviar solicitud";
+                                    }
+                                });
+                            }, 4000);
+                        }
+                    }
+                );
+            } else {
+                alert("Error al enviar la solicitud. Por favor, revisa los campos e intenta de nuevo.");
+                button.disabled = false;
+                button.innerText = "Enviar solicitud";
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Ocurrió un error inesperado. Por favor, inténtalo más tarde.");
+            button.disabled = false;
+            button.innerText = "Enviar solicitud";
+        });
+    });
+});
+</script>
+
+{% endblock %}

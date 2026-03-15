@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>La Maison du Bordeaux - Aprópos</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'portfolio/la-maison-du-bordeaux/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <h1 class="site-heading text-center text-faded d-none d-lg-block">
+                <span class="site-heading-upper text-primary mb-3">La Maison du Bordeaux</span>
+                <span class="site-heading-lower">Chocolats et Bonbons</span>
+            </h1>
+        </header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux' %}">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux-apropos' %}">A própos</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux-produits' %}">Produits</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{% url 'home_app:la-maison-du-bordeaux-boutique' %}">Boutique</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section about-heading">
+            <div class="container">
+                <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="assets/img/about.jpg" alt="..." />
+                <div class="about-heading-content">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-10 mx-auto">
+                            <div class="bg-faded rounded p-5">
+                                <h2 class="section-heading mb-4">
+                                    <span class="section-heading-upper">Chocolats</span>
+                                    <span class="section-heading-lower">À propos de notre chocolaterie</span>
+                                </h2>
+                                <p>La Maison du Bordeaux" a été fondée en 1987 et est devenue une destination incontournable pour les amateurs de chocolat. Chaque année, des touristes de toute l'Europe et du monde entier viennent découvrir nos créations uniques. Notre spécialité est le chocolat noir aux saveurs de fruits, une combinaison raffinée qui séduit les palais les plus exigeants.<br><br>
+
+                                    L'histoire de notre chocolaterie est marquée par la passion et l'exploration. La fondatrice de "La Maison du Bordeaux" a entrepris un voyage au Costa Rica, où elle a découvert les fèves de cacao locales d'une qualité exceptionnelle. Inspirée par cette découverte, elle a décidé de rapporter ce trésor en France pour le partager avec les amateurs de chocolat français. Grâce à ce voyage, nous avons pu introduire sur le marché français des produits uniques qui se distinguent par leur goût riche et authentique.<br><br>
+                                    
+                                    Aujourd'hui, "La Maison du Bordeaux" est fière de fournir des chocolats et des bonbons à de nombreuses villes à travers la France. Nos produits sont également très demandés pour les mariages et les événements spéciaux, où ils ajoutent une touche d'élégance et de délice. Chaque pièce est confectionnée avec une attention méticuleuse aux détails et un engagement envers la qualité, garantissant une expérience gustative inoubliable. <br><br>
+                                    
+                                    Nous invitons tous les amateurs de chocolat à visiter notre boutique et à découvrir par eux-mêmes la magie de "La Maison du Bordeaux".with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-faded text-center py-5">
+            <div class="container"><p class="m-0 small">Created by <a href="https://www.euskodev.eus">Euskodev</a></p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

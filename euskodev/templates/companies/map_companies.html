@@ -1,0 +1,171 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+     <style>
+        #map3 { height: 100vh; }
+     </style>
+
+{% endblock %}
+
+{% block content %}
+
+
+ <div id="map3"></div>
+
+
+
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+<script>
+    var customIcon = L.icon({
+        iconUrl: '{% static "img/companies/blue-mark.png" %}', // URL de la imagen del icono
+        iconSize: [50, 50], // Tamaño del icono [ancho, alto]
+        iconAnchor: [20, 50], // Punto de anclaje del icono (centro inferior)
+        popupAnchor: [0, -40] // Punto de anclaje del popup relativo al icono
+    });
+
+    // Iconos de colores personalizados
+var iconBlue = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var iconRed = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var iconGreen = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var iconOrange = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var iconYellow = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var iconViolet = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var iconGrey = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+var iconBlack = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
+
+
+    var mymap = L.map('map3').setView([43.308795942880394, -1.890163412957376], 15); // Centrado en Donostia
+   mymap.attributionControl.addAttribution("<a href=\"https://www.jawg.io?utm_medium=map&utm_source=attribution\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors");
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://carto.com/">CARTO</a> | &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+}).addTo(mymap);
+
+
+    {% for victim in datos %}
+        var popupContent = `
+            {% if victim.logo %}<img class='w-100' src='/media/{{ victim.logo }}'>{% endif %}<br>
+            {% if victim.email %}{{ victim.email }}{% endif %}<br>
+            {% if victim.phone %}{{ victim.phone }}{% endif %}<br>
+            {% if victim.website %}{{ victim.website }}{% endif %}<br>
+            {% if victim.address %}{{ victim.address }}{% endif %}<br>
+            {% if victim.city %}{{ victim.city }}{% endif %}<br>
+            {% if victim.has_website %}Web:Sí{% endif %}<br>
+            {% if victim.has_mobile_app %}APP:Sí{% endif %}<br>
+            {% if victim.has_custom_software %}Software: Sí{% endif %}<br>
+            {% if victim.uses_ai %}Usa IA: Sí{% endif %}<br>
+            {% if victim.manager_name %}Gerente:{{ victim.manager_name }}{% endif %}<br>
+            {% if victim.manager_phone %}Tel.Gerente:{{ victim.manager_phone }}{% endif %}<br>
+        `;
+       
+        {% if victim.is_competition_company %}
+        var marker = L.marker([ {{victim.latitude}} , {{ victim.longitude }}], { icon: iconRed }).addTo(mymap);
+                    marker.bindTooltip("{{ victim.name }}", {
+                permanent: true,
+                direction: 'top',
+                offset: [0, -40]  // ← mueve el texto 50px hacia arriba
+            }).openTooltip();
+        
+        {% elif victim.visited %}
+        var marker = L.marker([ {{victim.latitude}} , {{ victim.longitude }}], { icon: iconGreen }).addTo(mymap);
+            marker.bindTooltip("{{ victim.name }}", {
+                permanent: true,
+                direction: 'top',
+                offset: [0, -40]  // ← mueve el texto 50px hacia arriba
+            }).openTooltip();
+        {% else %}
+        var marker = L.marker([ {{victim.latitude}} , {{ victim.longitude }}], { icon: iconBlue }).addTo(mymap);
+            marker.bindTooltip("{{ victim.name }}", {
+                permanent: true,
+                direction: 'top',
+                offset: [0, -40]  // ← mueve el texto 50px hacia arriba
+            }).openTooltip();
+        {% endif %}
+
+        marker.bindPopup(popupContent);
+    {% endfor %}
+
+</script>
+
+
+{% endblock %}
+
+
+
+
