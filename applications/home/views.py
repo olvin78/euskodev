@@ -112,14 +112,12 @@ def formulario_contactar(request):
 
 def formulario_contactar2(request):
     if request.method == "POST":
-        print("post")
         name = request.POST.get("name", "")
         email = request.POST.get("email", "")
         phone = request.POST.get("phone", "")
         company = request.POST.get("company", "")
         message = request.POST.get("message", "")
         recaptcha_response = request.POST.get("g-recaptcha-response")
-        print("POST con estos datos:",name,email,phone,company,message,recaptcha_response)
 
         # Enviar correo con los datos ingresados desde la web
         asunto = f"Euskodev Nuevo mensaje de contacto de {name}"
@@ -131,7 +129,6 @@ def formulario_contactar2(request):
         )
 
         try:
-            print("Try de la función send_mail")
             send_mail(
             asunto,
             contenido,
@@ -139,14 +136,10 @@ def formulario_contactar2(request):
             ["info@euskodev.eus"],  # <-- cámbialo por otro correo real tuyo
             fail_silently=False,
         )
-
-            print("Enviado email")
-
             messages.success(request, "Tu mensaje ha sido enviado con éxito.")
             return redirect("home_app:home")
 
         except Exception as e:
-            print(f"Error en send_mail: {e}")  # Esto imprimirá el error en la terminal
             messages.error(request, f"Error al enviar el correo: {str(e)}")
             return render(request, "home/index.html", {
                 "name": name,

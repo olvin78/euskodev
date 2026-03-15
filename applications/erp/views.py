@@ -2,8 +2,10 @@ from django.views.generic import TemplateView, DetailView, ListView, UpdateView,
 from django.db.models import Q, Count, Sum
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.decorators.http import require_POST
 
 # 🔹 Importar modelos
 from .models import Client, Budget, BudgetItem
@@ -16,7 +18,16 @@ from .forms import BudgetForm, BudgetItemFormSet, ClientForm
 # ===============================
 # DASHBOARD
 # ===============================
-class DashboardView(UserPassesTestMixin, TemplateView):
+class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def handle_no_permission(self):
+        messages.error(self.request, "Solo el equipo staff puede acceder.")
+        return redirect("home_app:home")
+
+
+class DashboardView(StaffRequiredMixin, TemplateView):
     template_name = "dashboard/index.html"
 
     def get_context_data(self, **kwargs):
@@ -29,18 +40,10 @@ class DashboardView(UserPassesTestMixin, TemplateView):
 
         return context
 
-    def test_func(self):
-        return self.request.user.is_staff
-
-    def handle_no_permission(self):
-        messages.error(self.request, "Solo el equipo staff puede acceder.")
-        return redirect("home_app:home")
-
-
 # ===============================
 # CREAR PRESUPUESTO
 # ===============================
-class BudgetCreateView(CreateView):
+class BudgetCreateView(StaffRequiredMixin, CreateView):
     model = Budget
     form_class = BudgetForm
     template_name = 'dashboard/presupuesto.html'
@@ -69,7 +72,7 @@ class BudgetCreateView(CreateView):
 # ===============================
 # ACTUALIZAR PRESUPUESTO
 # ===============================
-class BudgetUpdateView(UpdateView):
+class BudgetUpdateView(StaffRequiredMixin, UpdateView):
     model = Budget
     form_class = BudgetForm
     template_name = "dashboard/budget_form.html"
@@ -97,7 +100,7 @@ class BudgetUpdateView(UpdateView):
 # ===============================
 # LISTAR PRESUPUESTOS
 # ===============================
-class BudgetListView(ListView):
+class BudgetListView(StaffRequiredMixin, ListView):
     model = Budget
     template_name = "dashboard/budget_list.html"
     context_object_name = "budgets"
@@ -116,7 +119,7 @@ class BudgetListView(ListView):
 # ===============================
 # VER DETALLE DE PRESUPUESTO
 # ===============================
-class BudgetDetailView(DetailView):
+class BudgetDetailView(StaffRequiredMixin, DetailView):
     model = Budget
     template_name = "dashboard/budget_detail.html"
     context_object_name = "budget"
@@ -138,6 +141,8 @@ class BudgetDetailView(DetailView):
 # ===============================
 # AÑADIR CLIENTE DESDE PRESUPUESTO
 # ===============================
+@login_required
+@user_passes_test(lambda user: user.is_staff)
 def add_client(request):
     if request.method == 'POST':
         form = ClientForm(request.POST)
@@ -154,6 +159,9 @@ def add_client(request):
 # ===============================
 # ELIMINAR ÍTEM DE PRESUPUESTO
 # ===============================
+@login_required
+@user_passes_test(lambda user: user.is_staff)
+@require_POST
 def delete_budget_item(request, item_id):
     item = get_object_or_404(BudgetItem, id=item_id)
     budget_id = item.presupuesto.id

@@ -931,6 +931,13 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
         return cookieValue;
     }
     
+    const escapeHtml = (value) => String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
     fetch('/es/test/procesar/', {
         method: 'POST',
         headers: {
@@ -948,6 +955,15 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
             return;
         }
         
+        const scoreValue = Number(result.score ?? result.porcentaje ?? 0) || 0;
+        const nivelText = escapeHtml(result.nivel);
+        const descripcionText = escapeHtml(result.descripcion);
+        const analisisText = escapeHtml(result.analisis_profundo);
+        const companyName = escapeHtml(data.company_name);
+        const businessActivity = escapeHtml(data.business_activity);
+        const oportunidades = (result.oportunidades || []).map(opp => escapeHtml(opp));
+        const recomendaciones = (result.recomendaciones || result.recomendaciones_ai || []).map(rec => escapeHtml(rec));
+
         document.querySelector('.quiz-container').innerHTML = `
             <div class="result-dossier" style="animation: slideUpFade 0.8s ease; background: rgba(10, 10, 15, 0.4); backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.05); border-radius: 60px; padding: 80px; box-shadow: 0 50px 150px rgba(0,0,0,0.6); max-width: 1300px; margin: 0 auto;">
                 
@@ -957,10 +973,10 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
                         <div style="position: relative; width: 180px; height: 180px; margin: 0 auto;">
                             <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
                                 <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="2" />
-                                <circle cx="18" cy="18" r="16" fill="none" stroke="#00e5c4" stroke-width="2.5" stroke-dasharray="${result.score || result.porcentaje}, 100" stroke-linecap="round" style="transition: stroke-dasharray 2s ease-out; filter: drop-shadow(0 0 10px rgba(0, 229, 196, 0.5));" />
+                                <circle cx="18" cy="18" r="16" fill="none" stroke="#00e5c4" stroke-width="2.5" stroke-dasharray="${scoreValue}, 100" stroke-linecap="round" style="transition: stroke-dasharray 2s ease-out; filter: drop-shadow(0 0 10px rgba(0, 229, 196, 0.5));" />
                             </svg>
                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                                <span style="display: block; font-size: 3rem; font-weight: 800; color: #fff; line-height: 1;">${result.score || result.porcentaje}%</span>
+                                <span style="display: block; font-size: 3rem; font-weight: 800; color: #fff; line-height: 1;">${scoreValue}%</span>
                                 <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;">Score</span>
                             </div>
                         </div>
@@ -973,16 +989,16 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
                                 ${result.ai_powered ? '<span style="border-left: 1px solid rgba(0,229,196,0.3); padding-left: 10px; margin-left: 10px;">CDO AI ON</span>' : ''}
                             </div>
                             <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; line-height: 1.1;">
-                                Dossier <span style="background: linear-gradient(135deg, #00e5c4, #7c3aed); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">${result.nivel}</span>
+                                Dossier <span style="background: linear-gradient(135deg, #00e5c4, #7c3aed); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">${nivelText}</span>
                             </h2>
-                            <p style="color: var(--text-muted); font-size: 1.4rem; font-weight: 300;">Análisis para <strong>${data.company_name}</strong></p>
+                            <p style="color: var(--text-muted); font-size: 1.4rem; font-weight: 300;">Análisis para <strong>${companyName}</strong></p>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                          <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
                             <div style="font-size: 0.75rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Tu perfil</div>
-                            <div style="font-size: 1.1rem; color: #fff; font-weight: 600;">${data.business_activity || data.business_activity}</div>
+                            <div style="font-size: 1.1rem; color: #fff; font-weight: 600;">${businessActivity}</div>
                          </div>
                     </div>
                 </div>
@@ -992,7 +1008,7 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
                     <div class="col-lg-12">
                          <div style="background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent); padding: 40px; border-radius: 35px; border-left: 5px solid #00e5c4;">
                             <h4 style="font-size: 1.25rem; margin-bottom: 20px; color: #fff; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 2px;">Visión Ejecutiva</h4>
-                            <p style="color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.2rem; margin-bottom: 0;">${result.descripcion}</p>
+                            <p style="color: rgba(255,255,255,0.8); line-height: 1.7; font-size: 1.2rem; margin-bottom: 0;">${descripcionText}</p>
                         </div>
                     </div>
                 </div>
@@ -1005,7 +1021,7 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
                                 <span style="width: 40px; height: 3px; background: #7c3aed; border-radius: 50px;"></span> ¿Qué significa esto para ti?
                             </h3>
                             <div style="color: rgba(255,255,255,0.7); line-height: 2; font-size: 1.15rem; white-space: pre-line;">
-                                ${result.analisis_profundo}
+                                ${analisisText}
                             </div>
                         </div>
                     </div>
@@ -1019,7 +1035,7 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
                                 <i class="bi bi-compass" style="font-size: 1.6rem;"></i> Pasos Estratégicos
                             </h5>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                ${(result.oportunidades || []).map(opp => `
+                                ${oportunidades.map(opp => `
                                     <li style="margin-bottom: 20px; display: flex; gap: 15px; color: rgba(255,255,255,0.7); font-size: 1.05rem; align-items: flex-start;">
                                         <i class="bi bi-check2-circle" style="color: #f59e0b; font-size: 1.3rem; margin-top: -2px;"></i>
                                         <span>${opp}</span>
@@ -1034,7 +1050,7 @@ document.getElementById('quizForm').addEventListener('submit', function(e) {
                                 <i class="bi bi-box-seam" style="font-size: 1.6rem;"></i> Soluciones Euskodev
                             </h5>
                             <ul style="list-style: none; padding: 0; margin: 0;">
-                                ${(result.recomendaciones || result.recomendaciones_ai || []).map(rec => `
+                                ${recomendaciones.map(rec => `
                                     <li style="margin-bottom: 20px; display: flex; gap: 15px; color: rgba(255,255,255,0.7); font-size: 1.05rem; align-items: flex-start;">
                                         <i class="bi bi-arrow-right-square" style="color: #00e5c4; font-size: 1.3rem; margin-top: -2px;"></i>
                                         <span>${rec}</span>

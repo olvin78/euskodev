@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import MailingForm
 from django.conf import settings
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
 
+@login_required
+@user_passes_test(lambda user: user.is_staff)
 def mailing_view(request):
     error = None
     sent = False

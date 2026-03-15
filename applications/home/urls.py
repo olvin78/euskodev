@@ -100,7 +100,7 @@ urlpatterns = [
     path('reservas-pagos-online/', views.reservas_y_pagos, name='reservas_pagos'),
     path('software-a-medida/', views.software_a_medida, name='software_a_medida'),
     path('inteligencia-artificial/', views.inteligencia_artificial, name='inteligencia_artificial'),
-    path('aplicaciones-moviles/', views.aplicaciones_moviles, name='aplicaciones_moviles'),
+    path('apps-moviles/', views.aplicaciones_moviles, name='aplicaciones_moviles'),
     path('sistema-de-ticket/', views.sistema_ticket, name='sistema_ticket'),
     path('base/', views.base, name='base'),
 

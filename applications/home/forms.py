@@ -1,4 +1,6 @@
 from django import forms
+from django.core.validators import FileExtensionValidator
+from django.core.exceptions import ValidationError
 from django_recaptcha.fields import ReCaptchaField
 from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
@@ -15,6 +17,7 @@ class ContactForm(forms.Form):
 
 
 class JobApplicationForm(forms.Form):
+    MAX_CV_SIZE = 5 * 1024 * 1024
     PUESTOS_CHOICES = [
         ('', 'Selecciona un puesto / Aukeratu postu bat'),
 
@@ -100,9 +103,16 @@ class JobApplicationForm(forms.Form):
 
     curriculum = forms.FileField(
         label='Adjuntar currículum / Erantsi zure curriculum-a',
+        validators=[FileExtensionValidator(['pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png'])],
         widget=forms.ClearableFileInput(attrs={
             'class': 'd-none',
             'id': 'curriculum',
             'accept': '.pdf,.doc,.docx,.jpg,.jpeg,.png'
         })
     )
+
+    def clean_curriculum(self):
+        curriculum = self.cleaned_data.get('curriculum')
+        if curriculum and curriculum.size > self.MAX_CV_SIZE:
+            raise ValidationError('El archivo supera el limite de 5MB.')
+        return curriculum

@@ -4,8 +4,6 @@ from django.views.generic.edit import FormView
 from django.views.generic import TemplateView
 from django.urls import reverse_lazy
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from .forms import DigitalizationAssessmentForm
 from .models import DigitalizationAssessment
 from django.conf import settings
@@ -158,7 +156,6 @@ def calcular_nivel_digitalizacion(data):
         'ai_powered': False
     }
 
-@csrf_exempt
 def procesar_test(request):
     """Procesa el test y devuelve el resultado inmediatamente"""
     if request.method == 'POST':

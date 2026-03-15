@@ -3,393 +3,268 @@
 {% load static %}
 
 {% block head %}
-
-
-<!-- GSAP + ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-<!-- Estilos personalizados para la sección -->
-<!-- Estilos personalizados -->
-
-<!-- Estilos personalizados -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-  .card-body {
-    background-color: #ffffff;
-    text-align: center;
-  }
-
-  .card-title {
-    font-size: 1.5rem;
-    color: #333;
+  :root {
+    --ai-neon-teal: #00e5c4;
+    --ai-deep-purple: #7c3aed;
+    --ai-dark-obsidian: #0a0a0f;
+    --ai-glass-bg: rgba(255, 255, 255, 0.03);
+    --ai-glass-border: rgba(255, 255, 255, 0.08);
+    --text-white: #f8fafc;
+    --text-dim: #94a3b8;
   }
 
-  .list-unstyled li {
-    font-size: 1.1rem;
-    color: #555;
+  body { 
+    background-color: var(--ai-dark-obsidian); 
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
   }
 
-  .card-body p {
-    font-size: 1rem;
-    color: #777;
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
-  .btn-primary {
-    background-color: #348D94;
+  .btn-ai {
+    background: linear-gradient(135deg, var(--ai-neon-teal), var(--ai-deep-purple));
+    color: #050508 !important;
     border: none;
-    color: white;
-    font-weight: bold;
-  }
-
-  .btn-primary:hover {
-    background-color: #5ce9e2;
-  }
-</style>
-
-<style>
-  .section-title {
-    border-left: 4px solid #0d6efd;
-    padding-left: 10px;
-  }
-</style>
-
-<!-- Estilos extra -->
-<style>
-  .beneficio-wrapper {
-    background: linear-gradient(135deg, #e0f7f9, #f5fdff);
-    overflow: hidden;
-  }
-
-  .beneficio-animado {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.5s ease-out;
-  }
-
-  .beneficio-icono {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .beneficio-titulo {
+    border-radius: 12px;
     font-weight: 700;
+    padding: 1.25rem 2.5rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .btn-ai:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 229, 196, 0.4);
+  }
+
+  .luxury-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--ai-neon-teal);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .hero-section {
+    position: relative;
+    padding: 180px 0 120px;
+    background: radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.15), transparent),
+                radial-gradient(circle at 80% 70%, rgba(0, 229, 196, 0.1), transparent);
+  }
+
+  .img-container-premium {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid var(--ai-glass-border);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  }
+
+  .attribute-bar {
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--ai-glass-border);
+    border-bottom: 1px solid var(--ai-glass-border);
+    padding: 2.5rem 0;
+  }
+
+  .attribute-value {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ai-neon-teal);
   }
 
-  .beneficio-texto {
-    color: #4a4a4a;
+  .reveal { opacity: 0; transform: translateY(30px); }
+
+  .solution-row { margin-bottom: 140px; }
+  
+  .solution-img-wrapper {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid var(--ai-glass-border);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   }
+
+  .feature-list-premium li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+  }
+
+  .feature-list-premium i { color: var(--ai-neon-teal); font-size: 1.3rem; }
+
 </style>
-
 {% endblock %}
 
 {% block content %}
 
-<div class="container-fluid p-0">
-  <div class="video-container position-relative">
-    <!-- Imagen de fondo -->
-    <img src="{% static 'img/asistente_gpt_chat_bot.png' %}"
-         alt="{% trans 'Imagen de portada representando los servicios digitales de diseño web de Euskodev' %}"
-         class="img-fluid w-100"
-         style="height: 100vh; object-fit: cover; object-position: center;" loading="lazy">
-
-    <!-- Capa oscura -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
-
-    <!-- Contenido centrado -->
-    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3 px-md-5">
-      <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
-      <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
-      <div class="text-center mt-4">
-        <a class="btn btn-lg text-uppercase text-white"
-           href="#contact"
-           style="background: linear-gradient(135deg, #5ce9e2, #348D94);
-                  border-radius: 8px;">
-          {% trans 'Solicita Presupuesto Gratis' %}
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section class="py-5" style="background-color: #e6f2f4; color: #1a1a1a; font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;">
+<!-- Hero Section -->
+<section class="hero-section">
   <div class="container">
-    <div class="row align-items-center">
-      
-      <!-- Texto descriptivo -->
-      <div class="col-md-6 mb-4 mb-md-0">
-        <h2 class="display-5 fw-bold">{% trans "Asistente Inteligente con IA" %}</h2>
-        <p class="lead">
-          {% trans "Euskodev te ofrece una solución de inteligencia artificial conversacional para tu negocio. Automatiza la atención al cliente, responde dudas 24/7 y mejora la experiencia de tus usuarios con un chatbot personalizado." %}
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <span class="luxury-tag">{% trans "Inteligencia Artificial para Negocios" %}</span>
+        <h1 class="hero-title display-3 mb-4">
+          {% trans "Tecnología que" %} <br>
+          <span style="background: linear-gradient(to right, #00e5c4, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{% trans "entiende tu empresa." %}</span>
+        </h1>
+        <p class="lead mb-5 fs-4" style="color: var(--text-dim);">
+          {% trans "Hacemos que la Inteligencia Artificial sea fácil de usar para tu negocio. Creamos soluciones que te ayudan a ahorrar tiempo, vender más y tomar mejores decisiones cada día." %}
         </p>
-        <ul class="list-unstyled">
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Disponible 24/7" %}</li>
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Entrenado con tus datos" %}</li>
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Fácil de integrar en tu web" %}</li>
-          <li><i class="bi bi-check-circle-fill me-2" style="color: #2c9caf;"></i>{% trans "Traduce conversaciones automáticamente a otros idiomas" %}</li>
-        </ul>
-        <a href="#" class="btn btn-lg mt-4 fw-bold text-uppercase w-50"
-           style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
-          {% trans "Solicita una demo" %}
-        </a>
+        <div class="d-flex gap-4 flex-wrap">
+          <a href="#soluciones" class="btn-ai">
+            {% trans "Ver qué podemos hacer" %} <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
       </div>
-
-      <!-- Imagen o animación IA -->
-      <div class="col-md-6 text-center">
-        <img src="{% static 'img/chatbot-gemini.jpeg' %}" alt="{% trans 'Asistente IA' %}" class="img-fluid rounded shadow" style="max-height: 400px;">
+      <div class="col-lg-6 reveal">
+        <div class="img-container-premium">
+          <img src="{% static 'img/workspace_real_v4.png' %}" class="w-100" alt="IA para empresas">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-<div class="container py-5" style="font-family: 'Segoe UI', sans-serif;">
-  <div class="text-center mb-5">
-    <h2 class="fw-bold display-6">{% trans "¿Qué puede hacer tu Asistente Inteligente?" %}</h2>
-    <p class="lead text-secondary">{% trans "Una solución basada en IA que transforma la atención al cliente, automatiza tareas y mejora la experiencia del usuario desde el primer clic." %}</p>
+<!-- Stats Bar -->
+<section class="attribute-bar">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3">
+        <div class="text-dim small fw-bold">{% trans "DISPONIBILIDAD" %}</div>
+        <div class="attribute-value">24 horas / 7 días</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="text-dim small fw-bold">{% trans "RESPUESTA" %}</div>
+        <div class="attribute-value">Al instante</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="text-dim small fw-bold">{% trans "TU INFORMACIÓN" %}</div>
+        <div class="attribute-value">100% Segura</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="text-dim small fw-bold">{% trans "IDÍOMAS" %}</div>
+        <div class="attribute-value">Multilingüe</div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+<!-- Solutions Exploration -->
+<section id="soluciones" class="py-5" style="padding: 120px 0 !important;">
+  <div class="container">
     
-    <!-- Atención automatizada -->
-    <div class="col">
-      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
-        <div class="card-body text-center">
-          <i class="bi bi-robot fs-1 text-info"></i>
-          <h5 class="card-title mt-3 fw-semibold">{% trans "Atención 24/7 con IA" %}</h5>
-          <p class="card-text">{% trans "Responde automáticamente preguntas frecuentes, dudas de clientes y solicitudes comunes en cualquier momento del día, sin necesidad de intervención humana." %}</p>
+    <!-- Solution 1: Assistant -->
+    <div class="row align-items-center solution-row g-5">
+      <div class="col-lg-6 reveal">
+        <div class="solution-img-wrapper">
+          <img src="{% static 'img/ai_assistant_simple.png' %}" class="w-100" alt="Asistente Inteligente">
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="ps-lg-5">
+          <span class="luxury-tag">{% trans "Atención al Cliente" %}</span>
+          <h2 class="hero-title mb-4">{% trans "Un asistente que conoce" %} <span style="color: var(--ai-neon-teal);">{% trans "toda tu empresa" %}</span></h2>
+          <p class="text-dim mb-5 fs-5">{% trans "Imagina un empleado que ha leído todos tus manuales, precios y servicios, y responde a tus clientes al instante, en cualquier idioma y a cualquier hora." %}</p>
+          <ul class="list-unstyled feature-list-premium">
+            <li><i class="bi bi-file-earmark-text"></i> {% trans "Aprende de tus PDFs y documentos" %}</li>
+            <li><i class="bi bi-calendar-event"></i> {% trans "Reserva citas y pedidos solo" %}</li>
+            <li><i class="bi bi-lock"></i> {% trans "Tus datos no salen de tu empresa" %}</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <!-- Promociones inteligentes -->
-    <div class="col">
-      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
-        <div class="card-body text-center">
-          <i class="bi bi-megaphone fs-1 text-success"></i>
-          <h5 class="card-title mt-3 fw-semibold">{% trans "Promociona en tiempo real" %}</h5>
-          <p class="card-text">{% trans "Informa al instante sobre promociones activas, descuentos personalizados y campañas según el perfil del visitante." %}</p>
+    <!-- Solution 2: Prediction -->
+    <div class="row align-items-center solution-row g-5">
+      <div class="col-lg-6 order-lg-2 reveal">
+        <div class="solution-img-wrapper">
+          <img src="{% static 'img/ai_prediction_simple.png' %}" class="w-100" alt="Predicción de ventas">
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1 reveal">
+        <div class="pe-lg-5">
+          <span class="luxury-tag">{% trans "Ventas y Futuro" %}</span>
+          <h2 class="hero-title mb-4">{% trans "Adivina qué pasará con" %} <span style="color: var(--ai-deep-purple);">{% trans "tus ventas" %}</span></h2>
+          <p class="text-dim mb-5 fs-5">{% trans "Analizamos tus números pasados para decirte cuántos clientes tendrás el mes que viene o cuándo te conviene comprar más stock para ahorrar dinero." %}</p>
+          <ul class="list-unstyled feature-list-premium">
+            <li><i class="bi bi-graph-up-arrow"></i> {% trans "Predice picos de trabajo" %}</li>
+            <li><i class="bi bi-cash-stack"></i> {% trans "Detecta dónde pierdes dinero" %}</li>
+            <li><i class="bi bi-person-check"></i> {% trans "Sabe qué cliente es más valioso" %}</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <!-- Personalización -->
-    <div class="col">
-      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
-        <div class="card-body text-center">
-          <i class="bi bi-sliders2 fs-1 text-primary"></i>
-          <h5 class="card-title mt-3 fw-semibold">{% trans "Totalmente Personalizable" %}</h5>
-          <p class="card-text">{% trans "El asistente puede adaptarse al tono, lenguaje y necesidades de tu marca. Desde un ecommerce hasta una clínica o gestoría, se ajusta a tu negocio." %}</p>
+    <!-- Solution 3: Smart Eyes -->
+    <div class="row align-items-center solution-row g-5">
+      <div class="col-lg-6 reveal">
+        <div class="solution-img-wrapper">
+          <img src="{% static 'img/ai_factory_simple.png' %}" class="w-100" alt="Cámaras inteligentes">
         </div>
       </div>
-    </div>
-
-    <!-- Asesor inteligente -->
-    <div class="col">
-      <div class="card h-100 border-0 rounded-4 shadow-sm p-4 bg-light text-dark">
-        <div class="card-body text-center">
-          <i class="bi bi-lightbulb fs-1 text-warning"></i>
-          <h5 class="card-title mt-3 fw-semibold">{% trans "Asesor Virtual Avanzado" %}</h5>
-          <p class="card-text">{% trans "Guía a tus usuarios en sus decisiones: qué producto elegir, qué servicio contratar o cómo resolver un problema. Como un vendedor experto, pero digital." %}</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-
-<section class="py-5" style="background-color: #f4f9fc; font-family: 'Segoe UI', sans-serif;">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">{% trans "¿Dónde puede ayudarte el Asistente Inteligente?" %}</h2>
-      <p class="lead text-secondary">
-        {% trans "El asistente de Euskodev se adapta a diferentes sectores y necesidades, ofreciendo soluciones reales para automatizar, vender más y mejorar la experiencia del cliente." %}
-      </p>
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <!-- Ecommerce -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
-          <div class="card-body">
-            <div class="text-center mb-3">
-              <i class="bi bi-cart-check fs-1 text-primary"></i>
-            </div>
-            <h5 class="card-title text-center fw-semibold">{% trans "Tiendas Online" %}</h5>
-            <p class="card-text text-secondary">
-              {% trans "Ayuda a los visitantes a encontrar productos, responder preguntas frecuentes y finalizar sus compras más rápido. Reduce carritos abandonados con atención 24/7." %}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Salud -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
-          <div class="card-body">
-            <div class="text-center mb-3">
-              <i class="bi bi-heart-pulse fs-1 text-danger"></i>
-            </div>
-            <h5 class="card-title text-center fw-semibold">{% trans "Clínicas y Centros Médicos" %}</h5>
-            <p class="card-text text-secondary">
-              {% trans "Gestiona reservas de citas, responde dudas comunes de pacientes y ofrece información útil sobre tratamientos o especialidades sin saturar tu personal." %}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Servicios Profesionales -->
-      <div class="col">
-        <div class="card h-100 border-0 shadow-sm rounded-4 p-4">
-          <div class="card-body">
-            <div class="text-center mb-3">
-              <i class="bi bi-briefcase fs-1 text-success"></i>
-            </div>
-            <h5 class="card-title text-center fw-semibold">{% trans "Servicios y Consultorías" %}</h5>
-            <p class="card-text text-secondary">
-              {% trans "Capta clientes respondiendo sus preguntas en tiempo real, ofrece presupuestos estimados y agenda reuniones sin esfuerzo. Ideal para despachos, agencias y más." %}
-            </p>
-          </div>
+      <div class="col-lg-6 reveal">
+        <div class="ps-lg-5">
+          <span class="luxury-tag">{% trans "Control y Calidad" %}</span>
+          <h2 class="hero-title mb-4">{% trans "Ojos inteligentes para" %} <span style="color: var(--ai-neon-teal);">{% trans "tu negocio" %}</span></h2>
+          <p class="text-dim mb-5 fs-5">{% trans "Usamos cámaras para contar productos, detectar fallos en tu fábrica o ver cuánta gente entra en tu tienda sin que tengas que mirar una pantalla." %}</p>
+          <ul class="list-unstyled feature-list-premium">
+            <li><i class="bi bi-eye"></i> {% trans "Detecta errores al instante" %}</li>
+            <li><i class="bi bi-shield-shaded"></i> {% trans "Asegura que todos llevan casco o protección" %}</li>
+            <li><i class="bi bi-clipboard-data"></i> {% trans "Cuenta stock de forma automática" %}</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-<section class="py-5 bg-white" style="font-family: 'Segoe UI', sans-serif;">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">{% trans "¿Cómo se integra el Asistente Inteligente?" %}</h2>
-      <p class="lead text-secondary">
-        {% trans "Nuestro equipo te acompaña paso a paso para implementar el asistente en tu negocio, sin complicaciones técnicas ni instalaciones complejas." %}
-      </p>
-    </div>
-
-    <div class="row g-5">
-      <!-- Paso 1 -->
-      <div class="col-md-4 text-center">
-        <div class="mb-3">
-          <i class="bi bi-chat-dots fs-1 text-info"></i>
-        </div>
-        <h5 class="fw-semibold">{% trans "1. Definimos tu objetivo" %}</h5>
-        <p class="text-secondary">
-          {% trans "Analizamos qué necesitas: atención al cliente, generación de leads, reservas, ventas o todo junto. El asistente se adapta a ti." %}
-        </p>
-      </div>
-
-      <!-- Paso 2 -->
-      <div class="col-md-4 text-center">
-        <div class="mb-3">
-          <i class="bi bi-tools fs-1 text-primary"></i>
-        </div>
-        <h5 class="fw-semibold">{% trans "2. Configuramos el asistente" %}</h5>
-        <p class="text-secondary">
-          {% trans "Personalizamos el flujo de conversación con tus datos, servicios y estilo de comunicación. Puedes incluir respuestas automáticas, botones y enlaces." %}
-        </p>
-      </div>
-
-      <!-- Paso 3 -->
-      <div class="col-md-4 text-center">
-        <div class="mb-3">
-          <i class="bi bi-plug fs-1 text-success"></i>
-        </div>
-        <h5 class="fw-semibold">{% trans "3. Lo integramos en tu web" %}</h5>
-        <p class="text-secondary">
-          {% trans "Instalamos el asistente en tu página en minutos. Funciona con WordPress, HTML, tiendas online o cualquier CMS. También se puede usar en WhatsApp o redes." %}
-        </p>
-      </div>
-    </div>
-
-    <div class="text-center mt-5">
-      <a href="#contact" class="btn btn-lg text-uppercase fw-bold"
-         style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
-        {% trans "Quiero integrar mi asistente" %}
-      </a>
-    </div>
+<!-- Call to Action -->
+<section class="py-5 text-center" style="background: linear-gradient(to bottom, transparent, rgba(124, 58, 237, 0.05)); padding: 150px 0 !important;">
+  <div class="container reveal">
+    <h2 class="hero-title display-3 mb-4">{% trans "¿Quieres ver cómo" %} <span style="color: var(--ai-neon-teal);">{% trans "ayudaría a tu empresa?" %}</span></h2>
+    <p class="lead mb-5 mx-auto text-dim" style="max-width: 650px;">
+      {% trans "No importa el tamaño de tu negocio. Cuéntanos qué haces y te diremos qué herramienta te ahorrará más tiempo y dinero." %}
+    </p>
+    <a href="/#contact" class="btn-ai fs-5 px-5 py-4">
+      {% trans "Pedir información sin compromiso" %}
+    </a>
   </div>
 </section>
 
-
-
-
-
-
-
-<section class="py-5 beneficio-wrapper" id="beneficios">
-  <div class="container py-5">
-    <div class="row align-items-center">
-      
-      <!-- Lado izquierdo: texto general -->
-      <div class="col-md-6 text-center text-md-start mb-5 mb-md-0">
-        <h2 class="fw-bold mb-3">{% trans "Beneficios reales para tu negocio" %}</h2>
-        <p class="lead text-secondary">
-          {% trans "Implementar un asistente inteligente no solo mejora la atención: optimiza recursos, automatiza procesos y hace crecer tus conversiones." %}
-        </p>
-        <p class="text-muted">
-          {% trans "Euskodev ofrece una solución lista para integrarse a tu web, app o CRM, con IA adaptable a tu marca y objetivos." %}
-        </p>
-      </div>
-
-      <!-- Lado derecho: beneficios animados -->
-      <div class="col-md-6">
-        <div class="d-flex flex-column gap-4">
-          <div class="beneficio-animado d-flex align-items-start">
-            <i class="bi bi-lightning-charge text-warning beneficio-icono me-3"></i>
-            <div>
-              <div class="beneficio-titulo">{% trans "Respuestas inmediatas" %}</div>
-              <p class="beneficio-texto">{% trans "Atiende a tus clientes sin esperas, 24/7, con velocidad y precisión." %}</p>
-            </div>
-          </div>
-          <div class="beneficio-animado d-flex align-items-start">
-            <i class="bi bi-currency-euro text-success beneficio-icono me-3"></i>
-            <div>
-              <div class="beneficio-titulo">{% trans "Reducción de costes" %}</div>
-              <p class="beneficio-texto">{% trans "Disminuye la carga del equipo humano y ahorra en atención repetitiva." %}</p>
-            </div>
-          </div>
-          <div class="beneficio-animado d-flex align-items-start">
-            <i class="bi bi-bar-chart-line text-primary beneficio-icono me-3"></i>
-            <div>
-              <div class="beneficio-titulo">{% trans "Aumento en conversiones" %}</div>
-              <p class="beneficio-texto">{% trans "Guía a tus usuarios hasta la acción correcta: compra, reserva o contacto." %}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- GSAP ScrollTrigger animation -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
-
-    gsap.utils.toArray(".beneficio-animado").forEach((element, i) => {
-      gsap.fromTo(element,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 80%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
+    gsap.utils.toArray(".reveal").forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 92%",
+          toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out"
+      });
     });
   });
 </script>

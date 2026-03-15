@@ -1,4 +1,12 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
+from django.core.exceptions import ValidationError
+
+
+def validate_logo_size(logo):
+    max_size = 5 * 1024 * 1024
+    if logo.size > max_size:
+        raise ValidationError("El logo supera el limite de 5MB.")
 
 class Company(models.Model):
     name = models.CharField("Nombre de la empresa", max_length=255)
@@ -14,7 +22,13 @@ class Company(models.Model):
     postal_code = models.CharField("Código postal", max_length=20, blank=True, null=True)
     country = models.CharField("País", max_length=100, blank=True, null=True)
 
-    logo = models.ImageField("Logo de la empresa", upload_to="companies/logos/", blank=True, null=True)
+    logo = models.ImageField(
+        "Logo de la empresa",
+        upload_to="companies/logos/",
+        blank=True,
+        null=True,
+        validators=[FileExtensionValidator(['jpg', 'jpeg', 'png', 'webp']), validate_logo_size],
+    )
 
     latitude = models.CharField("Latitud", max_length=30, blank=True, null=True)
     longitude = models.CharField("Longitud", max_length=30,blank=True, null=True)
