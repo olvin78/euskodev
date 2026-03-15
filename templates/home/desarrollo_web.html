@@ -8,12 +8,11 @@
   :root {
     --dw-ink: #0f172a;
     --dw-muted: #64748b;
-    --dw-bg: #f4f7fb;
+    --dw-bg: #f5f7fb;
     --dw-surface: #ffffff;
     --dw-teal: #2ac3b5;
     --dw-teal-dark: #148a83;
     --dw-gold: #f4b84a;
-    --dw-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
   }
 
   body { font-family: 'Manrope', sans-serif; color: var(--dw-ink); }
@@ -135,70 +134,71 @@
     background: linear-gradient(90deg, var(--dw-teal), var(--dw-gold));
   }
 
-  .dw-card {
-    background: var(--dw-surface);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 20px;
-    padding: 28px;
-    box-shadow: var(--dw-shadow);
-    height: 100%;
+  .dw-key {
+    border-top: 1px solid rgba(15, 23, 42, 0.12);
+    padding-top: 28px;
   }
 
-  .dw-card__icon {
-    width: 72px;
-    height: 72px;
-    border-radius: 18px;
-    background: rgba(42, 195, 181, 0.15);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #1f9f95;
-    font-size: 2rem;
-    margin-bottom: 16px;
+  .dw-key__num {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--dw-teal-dark);
+    letter-spacing: -0.03em;
   }
 
-  .dw-list {
+  .dw-band {
+    background: linear-gradient(135deg, rgba(42, 195, 181, 0.08), rgba(244, 184, 74, 0.08));
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+
+  .dw-checks {
     display: grid;
-    gap: 16px;
+    gap: 14px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .dw-list li {
+  .dw-checks li {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 12px;
+    align-items: start;
   }
 
-  .dw-list__dot {
-    width: 10px;
-    height: 10px;
+  .dw-checks__dot {
+    width: 12px;
+    height: 12px;
     border-radius: 999px;
     margin-top: 6px;
     background: linear-gradient(135deg, var(--dw-teal), var(--dw-gold));
   }
 
-  .dw-step {
+  .dw-steps {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 16px;
-    padding: 18px 0;
-    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .dw-step {
+    padding: 22px 0;
+    border-top: 1px solid rgba(15, 23, 42, 0.12);
   }
 
   .dw-step:first-child { border-top: none; padding-top: 0; }
 
   .dw-step__badge {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background: rgba(42, 195, 181, 0.18);
     color: var(--dw-teal-dark);
     font-weight: 700;
+    margin-bottom: 10px;
   }
 
   .dw-why {
@@ -206,8 +206,6 @@
     padding: 22px 24px;
     border-radius: 18px;
     background: #ffffff;
-    box-shadow: var(--dw-shadow);
-    height: 100%;
   }
 
   .dw-why--teal { border-left-color: var(--dw-teal); }
@@ -219,7 +217,6 @@
     border-radius: 28px;
     padding: 48px;
     color: #f8fafc;
-    box-shadow: var(--dw-shadow);
   }
 
   @media (max-width: 991px) {
@@ -231,13 +228,13 @@
 
 {% block content %}
 <section class="dw-hero">
-  <img src="{% static 'img/desarrollo_web.png' %}" alt="{% trans 'Imagen de portada representando los servicios digitales de diseño web de Euskodev' %}" class="dw-hero__image" loading="lazy">
+  <img src="{% static 'img/desarrollo_web_hero_cozy.png' %}" alt="{% trans 'Desarrollo web profesional en un ambiente cercano y confiable' %}" class="dw-hero__image" loading="lazy">
   <div class="dw-hero__overlay"></div>
   <div class="container dw-hero__content">
     <span class="dw-hero__badge">{% trans 'Desarrollo web' %}</span>
     <h1 class="dw-hero__title">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
     <p class="dw-hero__subtitle" id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
-    <a class="dw-hero__cta" href="#contact">
+    <a class="dw-hero__cta" href="{% url 'home_app:home' %}#contact">
       <i class="bi bi-stars"></i>
       {% trans 'Solicita Presupuesto Gratis' %}
     </a>
@@ -268,32 +265,45 @@
       <div class="dw-section__line"></div>
     </div>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="dw-card text-center">
-          <div class="dw-card__icon"><i class="bi bi-cart-fill"></i></div>
-          <h5 class="fw-bold mb-3">{% trans 'E-Commerce' %}</h5>
-          <p class="text-muted small">
-            {% trans 'Lleva tu negocio al mundo digital con un eCommerce moderno, funcional y seguro. Amplía tu alcance, aumenta tus ventas y gestiona todo desde un solo panel.' %}
-          </p>
+      <div class="col-md-4">
+        <div class="dw-key">
+          <div class="dw-key__num">01</div>
+          <h5 class="fw-bold mb-2">{% trans 'E-Commerce' %}</h5>
+          <p class="text-muted small">{% trans 'Lleva tu negocio al mundo digital con un eCommerce moderno, funcional y seguro. Amplía tu alcance, aumenta tus ventas y gestiona todo desde un solo panel.' %}</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="dw-card text-center">
-          <div class="dw-card__icon"><i class="bi bi-laptop"></i></div>
-          <h5 class="fw-bold mb-3">{% trans 'Diseño Responsive' %}</h5>
-          <p class="text-muted small">
-            {% trans 'Adaptamos tu sitio a todos los dispositivos: móviles, tablets y ordenadores. Diseño UX profesional que mejora la experiencia del usuario y tu conversión.' %}
-          </p>
+      <div class="col-md-4">
+        <div class="dw-key">
+          <div class="dw-key__num">02</div>
+          <h5 class="fw-bold mb-2">{% trans 'Diseño Responsive' %}</h5>
+          <p class="text-muted small">{% trans 'Adaptamos tu sitio a todos los dispositivos: móviles, tablets y ordenadores. Diseño UX profesional que mejora la experiencia del usuario y tu conversión.' %}</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="dw-card text-center">
-          <div class="dw-card__icon"><i class="bi bi-shield-lock-fill"></i></div>
-          <h5 class="fw-bold mb-3">{% trans 'Seguridad Web' %}</h5>
-          <p class="text-muted small">
-            {% trans 'Protegemos tu sitio con HTTPS, cifrado y protocolos de seguridad web para mantener tus datos y los de tus usuarios completamente seguros.' %}
-          </p>
+      <div class="col-md-4">
+        <div class="dw-key">
+          <div class="dw-key__num">03</div>
+          <h5 class="fw-bold mb-2">{% trans 'Seguridad Web' %}</h5>
+          <p class="text-muted small">{% trans 'Protegemos tu sitio con HTTPS, cifrado y protocolos de seguridad web para mantener tus datos y los de tus usuarios completamente seguros.' %}</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dw-section dw-band">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5">
+        <h3 class="dw-section__title">{% trans '¿Qué incluye cada servicio?' %}</h3>
+        <p class="text-muted">{% trans 'Te explicamos en detalle qué obtienes al contratar cada solución digital.' %}</p>
+      </div>
+      <div class="col-lg-7">
+        <ul class="dw-checks">
+          <li><span class="dw-checks__dot"></span><span>{% trans 'Arquitectura optimizada y escalable' %}</span></li>
+          <li><span class="dw-checks__dot"></span><span>{% trans 'SEO tecnico y performance' %}</span></li>
+          <li><span class="dw-checks__dot"></span><span>{% trans 'Experiencias de usuario enfocadas en conversion' %}</span></li>
+          <li><span class="dw-checks__dot"></span><span>{% trans 'Mantenimiento y soporte continuo' %}</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -301,77 +311,31 @@
 
 <section class="dw-section dw-section--light">
   <div class="container">
-    <div class="row align-items-start g-5">
-      <div class="col-lg-5">
-        <h3 class="dw-section__title">{% trans '¿Qué incluye cada servicio?' %}</h3>
-        <p class="text-muted">{% trans 'Te explicamos en detalle qué obtienes al contratar cada solución digital.' %}</p>
-        <ul class="dw-list">
-          <li><span class="dw-list__dot"></span><span>{% trans 'Arquitectura optimizada y escalable' %}</span></li>
-          <li><span class="dw-list__dot"></span><span>{% trans 'SEO tecnico y performance' %}</span></li>
-          <li><span class="dw-list__dot"></span><span>{% trans 'Experiencias de usuario enfocadas en conversion' %}</span></li>
-        </ul>
-      </div>
-      <div class="col-lg-7">
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="dw-card text-center">
-              <div class="dw-card__icon"><i class="bi bi-cart-fill"></i></div>
-              <h5 class="fw-bold">{% trans 'E-Commerce' %}</h5>
-              <p class="text-muted small">{% trans 'Ventas online con carrito de compra, pagos integrados y gestión de pedidos.' %}</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="dw-card text-center">
-              <div class="dw-card__icon"><i class="bi bi-phone-fill"></i></div>
-              <h5 class="fw-bold">{% trans 'Diseño Responsive' %}</h5>
-              <p class="text-muted small">{% trans 'Diseño adaptable a cualquier dispositivo, optimizado para experiencia de usuario.' %}</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="dw-card text-center">
-              <div class="dw-card__icon"><i class="bi bi-shield-lock-fill"></i></div>
-              <h5 class="fw-bold">{% trans 'Seguridad Web' %}</h5>
-              <p class="text-muted small">{% trans 'Certificados SSL, protección contra ataques y control total del sistema.' %}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="dw-section">
-  <div class="container">
-    <div class="row align-items-start g-5">
+    <div class="row g-5 align-items-start">
       <div class="col-lg-5">
         <h3 class="dw-section__title">{% trans '¿Cómo desarrollamos tu proyecto?' %}</h3>
         <p class="text-muted">{% trans 'De la idea al lanzamiento, este es nuestro proceso colaborativo.' %}</p>
+        <img src="{% static 'img/proceso_desarrollo_cozy.png' %}" alt="Proceso de desarrollo cercano" class="img-fluid rounded-4 shadow-sm mt-3 border">
       </div>
       <div class="col-lg-7">
-        <div class="dw-step">
-          <span class="dw-step__badge">1</span>
-          <div>
+        <div class="dw-steps">
+          <div class="dw-step">
+            <div class="dw-step__badge">1</div>
             <h6 class="fw-bold">{% trans 'Exploramos tus ideas' %}</h6>
             <p class="text-muted small">{% trans 'Analizamos tus necesidades, el sector y tu propuesta de valor para empezar con claridad.' %}</p>
           </div>
-        </div>
-        <div class="dw-step">
-          <span class="dw-step__badge">2</span>
-          <div>
+          <div class="dw-step">
+            <div class="dw-step__badge">2</div>
             <h6 class="fw-bold">{% trans 'Diseñamos la experiencia' %}</h6>
             <p class="text-muted small">{% trans 'Creamos wireframes y prototipos atractivos centrados en el usuario y sus objetivos.' %}</p>
           </div>
-        </div>
-        <div class="dw-step">
-          <span class="dw-step__badge">3</span>
-          <div>
+          <div class="dw-step">
+            <div class="dw-step__badge">3</div>
             <h6 class="fw-bold">{% trans 'Desarrollamos la solución' %}</h6>
             <p class="text-muted small">{% trans 'Transformamos los diseños en sistemas funcionales, conectando APIs y servicios reales.' %}</p>
           </div>
-        </div>
-        <div class="dw-step">
-          <span class="dw-step__badge">4</span>
-          <div>
+          <div class="dw-step">
+            <div class="dw-step__badge">4</div>
             <h6 class="fw-bold">{% trans 'Lanzamos y medimos' %}</h6>
             <p class="text-muted small">{% trans 'Publicamos tu proyecto y monitorizamos resultados para seguir mejorando contigo.' %}</p>
           </div>
@@ -381,7 +345,7 @@
   </div>
 </section>
 
-<section class="dw-section dw-section--light">
+<section class="dw-section">
   <div class="container">
     <div class="text-center mb-5">
       <h3 class="dw-section__title">{% trans '¿Por qué elegir Euskodev?' %}</h3>
@@ -416,7 +380,7 @@
     <div class="dw-cta text-center">
       <h3 class="mb-3">{% trans '¿Listo para transformar tu web?' %}</h3>
       <p class="text-white-50 mb-4">{% trans 'Cuéntanos tu idea y te enviamos una propuesta clara y sin compromiso.' %}</p>
-      <a class="dw-hero__cta" href="#contact">
+      <a class="dw-hero__cta" href="{% url 'home_app:home' %}#contact">
         {% trans 'Hablemos de tu proyecto' %}
         <i class="bi bi-arrow-right"></i>
       </a>
