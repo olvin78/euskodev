@@ -173,6 +173,12 @@
     border-radius: 999px;
     margin-top: 6px;
     background: linear-gradient(135deg, var(--dw-teal), var(--dw-gold));
+    box-shadow: 0 4px 12px rgba(42, 195, 181, 0.3);
+  }
+
+  .dw-checks li span:last-child {
+    font-size: 1.1rem;
+    font-weight: 500;
   }
 
   .dw-steps {
@@ -298,12 +304,28 @@
         <p class="text-muted">{% trans 'Te explicamos en detalle qué obtienes al contratar cada solución digital.' %}</p>
       </div>
       <div class="col-lg-7">
-        <ul class="dw-checks">
-          <li><span class="dw-checks__dot"></span><span>{% trans 'Arquitectura optimizada y escalable' %}</span></li>
-          <li><span class="dw-checks__dot"></span><span>{% trans 'SEO tecnico y performance' %}</span></li>
-          <li><span class="dw-checks__dot"></span><span>{% trans 'Experiencias de usuario enfocadas en conversion' %}</span></li>
-          <li><span class="dw-checks__dot"></span><span>{% trans 'Mantenimiento y soporte continuo' %}</span></li>
-        </ul>
+        <div class="p-4 p-md-5 bg-white rounded-4 shadow-sm border">
+          <ul class="dw-checks">
+            <li><span class="dw-checks__dot"></span><span>{% trans 'Arquitectura optimizada, escalable y segura' %}</span></li>
+            <li><span class="dw-checks__dot"></span><span>{% trans 'SEO técnico avanzado y performance extrema' %}</span></li>
+            <li><span class="dw-checks__dot"></span><span>{% trans 'Experiencias de usuario (UX/UI) enfocadas en conversión' %}</span></li>
+            <li><span class="dw-checks__dot"></span><span>{% trans 'Mantenimiento preventivo y soporte continuo' %}</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="rounded-5 overflow-hidden shadow-lg position-relative">
+      <img src="{% static 'img/web_services_banner_v3.png' %}" alt="Servicios web de calidad Euskodev" class="img-fluid w-100" style="max-height: 450px; object-fit: cover;">
+      <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, transparent 70%);">
+        <div class="p-5 text-white">
+          <h2 class="display-6 fw-bold">{% trans 'Soluciones que crecen contigo' %}</h2>
+          <p class="lead">{% trans 'Garantizamos resultados profesionales basados en datos y tecnología real.' %}</p>
+        </div>
       </div>
     </div>
   </div>
