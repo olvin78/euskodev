@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-15 15:43+0000\n"
+"POT-Creation-Date: 2026-03-15 16:28+0000\n"
 "PO-Revision-Date: 2024-07-23 09:30+0000\n"
 "Last-Translator:   <olvind78@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,7 +233,7 @@ msgid "Agregar empresa"
 msgstr ""
 
 #: templates/companies/list_companies.html:21
-#: templates/contact/contact_list.html:40 templates/home/index.html:1494
+#: templates/contact/contact_list.html:40 templates/home/index.html:1493
 msgid "Nombre"
 msgstr "Izena"
 
@@ -246,8 +246,8 @@ msgid "Dirección"
 msgstr ""
 
 #: templates/companies/list_companies.html:24
-#: templates/contact/contact_list.html:42 templates/home/index.html:1475
-#: templates/home/index.html:1499
+#: templates/contact/contact_list.html:42 templates/home/index.html:1474
+#: templates/home/index.html:1498
 msgid "Email"
 msgstr "Posta elektronikoa"
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Filtrar"
 msgstr ""
 
-#: templates/contact/contact_list.html:41 templates/home/index.html:1504
+#: templates/contact/contact_list.html:41 templates/home/index.html:1503
 msgid "Teléfono"
 msgstr "mugikorra"
 
@@ -467,8 +467,8 @@ msgstr "Lege abisua"
 msgid "1. Datos de la empresa"
 msgstr ""
 
-#: templates/home/Aviso_legal.html:25 templates/home/index.html:968
-#: templates/home/index.html:1484
+#: templates/home/Aviso_legal.html:25 templates/home/index.html:967
+#: templates/home/index.html:1483
 msgid "Oiartzun, Gipuzkoa"
 msgstr "Oiartzun, Gipuzkoa"
 
@@ -523,15 +523,15 @@ msgstr "Irakurri artikulua..."
 msgid "Buscar artículos"
 msgstr "Irakurri artikulua..."
 
-#: templates/home/Blog.html:130 templates/home/index.html:1010
+#: templates/home/Blog.html:130 templates/home/index.html:1009
 #: templates/home/index_backup.html:139
 msgid "Ver todo"
 msgstr "Ikusi dena"
 
-#: templates/home/Blog.html:149 templates/home/index.html:1026
-#: templates/home/index.html:1059 templates/home/index.html:1068
-#: templates/home/index.html:1077 templates/home/index.html:1086
-#: templates/home/index.html:1094 templates/home/index.html:1102
+#: templates/home/Blog.html:149 templates/home/index.html:1025
+#: templates/home/index.html:1058 templates/home/index.html:1067
+#: templates/home/index.html:1076 templates/home/index.html:1085
+#: templates/home/index.html:1093 templates/home/index.html:1101
 #: templates/home/index_backup.html:83 templates/home/index_backup.html:95
 #: templates/home/index_backup.html:107 templates/home/index_backup.html:119
 #: templates/home/index_backup.html:157
@@ -552,7 +552,7 @@ msgstr "zerbitzuak"
 
 #: templates/home/Blog_old.html:121 templates/home/articulo_completo
 #: copy.html:121 templates/home/base copy.html:108 templates/home/base.html:272
-#: templates/home/base.html:367 templates/home/index.html:1057
+#: templates/home/base.html:367 templates/home/index.html:1056
 #: templates/home/index_backup.html:80
 msgid "Desarrollo Web"
 msgstr "Web garapena"
@@ -564,7 +564,7 @@ msgstr "Erreserbak eta ordainketa onlineak"
 
 #: templates/home/Blog_old.html:123 templates/home/articulo_completo
 #: copy.html:123 templates/home/base copy.html:118 templates/home/base.html:274
-#: templates/home/base.html:369 templates/home/index.html:1075
+#: templates/home/base.html:369 templates/home/index.html:1074
 #: templates/home/index_backup.html:104
 #: templates/home/software_a_medida.html:210
 msgid "Software a Medida"
@@ -572,8 +572,8 @@ msgstr "Neurrira egindako softwarea"
 
 #: templates/home/Blog_old.html:124 templates/home/articulo_completo
 #: copy.html:124 templates/home/base copy.html:123 templates/home/base.html:275
-#: templates/home/base.html:370 templates/home/index.html:1084
-#: templates/home/index.html:1237 templates/home/trabaja_con_nosotros.html:757
+#: templates/home/base.html:370 templates/home/index.html:1083
+#: templates/home/index.html:1236 templates/home/trabaja_con_nosotros.html:757
 msgid "Inteligencia Artificial"
 msgstr "Adimen artifiziala"
 
@@ -584,7 +584,7 @@ msgstr "Aplikazio mugikorrak"
 
 #: templates/home/Blog_old.html:126 templates/home/articulo_completo
 #: copy.html:126 templates/home/base copy.html:133 templates/home/base.html:277
-#: templates/home/index.html:1100
+#: templates/home/index.html:1099
 msgid "Sistema de Ticket"
 msgstr "Ticketen sistema"
 
@@ -592,7 +592,7 @@ msgstr "Ticketen sistema"
 #: copy.html:131 templates/home/articulo_completo3.html:78
 #: templates/home/articulo_completo_old.html:102 templates/home/base
 #: copy.html:142 templates/home/base.html:281 templates/home/base.html:379
-#: templates/home/index.html:1164 templates/home/index2.html:170
+#: templates/home/index.html:1163 templates/home/index2.html:170
 #: templates/home/index2.html:392
 msgid "Portfolio"
 msgstr "Portfolioa"
@@ -1037,12 +1037,12 @@ msgstr ""
 msgid "Cerrar Proyecto"
 msgstr "itzuli"
 
-#: templates/home/base.html:273 templates/home/index.html:1092
+#: templates/home/base.html:273 templates/home/index.html:1091
 msgid "Reservas y Pagos"
 msgstr "Erreserbak eta ordainketak"
 
 #: templates/home/base.html:276 templates/home/base.html:368
-#: templates/home/index.html:1066 templates/home/index_backup.html:92
+#: templates/home/index.html:1065 templates/home/index_backup.html:92
 msgid "Apps Móviles"
 msgstr "Aplikazio mugikorrak"
 
@@ -1362,60 +1362,64 @@ msgstr ""
 msgid "Solicitar Presupuesto"
 msgstr "Aurrekontua eskatu"
 
-#: templates/home/index.html:954 templates/home/index.html:1259
+#: templates/home/index.html:947 templates/home/index_backup.html:55
+msgid "Análisis Gratis"
+msgstr "Doako analisia"
+
+#: templates/home/index.html:953 templates/home/index.html:1258
 msgid "Proyectos"
 msgstr "Proiektuak"
 
-#: templates/home/index.html:958 templates/home/index.html:1263
+#: templates/home/index.html:957 templates/home/index.html:1262
 msgid "Éxito"
 msgstr "Arrakasta"
 
-#: templates/home/index.html:962 templates/home/index.html:1267
+#: templates/home/index.html:961 templates/home/index.html:1266
 msgid "Valoración"
 msgstr "Balorazioa"
 
-#: templates/home/index.html:981
+#: templates/home/index.html:980
 msgid "Django & Python"
 msgstr "Django & Python"
 
-#: templates/home/index.html:982
+#: templates/home/index.html:981
 msgid "Backend Expert"
 msgstr "Backend aditua"
 
-#: templates/home/index.html:994
+#: templates/home/index.html:993
 msgid "IA & Automation"
 msgstr "IA eta automatizazioa"
 
-#: templates/home/index.html:995
+#: templates/home/index.html:994
 msgid "Next Level"
 msgstr "Hurrengo maila"
 
-#: templates/home/index.html:1007 templates/home/index.html:1039
+#: templates/home/index.html:1006 templates/home/index.html:1038
 #: templates/home/index_backup.html:135
 msgid "Últimas Publicaciones"
 msgstr "Azken argitalpenak"
 
-#: templates/home/index.html:1008
+#: templates/home/index.html:1007
 msgid "Descubre nuestras últimas innovaciones y noticias"
 msgstr "Ezagutu gure azken berrikuntzak eta albisteak"
 
-#: templates/home/index.html:1031
+#: templates/home/index.html:1030
 msgid "No hay entradas todavía"
 msgstr "Oraindik ez dago sarrerarik"
 
-#: templates/home/index.html:1040
+#: templates/home/index.html:1039
 msgid "Próximamente más artículos..."
 msgstr "Laster artikulu gehiago..."
 
-#: templates/home/index.html:1049 templates/home/index_backup.html:71
+#: templates/home/index.html:1048 templates/home/index_backup.html:71
 msgid "Nuestros Servicios"
 msgstr "Gure zerbitzuak"
 
-#: templates/home/index.html:1050
+#: templates/home/index.html:1049
 msgid "Soluciones tecnológicas de alto nivel para impulsar tu negocio"
 msgstr "Zure negozioa bultzatzeko maila goreneko soluzio teknologikoak"
 
-#: templates/home/index.html:1058
+#: templates/home/index.html:1057
 msgid ""
 "Webs modernas, rápidas y optimizadas para SEO. Diseño responsive y "
 "experiencia de usuario excepcional."
@@ -1423,7 +1427,7 @@ msgstr ""
 "Webgune moderno, azkar eta SEO-rako optimizatuak. Diseinu moldakorra eta "
 "erabiltzaile-esperientzia bikaina."
 
-#: templates/home/index.html:1067
+#: templates/home/index.html:1066
 msgid ""
 "Aplicaciones nativas e híbridas para iOS y Android. Tu negocio en el "
 "bolsillo de tus clientes."
@@ -1431,7 +1435,7 @@ msgstr ""
 "iOS eta Android-erako aplikazio natiboak eta hibridoak. Zure negozioa "
 "bezeroen poltsikoan."
 
-#: templates/home/index.html:1076
+#: templates/home/index.html:1075
 msgid ""
 "Soluciones personalizadas que se adaptan a tus procesos. Automatización y "
 "eficiencia garantizada."
@@ -1439,7 +1443,7 @@ msgstr ""
 "Zure prozesuetara egokitzen diren soluzio pertsonalizatuak. Automatizazioa "
 "eta eraginkortasuna bermatuta."
 
-#: templates/home/index.html:1085
+#: templates/home/index.html:1084
 msgid ""
 "Chatbots, automatización con IA y soluciones de machine learning para tu "
 "empresa."
@@ -1447,7 +1451,7 @@ msgstr ""
 "Chatbotak, IA bidezko automatizazioa eta machine learning soluzioak zure "
 "enpresarentzat."
 
-#: templates/home/index.html:1093
+#: templates/home/index.html:1092
 msgid ""
 "Sistemas de reservas online y pasarelas de pago integradas. Gestiona tu "
 "negocio 24/7."
@@ -1455,7 +1459,7 @@ msgstr ""
 "Erreserba-sistema onlineak eta ordainketa-pasabide integratuak. Kudeatu zure "
 "negozioa 24/7."
 
-#: templates/home/index.html:1101
+#: templates/home/index.html:1100
 msgid ""
 "Gestión de incidencias y soporte al cliente. Optimiza tu atención y "
 "seguimiento."
@@ -1463,20 +1467,20 @@ msgstr ""
 "Gorabeheren kudeaketa eta bezeroarentzako euskarria. Hobetu arreta eta "
 "jarraipena."
 
-#: templates/home/index.html:1116 templates/home/index.html:1126
+#: templates/home/index.html:1115 templates/home/index.html:1125
 msgid "Análisis de IA"
 msgstr "IA analisia"
 
-#: templates/home/index.html:1127
+#: templates/home/index.html:1126
 #, python-format
 msgid "100%% Gratuito"
 msgstr "100%% Doakoa"
 
-#: templates/home/index.html:1134
+#: templates/home/index.html:1133
 msgid "Análisis Inteligente de tu Negocio"
 msgstr "Zure negozioaren analisi adimenduna"
 
-#: templates/home/index.html:1135
+#: templates/home/index.html:1134
 msgid ""
 "Utiliza nuestra inteligencia artificial para analizar tu presencia digital y "
 "recibir recomendaciones personalizadas."
@@ -1484,65 +1488,65 @@ msgstr ""
 "Erabili gure adimen artifiziala zure presentzia digitala aztertzeko eta "
 "gomendio pertsonalizatuak jasotzeko."
 
-#: templates/home/index.html:1139
+#: templates/home/index.html:1138
 msgid "Análisis de tu web actual"
 msgstr "Zure egungo webaren analisia"
 
-#: templates/home/index.html:1143
+#: templates/home/index.html:1142
 msgid "Recomendaciones SEO"
 msgstr "SEO gomendioak"
 
-#: templates/home/index.html:1147
+#: templates/home/index.html:1146
 msgid "Sugerencias de mejora"
 msgstr "Hobekuntza iradokizunak"
 
-#: templates/home/index.html:1151
+#: templates/home/index.html:1150
 msgid "Informe detallado en minutos"
 msgstr "Txosten zehatza minututan"
 
-#: templates/home/index.html:1154
+#: templates/home/index.html:1153
 msgid "Hacer Análisis Gratis"
 msgstr "Doako analisia"
 
-#: templates/home/index.html:1165
+#: templates/home/index.html:1164
 msgid "Proyectos que definen nuestra experiencia"
 msgstr "Gure esperientzia definitzen duten proiektuak"
 
-#: templates/home/index.html:1174
+#: templates/home/index.html:1173
 msgid "Web App"
 msgstr "Web aplikazioa"
 
-#: templates/home/index.html:1176 templates/home/index.html:1189
-#: templates/home/index.html:1203 templates/home/index.html:1215
-#: templates/home/index.html:1227 templates/home/index.html:1239
+#: templates/home/index.html:1175 templates/home/index.html:1188
+#: templates/home/index.html:1202 templates/home/index.html:1214
+#: templates/home/index.html:1226 templates/home/index.html:1238
 msgid "Ver Proyecto"
 msgstr "Proiektua ikusi"
 
-#: templates/home/index.html:1186
+#: templates/home/index.html:1185
 msgid "Plataforma"
 msgstr "Plataforma"
 
-#: templates/home/index.html:1200 templates/home/index2.html:621
+#: templates/home/index.html:1199 templates/home/index2.html:621
 msgid "E-commerce"
 msgstr "Merkataritza elektronikoa"
 
-#: templates/home/index.html:1213
+#: templates/home/index.html:1212
 msgid "Restaurante"
 msgstr "Jatetxea"
 
-#: templates/home/index.html:1225
+#: templates/home/index.html:1224
 msgid "Turismo"
 msgstr "Turismoa"
 
-#: templates/home/index.html:1238
+#: templates/home/index.html:1237
 msgid "Tu Asistente Inteligente"
 msgstr "Zure laguntzaile adimenduna"
 
-#: templates/home/index.html:1252
+#: templates/home/index.html:1251
 msgid "Sobre Euskodev"
 msgstr "Euskodev-i buruz"
 
-#: templates/home/index.html:1253
+#: templates/home/index.html:1252
 msgid ""
 "Desde Oiartzun, en el corazón del País Vasco, ayudamos a empresas de la "
 "región a digitalizarse con soluciones que realmente funcionan."
@@ -1550,7 +1554,7 @@ msgstr ""
 "Oiartzungo bihotzean, Euskal Herrian, eskualdeko enpresei digitalizatzen "
 "laguntzen diegu, benetan funtzionatzen duten soluzioekin."
 
-#: templates/home/index.html:1254
+#: templates/home/index.html:1253
 msgid ""
 "Somos desarrolladores full-stack especializados en crear experiencias "
 "digitales únicas. No solo hacemos webs, creamos soluciones que impulsan tu "
@@ -1560,23 +1564,23 @@ msgstr ""
 "espezializatuak. Ez dugu webguneak soilik egiten, zure negozioa bultzatzen "
 "duten soluzioak sortzen ditugu."
 
-#: templates/home/index.html:1301 templates/home/index_backup.html:378
+#: templates/home/index.html:1300 templates/home/index_backup.html:378
 msgid "Stack Tecnológico"
 msgstr "Teknologia-stacka"
 
-#: templates/home/index.html:1302
+#: templates/home/index.html:1301
 msgid "Utilizamos las herramientas más modernas y potentes"
 msgstr "Tresna moderno eta indartsuenak erabiltzen ditugu"
 
-#: templates/home/index.html:1413
+#: templates/home/index.html:1412
 msgid "Lo que dicen nuestros clientes"
 msgstr "Gure bezeroek diotena"
 
-#: templates/home/index.html:1414
+#: templates/home/index.html:1413
 msgid "La confianza de quienes trabajan con nosotros"
 msgstr "Gurekin lan egiten dutenen konfiantza"
 
-#: templates/home/index.html:1419
+#: templates/home/index.html:1418
 msgid ""
 "En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon con "
 "atención y entendieron mis necesidades a la perfección."
@@ -1584,11 +1588,11 @@ msgstr ""
 "\"Euskodeven nire negoziorako webgune ezin hobea diseinatu zidaten. Arretaz "
 "entzun ninduten eta nire beharrak ezin hobeto ulertu zituzten.\""
 
-#: templates/home/index.html:1424
+#: templates/home/index.html:1423
 msgid "Cliente Satisfecho"
 msgstr "Bezero pozik"
 
-#: templates/home/index.html:1430
+#: templates/home/index.html:1429
 msgid ""
 "Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev me "
 "lo pusieron facilísmo. ¡Son profesionales y majísimos!"
@@ -1596,11 +1600,11 @@ msgstr ""
 "\"Nire negoziorako webgune baten bila nengoen eta ez nekien nola hasi. "
 "Euskodeven oso erraza jarri zidaten. Profesionalak eta oso jatorrak dira!\""
 
-#: templates/home/index.html:1436
+#: templates/home/index.html:1435
 msgid "Emprendedor"
 msgstr "Ekintzaile"
 
-#: templates/home/index.html:1442
+#: templates/home/index.html:1441
 msgid ""
 "Supieron exactamente lo que buscaba para mi negocio online. Me hicieron una "
 "web preciosa y que funciona de maravilla."
@@ -1608,43 +1612,43 @@ msgstr ""
 "\"Zehazki zekiten zer bilatzen nuen nire online negoziorako. Webgune polit "
 "bat egin zidaten, zoragarri funtzionatzen duena.\""
 
-#: templates/home/index.html:1448
+#: templates/home/index.html:1447
 msgid "Dueño de Negocio"
 msgstr "Negozioaren jabea"
 
-#: templates/home/index.html:1461 templates/home/index_backup.html:417
+#: templates/home/index.html:1460 templates/home/index_backup.html:417
 msgid "¿Tienes un proyecto en mente?"
 msgstr "Proiektu bat buruan al duzu?"
 
-#: templates/home/index.html:1462
+#: templates/home/index.html:1461
 msgid "Estamos listos para transformar tus ideas en realidades digitales."
 msgstr "Zure ideiak errealitate digital bihurtzeko prest gaude."
 
-#: templates/home/index.html:1483
+#: templates/home/index.html:1482
 msgid "Ubicación"
 msgstr "Kokapena"
 
-#: templates/home/index.html:1496
+#: templates/home/index.html:1495
 msgid "Tu nombre"
 msgstr "Zure izena"
 
-#: templates/home/index.html:1501
+#: templates/home/index.html:1500
 msgid "tu@email.com"
 msgstr "zure@email.com"
 
-#: templates/home/index.html:1506
+#: templates/home/index.html:1505
 msgid "Tu número"
 msgstr "Zure zenbakia"
 
-#: templates/home/index.html:1509
+#: templates/home/index.html:1508
 msgid "Mensaje"
 msgstr "Mezua"
 
-#: templates/home/index.html:1511
+#: templates/home/index.html:1510
 msgid "¿Cómo podemos ayudarte?"
 msgstr "Nola lagun zaitzakegu?"
 
-#: templates/home/index.html:1518 templates/home/index_backup.html:470
+#: templates/home/index.html:1517 templates/home/index_backup.html:470
 msgid "ENVIAR MENSAJE"
 msgstr "MEZUA BIDALI"
 
@@ -1975,10 +1979,6 @@ msgstr "itzuli"
 #: templates/home/index_backup.html:45
 msgid "& Inteligencia Artificial"
 msgstr ""
-
-#: templates/home/index_backup.html:55
-msgid "Análisis Gratis"
-msgstr "Doako analisia"
 
 #: templates/home/index_backup.html:61
 msgid "...estamos en Oiartzun, Gipuzkoa."
