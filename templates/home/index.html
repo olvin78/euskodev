@@ -317,13 +317,13 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: var(--primary);
+        color: #f8fafc;
         font-weight: 500;
         text-decoration: none;
         transition: gap 0.3s ease;
     }
 
-    .service-link:hover { gap: 12px; }
+    .service-link:hover { gap: 12px; color: #00e5c4; }
 
     /* Portfolio */
     .portfolio-grid {
@@ -382,28 +382,23 @@
     }
 
     /* Blog Section */
-    .blog-scroller {
-        display: flex;
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 24px;
-        overflow-x: auto;
-        padding: 20px 0;
-        scrollbar-width: none;
     }
 
-    .blog-scroller::-webkit-scrollbar { display: none; }
-
-    .blog-item {
-        flex: 0 0 350px;
+    .blog-card {
         background: var(--dark-card);
         border: 1px solid var(--glass-border);
         border-radius: 20px;
         overflow: hidden;
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .blog-item:hover {
+    .blog-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
     }
 
     .blog-img {
@@ -412,15 +407,19 @@
         object-fit: cover;
     }
 
-    .blog-content { padding: 24px; }
+    .blog-body { padding: 22px; }
 
     .blog-title {
         font-weight: 600;
-        margin-bottom: 8px;
-        line-height: 1.4;
+        margin-bottom: 10px;
+        line-height: 1.35;
     }
 
-    .blog-excerpt { color: var(--text-muted); font-size: 0.9rem; }
+    .blog-excerpt { color: var(--text-muted); font-size: 0.95rem; }
+
+    @media (max-width: 768px) {
+        .blog-img { height: 190px; }
+    }
 
     /* About Section */
     .about-section { background: var(--dark-soft); }
@@ -844,20 +843,22 @@
             <a href="{% url 'home_app:blog' %}" class="btn-gradient btn-sm">{% trans 'Ver todo' %}</a>
         </div>
         
-        <div class="blog-scroller">
+        <div class="blog-grid">
             {% for entrada in entradas_blog %}
-            <div class="blog-item">
-                {% if entrada.imagen %}
-                <img src="{{ entrada.imagen.url }}" class="blog-img" alt="{{ entrada.titulo }}">
-                {% else %}
-                <img src="{% static 'img/portada.jpg' %}" class="blog-img" alt="{{ entrada.titulo }}">
-                {% endif %}
-                <div class="blog-content">
+            <article class="blog-card">
+                <a href="{% url 'home_app:blog-detail' entrada.id %}">
+                    {% if entrada.imagen %}
+                    <img src="{{ entrada.imagen.url }}" class="blog-img" alt="{{ entrada.titulo }}">
+                    {% else %}
+                    <img src="{% static 'img/portada.jpg' %}" class="blog-img" alt="{{ entrada.titulo }}">
+                    {% endif %}
+                </a>
+                <div class="blog-body">
                     <h5 class="blog-title">{{ entrada.titulo|safe }}</h5>
-                    <p class="blog-excerpt">{{ entrada.resumen|safe|striptags|truncatechars:100 }}</p>
+                    <p class="blog-excerpt">{{ entrada.resumen|safe|striptags|truncatechars:110 }}</p>
                     <a href="{% url 'home_app:blog-detail' entrada.id %}" class="service-link">{% trans 'Leer más' %} <i class="bi bi-arrow-right"></i></a>
                 </div>
-            </div>
+            </article>
             {% empty %}
             <p class="text-muted">No hay entradas todavía</p>
             {% endfor %}

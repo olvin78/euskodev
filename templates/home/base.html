@@ -121,9 +121,12 @@
         transition: background 0.2s ease;
       }
   
-      .main-menu .dropdown-item:hover {
-        background-color: #1ea0c0;
-        color: #000;
+      .main-menu .dropdown-item:hover,
+      .main-menu .dropdown-item:focus,
+      .main-menu .dropdown-item.active,
+      .main-menu .dropdown-item:active {
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
       }
   
       .main-menu .lang-switcher {
@@ -145,15 +148,15 @@
       }
   
       .main-menu .lang-switcher button:hover {
-        background-color: #1ea0c0;
-        color: #000;
-        border-color: #1ea0c0;
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
+        border-color: #2a2f3a !important;
       }
   
       .main-menu .lang-switcher .active {
         font-weight: 600;
-        color: #00e1ff;
-        border-color: #1ea0c0;
+        color: #f8fafc;
+        border-color: #f8fafc;
       }
     }
   
@@ -182,6 +185,10 @@
         border-radius: 8px;
         border: 1px solid rgba(255,255,255,0.1);
         margin-top: 0.5rem;
+        --bs-dropdown-link-hover-bg: #2a2f3a;
+        --bs-dropdown-link-active-bg: #2a2f3a;
+        --bs-dropdown-link-hover-color: #f8fafc;
+        --bs-dropdown-link-active-color: #f8fafc;
       }
   
       .main-menu .dropdown-item {
@@ -191,9 +198,12 @@
         border-radius: 6px;
       }
   
-      .main-menu .dropdown-item:hover {
-        background-color:#1ea0c0;
-        color: #000;
+      .main-menu .dropdown-item:hover,
+      .main-menu .dropdown-item:focus,
+      .main-menu .dropdown-item.active,
+      .main-menu .dropdown-item:active {
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
       }
   
       .main-menu .lang-switcher {
@@ -213,13 +223,13 @@
       }
   
       .main-menu .lang-switcher .active {
-        border-color: #1ea0c0;
-        color: #1ea0c0;
+        border-color: #f8fafc;
+        color: #f8fafc;
       }
   
       .main-menu .lang-switcher button:hover {
-        background-color: #1ea0c0;
-        color: #000;
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
       }
     }
   </style>
@@ -285,7 +295,7 @@
             <a class="nav-link dropdown-toggle px-2 py-2 rounded" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #94a3b8;">
               {% get_current_language as CURRENT_LANGUAGE %}{{ CURRENT_LANGUAGE|upper }}
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark border-0 rounded-2" style="min-width: 100px; background: #141419;">
+            <ul class="dropdown-menu dropdown-menu-dark border-0 rounded-2" style="min-width: 100px; background: #141419; --bs-dropdown-link-active-bg: #2a2f3a; --bs-dropdown-link-hover-bg: #2a2f3a; --bs-dropdown-link-active-color: #f8fafc; --bs-dropdown-link-hover-color: #f8fafc;">
               {% get_available_languages as AVAILABLE_LANGUAGES %}
               {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
               {% for language in languages %}
@@ -294,7 +304,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="language" value="{{ language.code }}">
                     <input type="hidden" name="next" value="{{ request.path }}">
-                    <button type="submit" class="dropdown-item py-2 rounded w-100 text-start {% if language.code == CURRENT_LANGUAGE %}active{% endif %}" style="color: {% if language.code == CURRENT_LANGUAGE %}#00e5c4{% else %}#f8fafc{% endif %};">
+                    <button type="submit" class="dropdown-item py-2 rounded w-100 text-start {% if language.code == CURRENT_LANGUAGE %}active{% endif %}" style="color: #f8fafc; background-color: #2a2f3a;">
                       {{ language.code|upper }}
                     </button>
                   </form>

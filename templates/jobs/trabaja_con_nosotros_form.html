@@ -5,13 +5,14 @@
 {% block content %}
 <div class="container position-relative py-5" style="padding-top: 180px!important; padding-bottom: 200px!important;">
     <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold mb-3 text-white">Unirme al equipo de Euskodev</h2>
-        <div class="d-inline-flex align-items-center justify-content-center p-3 rounded-4 bg-white shadow-sm border mb-4" 
-             style="background: rgba(255, 255, 255, 0.05)!important; border: 1px solid rgba(255, 255, 255, 0.1)!important; backdrop-filter: blur(10px);">
-            <span id="wavingHand" class="fs-1 me-3" style="display: inline-block;">👋</span>
-            <div class="text-start">
-                <h6 class="fw-bold mb-0 text-white">{% trans '¡Hola! Qué bueno verte por aquí' %}</h6>
-                <p class="text-white-50 small mb-0">{% trans 'Estamos deseando conocer tu talento. ¡Mucha suerte!' %}</p>
+        <h2 class="display-5 fw-bold mb-4 text-white">Unirme al equipo de Euskodev</h2>
+        <div class="d-inline-flex align-items-center justify-content-center p-4 rounded-4 position-relative overflow-hidden" 
+             style="background: rgba(255, 255, 255, 0.08)!important; border: 1px solid rgba(255, 255, 255, 0.15)!important; backdrop-filter: blur(15px); box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(42, 195, 181, 0.1), transparent); pointer-events: none;"></div>
+            <span id="wavingHand" class="fs-1 me-4" style="display: inline-block; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));">👋</span>
+            <div class="text-start position-relative">
+                <h5 class="fw-bold mb-1 text-white">{% trans '¡Hola! Qué bueno verte por aquí' %}</h5>
+                <p class="text-white small mb-0 opacity-75">{% trans 'Estamos deseando conocer tu talento. ¡Mucha suerte!' %}</p>
             </div>
         </div>
     </div>
@@ -196,15 +197,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const uploadIcon = document.getElementById('uploadIcon');
     const wavingHand = document.getElementById('wavingHand');
 
-    // ✅ Animación GSAP para la manito (Saludando)
+    // ✅ Animación GSAP natural para la manito (Saludando)
     if (wavingHand) {
         gsap.to(wavingHand, {
-            rotation: 20,
-            duration: 0.5,
+            rotation: 15,
+            duration: 0.8,
             repeat: -1,
             yoyo: true,
-            ease: "power1.inOut",
-            transformOrigin: "bottom center"
+            ease: "sine.inOut",
+            transformOrigin: "bottom center",
+            scale: 1.1
         });
     }
 

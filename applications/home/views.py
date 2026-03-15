@@ -165,7 +165,7 @@ class HomePageView(ListView):
     context_object_name = 'entradas_blog'
     
     def get_queryset(self):
-        return Blog.objects.order_by('-id')[:6]
+        return Blog.objects.order_by('-id')[:3]
 
 
 class PoliticasdeprivacidadView(TemplateView):

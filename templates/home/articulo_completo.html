@@ -4,9 +4,79 @@
 
 {% block head %}
 <style>
-    .article-page { padding-top: 120px; padding-bottom: 60px; }
-    .article-content { line-height: 1.8; font-size: 1.1rem; }
+    .article-page { padding-top: 120px; padding-bottom: 90px; }
+
+    .article-hero {
+        background: linear-gradient(135deg, rgba(42, 195, 181, 0.1), rgba(244, 184, 74, 0.08));
+        border: 1px solid var(--glass-border);
+        border-radius: 28px;
+        padding: 32px;
+        margin-bottom: 32px;
+        overflow: hidden;
+    }
+
+    .article-hero-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        line-height: 1.15;
+    }
+
+    .article-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+    }
+
+    .article-media {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        margin-bottom: 24px;
+    }
+
+    .article-media img {
+        display: block;
+        width: 100%;
+        max-height: 480px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .article-content {
+        line-height: 1.9;
+        font-size: 1.1rem;
+        color: var(--text);
+    }
+
     .article-content p { margin-bottom: 1.5rem; }
+
+    .article-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 22px;
+        border-radius: 999px;
+        background: transparent;
+        color: #f8fafc;
+        border: 1px solid rgba(248, 250, 252, 0.35);
+        text-decoration: none;
+    }
+
+    .article-back:hover { color: #f8fafc; }
+
+    .article-card {
+        background: var(--dark-card);
+        border: 1px solid var(--glass-border);
+        border-radius: 22px;
+        padding: 28px;
+    }
+
+    @media (max-width: 768px) {
+        .article-hero { padding: 24px; }
+        .article-content { font-size: 1.02rem; }
+    }
 </style>
 {% endblock %}
 
@@ -14,26 +84,31 @@
 
 <div class="article-page">
     <div class="container">
+        <div class="article-hero">
+            <div class="article-meta mb-3">
+                <span><i class="bi bi-calendar me-2"></i>{{ articulo.fecha_hora|date:"d/m/Y" }}</span>
+                <span><i class="bi bi-person me-2"></i>{{ articulo.autor.username }}</span>
+            </div>
+            <h1 class="article-hero-title mb-0">{{ articulo.titulo|safe }}</h1>
+        </div>
+
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 {% if articulo.imagen %}
-                <img src="{{ articulo.imagen.url }}" class="w-100 mb-4" alt="{{ articulo.titulo }}" style="border-radius: 16px;">
-                {% endif %}
-                
-                <h1 class="mb-3">{{ articulo.titulo|safe }}</h1>
-                
-                <p class="text-muted mb-4">
-                    <i class="bi bi-calendar me-2"></i>{{ articulo.fecha_hora|date:"d/m/Y" }}
-                    <i class="bi bi-person ms-3 me-2"></i>{{ articulo.autor.username }}
-                </p>
-                
-                <div class="article-content" style="color: var(--text);">
-                    {{ articulo.cuerpo|safe }}
+                <div class="article-media">
+                    <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
                 </div>
-                
-                <div class="mt-5">
-                    <a href="{% url 'home_app:blog' %}" class="btn" style="background: var(--primary); color: var(--dark);">
-                        <i class="bi bi-arrow-left me-2"></i>{% trans 'Volver al Blog' %}
+                {% endif %}
+
+                <div class="article-card">
+                    <div class="article-content">
+                        {{ articulo.cuerpo|safe }}
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'home_app:blog' %}" class="article-back">
+                        <i class="bi bi-arrow-left"></i>{% trans 'Volver al Blog' %}
                     </a>
                 </div>
             </div>

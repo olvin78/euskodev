@@ -3,365 +3,359 @@
 {% load static %}
 
 {% block head %}
+<!-- Google Fonts: Inter & Space Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
+  :root {
+    --primary-teal: #348D94;
+    --accent-blue: #2a5a6b;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --bg-light: #ffffff;
+    --bg-alt: #f8fafc;
+    --glass-white: rgba(255, 255, 255, 0.8);
+  }
 
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background: var(--bg-light);
+  }
+
+  h1, h2, h3, .title-font {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Hero Section V2 */
+  .hero-software {
+    position: relative;
+    padding: 180px 0 120px;
+    background: radial-gradient(circle at top right, rgba(52, 141, 148, 0.05) 0%, #ffffff 50%);
+    overflow: hidden;
+  }
+
+  .hero-software::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(52, 141, 148, 0.03) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .tag-premium {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(52, 141, 148, 0.08);
+    color: var(--primary-teal);
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+  }
+
+  .hero-title {
+    font-weight: 800;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 30px;
+  }
+
+  .hero-desc {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    line-height: 1.6;
+    margin-bottom: 45px;
+  }
+
+  .img-frame {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(15, 23, 42, 0.12);
+  }
+
+  /* Section Styles */
+  .section-padding {
+    padding: 140px 0;
+  }
+
+  .bg-soft {
+    background-color: var(--bg-alt);
+  }
+
+  /* Logic Cards */
+  .logic-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 32px;
+    padding: 50px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+  }
+
+  .logic-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-teal);
+    box-shadow: 0 40px 80px rgba(15, 23, 42, 0.05);
+  }
+
+  /* Service Cards */
+  .service-box {
+    padding: 40px;
+    border-radius: 24px;
+    background: white;
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+  }
+
+  .service-box:hover {
+    background: #f8fafc;
+    border-color: var(--primary-teal);
+  }
+
+  .service-icon {
+    font-size: 2.2rem;
+    color: var(--primary-teal);
+    margin-bottom: 25px;
+  }
+
+  /* Process Timeline */
+  .process-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .process-item {
+    position: relative;
+    padding-left: 60px;
+    padding-bottom: 60px;
+    border-left: 2px solid #e2e8f0;
+  }
+
+  .process-item:last-child {
+    border-left-color: transparent;
+  }
+
+  .process-dot {
+    position: absolute;
+    left: -11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-teal);
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px white;
+  }
+
+  /* Buttons */
+  .btn-premium {
+    background: #0f172a;
+    color: white;
+    padding: 20px 45px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid #0f172a;
+  }
+
+  .btn-premium:hover {
+    background: var(--primary-teal);
+    border-color: var(--primary-teal);
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 991px) {
+    .section-padding { padding: 80px 0; }
+    .hero-software { padding-top: 140px; }
+  }
 </style>
-
-
 {% endblock %}
 
 {% block content %}
 
-
-<div class="container-fluid p-0">
-  <div class="position-relative" style="height: 100vh;">
-    
-    <!-- Imagen de fondo -->
-    <div class="position-absolute top-0 start-0 w-100 h-100">
-      <img src="{% static 'img/software_service.png' %}" 
-           alt="{% trans 'Imagen de portada representando los servicios digitales de Euskodev' %}" 
-           class="w-100 h-100" 
-           style="object-fit: cover; object-position: center;" 
-           loading="lazy">
-      <!-- Capa oscura encima de la imagen -->
-      <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
-    </div>
-
-    <!-- Texto centrado -->
-    <div class="position-relative d-flex flex-column justify-content-center align-items-center text-center text-white h-100 px-3">
-      <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
-      <p class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}</p>
-      <a href="#contact" class="btn btn-lg text-uppercase fw-bold mt-3"
-         style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 8px;">
-        {% trans 'Solicita Presupuesto Gratis' %}
-      </a>
-    </div>
-
-  </div>
-</div>
-
-
-
-<section class="py-5" style="background-color: #e6f2f4; font-family: 'Segoe UI', sans-serif;">
-  <div class="container">
-    
-    <div class="text-center mb-5">
-      <h2 class="fw-bold display-4 text-dark">{% trans "¿Qué es el software a medida?" %}</h2>
-      <p class="fs-5 text-secondary mt-3">
-        {% trans "Una herramienta digital creada exclusivamente para ti. Sin plantillas. Sin límites." %}
-      </p>
-    </div>
-
-    <div class="row gx-5 gy-4">
-      <!-- Columna 1 -->
+<!-- Hero Section -->
+<section class="hero-software">
+  <div class="container position-relative z-1">
+    <div class="row align-items-center g-5">
       <div class="col-lg-6">
-        <div class="bg-white rounded-4 shadow p-5 h-100">
-          <h4 class="fw-bold text-warning mb-3">{% trans "¿Qué es \"software\"?" %}</h4>
-          <p class="fs-5 text-dark mb-0">
-            {% trans "Es toda herramienta digital diseñada para resolver tareas específicas: reservas, ventas, cobros, gestión de usuarios, automatización… está en todas partes. Y lo desarrollamos para que funcione exactamente como tú lo necesitas." %}
-          </p>
+        <div class="reveal">
+          <span class="tag-premium">{% trans "Arquitectura de Software Elite" %}</span>
+          <h1 class="hero-title">{% trans "Software a Medida" %}<br><span style="color: var(--primary-teal)">{% trans "Sin Concesiones." %}</span></h1>
+          <p class="hero-desc">{% trans "No adaptamos tu negocio a una herramienta; construimos la herramienta que desbloquea el máximo potencial de tu negocio. Ingeniería de precisión para objetivos ambiciosos." %}</p>
+          <div class="d-flex gap-3">
+            <a href="#proceso" class="btn-premium">{% trans "Iniciar Proyecto" %}</a>
+            <a href="/#contact" class="btn-premium bg-transparent text-dark border-dark">{% trans "Consultoría Técnica" %}</a>
+          </div>
         </div>
       </div>
-    
-      <!-- Columna 2 -->
       <div class="col-lg-6">
-        <div class="bg-white rounded-4 shadow p-5 h-100">
-          <h4 class="fw-bold text-success mb-3">{% trans "¿Qué significa \"a medida\"?" %}</h4>
-          <p class="fs-5 text-dark mb-0">
-            {% trans "Que no usas un sistema genérico que limita tu negocio, sino uno construido desde cero para ti: tus procesos, tu lógica, tu equipo, tus clientes. Flexible, escalable y único." %}
-          </p>
+        <div class="img-frame reveal">
+          <img src="{% static 'img/software_hero_v2.png' %}" class="w-100" alt="Euskodev High-End Studio">
         </div>
       </div>
     </div>
-    
-    <!-- Bloque completo -->
-    <div class="col-12">
-      <div class="bg-dark text-white rounded-4 p-5 mt-4 gsap-fade">
-        <h4 class="fw-bold mb-3"><i class="bi bi-stars me-2"></i>{% trans "¿Por qué elegir software a medida?" %}</h4>
-        <ul class="fs-5">
-          <li class="mb-2">{% trans "✔ Control total sobre funcionalidades, sin depender de servicios externos." %}</li>
-          <li class="mb-2">{% trans "✔ Se adapta a cómo tú trabajas, no al revés." %}</li>
-          <li class="mb-2">{% trans "✔ Escalable: crece contigo, se ajusta a nuevos objetivos." %}</li>
-          <li class="mb-2">{% trans "✔ Mejora productividad y experiencia del cliente." %}</li>
-          <li class="mb-2">{% trans "✔ Inversión inteligente a largo plazo, sin pagar por funciones que no usas." %}</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
 </section>
 
+<div class="section-divider"></div>
 
-<section class="py-5" style="background-color: #f4fbfd; font-family: 'Segoe UI', sans-serif;">
+<!-- Definition Section -->
+<section class="section-padding bg-soft">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">{% trans "¿Qué tipo de software desarrollamos?" %}</h2>
-      <p class="lead text-muted">
-        {% trans "Soluciones funcionales, útiles y listas para escalar. Creamos herramientas digitales que realmente ayudan a tu negocio." %}
-      </p>
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-6 reveal d-flex flex-column justify-content-center">
+        <div class="pe-lg-5">
+          <div class="service-icon"><i class="bi bi-cpu-fill"></i></div>
+          <h2 class="hero-title fs-1 mb-4">{% trans "¿Por qué Software a Medida?" %}</h2>
+          <p class="lead text-muted mb-5">{% trans "El software genérico es como comprar un traje de talla única: a veces encaja, pero nunca te hace destacar. Nuestra filosofía es diferente: cada píxel y cada línea de código responden a tus objetivos." %}</p>
+          <ul class="list-unstyled">
+            <li class="mb-4 d-flex align-items-center"><i class="bi bi-check2-circle text-success me-3 fs-4"></i> <span class="fw-600">{% trans "Propiedad total del código y los activos." %}</span></li>
+            <li class="mb-4 d-flex align-items-center"><i class="bi bi-check2-circle text-success me-3 fs-4"></i> <span class="fw-600">{% trans "Escalabilidad horizontal sin límites técnicos." %}</span></li>
+            <li class="mb-4 d-flex align-items-center"><i class="bi bi-check2-circle text-success me-3 fs-4"></i> <span class="fw-600">{% trans "Integración nativa con tus procesos actuales." %}</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+        <div class="img-frame h-100">
+          <img src="{% static 'img/software_quality_v2.png' %}" class="w-100 h-100" style="object-fit: cover;" alt="Quality Code Assurance">
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
+<!-- Services Grid -->
+<section class="section-padding" style="background: linear-gradient(135deg, rgba(52, 141, 148, 0.05) 0%, rgba(42, 90, 107, 0.08) 100%);">
+  <div class="container">
+    <div class="text-center mb-5 pb-5 reveal">
+      <h2 class="hero-title fs-1">{% trans "Soluciones de Alto Rendimiento" %}</h2>
+      <p class="text-muted mx-auto" style="max-width: 600px;">{% trans "Desde aplicaciones web complejas hasta sistemas distribuidos preparados para el futuro. Ingeniería que marca la diferencia." %}</p>
+    </div>
     <div class="row g-4">
-      <div class="col-md-6 software-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-info">
-          <h5 class="fw-semibold mb-2">
-            <i class="bi bi-calendar-check me-2 text-info"></i>{% trans "Sistemas de reservas" %}
-          </h5>
-          <p class="text-secondary mb-0">
-            {% trans "Agenda automática de citas, sincronización con calendarios, recordatorios por correo o WhatsApp." %}
-          </p>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box h-100 shadow-sm" style="border-top: 4px solid var(--primary-teal);">
+          <div class="service-icon" style="color: #348D94;"><i class="bi bi-cloud-arrow-up"></i></div>
+          <h5 class="fw-700">{% trans "Apps Cloud" %}</h5>
+          <p class="text-muted small">{% trans "Sistemas robustos en la nube, optimizados para AWS y Google Cloud." %}</p>
         </div>
       </div>
-
-      <div class="col-md-6 software-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-success">
-          <h5 class="fw-semibold mb-2">
-            <i class="bi bi-file-earmark-text me-2 text-success"></i>{% trans "Generadores de presupuestos" %}
-          </h5>
-          <p class="text-secondary mb-0">
-            {% trans "Plataformas que permiten crear, enviar y gestionar presupuestos automáticamente, desde el navegador." %}
-          </p>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box h-100 shadow-sm" style="border-top: 4px solid #f59e0b;">
+          <div class="service-icon" style="color: #f59e0b;"><i class="bi bi-boxes"></i></div>
+          <h5 class="fw-700">{% trans "Sistemas ERP/CRM" %}</h5>
+          <p class="text-muted small">{% trans "Gestión interna personalizada que se adapta a tu flujo real, no al revés." %}</p>
         </div>
       </div>
-
-      <div class="col-md-6 software-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-warning">
-          <h5 class="fw-semibold mb-2">
-            <i class="bi bi-credit-card me-2 text-warning"></i>{% trans "Pagos en línea" %}
-          </h5>
-          <p class="text-secondary mb-0">
-            {% trans "Integración con Stripe, Bizum, Redsys, etc. para vender productos, servicios o cobrar reservas." %}
-          </p>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box h-100 shadow-sm" style="border-top: 4px solid #10b981;">
+          <div class="service-icon" style="color: #10b981;"><i class="bi bi-lightning-charge"></i></div>
+          <h5 class="fw-700">{% trans "Automatización" %}</h5>
+          <p class="text-muted small">{% trans "Reduce errores y ahorra miles de horas con lógica de negocio automatizada." %}</p>
         </div>
       </div>
-
-      <div class="col-md-6 software-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 border-start border-5 border-primary">
-          <h5 class="fw-semibold mb-2">
-            <i class="bi bi-cpu me-2 text-primary"></i>{% trans "Aplicaciones con IA" %}
-          </h5>
-          <p class="text-secondary mb-0">
-            {% trans "Desde asistentes inteligentes hasta predicción de datos o automatización basada en comportamiento." %}
-          </p>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="service-box h-100 shadow-sm" style="border-top: 4px solid #6366f1;">
+          <div class="service-icon" style="color: #6366f1;"><i class="bi bi-braces-asterisk"></i></div>
+          <h5 class="fw-700">{% trans "Backend API" %}</h5>
+          <p class="text-muted small">{% trans "Arquitecturas API seguras y ultra-rápidas con Python y Django." %}</p>
         </div>
       </div>
-    </div>
-
-    <div class="text-center mt-5">
-      <a href="#contacto" class="btn btn-lg fw-bold text-uppercase"
-         style="background: linear-gradient(135deg, #5ce9e2, #348D94); color: white; border-radius: 10px;">
-        {% trans "Empecemos tu software" %}
-      </a>
     </div>
   </div>
 </section>
 
-
-<section class="py-5" style="background-color: #f4f9fa; font-family: 'Segoe UI', sans-serif;">
+<!-- Methodology Timeline -->
+<section id="proceso" class="section-padding bg-soft">
   <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold display-6">{% trans "¿Cómo te beneficia un software a medida?" %}</h2>
-      <p class="lead text-muted">{% trans "Más eficiencia, menos errores, total libertad. Estas son algunas de las ventajas reales de tener una solución hecha solo para ti." %}</p>
-    </div>
-
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
-      <div class="col benefit-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
-          <i class="bi bi-clock-history fs-1 text-primary mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Ahorro de tiempo" %}</h5>
-          <p class="text-secondary">{% trans "Automatiza tareas repetitivas, evita errores y enfócate en lo que realmente importa." %}</p>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 reveal">
+        <h2 class="hero-title fs-1 mb-4">{% trans "El Método Euskodev" %}</h2>
+        <p class="lead text-muted mb-5">{% trans "Nuestro proceso iterativo asegura que el resultado final supere las expectativas del mercado." %}</p>
+        <div class="process-timeline mt-5">
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-700">{% trans "01. Descubrimiento & Estrategia" %}</h5>
+            <p class="text-muted small">{% trans "Analizamos la lógica profunda de tu negocio para diseñar la solución técnica perfecta." %}</p>
+          </div>
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-700">{% trans "02. Arquitectura & UX" %}</h5>
+            <p class="text-muted small">{% trans "Definimos la base técnica y la experiencia de usuario antes de escribir una sola línea de código." %}</p>
+          </div>
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-700">{% trans "03. Desarrollo Ágil" %}</h5>
+            <p class="text-muted small">{% trans "Codificamos con estándares de alta calidad, permitiéndote ver avances reales cada semana." %}</p>
+          </div>
+          <div class="process-item">
+            <div class="process-dot"></div>
+            <h5 class="fw-700">{% trans "04. Despliegue & Evolución" %}</h5>
+            <p class="text-muted small">{% trans "Lanzamos, monitorizamos y evolucionamos tu plataforma según las necesidades del mercado." %}</p>
+          </div>
         </div>
       </div>
-
-      <div class="col benefit-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
-          <i class="bi bi-currency-euro fs-1 text-success mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Reducción de costes" %}</h5>
-          <p class="text-secondary">{% trans "Evita pagar por funciones innecesarias o licencias de herramientas que no usas." %}</p>
+      <div class="col-lg-6 reveal">
+        <div class="img-frame">
+          <img src="{% static 'img/software_methodology_v2.png' %}" class="w-100" alt="Software Development Process">
         </div>
       </div>
-
-      <div class="col benefit-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
-          <i class="bi bi-bar-chart-line fs-1 text-warning mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Mayor productividad" %}</h5>
-          <p class="text-secondary">{% trans "Optimiza tus procesos, mejora la experiencia del equipo y acelera resultados." %}</p>
-        </div>
-      </div>
-
-      <div class="col benefit-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
-          <i class="bi bi-person-check fs-1 text-info mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Adaptado a ti" %}</h5>
-          <p class="text-secondary">{% trans "Cada función está diseñada para encajar con tus procesos, clientes y estilo de trabajo." %}</p>
-        </div>
-      </div>
-
-      <div class="col benefit-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
-          <i class="bi bi-shield-lock fs-1 text-danger mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Más seguridad" %}</h5>
-          <p class="text-secondary">{% trans "Tú decides qué se almacena, cómo se protege y quién accede. Sin sorpresas externas." %}</p>
-        </div>
-      </div>
-
-      <div class="col benefit-card">
-        <div class="bg-white shadow-sm p-4 rounded-4 h-100 text-center">
-          <i class="bi bi-stars fs-1 text-secondary mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Experiencia premium" %}</h5>
-          <p class="text-secondary">{% trans "Ofrece una plataforma profesional que transmite calidad y confianza a tus usuarios." %}</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-
-
-<section class="py-5 bg-white" style="font-family: 'Segoe UI', sans-serif;">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold display-6">{% trans "¿Cómo desarrollamos tu software?" %}</h2>
-      <p class="lead text-muted">{% trans "En Euskodev trabajamos contigo paso a paso para transformar tu idea en una solución digital potente y funcional." %}</p>
-    </div>
-
-    <div class="row g-4 text-center">
-
-      <div class="col-md-3 process-card">
-        <div class="p-4 border rounded-4 shadow-sm h-100">
-          <div class="fs-1 text-info mb-3"><i class="bi bi-chat-dots"></i></div>
-          <h5 class="fw-semibold">{% trans "1. Escuchamos" %}</h5>
-          <p class="text-muted">{% trans "Nos cuentas tu idea, tu problema o tu objetivo. Nosotros escuchamos, preguntamos y te proponemos una solución realista." %}</p>
-        </div>
-      </div>
-
-      <div class="col-md-3 process-card">
-        <div class="p-4 border rounded-4 shadow-sm h-100">
-          <div class="fs-1 text-success mb-3"><i class="bi bi-vector-pen"></i></div>
-          <h5 class="fw-semibold">{% trans "2. Diseñamos" %}</h5>
-          <p class="text-muted">{% trans "Creamos la estructura, los módulos, la experiencia de usuario y todas las piezas que tendrá tu software." %}</p>
-        </div>
-      </div>
-
-      <div class="col-md-3 process-card">
-        <div class="p-4 border rounded-4 shadow-sm h-100">
-          <div class="fs-1 text-warning mb-3"><i class="bi bi-code-slash"></i></div>
-          <h5 class="fw-semibold">{% trans "3. Desarrollamos" %}</h5>
-          <p class="text-muted">{% trans "Codificamos todo desde cero. Tú puedes ir viendo el progreso real y validando el resultado." %}</p>
-        </div>
-      </div>
-
-      <div class="col-md-3 process-card">
-        <div class="p-4 border rounded-4 shadow-sm h-100">
-          <div class="fs-1 text-primary mb-3"><i class="bi bi-rocket-takeoff"></i></div>
-          <h5 class="fw-semibold">{% trans "4. Lanzamos" %}</h5>
-          <p class="text-muted">{% trans "Probamos, corregimos, y lanzamos tu software en producción. Con o sin mantenimiento, tú eliges." %}</p>
-        </div>
-      </div>
-
-    </div>
+<!-- Final CTA Section -->
+<section class="section-padding text-center">
+  <div class="container reveal">
+    <h2 class="hero-title fs-1">{% trans "¿Hablamos de tu próximo éxito?" %}</h2>
+    <p class="lead text-muted mb-5 mx-auto" style="max-width: 600px;">{% trans "Estamos listos para transformar tus ideas en infraestructuras digitales de alto rendimiento. Hablemos sobre cómo podemos construir tu próxima gran herramienta." %}</p>
+    <a href="/#contact" class="btn-premium px-5 py-4 btn-pro">{% trans "Solicitar Asesoría Técnica Gratis" %}</a>
   </div>
 </section>
 
-
-
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', (event) => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".gsap-fade").forEach((el) => {
-      gsap.fromTo(el, 
-        { opacity: 0, y: 50 }, 
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%",
-            toggleActions: "play none none none"
-          }
-        });
+    gsap.utils.toArray(".reveal").forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out"
+      });
     });
   });
 </script>
 
-
-<!-- GSAP animation -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".software-card").forEach((card, i) => {
-      gsap.fromTo(card, 
-        { opacity: 0, y: 60 }, 
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-    });
-  });
-</script>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".benefit-card").forEach((card, i) => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-    });
-  });
-</script>
-
-
-<!-- Animación con GSAP -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".process-card").forEach((card, i) => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: i * 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-    });
-  });
-</script>
-
-
-  
 {% endblock %}

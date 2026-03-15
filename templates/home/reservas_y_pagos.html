@@ -3,369 +3,673 @@
 {% load static %}
 
 {% block head %}
-<!-- Estilos -->
-<style>
-  .servicios-section {
-    padding: 100px 0;
-    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
-  }
-
-  .titulo-servicio {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1f1f1f;
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #5ce9e2, #348D94);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .descripcion-servicio {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .servicio-card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    height: 100%;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-  }
-
-  .servicio-card i {
-    font-size: 2rem;
-    color: #348D94;
-    margin-bottom: 15px;
-    display: block;
-  }
-
-  .servicio-card h5 {
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #111;
-  }
-
-  .servicio-card p {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 0;
-  }
-
-  .servicio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  }
-
-  .btn-servicio {
-    background: linear-gradient(135deg, #5ce9e2, #348D94);
-    color: #fff;
-    padding: 14px 32px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-    display: inline-block;
-    margin-top: 40px;
-  }
-
-  .btn-servicio:hover {
-    opacity: 0.9;
-  }
-</style>
-
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
-  .euskodev-servicios {
-    background: linear-gradient(135deg, #e6f7f7, #f8fcfc);
+  :root {
+    --primary-teal: #348D94;
+    --accent-blue: #2a5a6b;
+    --text-dark: #1a1a1a;
+    --text-muted: #555c63;
+    --bg-light: #ffffff;
+    --bg-alt: #f8fafc;
   }
 
-  .servicio-box {
-    background: #fff;
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
-    gap: 16px;
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background: var(--bg-light);
   }
 
-  .icon-wrapper {
-    width: 50px;
-    height: 50px;
+  /* Hero Section V2 */
+  .hero-v2 {
+    position: relative;
+    padding: 160px 0 100px;
+    background: linear-gradient(135deg, #f0f9fa 0%, #ffffff 100%);
+    overflow: hidden;
+  }
+
+  .hero-v2::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(52, 141, 148, 0.05) 0%, rgba(255,255,255,0) 70%);
     border-radius: 50%;
+    z-index: 0;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(52, 141, 148, 0.1);
+    color: var(--primary-teal);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    color: var(--text-dark);
+  }
+
+  .hero-desc {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  /* Stats Bar */
+  .stats-bar {
+    padding: 60px 0;
+    border-bottom: 1px solid #edf2f7;
+  }
+
+  .stat-item h3 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: var(--primary-teal);
+    margin-bottom: 5px;
+  }
+
+  .stat-item p {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  /* Section Styles */
+  .section-padding {
+    padding: 120px 0;
+  }
+
+  .section-title {
+    font-weight: 800;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  /* Cards v2 */
+  .feature-card {
+    background: white;
+    border: 1px solid #edf2f7;
+    border-radius: 24px;
+    padding: 48px;
+    transition: all 0.4s ease;
+    height: 100%;
+  }
+
+  .feature-card:hover {
+    border-color: var(--primary-teal);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+    transform: translateY(-5px);
+  }
+
+  .icon-box {
+    width: 64px;
+    height: 64px;
+    background: #f0f9fa;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4px;
+    margin-bottom: 32px;
+    color: var(--primary-teal);
+    font-size: 1.5rem;
   }
 
-  .btn-servicio {
-    background: linear-gradient(135deg, #5ce9e2, #348D94);
-    color: #fff;
-    padding: 14px 32px;
-    font-size: 1rem;
-    font-weight: 600;
+  /* Methodology v2 */
+  .method-step {
+    position: relative;
+    padding-left: 40px;
+    border-left: 2px solid #edf2f7;
+    margin-bottom: 40px;
+  }
+
+  .method-step::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-teal);
+    border-radius: 50%;
+  }
+
+  .step-num {
+    font-weight: 800;
+    color: var(--primary-teal);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: block;
+    opacity: 0.8;
+  }
+
+  /* FAQ v2 */
+  .faq-item {
+    background: var(--bg-alt);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+    margin-top: 15px;
+  }
+
+  .faq-item.active .bi-plus {
+    transform: rotate(45deg);
+  }
+
+  /* Realistic Feature Section */
+  .feature-grid-img {
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  }
+
+  .btn-pro {
+    background: var(--primary-teal);
+    color: white;
+    padding: 18px 40px;
     border-radius: 12px;
+    font-weight: 700;
     text-decoration: none;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
   }
 
-  .btn-servicio:hover {
+  .btn-pro:hover {
+    background: var(--accent-blue);
+    transform: translateY(-2px);
+    color: white;
+  }
+
+  /* Integration Brand Cards */
+  .integration-card {
+    background: white;
+    border: 1px solid #edf2f7;
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+  }
+
+  .integration-card:hover {
+    border-color: var(--primary-teal);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    transform: translateY(-3px);
+  }
+
+  .brand-icon {
+    font-size: 1.8rem;
+    color: var(--primary-teal);
     opacity: 0.9;
   }
+
+  .brand-info h6 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+  }
+
+  .brand-info span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* Section Separators */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #edf2f7, transparent);
+    width: 100%;
+  }
+
+  .bg-soft-teal {
+    background-color: #f0f9fa;
+  }
+
+  /* Methodology Icon Refinement */
+  .methodology-icon {
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-teal);
+    font-size: 1.4rem;
+    box-shadow: 0 8px 20px rgba(52, 141, 148, 0.12);
+    border: 1px solid rgba(52, 141, 148, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .method-item:hover .methodology-icon {
+    background: var(--primary-teal);
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  /* Promotional Banner Section */
+  .promo-banner {
+    position: relative;
+    background: #0f172a;
+    border-radius: 40px;
+    overflow: hidden;
+    color: white;
+    margin: 80px 0;
+  }
+
+  .promo-content {
+    padding: 80px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .promo-img-sidebar {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-image: url("{% static 'img/euskodev_promo_banner.png' %}");
+  }
+
+  .promo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #0f172a 30%, transparent 100%);
+    z-index: 1;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--primary-teal); /* Fallback */
+    display: inline-block;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 </style>
-
-<style>
-  body {
-  font-family: 'Poppins', sans-serif;
-}
-</style>
-
-
 {% endblock %}
 
 {% block content %}
 
-
-<div class="container-fluid p-0">
-  <div class="video-container position-relative">
-      <!-- Imagen responsive y centrada -->
-      <img src="{% static 'img/metodo_de_pago_y_reservas.png' %}"
-           alt="{% trans 'Imagen de portada representando los servicios digitales de Euskodev' %}"
-           class="img-fluid w-100"
-           style="height: 100vh; object-fit: cover; object-position: center;"
-           loading="lazy">
-
-      <!-- Capa negra semi-transparente -->
-      <div class="video-overlay-dark position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
-
-      <!-- Texto dentro del video -->
-      <div class="video-overlay position-absolute top-50 start-50 translate-middle text-center text-white px-3 px-md-5">
-          <h1 class="fw-bold display-5">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
-          <p id="changing-subtitle" class="lead">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
-          <div class="text-center">
-            <a href="#contact" class="btn-servicio">{% trans 'Solicita tu Presupuesto Gratis' %}</a>
+<!-- Hero Section V2 -->
+<section class="hero-v2">
+  <div class="container hero-container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="reveal">
+          <span class="hero-tag">{% trans "Experiencia Digital de Alto Nivel" %}</span>
+          <h1 class="hero-title">{% trans "Sistemas de Reservas y Pagos" %}<br><span style="color: var(--primary-teal)">{% trans "Hechos para Crecer." %}</span></h1>
+          <p class="hero-desc">{% trans "Digitalizamos tu negocio con soluciones robustas, integraciones seguras y una experiencia de usuario impecable. Menos gestión, más resultados." %}</p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#soluciones" class="btn-pro">{% trans "Ver Soluciones" %}</a>
+            <a href="/#contact" class="btn-outline-dark btn-pro bg-transparent border-dark text-dark" style="background: transparent !important">{% trans "Hablar con un Experto" %}</a>
           </div>
+        </div>
       </div>
+      <div class="col-lg-6">
+        <div class="hero-image-wrapper reveal">
+          <img src="{% static 'img/reservas_y_pagos_hero_v2.png' %}" class="hero-image" alt="Euskodev Workspace">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values Bar -->
+<div class="stats-bar bg-white">
+  <div class="container">
+    <div class="row text-center reveal">
+      <div class="col-md-4 stat-item">
+        <i class="bi bi-shield-fill-check text-gradient fs-2 mb-2"></i>
+        <h5 class="fw-800">{% trans "Seguridad Bancaria" %}</h5>
+        <p class="small text-muted">{% trans "Protección total de datos" %}</p>
+      </div>
+      <div class="col-md-4 stat-item">
+        <i class="bi bi-lightning-charge-fill text-gradient fs-2 mb-2"></i>
+        <h5 class="fw-800">{% trans "Alta Velocidad" %}</h5>
+        <p class="small text-muted">{% trans "Carga instantánea en cualquier dispositivo" %}</p>
+      </div>
+      <div class="col-md-4 stat-item">
+        <i class="bi bi-gear-fill text-gradient fs-2 mb-2"></i>
+        <h5 class="fw-800">{% trans "Diseño a Medida" %}</h5>
+        <p class="small text-muted">{% trans "Adaptado a tu flujo de negocio" %}</p>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Sección moderna de Servicios -->
-<section class="servicios-section">
-  <div class="container py-5">
-    <div class="text-center mb-5">
-      <h2 class="titulo-servicio">
-        <i class="bi bi-credit-card-fill text-gradient me-2"></i>
-        {% trans "Pagos y Reservas Online" %}
-      </h2>
-      <p class="descripcion-servicio">
-        {% trans "Facilitamos herramientas digitales para que tus clientes puedan pagar y reservar en línea de forma segura, rápida y sencilla." %}
+<div class="section-divider"></div>
+
+<!-- Soluciones Section -->
+<section id="soluciones" class="section-padding bg-soft-teal">
+  <div class="container">
+    <div class="text-center mb-5 pb-4">
+      <h2 class="section-title reveal">{% trans "Nuestras Especialidades" %}</h2>
+      <p class="lead text-muted mx-auto reveal" style="max-width: 700px;">
+        {% trans "Desarrollamos herramientas a medida que se integran perfectamente en tu flujo de trabajo diario." %}
       </p>
     </div>
 
     <div class="row g-4">
-      <!-- Card 1 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="servicio-card">
-          <i class="bi bi-shield-lock-fill"></i>
-          <h5>{% trans "Pagos Seguros" %}</h5>
-          <p>{% trans "Stripe, PayPal o Redsys integrados para cobrar sin complicaciones." %}</p>
+      <div class="col-lg-4 reveal">
+        <div class="feature-card shadow-sm">
+          <div class="icon-box"><i class="bi bi-credit-card-fill"></i></div>
+          <h4 class="fw-800 mb-3">{% trans "Pagos Sin Fricción" %}</h4>
+          <p class="text-muted line-height-lg">{% trans "Interfaces de pago optimizadas para conversión. Stripe, PayPal, Redsys y Apple Pay integrados nativamente." %}</p>
         </div>
       </div>
-      <!-- Card 2 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="servicio-card">
-          <i class="bi bi-calendar2-check-fill"></i>
-          <h5>{% trans "Reservas Inteligentes" %}</h5>
-          <p>{% trans "Disponibilidad en tiempo real, recordatorios automáticos y control total." %}</p>
+      <div class="col-lg-4 reveal">
+        <div class="feature-card shadow-sm">
+          <div class="icon-box"><i class="bi bi-calendar-event-fill"></i></div>
+          <h4 class="fw-800 mb-3">{% trans "Reservas Dinámicas" %}</h4>
+          <p class="text-muted line-height-lg">{% trans "Sistemas con lógica de negocio compleja: turnos, capacidades, depósitos previos y confirmaciones automáticas." %}</p>
         </div>
       </div>
-      <!-- Card 3 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="servicio-card">
-          <i class="bi bi-sliders2"></i>
-          <h5>{% trans "Soluciones a Medida" %}</h5>
-          <p>{% trans "Sistemas desarrollados para adaptarse a tus procesos específicos." %}</p>
+      <div class="col-lg-4 reveal">
+        <div class="feature-card shadow-sm">
+          <div class="icon-box"><i class="bi bi-graph-up-arrow"></i></div>
+          <h4 class="fw-800 mb-3">{% trans "Paneles de Gestión" %}</h4>
+          <p class="text-muted line-height-lg">{% trans "Control total sobre tus ventas y reservas. Analíticas en tiempo real para tomar decisiones basadas en datos." %}</p>
         </div>
       </div>
-      <!-- Card 4 -->
-      <div class="col-md-6 col-lg-3">
-        <div class="servicio-card">
-          <i class="bi bi-code-slash"></i>
-          <h5>{% trans "Código Profesional" %}</h5>
-          <p>{% trans "Backend limpio, seguro, escalable y documentado desde cero." %}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <a href="#contact" class="btn-servicio">{% trans "Solicita tu sistema ahora" %}</a>
     </div>
   </div>
 </section>
 
-<section class="euskodev-servicios py-5">
-  <div class="container py-5">
-    <!-- Título -->
-    <div class="text-center mb-5">
-      <h2 class="display-5 fw-bold text-dark">{% trans "Soluciones digitales a tu medida" %}</h2>
-      <p class="lead text-muted mx-auto" style="max-width: 720px;">
-        {% trans "Gestiona pagos, reservas y procesos personalizados con tecnología moderna y segura adaptada a tu negocio." %}
-      </p>
-    </div>
-
-    <!-- Servicios -->
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="servicio-box d-flex align-items-start">
-          <div class="icon-wrapper bg-primary bg-opacity-10 text-primary">
-            <i class="bi bi-credit-card-fill fs-4"></i>
+<!-- Realistic Feature: Pagos -->
+<section class="section-padding bg-alt">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <img src="{% static 'img/pagos_seguros_v2.png' %}" class="feature-grid-img w-100" alt="Payment security lifecycle">
+      </div>
+      <div class="col-lg-6">
+        <div class="reveal">
+          <h2 class="section-title">{% trans "Seguridad que Transmite" %}<br><span style="color: var(--primary-teal)">{% trans "Confianza" %}</span></h2>
+          <p class="lead text-muted mb-5">{% trans "Tus clientes merecen la tranquilidad de saber que sus datos están protegidos. Implementamos los estándares más exigentes del mercado." %}</p>
+          
+          <div class="method-step">
+            <span class="step-num">STEP 01</span>
+            <h5 class="fw-800">{% trans "Cifrado de Extremo a Extremo" %}</h5>
+            <p class="text-muted">{% trans "Protocolos SSL de alto nivel y cumplimiento PCI-DSS nivel 1 garantizado." %}</p>
           </div>
-          <div>
-            <h5 class="fw-semibold mb-1">{% trans "Pagos Integrados" %}</h5>
-            <p class="small text-muted mb-0">{% trans "Permite que tus clientes paguen desde tu web con Stripe, PayPal o Redsys de forma segura y rápida." %}</p>
+          <div class="method-step">
+            <span class="step-num">STEP 02</span>
+            <h5 class="fw-800">{% trans "Seguridad mediante Tokens" %}</h5>
+            <p class="text-muted">{% trans "Sustituimos datos sensibles por tokens únicos. Si alguien interceptara la información, solo encontraría un código sin valor, garantizando una protección impenetrable." %}</p>
           </div>
         </div>
       </div>
-
-      <div class="col-md-6">
-        <div class="servicio-box d-flex align-items-start">
-          <div class="icon-wrapper bg-success bg-opacity-10 text-success">
-            <i class="bi bi-calendar2-check-fill fs-4"></i>
-          </div>
-          <div>
-            <h5 class="fw-semibold mb-1">{% trans "Reservas Online" %}</h5>
-            <p class="small text-muted mb-0">{% trans "Clientes reservan online 24/7 con confirmaciones, recordatorios y disponibilidad actualizada." %}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="servicio-box d-flex align-items-start">
-          <div class="icon-wrapper bg-warning bg-opacity-10 text-warning">
-            <i class="bi bi-sliders2 fs-4"></i>
-          </div>
-          <div>
-            <h5 class="fw-semibold mb-1">{% trans "Soluciones a medida" %}</h5>
-            <p class="small text-muted mb-0">{% trans "Creamos software que se adapta a tus procesos internos y mejora tu eficiencia diaria." %}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="servicio-box d-flex align-items-start">
-          <div class="icon-wrapper bg-info bg-opacity-10 text-info">
-            <i class="bi bi-code-slash fs-4"></i>
-          </div>
-          <div>
-            <h5 class="fw-semibold mb-1">{% trans "Desarrollo Profesional" %}</h5>
-            <p class="small text-muted mb-0">{% trans "Plataformas escalables con paneles de gestión, APIs limpias y código de calidad." %}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center">
-      <a href="#contact" class="btn-servicio">{% trans "Solicita tu sistema ahora" %}</a>
     </div>
   </div>
 </section>
 
-
-
-<section class="py-5 bg-light">
-  <div class="container py-5">
-    <!-- Título -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold display-5">{% trans "¿Por qué ofrecer pagos y reservas online?" %}</h2>
-      <p class="lead text-muted mx-auto" style="max-width: 720px;">
-        {% trans "Ya sea que tengas un restaurante, un hotel o una tienda, digitalizar tu sistema mejora la experiencia de tus clientes y optimiza tu negocio." %}
-      </p>
-    </div>
-
-    <!-- Beneficios -->
-    <div class="row g-4">
-      <!-- Beneficio 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
-          <i class="bi bi-clock-history fs-1 text-primary mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Ahorro de tiempo" %}</h5>
-          <p class="text-muted small mb-0">
-            {% trans "Automatiza tareas repetitivas como confirmar reservas o registrar pagos, y dedica ese tiempo a lo que realmente importa." %}
-          </p>
+<!-- Methodology Section -->
+<section class="section-padding bg-alt">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5 reveal">
+        <h2 class="section-title">{% trans "Cómo Trabajamos" %}</h2>
+        <p class="lead text-muted">{% trans "Nuestro proceso está diseñado para entregar resultados profesionales en tiempos optimizados." %}</p>
+        <div class="mt-5">
+          <div class="d-flex align-items-center mb-4 method-item">
+            <div class="methodology-icon mb-0 me-3"><i class="bi bi-search"></i></div>
+            <h5 class="fw-700 mb-0">{% trans "Análisis de Procesos" %}</h5>
+          </div>
+          <div class="d-flex align-items-center mb-4 method-item">
+            <div class="methodology-icon mb-0 me-3"><i class="bi bi-diagram-3-fill"></i></div>
+            <h5 class="fw-700 mb-0">{% trans "Arquitectura de Software" %}</h5>
+          </div>
+          <div class="d-flex align-items-center mb-4 method-item">
+            <div class="methodology-icon mb-0 me-3"><i class="bi bi-braces"></i></div>
+            <h5 class="fw-700 mb-0">{% trans "Desarrollo y Testing" %}</h5>
+          </div>
+          <div class="d-flex align-items-center method-item">
+            <div class="methodology-icon mb-0 me-3"><i class="bi bi-rocket-takeoff-fill"></i></div>
+            <h5 class="fw-700 mb-0">{% trans "Lanzamiento y Soporte" %}</h5>
+          </div>
         </div>
       </div>
-
-      <!-- Beneficio 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
-          <i class="bi bi-bar-chart-line-fill fs-1 text-success mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Más ventas y reservas" %}</h5>
-          <p class="text-muted small mb-0">
-            {% trans "Estás disponible 24/7 para recibir pagos y reservas incluso mientras duermes. Sin límites ni intermediarios." %}
-          </p>
+      <div class="col-lg-7 reveal">
+        <div class="p-4" style="background: white; border-radius: 30px; border: 1px solid #edf2f7;">
+          <h4 class="fw-800 mb-4">{% trans "Integraciones Certificadas" %}</h4>
+          <p class="text-muted mb-4 small">{% trans "Conectamos tu flujo de trabajo con las plataformas líderes mundiales para garantizar estabilidad y escalabilidad." %}</p>
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="integration-card">
+                <i class="bi bi-stripe brand-icon"></i>
+                <div class="brand-info">
+                  <h6>Stripe</h6>
+                  <span>{% trans "Pagos Globales" %}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="integration-card">
+                <i class="bi bi-paypal brand-icon"></i>
+                <div class="brand-info">
+                  <h6>PayPal</h6>
+                  <span>{% trans "Cartera Digital" %}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="integration-card">
+                <i class="bi bi-credit-card-2-front brand-icon"></i>
+                <div class="brand-info">
+                  <h6>Redsys</h6>
+                  <span>{% trans "Pasarela Local" %}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="integration-card">
+                <i class="bi bi-google brand-icon"></i>
+                <div class="brand-info">
+                  <h6>Google Cal</h6>
+                  <span>{% trans "Sincronización" %}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="integration-card">
+                <i class="bi bi-envelope brand-icon"></i>
+                <div class="brand-info">
+                  <h6>Outlook</h6>
+                  <span>{% trans "Gestor Email" %}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="integration-card">
+                <i class="bi bi-lightning-charge brand-icon"></i>
+                <div class="brand-info">
+                  <h6>Zapier</h6>
+                  <span>{% trans "Automatización" %}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- Beneficio 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
-          <i class="bi bi-emoji-smile-fill fs-1 text-warning mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Mejor experiencia para tus clientes" %}</h5>
-          <p class="text-muted small mb-0">
-            {% trans "Reservar una mesa o pagar un producto con pocos clics desde el móvil mejora la percepción de tu marca y fideliza al cliente." %}
-          </p>
-        </div>
-      </div>
-
-      <!-- Beneficio 4 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
-          <i class="bi bi-shield-check fs-1 text-info mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Mayor seguridad y control" %}</h5>
-          <p class="text-muted small mb-0">
-            {% trans "Todos los pagos son cifrados. Tú decides políticas de cancelación, horarios y disponibilidad sin depender de terceros." %}
-          </p>
-        </div>
-      </div>
-
-      <!-- Beneficio 5 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
-          <i class="bi bi-person-check-fill fs-1 text-danger mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Gestión eficiente del cliente" %}</h5>
-          <p class="text-muted small mb-0">
-            {% trans "Recoge datos útiles de tus clientes, ofrece recordatorios automáticos y crea campañas personalizadas." %}
-          </p>
-        </div>
-      </div>
-
-      <!-- Beneficio 6 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="bg-white border rounded-4 shadow-sm p-4 h-100 text-center">
-          <i class="bi bi-lightning-fill fs-1 text-secondary mb-3"></i>
-          <h5 class="fw-semibold">{% trans "Digitaliza y escala tu negocio" %}</h5>
-          <p class="text-muted small mb-0">
-            {% trans "Empieza con una solución simple y hazla crecer según tus necesidades. Abre nuevos canales de venta fácilmente." %}
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center">
-      <a href="#contact" class="btn-servicio">{% trans "Solicita tu sistema ahora" %}</a>
     </div>
   </div>
 </section>
 
+<!-- Promotional Banner -->
+<div class="container mb-5">
+  <div class="promo-banner reveal">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6">
+        <div class="promo-content">
+          <span class="hero-tag mb-4" style="background: rgba(255,255,255,0.1); color: #00e5c4;">{% trans "Lidera tu Mercado" %}</span>
+          <h2 class="section-title text-white mb-4">{% trans "¿Listo para el Siguiente Paso?" %}</h2>
+          <p class="lead mb-5" style="color: rgba(255,255,255,0.8);">{% trans "No solo creamos software, construimos la infraestructura que tu negocio necesita para escalar sin límites. Descubre el potencial de Euskodev." %}</p>
+          <a href="/#contact" class="btn-pro px-5 py-4" style="background: #00e5c4; color: #0f172a;">{% trans "Solicitar Auditoría Digital" %}</a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="promo-img-sidebar">
+          <div class="promo-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- FAQ Section -->
+<section class="section-padding bg-soft-teal">
+  <div class="container">
+    <div class="text-center mb-5 pb-3">
+      <h2 class="section-title reveal">{% trans "Preguntas Frecuentes" %}</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="faq-item reveal">
+          <div class="faq-question">{% trans "¿Cuánto tiempo toma implementar un sistema de reservas?" %} <i class="bi bi-plus fs-4"></i></div>
+          <div class="faq-answer">
+            <p class="text-muted mb-0">{% trans "Dependiendo de la complejidad, una integración estándar puede estar lista en 2-3 semanas, mientras que un sistema altamente personalizado puede tomar entre 4 y 6 semanas." %}</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question">{% trans "¿Es compatible con mi sitio web actual?" %} <i class="bi bi-plus fs-4"></i></div>
+          <div class="faq-answer">
+            <p class="text-muted mb-0">{% trans "Sí, nuestras soluciones se pueden integrar en casi cualquier plataforma web existente o mediante subdominios dedicados si el sitio original no permite integraciones directas." %}</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question">{% trans "¿Qué comisiones cobran por los pagos?" %} <i class="bi bi-plus fs-4"></i></div>
+          <div class="faq-answer">
+            <p class="text-muted mb-0">{% trans "Euskodev no cobra comisiones por transacción. Solo pagas por el desarrollo y mantenimiento del sistema. Las pasarelas (Stripe, PayPal) sí tienen sus propias tarifas estándar." %}</p>
+          </div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-question">{% trans "¿Puedo gestionar cancelaciones automáticamente?" %} <i class="bi bi-plus fs-4"></i></div>
+          <div class="faq-answer">
+            <p class="text-muted mb-0">{% trans "Totalmente. Podemos configurar políticas de cancelación automáticas que gestionen reembolsos totales o parciales según los plazos que tú definas." %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Final CTA -->
+<section class="section-padding bg-white text-center">
+  <div class="container reveal">
+    <h2 class="section-title mb-4">{% trans "Lleva tu Negocio al" %} <br><span style="color: var(--primary-teal)">{% trans "Siguiente Nivel" %}</span></h2>
+    <p class="lead text-muted mb-5 mx-auto" style="max-width: 600px;">{% trans "Hablemos sobre cómo una solución a medida puede ahorrarte horas de gestión manual cada semana." %}</p>
+    <a href="/#contact" class="btn-pro px-5 py-4 btn-pro">{% trans "Empieza hoy mismo" %}</a>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade in all elements with 'reveal' class
+    gsap.utils.toArray(".reveal").forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power3.out"
+      });
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Subtle hero image drift
+    gsap.to(".hero-image", {
+      y: -20,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut"
+    });
+  });
+</script>
 
 {% endblock %}
