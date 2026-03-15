@@ -73,7 +73,7 @@ def formulario_contactar(request):
         company = request.POST.get("company", "")
         message = request.POST.get("message", "")
 
-        asunto = f"Nuevo mensaje de contacto de {name}"
+        asunto = f"Mensaje desde la página principal de Euskodev - {name}"
         contenido_html = f"""
         <h3>Nuevo mensaje desde el formulario</h3>
         <p><strong>Nombre:</strong> {name}</p>
@@ -295,7 +295,7 @@ class EnviarSolicitudView(FormView):
             print(f"❌ Error al procesar el CV: {e}")
             adjuntos = None
 
-        asunto = f"Solicitud de empleo para {puesto} de {nombre} {apellido}"
+        asunto = f"Nuevo candidato a Euskodev - {nombre} {apellido} - {puesto}"
         html_mensaje = f"""
         <h3>Nueva solicitud de empleo</h3>
         <p><strong>Nombre:</strong> {nombre} {apellido}</p>
