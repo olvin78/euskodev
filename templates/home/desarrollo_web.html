@@ -272,6 +272,79 @@
     background: linear-gradient(135deg, var(--dw-teal), var(--dw-gold));
   }
 
+  /* Bento Grid - Why Choose Us */
+  .dw-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .dw-bento__card {
+    background: white;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 24px;
+    padding: 32px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  }
+
+  .dw-bento__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    border-color: var(--dw-teal);
+  }
+
+  .dw-bento__card--large {
+    grid-column: span 2;
+    background: linear-gradient(145deg, #ffffff, #f1f5f9);
+  }
+
+  .dw-bento__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    background: rgba(42, 195, 181, 0.1);
+    color: var(--dw-teal);
+  }
+
+  .dw-bento__card--gold .dw-bento__icon {
+    background: rgba(244, 184, 74, 0.1);
+    color: var(--dw-gold);
+  }
+
+  .dw-bento__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+  }
+
+  .dw-bento__text {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 991px) {
+    .dw-bento {
+      grid-template-columns: 1fr;
+    }
+    .dw-bento__card--large {
+      grid-column: span 1;
+    }
+  }
+
   .dw-cta {
     background: linear-gradient(135deg, #0f172a, #1f2937);
     border-radius: 28px;
@@ -441,52 +514,53 @@
 <section class="dw-section">
   <div class="container">
     <div class="text-center mb-5">
-      <h3 class="dw-section__title">{% trans '¿Por qué elegir Euskodev?' %}</h3>
-      <p class="text-muted">{% trans 'Te damos razones reales para confiar en nosotros.' %}</p>
-      <div class="dw-section__line"></div>
+      <h3 class="display-5 fw-bold" style="color: #0f172a;">{% trans '¿Por qué confiar en Euskodev?' %}</h3>
+      <p class="lead text-muted">{% trans 'Elevamos los estándares de calidad con un enfoque transparente y resultados reales.' %}</p>
+      <div class="mx-auto" style="width: 80px; height: 4px; background: linear-gradient(90deg, var(--dw-teal), var(--dw-gold)); border-radius: 999px;"></div>
     </div>
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="dw-why dw-why--teal">
-          <h6 class="fw-bold mb-2"><i class="bi bi-person-heart me-2"></i>{% trans 'Trato humano y directo' %}</h6>
-          <p class="text-muted small">{% trans 'Acompañamos tu proyecto como si fuera nuestro, siempre cerca de ti.' %}</p>
+
+    <div class="dw-bento">
+      <!-- Card 1: Trato Humano (Large) -->
+      <div class="dw-bento__card dw-bento__card--large">
+        <div>
+          <div class="dw-bento__icon"><i class="bi bi-people-fill"></i></div>
+          <h4 class="dw-bento__title">{% trans 'Cercanía y Transparencia Total' %}</h4>
+          <p class="dw-bento__text">{% trans 'No somos una agencia distante. Trabajamos codo con codo con cada cliente, garantizando una comunicación fluida y un trato humano que marca la diferencia en cada etapa del desarrollo.' %}</p>
+        </div>
+        <div class="mt-4 pt-3 border-top d-flex gap-3">
+          <small class="text-muted"><i class="bi bi-check-circle-fill text-success me-1"></i> {% trans 'Objetivos claros' %}</small>
+          <small class="text-muted"><i class="bi bi-check-circle-fill text-success me-1"></i> {% trans 'Reportes periódicos' %}</small>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="dw-why dw-why--gold">
-          <h6 class="fw-bold mb-2"><i class="bi bi-clock-history me-2"></i>{% trans 'Eficiencia sin rodeos' %}</h6>
-          <p class="text-muted small">{% trans 'Nos enfocamos en entregarte justo lo que necesitas en el menor tiempo posible.' %}</p>
+
+      <!-- Card 2: Eficiencia -->
+      <div class="dw-bento__card dw-bento__card--gold">
+        <div>
+          <div class="dw-bento__icon"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h4 class="dw-bento__title">{% trans 'Eficiencia Real' %}</h4>
+          <p class="dw-bento__text">{% trans 'Nos enfocamos en la ejecución sin rodeos. Desarrollamos soluciones robustas optimizando tiempos y recursos.' %}</p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="dw-why dw-why--slate">
-          <h6 class="fw-bold mb-2"><i class="bi bi-bar-chart-line-fill me-2"></i>{% trans 'Resultados medibles' %}</h6>
-          <p class="text-muted small">{% trans 'Creamos soluciones que generan impacto real en tu negocio.' %}</p>
+
+      <!-- Card 3: SEO/Resultados -->
+      <div class="dw-bento__card">
+        <div>
+          <div class="dw-bento__icon"><i class="bi bi-graph-up-arrow"></i></div>
+          <h4 class="dw-bento__title">{% trans 'Impacto en Negocio' %}</h4>
+          <p class="dw-bento__text">{% trans 'Cada línea de código está pensada para convertir visitas en clientes y mejorar tu posicionamiento SEO.' %}</p>
         </div>
       </div>
-    </div>
-    <div class="row g-4 mt-4">
-      <div class="col-lg-6">
-        <div class="dw-reasons">
-          <div class="dw-reasons__item">
-            <span class="dw-reasons__dot"></span>
-            <span>{% trans 'Planificamos con objetivos claros y métricas desde el primer día.' %}</span>
+
+      <!-- Card 4: UX/Design (Large) -->
+      <div class="dw-bento__card dw-bento__card--large">
+        <div class="row align-items-center">
+          <div class="col-md-7">
+            <div class="dw-bento__icon"><i class="bi bi-palette-fill"></i></div>
+            <h4 class="dw-bento__title">{% trans 'Diseño UX/UI de Alto Nivel' %}</h4>
+            <p class="dw-bento__text">{% trans 'No solo creamos webs bonitas; diseñamos experiencias de usuario alineadas con tu marca que guían al cliente hacia la acción con fluidez y elegancia.' %}</p>
           </div>
-          <div class="dw-reasons__item">
-            <span class="dw-reasons__dot"></span>
-            <span>{% trans 'Diseño UX/UI alineado con tu marca y tu público.' %}</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="dw-reasons">
-          <div class="dw-reasons__item">
-            <span class="dw-reasons__dot"></span>
-            <span>{% trans 'Procesos transparentes y comunicación continua.' %}</span>
-          </div>
-          <div class="dw-reasons__item">
-            <span class="dw-reasons__dot"></span>
-            <span>{% trans 'Lanzamientos rápidos con mejoras iterativas.' %}</span>
+          <div class="col-md-5 d-none d-md-block text-center">
+             <i class="bi bi-brush-fill display-1 opacity-25 text-primary"></i>
           </div>
         </div>
       </div>
