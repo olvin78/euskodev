@@ -71,6 +71,15 @@ class JobApplicationForm(forms.Form):
         })
     )
 
+    telefono = forms.CharField(
+        label='Número de contacto / Harremanetarako zenbakia',
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Ej: 600 000 000'
+        })
+    )
+
     puesto = forms.ChoiceField(
         label='Puesto / Postua',
         choices=PUESTOS_CHOICES,

@@ -20,7 +20,7 @@ from django.template.loader import render_to_string
 from applications.home.models import Blog
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import requests
 
 from .forms import JobApplicationForm
@@ -28,7 +28,8 @@ from django.urls import reverse_lazy
 
 
 from .utils.email_api import enviar_email_brevo_api as enviar_email_brevo
-import os
+import requests
+import threading
 import base64
 
 def formulario_contactar(request):
@@ -272,22 +273,33 @@ class EnviarSolicitudView(FormView):
         nombre = form.cleaned_data['nombre']
         apellido = form.cleaned_data['apellido']
         correo = form.cleaned_data['correo']
+        telefono = form.cleaned_data['telefono']
         puesto = form.cleaned_data['puesto']
-
         mensaje_usuario = form.cleaned_data.get('mensaje', '')
 
-        mensaje_html = (
-            f"Nuevo mensaje de solicitud de empleo:<br><br>"
-            f"<strong>Nombre:</strong> {nombre} {apellido}<br>"
-            f"<strong>Correo:</strong> {correo}<br>"
-            f"<strong>Puesto:</strong> {puesto}<br><br>"
-            f"<strong>Comentarios del candidato:</strong><br>{mensaje_usuario}"
-        )
+        # Preparar datos del correo
+        asunto = f"Nuevo candidato a Euskodev - {nombre} {apellido} - {puesto}"
+        html_mensaje = f"""
+        <div style="font-family: Arial, sans-serif; color: #333;">
+            <h2 style="color: #2ac3b5;">Nueva solicitud de empleo</h2>
+            <p><strong>Candidato:</strong> {nombre} {apellido}</p>
+            <p><strong>Email:</strong> {correo}</p>
+            <p><strong>Teléfono:</strong> {telefono}</p>
+            <p><strong>Puesto solicitado:</strong> {puesto}</p>
+            <p><strong>Comentarios:</strong></p>
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #2ac3b5;">
+                {mensaje_usuario}
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #666;">El currículum se adjunta a este mensaje.</p>
+        </div>
+        """
 
         destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["info@euskodev.eus", "euskodev@gmail.com"])
         
         cv_file = form.cleaned_data['curriculum']
+        adjuntos = None
         try:
+            cv_file.seek(0)
             cv_content = cv_file.read()
             cv_encoded = base64.b64encode(cv_content).decode('utf-8')
             adjuntos = [{
@@ -296,34 +308,23 @@ class EnviarSolicitudView(FormView):
             }]
         except Exception as e:
             print(f"❌ Error al procesar el CV: {e}")
-            adjuntos = None
 
-        asunto = f"Nuevo candidato a Euskodev - {nombre} {apellido} - {puesto}"
-        html_mensaje = f"""
-        <h3>Nueva solicitud de empleo</h3>
-        <p><strong>Nombre:</strong> {nombre} {apellido}</p>
-        <p><strong>Email:</strong> {correo}</p>
-        <p><strong>Puesto:</strong> {puesto}</p>
-        <p><strong>Comentarios:</strong> {mensaje_usuario}</p>
-        <p>Se adjunta el currículum en este correo.</p>
-        """
+        # Función para enviar en segundo plano y aligerar la carga al usuario
+        def send_async_emails(dest_list, subj, html, atts):
+            for dest in dest_list:
+                enviar_email_brevo(
+                    asunto=subj,
+                    contenido_html=html,
+                    destinatario_email=dest,
+                    destinatario_nombre="Admin Euskodev",
+                    adjuntos=atts
+                )
+        
+        # Iniciar hilo para no hacer esperar al usuario
+        threading.Thread(target=send_async_emails, args=(destinatarios, asunto, html_mensaje, adjuntos), daemon=True).start()
 
-        exito_total = True
-        for dest in destinatarios:
-            resultado = enviar_email_brevo(
-                asunto=asunto,
-                contenido_html=html_mensaje,
-                destinatario_email=dest,
-                destinatario_nombre="Admin Euskodev",
-                adjuntos=adjuntos
-            )
-            if resultado:
-                print(f"✅ Email de solicitud enviado con éxito a {dest}")
-            else:
-                print(f"❌ Error al enviar email de solicitud a {dest}")
-                exito_total = False
-
-        print(f"📨 Resultado del envío: {resultado}")  # ← Verifica que se envió (debe ser 1)
+        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            return JsonResponse({'status': 'ok', 'message': 'Solicitud enviada correctamente'})
 
         return super().form_valid(form)
 
