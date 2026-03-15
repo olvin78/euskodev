@@ -1,10 +1,11 @@
 import requests
+import base64
 from django.conf import settings
 
-def enviar_email_brevo_api(asunto, contenido_html, destinatario_email, destinatario_nombre=""):
+def enviar_email_brevo_api(asunto, contenido_html, destinatario_email, destinatario_nombre="", adjuntos=None):
     """
-    Envía un email usando la API de Brevo (HTTP) en lugar de SMTP.
-    Esto soluciona los problemas de puertos bloqueados (587).
+    Envía un email usando la API de Brevo (HTTP).
+    Soporta una lista de adjuntos: [{"content": b64_string, "name": "file.pdf"}]
     """
     url = "https://api.brevo.com/v3/smtp/email"
     
@@ -28,6 +29,9 @@ def enviar_email_brevo_api(asunto, contenido_html, destinatario_email, destinata
         "subject": asunto,
         "htmlContent": contenido_html
     }
+    
+    if adjuntos:
+        payload["attachment"] = adjuntos
     
     try:
         response = requests.post(url, json=payload, headers=headers, timeout=10)

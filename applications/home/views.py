@@ -29,6 +29,7 @@ from django.urls import reverse_lazy
 
 from .utils.email_api import enviar_email_brevo_api as enviar_email_brevo
 import os
+import base64
 
 def formulario_contactar(request):
     if request.method == "POST":
@@ -282,13 +283,41 @@ class EnviarSolicitudView(FormView):
 
         destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["info@euskodev.eus", "euskodev@gmail.com"])
         
-        resultado = send_mail(
-            subject=f"Solicitud para {puesto}",
-            message=mensaje,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=destinatarios,
-            fail_silently=False,
-        )
+        cv_file = form.cleaned_data['curriculum']
+        try:
+            cv_content = cv_file.read()
+            cv_encoded = base64.b64encode(cv_content).decode('utf-8')
+            adjuntos = [{
+                "content": cv_encoded,
+                "name": cv_file.name
+            }]
+        except Exception as e:
+            print(f"❌ Error al procesar el CV: {e}")
+            adjuntos = None
+
+        asunto = f"Solicitud de empleo para {puesto} de {nombre} {apellido}"
+        html_mensaje = f"""
+        <h3>Nueva solicitud de empleo</h3>
+        <p><strong>Nombre:</strong> {nombre} {apellido}</p>
+        <p><strong>Email:</strong> {correo}</p>
+        <p><strong>Puesto:</strong> {puesto}</p>
+        <p>Se adjunta el currículum en este correo.</p>
+        """
+
+        exito_total = True
+        for dest in destinatarios:
+            resultado = enviar_email_brevo(
+                asunto=asunto,
+                contenido_html=html_mensaje,
+                destinatario_email=dest,
+                destinatario_nombre="Admin Euskodev",
+                adjuntos=adjuntos
+            )
+            if resultado:
+                print(f"✅ Email de solicitud enviado con éxito a {dest}")
+            else:
+                print(f"❌ Error al enviar email de solicitud a {dest}")
+                exito_total = False
 
         print(f"📨 Resultado del envío: {resultado}")  # ← Verifica que se envió (debe ser 1)
 
