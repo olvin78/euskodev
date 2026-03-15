@@ -113,7 +113,7 @@
     border: 1px solid rgba(255,255,255,0.4);
   }
 
-  .section-padding { padding: 140px 0; }
+  .section-padding { padding: 120px 0; }
   
   .bg-dark-premium {
     background-color: var(--dark-bg);
@@ -175,7 +175,13 @@
 
   .bg-dark-premium .process-dot { border-color: var(--dark-bg); }
 
-  .reveal { opacity: 0; transform: translateY(40px); }
+  /* Optimized Reveal Settings */
+  .reveal { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: transform, opacity;
+  }
 
   .luxury-tag {
     font-size: 0.85rem;
@@ -187,15 +193,6 @@
     margin-bottom: 1rem;
   }
 
-  /* Fix for text visibility in specific sections */
-  .feature-block h2, .feature-block p, .feature-block h5 {
-    color: var(--text-dark) !important;
-  }
-  
-  .bg-dark-premium h2, .bg-dark-premium p, .bg-dark-premium span {
-    color: var(--text-light) !important;
-  }
-
   /* Elegant Divider */
   .divider-elegant {
     width: 60px;
@@ -203,6 +200,43 @@
     background: var(--primary-teal);
     border-radius: 2px;
     margin-bottom: 2rem;
+  }
+
+  /* Elegant Stats Bar */
+  .stats-elegant {
+    background: white;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 3rem 0;
+  }
+  
+  .stat-item {
+    border-right: 1px solid rgba(0,0,0,0.08);
+  }
+  
+  .stat-item:last-child {
+    border-right: none;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  @media (max-width: 768px) {
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .stat-item:last-child { border-bottom: none; }
   }
 
 </style>
@@ -223,7 +257,7 @@
           <a href="/#contact" class="modern-link fs-5">{% trans "Contactar con Ingeniería" %}</a>
         </div>
       </div>
-      <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+      <div class="col-lg-6 reveal" style="transition-delay: 0.1s;">
         <div class="img-frame">
           <img src="{% static 'img/mobile_app_hero_v2.png' %}" class="w-100" alt="Euskodev High-End Mobile Project">
         </div>
@@ -232,8 +266,32 @@
   </div>
 </section>
 
-<!-- Features Deep Dive -> Tus servicios... -->
-<section class="section-padding bg-light feature-block">
+<!-- Stats Bar Elegant -->
+<section class="stats-elegant">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 stat-item">
+        <div class="stat-label">{% trans "Tecnología" %}</div>
+        <div class="stat-value">React Native</div>
+      </div>
+      <div class="col-md-3 stat-item">
+        <div class="stat-label">{% trans "Infraestructura" %}</div>
+        <div class="stat-value">Cloud-Native</div>
+      </div>
+      <div class="col-md-3 stat-item">
+        <div class="stat-label">{% trans "Diseño" %}</div>
+        <div class="stat-value">UI/UX Premium</div>
+      </div>
+      <div class="col-md-3 stat-item">
+        <div class="stat-label">{% trans "Seguridad" %}</div>
+        <div class="stat-value">Bank-Grade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Deep Dive -->
+<section class="section-padding bg-light">
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6 reveal">
@@ -246,21 +304,21 @@
             <div class="col-sm-6">
               <div class="d-flex align-items-center mb-3">
                 <i class="bi bi-phone-fill text-primary fs-4 me-3"></i>
-                <h5 class="fw-800 m-0 text-dark">{% trans "React Native" %}</h5>
+                <h5 class="fw-800 m-0 text-dark">{% trans "Multiplataforma" %}</h5>
               </div>
-              <p class="text-muted small">{% trans "Un solo código base para una experiencia fluida en iOS y Android." %}</p>
+              <p class="text-muted small">{% trans "Un solo código base para una experiencia fluida tanto en iOS como en Android." %}</p>
             </div>
             <div class="col-sm-6">
               <div class="d-flex align-items-center mb-3">
                 <i class="bi bi-lightning-charge-fill text-warning fs-4 me-3"></i>
-                <h5 class="fw-800 m-0 text-dark">{% trans "Velocidad Extrema" %}</h5>
+                <h5 class="fw-800 m-0 text-dark">{% trans "Alto Rendimiento" %}</h5>
               </div>
-              <p class="text-muted small">{% trans "Arquitecturas optimizadas para una respuesta instantánea." %}</p>
+              <p class="text-muted small">{% trans "Optimizamos cada línea de código para una respuesta instantánea y fluida." %}</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+      <div class="col-lg-6 reveal" style="transition-delay: 0.1s;">
         <div class="img-frame">
           <img src="{% static 'img/mobile_app_quality_v2.png' %}" class="w-100" alt="Premium Mobile Engineering">
         </div>
@@ -297,8 +355,8 @@
   </div>
 </section>
 
-<!-- What we can build -> ¿Qué podemos construir para ti? -->
-<section class="section-padding bg-white feature-block">
+<!-- What we can build -->
+<section class="section-padding bg-white">
   <div class="container">
     <div class="text-center mb-5 pb-5 reveal">
       <h2 class="hero-title fs-1">{% trans "¿Qué podemos construir para ti?" %}</h2>
@@ -309,47 +367,47 @@
         <div class="service-box">
           <div class="service-icon"><i class="bi bi-basket-fill"></i></div>
           <h5 class="fw-800 text-dark">{% trans "Retail & E-Commerce" %}</h5>
-          <p class="text-muted small">{% trans "Experiencias de compra rápidas con pagos integrados." %}</p>
+          <p class="text-muted small">{% trans "Experiencias de compra rápidas con pagos integrados y gestión de inventario." %}</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 reveal">
         <div class="service-box">
           <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
           <h5 class="fw-800 text-dark">{% trans "Gestión Interna" %}</h5>
-          <p class="text-muted small">{% trans "Digitaliza tu empresa con apps de control y reportes." %}</p>
+          <p class="text-muted small">{% trans "Digitaliza tu empresa con aplicaciones de control, logística y reportes." %}</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 reveal">
         <div class="service-box">
           <div class="service-icon"><i class="bi bi-star-fill"></i></div>
           <h5 class="fw-800 text-dark">{% trans "Sistemas de Lealtad" %}</h5>
-          <p class="text-muted small">{% trans "Fideliza a tus clientes con beneficios exclusivos." %}</p>
+          <p class="text-muted small">{% trans "Fideliza a tus clientes con beneficios, cupones y membresías exclusivas." %}</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-3 reveal">
         <div class="service-box">
           <div class="service-icon"><i class="bi bi-headset"></i></div>
           <h5 class="fw-800 text-dark">{% trans "Apps de Servicio" %}</h5>
-          <p class="text-muted small">{% trans "Soporte y atención al cliente en tiempo real." %}</p>
+          <p class="text-muted small">{% trans "Soporte al cliente en tiempo real y gestión de citas automatizada." %}</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Methodology -> Nuestro Proceso de Ingeniería -->
-<section id="proceso" class="section-padding bg-light feature-block">
+<!-- Methodology -->
+<section id="proceso" class="section-padding bg-light">
   <div class="container">
     <div class="row g-5 align-items-center">
       <div class="col-lg-6 reveal">
         <div class="divider-elegant"></div>
         <h2 class="hero-title fs-1 mb-4">{% trans "Nuestro Proceso de Ingeniería" %}</h2>
-        <p class="lead mb-5" style="color: var(--text-muted) !important;">{% trans "Un flujo de trabajo transparente, ágil y centrado en la calidad técnica. No improvisamos, ejecutamos con precisión." %}</p>
+        <p class="lead mb-5" style="color: var(--text-muted) !important;">{% trans "Un flujo de trabajo transparente, ágil y centrado en la calidad técnica. No improvisamos, ejecutamos con precisión corporativa." %}</p>
         <div class="process-timeline mt-5">
           <div class="process-item">
             <div class="process-dot"></div>
             <h5 class="fw-800 text-dark">{% trans "01. Arquitectura & UX" %}</h5>
-            <p class="text-muted small">{% trans "Antes de programar, diseñamos la base técnica y la experiencia de usuario." %}</p>
+            <p class="text-muted small">{% trans "Antes de programar, diseñamos la base técnica y la experiencia de usuario óptima." %}</p>
           </div>
           <div class="process-item">
             <div class="process-dot"></div>
@@ -359,16 +417,16 @@
           <div class="process-item">
             <div class="process-dot"></div>
             <h5 class="fw-800 text-dark">{% trans "03. QA & Seguridad" %}</h5>
-            <p class="text-muted small">{% trans "Tests exhaustivos para garantizar un funcionamiento impecable." %}</p>
+            <p class="text-muted small">{% trans "Tests exhaustivos para garantizar un funcionamiento impecable y seguro." %}</p>
           </div>
           <div class="process-item">
             <div class="process-dot"></div>
             <h5 class="fw-800 text-dark">{% trans "04. Publicación Total" %}</h5>
-            <p class="text-muted small">{% trans "Gestionamos el lanzamiento en App Store y Google Play Store por ti." %}</p>
+            <p class="text-muted small">{% trans "Gestionamos el lanzamiento profesional en App Store y Google Play Store." %}</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-6 reveal" style="transition-delay: 0.2s;">
+      <div class="col-lg-6 reveal" style="transition-delay: 0.1s;">
         <div class="img-frame">
           <img src="{% static 'img/mobile_app_process_v2.png' %}" class="w-100" alt="Industrial Standard Process">
         </div>
@@ -389,17 +447,19 @@
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
     gsap.registerPlugin(ScrollTrigger);
+    
+    // Optimized reveal animation
     gsap.utils.toArray(".reveal").forEach((el) => {
       gsap.to(el, {
         scrollTrigger: {
           trigger: el,
-          start: "top 85%",
+          start: "top 95%", // Trigger much earlier
           toggleActions: "play none none none"
         },
         opacity: 1,
         y: 0,
-        duration: 1.2,
-        ease: "power3.out"
+        duration: 0.8, // Faster duration
+        ease: "power2.out" // More responsive easing
       });
     });
   });
