@@ -5,12 +5,13 @@
 {% block content %}
 <div class="container position-relative py-5" style="padding-top: 180px!important; padding-bottom: 200px!important;">
     <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold mb-3">Unirme al equipo de Euskodev</h2>
-        <div class="d-inline-flex align-items-center justify-content-center p-3 rounded-4 bg-white shadow-sm border mb-4">
-            <span class="fs-1 me-3">👋</span>
+        <h2 class="display-5 fw-bold mb-3 text-white">Unirme al equipo de Euskodev</h2>
+        <div class="d-inline-flex align-items-center justify-content-center p-3 rounded-4 bg-white shadow-sm border mb-4" 
+             style="background: rgba(255, 255, 255, 0.05)!important; border: 1px solid rgba(255, 255, 255, 0.1)!important; backdrop-filter: blur(10px);">
+            <span id="wavingHand" class="fs-1 me-3" style="display: inline-block;">👋</span>
             <div class="text-start">
-                <h6 class="fw-bold mb-0">{% trans '¡Hola! Qué bueno verte por aquí' %}</h6>
-                <p class="text-muted small mb-0">{% trans 'Estamos deseando conocer tu talento. ¡Mucha suerte!' %}</p>
+                <h6 class="fw-bold mb-0 text-white">{% trans '¡Hola! Qué bueno verte por aquí' %}</h6>
+                <p class="text-white-50 small mb-0">{% trans 'Estamos deseando conocer tu talento. ¡Mucha suerte!' %}</p>
             </div>
         </div>
     </div>
@@ -193,6 +194,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const uploadBox = document.getElementById('uploadBox');
     const uploadText = document.getElementById('uploadText');
     const uploadIcon = document.getElementById('uploadIcon');
+    const wavingHand = document.getElementById('wavingHand');
+
+    // ✅ Animación GSAP para la manito (Saludando)
+    if (wavingHand) {
+        gsap.to(wavingHand, {
+            rotation: 20,
+            duration: 0.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+            transformOrigin: "bottom center"
+        });
+    }
 
     // ✅ Animación al subir archivo
     fileInput.addEventListener('change', function () {
