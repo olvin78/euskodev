@@ -119,6 +119,11 @@
     background: var(--dw-bg);
   }
 
+  .dw-section .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .dw-section--light { background: #ffffff; }
 
   .dw-section__title {
@@ -130,6 +135,32 @@
     width: 120px;
     height: 3px;
     margin: 24px auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--dw-teal), var(--dw-gold));
+  }
+
+  .dw-sep {
+    position: relative;
+    height: 48px;
+    margin: -24px 0;
+  }
+
+  .dw-sep::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(42, 195, 181, 0.18), transparent 45%),
+      radial-gradient(circle at 80% 50%, rgba(244, 184, 74, 0.16), transparent 45%);
+  }
+
+  .dw-sep::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 140px;
+    height: 3px;
+    transform: translate(-50%, -50%);
     border-radius: 999px;
     background: linear-gradient(90deg, var(--dw-teal), var(--dw-gold));
   }
@@ -227,7 +258,13 @@
 
   @media (max-width: 991px) {
     .dw-hero__content { padding: 110px 0 90px; }
-    .dw-section { padding: 90px 0; }
+    .dw-section { padding: 96px 0; }
+    .dw-hero__title { font-size: clamp(2.2rem, 7vw, 3.2rem); }
+    .dw-hero__subtitle { font-size: 1.05rem; }
+  }
+
+  @media (min-width: 1200px) {
+    .dw-section .container { padding-left: 28px; padding-right: 28px; }
   }
 </style>
 {% endblock %}
@@ -240,6 +277,7 @@
     <span class="dw-hero__badge">{% trans 'Desarrollo web' %}</span>
     <h1 class="dw-hero__title">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
     <p class="dw-hero__subtitle" id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
+    <span class="visually-hidden">{% trans 'Euskodev impulsa empresas en Oiartzun, Euskadi y Nicaragua con soluciones web de alto rendimiento.' %}</span>
     <a class="dw-hero__cta" href="{% url 'home_app:home' %}#contact">
       <i class="bi bi-stars"></i>
       {% trans 'Solicita Presupuesto Gratis' %}
@@ -259,6 +297,7 @@
       </div>
     </div>
   </div>
+<div class="dw-sep" aria-hidden="true"></div>
 </section>
 
 <section class="dw-section">
@@ -294,27 +333,27 @@
       </div>
     </div>
   </div>
+<div class="dw-sep" aria-hidden="true"></div>
 </section>
 
-<section class="dw-section dw-band" style="color: #0f172a;">
+<section class="dw-section dw-band" style="color: #0f172a; background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.08); border-bottom: 1px solid rgba(15, 23, 42, 0.08);">
   <div class="container">
     <div class="row g-5 align-items-start">
       <div class="col-lg-5">
         <h3 class="dw-section__title" style="color: #0f172a;">{% trans '¿Qué incluye cada servicio?' %}</h3>
-        <p class="text-muted" style="color: #475569;">{% trans 'Te explicamos en detalle qué obtienes al contratar cada solución digital.' %}</p>
+        <p class="text-muted" style="color: #334155;">{% trans 'Te explicamos en detalle qué obtienes al contratar cada solución digital.' %}</p>
       </div>
       <div class="col-lg-7">
-        <div class="p-4 p-md-5 bg-white rounded-4 shadow-sm border">
-          <ul class="dw-checks">
-            <li><span class="dw-checks__dot"></span><span>{% trans 'Arquitectura optimizada, escalable y segura' %}</span></li>
-            <li><span class="dw-checks__dot"></span><span>{% trans 'SEO técnico avanzado y performance extrema' %}</span></li>
-            <li><span class="dw-checks__dot"></span><span>{% trans 'Experiencias de usuario (UX/UI) enfocadas en conversión' %}</span></li>
-            <li><span class="dw-checks__dot"></span><span>{% trans 'Mantenimiento preventivo y soporte continuo' %}</span></li>
-          </ul>
-        </div>
+        <ul class="dw-checks" style="color: #0f172a;">
+          <li><span class="dw-checks__dot"></span><span>{% trans 'Arquitectura optimizada, escalable y segura' %}</span></li>
+          <li><span class="dw-checks__dot"></span><span>{% trans 'SEO técnico avanzado y performance extrema' %}</span></li>
+          <li><span class="dw-checks__dot"></span><span>{% trans 'Experiencias de usuario (UX/UI) enfocadas en conversión' %}</span></li>
+          <li><span class="dw-checks__dot"></span><span>{% trans 'Mantenimiento preventivo y soporte continuo' %}</span></li>
+        </ul>
       </div>
     </div>
   </div>
+<div class="dw-sep" aria-hidden="true"></div>
 </section>
 
 <section class="py-5">
@@ -329,6 +368,7 @@
       </div>
     </div>
   </div>
+<div class="dw-sep" aria-hidden="true"></div>
 </section>
 
 <section class="dw-section dw-section--light">
@@ -365,6 +405,7 @@
       </div>
     </div>
   </div>
+<div class="dw-sep" aria-hidden="true"></div>
 </section>
 
 <section class="dw-section">

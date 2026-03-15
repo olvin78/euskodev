@@ -41,6 +41,10 @@
                     {{ form.puesto }}
                 </div>
                 <div class="col-12">
+                    <label class="form-label">{{ form.mensaje.label }}</label>
+                    {{ form.mensaje }}
+                </div>
+                <div class="col-12">
                     <label class="form-label d-block">Sube tu currículum aquí</label>
                     <label for="curriculum" id="uploadBox" class="upload-box d-flex align-items-center justify-content-center flex-column text-center">
                         <div id="uploadIcon" class="display-6 text-primary">+</div>
@@ -192,43 +196,11 @@ document.addEventListener('DOMContentLoaded', function () {
         puestoSelect.options[0].disabled = true;
     }
 
-    // ✅ Envío simulado del formulario
+    // ✅ Envío real del formulario (Eliminado preventDefault para procesar en servidor)
     form.addEventListener('submit', function (e) {
-        e.preventDefault();
         button.disabled = true;
         button.innerText = "Enviando...";
-
-        setTimeout(() => {
-            form.reset();
-            button.disabled = false;
-            button.innerText = "Enviar solicitud";
-
-            // Mostrar y animar el mensaje de éxito
-            successMessage.classList.remove("d-none");
-            gsap.fromTo(successMessage, 
-                { opacity: 0, scale: 0.8 }, 
-                { 
-                    opacity: 1, 
-                    scale: 1, 
-                    duration: 1, 
-                    ease: "elastic.out(1, 0.5)", 
-                    onComplete: () => {
-                        // Ocultar automáticamente tras 4 segundos
-                        setTimeout(() => {
-                            gsap.to(successMessage, {
-                                opacity: 0,
-                                scale: 0.8,
-                                duration: 0.6,
-                                ease: "power1.in",
-                                onComplete: () => {
-                                    successMessage.classList.add("d-none");
-                                }
-                            });
-                        }, 4000);
-                    }
-                }
-            );
-        }, 1200);
+        // No hay e.preventDefault() para que el formulario se envíe realmente
     });
 });
 </script>

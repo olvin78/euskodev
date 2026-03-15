@@ -274,11 +274,14 @@ class EnviarSolicitudView(FormView):
         correo = form.cleaned_data['correo']
         puesto = form.cleaned_data['puesto']
 
-        mensaje = (
-            f"Nuevo mensaje de solicitud:\n\n"
-            f"Nombre: {nombre} {apellido}\n"
-            f"Correo: {correo}\n"
-            f"Puesto: {puesto}"
+        mensaje_usuario = form.cleaned_data.get('mensaje', '')
+
+        mensaje_html = (
+            f"Nuevo mensaje de solicitud de empleo:<br><br>"
+            f"<strong>Nombre:</strong> {nombre} {apellido}<br>"
+            f"<strong>Correo:</strong> {correo}<br>"
+            f"<strong>Puesto:</strong> {puesto}<br><br>"
+            f"<strong>Comentarios del candidato:</strong><br>{mensaje_usuario}"
         )
 
         destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["info@euskodev.eus", "euskodev@gmail.com"])
@@ -301,6 +304,7 @@ class EnviarSolicitudView(FormView):
         <p><strong>Nombre:</strong> {nombre} {apellido}</p>
         <p><strong>Email:</strong> {correo}</p>
         <p><strong>Puesto:</strong> {puesto}</p>
+        <p><strong>Comentarios:</strong> {mensaje_usuario}</p>
         <p>Se adjunta el currículum en este correo.</p>
         """
 

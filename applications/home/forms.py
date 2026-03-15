@@ -79,6 +79,16 @@ class JobApplicationForm(forms.Form):
         })
     )
 
+    mensaje = forms.CharField(
+        label='Mensaje / Mezua',
+        required=False,
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Cuéntanos un poco sobre ti / Kontatu apur bat zure buruari buruz...',
+            'rows': 4
+        })
+    )
+
     curriculum = forms.FileField(
         label='Adjuntar currículum / Erantsi zure curriculum-a',
         widget=forms.ClearableFileInput(attrs={
