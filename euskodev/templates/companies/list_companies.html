@@ -1,106 +1,165 @@
-{% extends "home/base.html" %}
+{% extends "dashboard/base_dashboard.html" %}
 {% load static %}
 {% load i18n %}
 
-
 {% block content %}
+<div class="pc-container p-0">
+    <div class="pc-content p-4 p-lg-5">
+        
+        <!-- Header Section -->
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div>
+                <h1 class="h2 fw-bold text-primary mb-1">{% trans "Lista de Empresas" %}</h1>
+                <p class="text-muted mb-0">Gestión completa de entidades registradas ({{ datos|length }} registros)</p>
+            </div>
+            <a href="{% url 'companies_app:company_create' %}" class="btn btn-primary d-flex align-items-center gap-2 px-4 shadow-sm py-2">
+                <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Agregar empresa" %}
+            </a>
+        </div>
 
-<div class="" style="min-height:80vh; margin-top:15vh;">
-    <div class="">
-        <div class="">
-            <h1 class="text-center">{% trans "Lista empresas" %}</h1>
-            <div class="d-flex justify-content-end mb-3">
-                <a style="margin:auto;color: #24a9b3;border-color: black;" href="{% url 'companies_app:company_create' %}" class="btn btn-sm shadow-sm">
-                  <i class="bi bi-plus-circle"></i> {% trans "Agregar empresa" %}
-                </a>
-              </div>
-                          
-            <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">{% trans "Nombre" %}</th>
-                <th scope="col">{% trans "Ciudad" %}</th>
-                <th scope="col">{% trans "Dirección" %}</th>
-                <th scope="col">{% trans "Email" %}</th>
-                <th scope="col">{% trans "Phone" %}</th>
-                <th scope="col">{% trans "Web" %}</th>
-                <th scope="col">{% trans "¿Tiene Web?" %}</th>
-                <th scope="col">{% trans "¿Tiene APP?" %}</th>
-                <th scope="col">{% trans "¿Tiene ERP?" %}</th>
-                <th scope="col">{% trans "¿Tiene IA?" %}</th>
-                <th scope="col">{% trans "Gerente" %}</th>
-                <th scope="col">{% trans "Tel.Gerente" %}</th>
-                <th scope="col">{% trans "Email.Gerente" %}</th>
-                <th scope="col">{% trans "¿Visitado?" %}</th>
-                <th scope="col">{% trans "¿Fecha visita?" %}</th>
-                <th scope="col">{% trans "Comentario" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for dato in datos %}
-                <tr>
-               
-                <td><b>{{ dato.name }}</b></td>
-                <td>{{ dato.city }}</td>
-                <td>{{ dato.address }}</td>
-                <td>{{ dato.email }}</td>
-                <td><a href="tel:{{ dato.phone }}">{{ dato.phone }}</td>
-                <td><a href="{{ dato.website }}" target="_blank"><button class="btn">{% trans "ER" %}</button></a></td>
-
-                
-                    {% if dato.has_website %}
-                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
-                    {% elif dato.has_website == False %}
-                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
-                    {% else %}
-                <td class="bg-light text-center text-white">?</td>
-                    {% endif %}
-
-                 {% if dato.has_mobile_app %}
-                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
-                    {% elif dato.has_mobile_app == False %}
-                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
-                    {% else %}
-                <td class="bg-secondary text-center text-white">?</td>
-                    {% endif %}
-
-                 {% if dato.has_custom_software %}
-                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
-                    {% elif dato.has_custom_software == False %}
-                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
-                    {% else %}
-                <td class="bg-secondary text-center text-white">?</td>
-                    {% endif %}
-
-                 {% if dato.uses_ai %}
-                <td class="bg-success text-center text-white">{% trans "Sí" %}</td>
-                    {% elif dato.uses_ai == False %}
-                <td class="bg-danger text-center text-white">{% trans "No" %}</td>
-                    {% else %}
-                <td class="bg-secondary text-center text-white">?</td>
-                    {% endif %}
-
-
-                <td>{{ dato.manager_name }}</td>
-                <td>{{ dato.manager_phone }}</td>
-                <td>{{ dato.manager_email }}</td>
-
-                {% if dato.visited %}
-                <td class="text-center">{% trans "Sí" %}</td>
-                {% else %}
-                <td class="text-center">{% trans "No" %}</td>
-                {% endif %}
-
-                <td>{{ dato.visited_date }}</td>
-                <td>{{ dato.comments }}</td>
-
-               
-                </tr>
-                {% endfor %}
-            </tbody>
-            </table>
+        <!-- Table Card -->
+        <div class="card shadow-sm border-0" style="border-radius: var(--radius-lg); overflow: hidden;">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" style="min-width: 2200px;">
+                    <thead class="bg-light">
+                        <tr style="background: var(--gray-50);">
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Nombre" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Ciudad" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Dirección" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Email" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Teléfono" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Web (Link)" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene Web?" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene APP?" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene ERP?" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene IA?" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Gerente" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Tel. Gerente" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Email Gerente" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Visitado?" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Fecha Visita" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Comentario" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dato in datos %}
+                        <tr style="transition: all 0.2s;">
+                            <!-- [1] Nombre -->
+                            <td class="px-4 py-3">
+                                <span class="fw-bold text-primary">{{ dato.name }}</span>
+                            </td>
+                            <!-- [2] Ciudad -->
+                            <td class="px-4 py-3">
+                                <span class="text-dark small fw-medium">{{ dato.city }}</span>
+                            </td>
+                            <!-- [3] Dirección -->
+                            <td class="px-4 py-3 small text-muted">
+                                <div style="max-width: 200px;">{{ dato.address }}</div>
+                            </td>
+                            <!-- [4] Email -->
+                            <td class="px-4 py-3 small">
+                                <span class="text-muted"><i data-lucide="mail" class="wid-12 me-1"></i> {{ dato.email }}</span>
+                            </td>
+                            <!-- [5] Teléfono -->
+                            <td class="px-4 py-3 small">
+                                <a href="tel:{{ dato.phone }}" class="text-decoration-none text-muted">
+                                    <i data-lucide="phone" class="wid-12 me-1 text-secondary"></i> {{ dato.phone }}
+                                </a>
+                            </td>
+                            <!-- [6] Web Link -->
+                            <td class="px-4 py-3 small">
+                                <a href="{{ dato.website }}" target="_blank" class="text-secondary text-truncate d-inline-block" style="max-width: 150px;">
+                                    <i data-lucide="external-link" class="wid-12 me-1"></i> {{ dato.website|default:"-" }}
+                                </a>
+                            </td>
+                            <!-- [7] ¿Tiene Web? -->
+                            <td class="px-4 py-3 text-center">
+                                {% if dato.has_website %}
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                {% else %}
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                {% endif %}
+                            </td>
+                            <!-- [8] ¿Tiene APP? -->
+                            <td class="px-4 py-3 text-center">
+                                {% if dato.has_mobile_app %}
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                {% else %}
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                {% endif %}
+                            </td>
+                            <!-- [9] ¿Tiene ERP? -->
+                            <td class="px-4 py-3 text-center">
+                                {% if dato.has_custom_software %}
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                {% else %}
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                {% endif %}
+                            </td>
+                            <!-- [10] ¿Tiene IA? -->
+                            <td class="px-4 py-3 text-center">
+                                {% if dato.uses_ai %}
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                {% else %}
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                {% endif %}
+                            </td>
+                            <!-- [11] Gerente -->
+                            <td class="px-4 py-3 small fw-bold text-dark">
+                                {{ dato.manager_name|default:"-" }}
+                            </td>
+                            <!-- [12] Tel. Gerente -->
+                            <td class="px-4 py-3 small text-muted">
+                                {{ dato.manager_phone|default:"-" }}
+                            </td>
+                            <!-- [13] Email Gerente -->
+                            <td class="px-4 py-3 small text-muted">
+                                {{ dato.manager_email|default:"-" }}
+                            </td>
+                            <!-- [14] ¿Visitado? -->
+                            <td class="px-4 py-3 text-center">
+                                {% if dato.visited %}
+                                <span class="badge bg-success px-3 py-2 rounded-pill">{% trans "SÍ" %}</span>
+                                {% else %}
+                                <span class="badge bg-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                {% endif %}
+                            </td>
+                            <!-- [15] Fecha Visita -->
+                            <td class="px-4 py-3 small text-muted">
+                                {{ dato.visited_date|default:"-" }}
+                            </td>
+                            <!-- [16] Comentario -->
+                            <td class="px-4 py-3 small text-muted">
+                                <div class="text-truncate" style="max-width: 250px;" title="{{ dato.comments }}">
+                                    {{ dato.comments|default:"-" }}
+                                </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="16" class="p-5 text-center">
+                                <div class="mb-3">
+                                     <i data-lucide="building" class="wid-50 text-muted opacity-25"></i>
+                                </div>
+                                <h4 class="fw-bold text-muted">{% trans "No hay empresas registradas" %}</h4>
+                                <a href="{% url 'companies_app:company_create' %}" class="btn btn-primary shadow-sm">
+                                    <i data-lucide="plus-circle" class="wid-18 me-2"></i> {% trans "Nueva Empresa" %}
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+});
+</script>
 {% endblock %}

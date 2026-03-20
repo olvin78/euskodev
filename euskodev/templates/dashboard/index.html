@@ -4,489 +4,179 @@
 {% load i18n %}
 
 {% block content %}
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-:root {
-    --primary: #667eea;
-    --primary-dark: #5a6fd8;
-    --secondary: #764ba2;
-    --light: #f8fafc;
-    --dark: #1e293b;
-    --gray: #64748b;
-    --border: #e2e8f0;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-}
-
-.dashboard-container {
-    min-height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-}
-
-/* Header (igual que antes) */
-.dashboard-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: white;
-    padding: 80px 0 60px 0;
-    margin-bottom: 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.dashboard-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,50 1000,100 0,100"/></svg>');
-    background-size: cover;
-}
-
-.header-content {
-    position: relative;
-    z-index: 2;
-}
-
-.dashboard-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.dashboard-subtitle {
-    opacity: 0.9;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-}
-
-.brand-section {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    position: relative;
-}
-
-.brand-section::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.brand-name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: white;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
-    position: relative;
-    display: inline-block;
-}
-
-.brand-name::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 2px;
-}
-
-.brand-tagline {
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-top: 0.5rem;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-}
-
-/* Stats - 3 Columnas */
-.stats-section {
-    background: white;
-    padding: 3rem 0;
-    margin-top: -2rem;
-    position: relative;
-    z-index: 10;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.stat-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.stat-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-}
-
-.stat-card:nth-child(2) .stat-icon {
-    background: linear-gradient(135deg, #34a853, #2e8b57);
-}
-
-.stat-card:nth-child(3) .stat-icon {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-}
-
-.stat-value {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--dark);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    color: var(--gray);
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-/* Quick Actions - 4 Columnas */
-.quick-actions {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem;
-    margin: 3rem 0;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border);
-}
-
-.quick-actions h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 2.5rem;
-    text-align: center;
-}
-
-.action-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-
-.action-card {
-    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-    border: 2px solid transparent;
-    border-radius: 12px;
-    padding: 2rem 1rem;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.action-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
-    text-decoration: none;
-    color: inherit;
-}
-
-.action-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-}
-
-.action-card:nth-child(2) .action-icon {
-    background: linear-gradient(135deg, #34a853, #2e8b57);
-}
-
-.action-card:nth-child(3) .action-icon {
-    background: linear-gradient(135deg, #ea4335, #d93025);
-}
-
-.action-card:nth-child(4) .action-icon {
-    background: linear-gradient(135deg, #fbbc05, #e6a800);
-}
-
-.action-card:nth-child(5) .action-icon {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-}
-
-.action-card:nth-child(6) .action-icon {
-    background: linear-gradient(135deg, #06b6d4, #0891b2);
-}
-
-.action-card:nth-child(7) .action-icon {
-    background: linear-gradient(135deg, #f97316, #ea580c);
-}
-
-.action-card:nth-child(8) .action-icon {
-    background: linear-gradient(135deg, #84cc16, #65a30d);
-}
-
-.action-title {
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.action-desc {
-    color: var(--gray);
-    font-size: 0.85rem;
-    line-height: 1.4;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-    .action-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 992px) {
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .action-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .dashboard-header {
-        padding: 60px 0 40px 0;
-    }
-    
-    .dashboard-title {
-        font-size: 2.2rem;
-    }
-    
-    .brand-name {
-        font-size: 1.5rem;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .action-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .quick-actions {
-        padding: 2rem;
-        margin: 2rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .dashboard-title {
-        font-size: 1.8rem;
-    }
-    
-    .brand-name {
-        font-size: 1.3rem;
-    }
-    
-    .stat-card {
-        padding: 2rem 1.5rem;
-    }
-}
-</style>
-
-<div class="dashboard-container">
-    <!-- Header -->
-    <div class="dashboard-header">
-        <div class="container">
-            <div class="header-content text-center">
-                <h1 class="dashboard-title">Panel de Control</h1>
-                <p class="dashboard-subtitle">Gestión empresarial integral</p>
-                
-                <div class="brand-section">
-                    <div class="brand-name">EUSKODEV</div>
-                    <div class="brand-tagline">Desarrollo & Soluciones Tecnológicas</div>
+        <!-- Premium Hero Section -->
+        <div class="container-fluid p-0 mb-4">
+            <div class="premium-hero">
+                <div class="premium-hero-content">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge glass text-white rounded-pill px-3 py-1 shadow-sm">
+                            <i data-lucide="check-circle" class="wid-15 me-1"></i> Sistema Operativo
+                        </span>
+                    </div>
+                    <h1 class="display-4 text-white">Panel de Control</h1>
+                    <p class="lead text-white font-weight-medium mb-0">Gestión de Euskodev & Recursos ERP</p>
+                    <div class="mt-4 pt-4 border-top border-white-10 d-none d-md-block">
+                        <div class="brand-name h4 fw-bold mb-0 text-white text-uppercase">EUSKODEV</div>
+                        <div class="small text-white opacity-75">Desarrollo & Soluciones de Inteligencia Digital</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Stats Section - 3 Columnas -->
-    <div class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
+        <!-- KPI Grid with Bootstrap Row -->
+        <div class="container-fluid p-0 mb-5">
+            <div class="row g-4">
+                <!-- Clientes -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm kpi-card-modern">
+                        <div class="card-body p-4 d-flex align-items-center gap-4">
+                            <div class="kpi-icon-wrapper flex-shrink-0" style="background: rgba(29, 53, 87, 0.1); color: #1D3557;">
+                                <i data-lucide="users" style="width: 28px; height: 28px;"></i>
+                            </div>
+                            <div class="kpi-info">
+                                <h6 class="text-uppercase text-muted fw-bold mb-1" style="font-size: 0.75rem; letter-spacing: 0.1em;">Clientes</h6>
+                                <div class="h2 fw-bold mb-1 text-primary">{{ total_clientes }}</div>
+                                <div class="small text-success fw-bold d-flex align-items-center gap-1">
+                                    <i data-lucide="trending-up" class="wid-12"></i> <span>+4% vs mes pasado</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-value">24</div>
-                    <div class="stat-label">Clientes Totales</div>
                 </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-file-invoice"></i>
+
+                <!-- Presupuestos -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm kpi-card-modern">
+                        <div class="card-body p-4 d-flex align-items-center gap-4">
+                            <div class="kpi-icon-wrapper flex-shrink-0" style="background: rgba(69, 123, 157, 0.1); color: #457B9D;">
+                                <i data-lucide="file-spreadsheet" style="width: 28px; height: 28px;"></i>
+                            </div>
+                            <div class="kpi-info">
+                                <h6 class="text-uppercase text-muted fw-bold mb-1" style="font-size: 0.75rem; letter-spacing: 0.1em;">Presupuestos</h6>
+                                <div class="h2 fw-bold mb-1 text-primary">{{ total_presupuestos }}</div>
+                                <div class="small text-secondary fw-bold d-flex align-items-center gap-1">
+                                    <i data-lucide="clock" class="wid-12"></i> <span>8 pendientes hoy</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-value">156</div>
-                    <div class="stat-label">Facturas Emitidas</div>
                 </div>
-                
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-file-contract"></i>
+
+                <!-- Facturación -->
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm kpi-card-modern">
+                        <div class="card-body p-4 d-flex align-items-center gap-4">
+                            <div class="kpi-icon-wrapper flex-shrink-0" style="background: rgba(230, 57, 70, 0.1); color: #E63946;">
+                                <i data-lucide="briefcase" style="width: 28px; height: 28px;"></i>
+                            </div>
+                            <div class="kpi-info">
+                                <h6 class="text-uppercase text-muted fw-bold mb-1" style="font-size: 0.75rem; letter-spacing: 0.1em;">Facturación Est.</h6>
+                                <div class="h2 fw-bold mb-1 text-primary">€{{ total_presupuesto_monto|floatformat:0 }}</div>
+                                <div class="small text-danger fw-bold d-flex align-items-center gap-1">
+                                    <i data-lucide="arrow-up" class="wid-12"></i> <span>Consolidado</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-value">18</div>
-                    <div class="stat-label">Presupuestos Activos</div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Quick Actions - 4 Columnas -->
-    <div class="container">
-        <div class="quick-actions">
-            <h3>Acciones Rápidas</h3>
-            <div class="action-grid">
-                <a href="{% url 'dashboard_app:create_budget' %}" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <div class="action-title">Nuevo Presupuesto</div>
-                    <div class="action-desc">Crear presupuesto para cliente</div>
-                </a>
+        <!-- Quick Actions with Bootstrap Grid -->
+        <div class="container-fluid p-0">
+            <h3 class="fw-bold text-primary mb-4 d-flex align-items-center gap-3">
+                <i data-lucide="zap" class="text-secondary" style="width: 24px; height: 24px;"></i> Comandante de Operaciones
+            </h3>
+            
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="{% url 'dashboard_app:create_budget' %}" class="card h-100 border-0 shadow-sm action-modern-card text-decoration-none">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="plus-circle" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2 text-dark">Nuevo Presupuesto</h5>
+                            <p class="small text-muted mb-0">Generar cotización para cliente potencial.</p>
+                        </div>
+                    </a>
+                </div>
 
-                <a href="{% url 'dashboard_app:budget_list' %}" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-list"></i>
-                    </div>
-                    <div class="action-title">Ver Presupuestos</div>
-                    <div class="action-desc">Lista completa de presupuestos</div>
-                </a>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="{% url 'dashboard_app:budget_list' %}" class="card h-100 border-0 shadow-sm action-modern-card text-decoration-none text-dark">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="archive" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2">Historial ERP</h5>
+                            <p class="small text-muted mb-0">Gestionar facturas y presupuestos emitidos.</p>
+                        </div>
+                    </a>
+                </div>
 
-                <a href="#" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <div class="action-title">Agregar Cliente</div>
-                    <div class="action-desc">Registrar nuevo cliente</div>
-                </a>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="{% url 'companies_app:list_companies' %}" class="card h-100 border-0 shadow-sm action-modern-card text-decoration-none text-dark">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="building" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2">Directorio Empresas</h5>
+                            <p class="small text-muted mb-0">Base de datos de empresas registradas.</p>
+                        </div>
+                    </a>
+                </div>
 
-                <a href="#" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="action-title">Lista Clientes</div>
-                    <div class="action-desc">Gestionar clientes existentes</div>
-                </a>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="{% url 'contact_app:contact_list' %}" class="card h-100 border-0 shadow-sm action-modern-card text-decoration-none text-dark">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="user-cog" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2">Base de Contactos</h5>
+                            <p class="small text-muted mb-0">Gestión integral de clientes y leads.</p>
+                        </div>
+                    </a>
+                </div>
 
-                <a href="#" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-file-invoice"></i>
-                    </div>
-                    <div class="action-title">Crear Factura</div>
-                    <div class="action-desc">Generar nueva factura</div>
-                </a>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="{% url 'mailing_app:manual' %}" class="card h-100 border-0 shadow-sm action-modern-card text-decoration-none text-dark">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="send" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2">Campaña Email</h5>
+                            <p class="small text-muted mb-0">Enviar comunicaciones masivas segmentadas.</p>
+                        </div>
+                    </a>
+                </div>
 
-                <a href="#" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-receipt"></i>
-                    </div>
-                    <div class="action-title">Historial Facturas</div>
-                    <div class="action-desc">Ver facturas emitidas</div>
-                </a>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="{% url 'companies_app:map_companies' %}" class="card h-100 border-0 shadow-sm action-modern-card text-decoration-none text-dark">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="navigation" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2">Mapa de Negocios</h5>
+                            <p class="small text-muted mb-0">Geolocalización estratégica de partners.</p>
+                        </div>
+                    </a>
+                </div>
 
-                <a href="#" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-chart-bar"></i>
+                <div class="col-12 col-sm-6 col-lg-3 opacity-50 pe-none">
+                    <div class="card h-100 border-0 shadow-sm action-modern-card">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="bar-chart-3" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2">Reportes Avanzados</h5>
+                            <p class="small text-muted mb-0">Analítica detallada próximamente.</p>
+                        </div>
                     </div>
-                    <div class="action-title">Reportes</div>
-                    <div class="action-desc">Generar reportes financieros</div>
-                </a>
+                </div>
 
-                <a href="#" class="action-card">
-                    <div class="action-icon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="action-title">Configuración</div>
-                    <div class="action-desc">Ajustes del sistema</div>
-                </a>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <a href="#" class="card h-100 border-0 shadow-sm action-modern-card text-decoration-none text-dark">
+                        <div class="card-body p-4">
+                            <div class="action-modern-icon mb-3"><i data-lucide="sliders-horizontal" style="width: 24px; height: 24px;"></i></div>
+                            <h5 class="fw-bold mb-2">Ajustes Globales</h5>
+                            <p class="small text-muted mb-0">Preferencias y datos de la cuenta.</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Efecto hover suave
-    const cards = document.querySelectorAll('.stat-card, .action-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 });
 </script>
 {% endblock %}

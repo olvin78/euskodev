@@ -7,8 +7,8 @@ WORKDIR /euskodev
 # Copia el archivo de requerimientos a la carpeta de trabajo
 COPY requirements.txt .
 
-# Instala las dependencias
-RUN pip install --no-cache-dir -r requirements.txt
+# Actualiza pip e instala las dependencias
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Copia el contenido del directorio actual al directorio de trabajo del contenedor
 COPY . .
