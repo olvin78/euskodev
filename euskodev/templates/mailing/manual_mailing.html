@@ -1,58 +1,207 @@
 {% extends "dashboard/base_dashboard.html" %}
 {% load static %}
-{% load widget_tweaks %}  <!-- ✅ Añade esta línea -->
-
+{% load i18n %}
+{% load widget_tweaks %}
 
 {% block content %}
-<div class="container mb-5" style="padding-bottom: 520px; padding-top: 150px;">
-  <div class="row justify-content-center">
-    <div class="col-md-10 col-lg-8">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h5 class="mb-0">📬 Enviar Mailing Manual</h5>
+
+<!-- Header Banner -->
+<div class="page-header shadow-lg mb-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 16px; padding: 40px; color: white;">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
+    <div class="d-flex align-items-center gap-4">
+      <div class="bg-white bg-opacity-10 p-3 rounded-circle border border-white border-opacity-25 shadow-sm">
+        <i data-lucide="send" class="wid-30 text-white"></i>
+      </div>
+      <div class="border-start border-white border-opacity-25 ps-4">
+        <h1 class="h2 fw-bold text-white mb-1">{% trans "Gestión de mailing" %}</h1>
+        <p class="text-white-50 mb-0 fw-medium">{% trans "Comunicaciones masivas segmentadas" %}</p>
+      </div>
+    </div>
+    <div>
+      <span class="badge bg-white bg-opacity-10 text-white rounded-pill px-3 py-2 fw-bold">
+        <i data-lucide="activity" class="wid-14 me-1"></i> {% trans "Campañas" %}
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- KPI Stats -->
+<div class="row g-4 mb-5">
+  <div class="col-6 col-lg-3">
+    <div class="card border-0 shadow-sm h-100" style="border-radius: 14px;">
+      <div class="card-body p-4 d-flex align-items-center gap-3">
+        <div class="rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(29, 53, 87, 0.08); color: var(--primary);">
+          <i data-lucide="send" class="wid-22"></i>
         </div>
-        <div class="card-body">
-            {% if error %}
-              <div class="alert alert-danger">
-                <strong>⚠️ Error:</strong> {{ error }}
-              </div>
-            {% endif %}
-          
-            {% if sent %}
-              <div class="alert alert-success">✅ Correos enviados correctamente.</div>
-            {% endif %}
-          
-            <form method="post">
-              {% csrf_token %}
-            <div class="mb-3">
-              <label for="id_subject" class="form-label">Asunto</label>
-              {{ form.subject|add_class:"form-control" }}
-            </div>
-            <div class="mb-3">
-              <label for="id_message" class="form-label">Mensaje</label>
-              {{ form.message|add_class:"form-control" }}
-            </div>
-            <div class="mb-3">
-              <label for="id_recipients" class="form-label">Destinatarios</label>
-              {{ form.recipients|add_class:"form-control" }}
-              <small class="form-text text-muted">Separa los correos con coma (,)</small>
-            </div>
-            <div class="d-flex justify-content-between">
-              <button type="submit" class="btn" style="background-color: #1d8a8a;color: azure;">
-                <i class="bi bi-send"></i> Enviar mailing
-              </button>
-              <a href="{% url 'dashboard_app:home' %}" class="btn btn-secondary">Cancelar</a>
-            </div>
-          </form>
+        <div>
+          <div class="h4 fw-bold mb-0 text-primary">128</div>
+          <small class="text-muted">{% trans "Enviados este mes" %}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card border-0 shadow-sm h-100" style="border-radius: 14px;">
+      <div class="card-body p-4 d-flex align-items-center gap-3">
+        <div class="rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(69, 123, 157, 0.08); color: var(--secondary);">
+          <i data-lucide="trending-up" class="wid-22"></i>
+        </div>
+        <div>
+          <div class="h4 fw-bold mb-0 text-secondary">68%</div>
+          <small class="text-muted">{% trans "Tasa de apertura" %}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card border-0 shadow-sm h-100" style="border-radius: 14px;">
+      <div class="card-body p-4 d-flex align-items-center gap-3">
+        <div class="rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(168, 218, 220, 0.25); color: var(--accent);">
+          <i data-lucide="clock" class="wid-22"></i>
+        </div>
+        <div>
+          <div class="h4 fw-bold mb-0" style="color: var(--accent);">4</div>
+          <small class="text-muted">{% trans "Pendientes" %}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card border-0 shadow-sm h-100" style="border-radius: 14px;">
+      <div class="card-body p-4 d-flex align-items-center gap-3">
+        <div class="rounded-3 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(230, 57, 70, 0.08); color: var(--danger);">
+          <i data-lucide="users" class="wid-22"></i>
+        </div>
+        <div>
+          <div class="h4 fw-bold mb-0 text-danger">342</div>
+          <small class="text-muted">{% trans "Contactos" %}</small>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="row g-4">
+
+  <!-- Main: Form -->
+  <div class="col-lg-8">
+    <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+      <div class="card-header bg-white border-0 pt-4 px-4 pb-0 d-flex align-items-center gap-2">
+        <i data-lucide="edit" class="wid-18 text-primary"></i>
+        <h5 class="fw-bold mb-0">{% trans "Nueva campaña" %}</h5>
+      </div>
+      <div class="card-body px-4 pb-4">
+        {% if error %}
+          <div class="alert alert-danger border-0 d-flex align-items-center gap-2" style="border-radius: 10px;">
+            <i data-lucide="alert-circle" class="wid-18 text-danger flex-shrink-0"></i>
+            <span>{{ error }}</span>
+          </div>
+        {% endif %}
+      
+        {% if sent %}
+          <div class="alert alert-success border-0 d-flex align-items-center gap-2" style="border-radius: 10px;">
+            <i data-lucide="check-circle" class="wid-18 text-success flex-shrink-0"></i>
+            <span>{% trans "Correos enviados correctamente." %}</span>
+          </div>
+        {% endif %}
+      
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="id_subject" class="form-label fw-semibold small text-uppercase text-muted" style="letter-spacing: 0.05em;">{% trans "Asunto" %}</label>
+            {{ form.subject|add_class:"form-control border-0 bg-light rounded-3 py-2 px-3"|attr:"style:font-weight:500;" }}
+          </div>
+          <div class="mb-3">
+            <label for="id_message" class="form-label fw-semibold small text-uppercase text-muted" style="letter-spacing: 0.05em;">{% trans "Mensaje" %}</label>
+            {{ form.message|add_class:"form-control border-0 bg-light rounded-3" }}
+          </div>
+          <div class="mb-4">
+            <label for="id_recipients" class="form-label fw-semibold small text-uppercase text-muted" style="letter-spacing: 0.05em;">{% trans "Destinatarios" %}</label>
+            {{ form.recipients|add_class:"form-control border-0 bg-light rounded-3 py-2 px-3"|attr:"style:font-weight:500;" }}
+            <small class="text-muted mt-1 d-block"><i data-lucide="info" class="wid-12 me-1"></i>{% trans "Separa los correos con coma (,)" %}</small>
+          </div>
+          <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+            <a href="{% url 'contact_app:contact_list' %}" class="btn btn-outline-secondary px-4 fw-bold d-flex align-items-center gap-2">
+              <i data-lucide="arrow-left" class="wid-16"></i> {% trans "Volver" %}
+            </a>
+            <button type="submit" class="btn btn-primary px-4 shadow-sm fw-bold d-flex align-items-center gap-2" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); border: none;">
+              <i data-lucide="send" class="wid-16"></i> {% trans "Enviar mailing" %}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar: Summary & History -->
+  <div class="col-lg-4">
+    <div class="card border-0 shadow-sm mb-4" style="border-radius: 16px;">
+      <div class="card-body p-4 text-center">
+        <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center mb-2" style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);">
+          <i data-lucide="mail" class="wid-28 text-white"></i>
+        </div>
+        <h5 class="fw-bold mb-1">{% trans "Resumen rápido" %}</h5>
+        <small class="text-muted">{% trans "Última campaña: 12 Jun 2026" %}</small>
+        <hr>
+        <div class="d-flex justify-content-between mb-2">
+          <span class="small text-muted">{% trans "Enviados" %}</span>
+          <span class="small fw-bold">128</span>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+          <span class="small text-muted">{% trans "Abiertos" %}</span>
+          <span class="small fw-bold text-success">87</span>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+          <span class="small text-muted">{% trans "Rebotados" %}</span>
+          <span class="small fw-bold text-danger">3</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span class="small text-muted">{% trans "Tasa de clics" %}</span>
+          <span class="small fw-bold text-secondary">24%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+      <div class="card-header bg-white border-0 pt-4 px-4 pb-0 d-flex align-items-center gap-2">
+        <i data-lucide="clock" class="wid-16 text-muted"></i>
+        <h6 class="fw-bold mb-0 small">{% trans "Últimos envíos" %}</h6>
+      </div>
+      <div class="card-body px-4 pb-4">
+        <div class="d-flex align-items-center justify-content-between py-2 border-bottom">
+          <div>
+            <div class="small fw-bold">{% trans "Boletín Junio" %}</div>
+            <small class="text-muted">10 Jun 2026</small>
+          </div>
+          <span class="badge bg-success bg-opacity-10 text-success rounded-pill small fw-bold">42 env.</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-between py-2 border-bottom">
+          <div>
+            <div class="small fw-bold">{% trans "Oferta especial" %}</div>
+            <small class="text-muted">5 Jun 2026</small>
+          </div>
+          <span class="badge bg-success bg-opacity-10 text-success rounded-pill small fw-bold">28 env.</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-between py-2 border-bottom">
+          <div>
+            <div class="small fw-bold">{% trans "Newsletter Q2" %}</div>
+            <small class="text-muted">28 May 2026</small>
+          </div>
+          <span class="badge bg-success bg-opacity-10 text-success rounded-pill small fw-bold">56 env.</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-between py-2">
+          <div>
+            <div class="small fw-bold">{% trans "Bienvenida" %}</div>
+            <small class="text-muted">15 May 2026</small>
+          </div>
+          <span class="badge bg-success bg-opacity-10 text-success rounded-pill small fw-bold">12 env.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
-
 
 <script>
   tinymce.init({
@@ -62,6 +211,5 @@
     height: 300,
   });
 </script>
-
 
 {% endblock %}

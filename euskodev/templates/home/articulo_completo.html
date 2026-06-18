@@ -96,7 +96,7 @@
             <div class="col-lg-8 mx-auto">
                 {% if articulo.imagen %}
                 <div class="article-media">
-                    <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+                    <img loading="lazy" src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
                 </div>
                 {% endif %}
 

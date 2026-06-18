@@ -5,49 +5,47 @@
 {% block title %}Contactos | Euskodev{% endblock %}
 
 {% block content %}
-<div class="pc-container p-0">
-    <div class="pc-content p-4 p-lg-5">
-        
-        <!-- Header Banner (Integrated style) -->
-        <div class="page-header shadow-lg mb-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 16px; padding: 45px; color: white;">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
-                <div class="d-flex align-items-center gap-4">
-                     <div class="bg-white bg-opacity-10 p-3 rounded-circle border border-white border-opacity-25 shadow-sm">
-                        <i data-lucide="users" class="wid-30 text-white"></i>
-                     </div>
-                     <div class="border-start border-white border-opacity-25 ps-4">
-                        <h1 class="h2 fw-bold text-white mb-1">{% trans "Contactos" %}</h1>
-                        <p class="text-white-50 mb-0 fw-medium">Gestión y seguimiento de clientes potenciales</p>
-                     </div>
-                </div>
-                <div class="d-flex gap-2">
-                    <a href="{% url 'contact_app:add_contact' %}" class="btn btn-light px-4 py-2 rounded-3 fw-bold shadow-sm d-flex align-items-center gap-2 border-0" style="color: var(--primary);">
-                        <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Nuevo contacto" %}
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <!-- Search Section -->
-        <div class="card border-0 shadow-sm mb-4" style="border-radius: var(--radius-lg);">
-            <div class="card-body p-3">
-                <form method="get" class="row g-3">
-                    <div class="col-12 col-md-8 col-lg-6">
-                        <div class="input-group search-group">
-                            <span class="input-group-text bg-transparent border-0 pe-0">
-                                <i data-lucide="search" style="width: 18px; color: var(--gray-400);"></i>
-                            </span>
-                            <input type="text" name="q" value="{{ request.GET.q }}" class="form-control border-0 bg-transparent px-2 fw-medium" placeholder="Buscar por nombre, email o teléfono...">
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-2 ms-auto">
-                        <button type="submit" class="btn btn-secondary w-100 d-flex align-items-center justify-content-center gap-2 shadow-sm fw-bold">
-                             <i data-lucide="filter" class="wid-16"></i> {% trans "Filtrar" %}
-                        </button>
-                    </div>
-                </form>
-            </div>
+<!-- Header Banner (Integrated style) -->
+<div class="page-header shadow-lg mb-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 16px; padding: 45px; color: white;">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
+        <div class="d-flex align-items-center gap-4">
+             <div class="bg-white bg-opacity-10 p-3 rounded-circle border border-white border-opacity-25 shadow-sm">
+                <i data-lucide="users" class="wid-30 text-white"></i>
+             </div>
+             <div class="border-start border-white border-opacity-25 ps-4">
+                <h1 class="h2 fw-bold text-white mb-1">{% trans "Contactos" %}</h1>
+                <p class="text-white-50 mb-0 fw-medium">Gestión y seguimiento de clientes potenciales</p>
+             </div>
         </div>
+        <div class="d-flex gap-2">
+            <a href="{% url 'contact_app:add_contact' %}" class="btn btn-light px-4 py-2 rounded-3 fw-bold shadow-sm d-flex align-items-center gap-2 border-0" style="color: var(--primary);">
+                <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Nuevo contacto" %}
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Search Section -->
+<div class="card border-0 shadow-sm mb-4" style="border-radius: var(--radius-lg);">
+    <div class="card-body p-3">
+        <form method="get" class="row g-3">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="input-group search-group">
+                    <span class="input-group-text bg-transparent border-0 pe-0">
+                        <i data-lucide="search" style="width: 18px; color: var(--gray-400);"></i>
+                    </span>
+                    <input type="text" name="q" value="{{ request.GET.q }}" class="form-control border-0 bg-transparent px-2 fw-medium" placeholder="Buscar por nombre, email o teléfono...">
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-2 ms-auto">
+                <button type="submit" class="btn btn-secondary w-100 d-flex align-items-center justify-content-center gap-2 shadow-sm fw-bold">
+                     <i data-lucide="filter" class="wid-16"></i> {% trans "Filtrar" %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
         <!-- Table Card -->
         {% if contacts %}
@@ -96,8 +94,8 @@
                              <i data-lucide="info" class="wid-16 text-secondary"></i>
                              <span>Selecciona contactos para realizar acciones masivas</span>
                         </div>
-                        <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-4 shadow-sm fw-bold" data-bs-toggle="modal" data-bs-target="#mailingModal">
-                            <i data-lucide="mail" class="wid-18"></i> {% trans "Hacer mailing" %}
+                        <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-4 shadow-sm fw-bold" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); border: none;" onclick="goToMailing()">
+                            <i data-lucide="send" class="wid-18"></i> {% trans "Gestión de mailing" %}
                         </button>
                         <button type="button" class="btn btn-danger d-flex align-items-center gap-2 px-4 shadow-sm fw-bold" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
                             <i data-lucide="trash-2" class="wid-18"></i> {% trans "Eliminar" %}
@@ -120,9 +118,7 @@
                   <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Añadir primer contacto" %}
              </a>
         </div>
-        {% endif %}
-    </div>
-</div>
+{% endif %}
 
 <!-- Modal: Confirm Delete -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
@@ -146,31 +142,10 @@
     </div>
 </div>
 
-<!-- Modal: Mailing -->
-<div class="modal fade" id="mailingModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
-            <div class="modal-header border-0 pb-0 pe-4 pt-4">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4 text-center">
-                <div class="mb-3">
-                    <i data-lucide="send" class="text-primary wid-60"></i>
-                </div>
-                <h4 class="fw-bold mb-2">¿Enviar correo masivo?</h4>
-                <p class="text-muted">Serás redirigido al editor de mailing manual para los contactos seleccionados.</p>
-            </div>
-            <div class="modal-footer border-0 p-4 pt-0 justify-content-center gap-2">
-                <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">{% trans "Cerrar" %}</button>
-                <a href="{% url 'mailing_app:manual' %}" class="btn btn-primary px-4 shadow-sm fw-bold">{% trans "Ir al mailing" %}</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Initialize Lucide
     if (window.lucide) {
       lucide.createIcons();
     }
@@ -184,5 +159,19 @@
       });
     }
   });
+
+  function goToMailing() {
+    var checked = document.querySelectorAll('input[name="selected_contacts"]:checked');
+    var contactIds = [];
+    for (var i = 0; i < checked.length; i++) {
+      contactIds.push(checked[i].value);
+    }
+    var baseUrl = "{% url 'mailing_app:manual' %}";
+    if (contactIds.length === 0) {
+      window.location.href = baseUrl;
+      return;
+    }
+    window.location.href = baseUrl + "?contacts=" + contactIds.join(",");
+  }
 </script>
 {% endblock %}

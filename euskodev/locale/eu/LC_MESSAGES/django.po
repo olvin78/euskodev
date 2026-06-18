@@ -25,7 +25,7 @@ msgstr ""
 #: templates/companies/list_companies.html:76
 #: templates/companies/list_companies.html:89
 msgid "Sí"
-msgstr ""
+msgstr "Bai"
 
 #: applications/digital_audit/models.py:8
 #: templates/companies/list_companies.html:54
@@ -34,175 +34,175 @@ msgstr ""
 #: templates/companies/list_companies.html:78
 #: templates/companies/list_companies.html:91
 msgid "No"
-msgstr ""
+msgstr "Ez"
 
 #: applications/digital_audit/models.py:9
 msgid "No lo sé"
-msgstr ""
+msgstr "Ez dakit"
 
 #: applications/digital_audit/models.py:13
 msgid "Nombre de la empresa"
-msgstr ""
+msgstr "Enpresaren izena"
 
 #: applications/digital_audit/models.py:14
 msgid "Nombre de contacto"
-msgstr ""
+msgstr "Kontaktuaren izena"
 
 #: applications/digital_audit/models.py:15
 msgid "Correo electrónico de contacto"
-msgstr ""
+msgstr "Kontaktuaren helbide elektronikoa"
 
 #: applications/digital_audit/models.py:16
 msgid "Teléfono de contacto (opcional)"
-msgstr ""
+msgstr "Kontaktuaren telefonoa (aukerakoa)"
 
 #: applications/digital_audit/models.py:20
 msgid "La empresa tiene una página web corporativa"
-msgstr ""
+msgstr "Enpresak badu webgune korporatiboa"
 
 #: applications/digital_audit/models.py:21
 msgid "La web es responsive y se adapta a móviles"
-msgstr ""
+msgstr "Webgunea responsive da eta mugikorretara egokitzen da"
 
 #: applications/digital_audit/models.py:22
 msgid "La web está optimizada para buscadores (SEO)"
-msgstr ""
+msgstr "Webgunea bilatzaileentzat optimizatuta dago (SEO)"
 
 #: applications/digital_audit/models.py:23
 msgid "La empresa tiene ficha en Google Business"
-msgstr ""
+msgstr "Enpresak badu fitxa Google Business-en"
 
 #: applications/digital_audit/models.py:24
 msgid "Utiliza herramientas como Google Analytics"
-msgstr ""
+msgstr "Google Analytics bezalako tresnak erabiltzen ditu"
 
 #: applications/digital_audit/models.py:27
 msgid "Tiene presencia activa en redes sociales"
-msgstr ""
+msgstr "Sare sozialetan presentzia aktiboa du"
 
 #: applications/digital_audit/models.py:28
 msgid "Hace campañas en redes o Google Ads"
-msgstr ""
+msgstr "Sare sozialetan edo Google Ads-en kanpainak egiten ditu"
 
 #: applications/digital_audit/models.py:29
 msgid "Envía newsletters o emails promocionales"
-msgstr ""
+msgstr "Newsletterrak edo email promozionalak bidaltzen ditu"
 
 #: applications/digital_audit/models.py:30
 msgid "Utiliza un CRM para gestión de contactos/clientes"
-msgstr ""
+msgstr "CRM bat erabiltzen du kontaktuak/bezeroak kudeatzeko"
 
 #: applications/digital_audit/models.py:31
 msgid "Realiza campañas de captación de leads"
-msgstr ""
+msgstr "Lead-en harrapaketa kanpainak egiten ditu"
 
 #: applications/digital_audit/models.py:34
 msgid "Vende productos o servicios online"
-msgstr ""
+msgstr "Produktuak edo zerbitzuak online saltzen ditu"
 
 #: applications/digital_audit/models.py:35
 msgid "Acepta pagos digitales"
-msgstr ""
+msgstr "Ordainketa digitalak onartzen ditu"
 
 #: applications/digital_audit/models.py:36
 msgid "Tiene un sistema de reservas online"
-msgstr ""
+msgstr "Online erreserba sistema bat du"
 
 #: applications/digital_audit/models.py:37
 msgid "Tiene carrito de compras en su web"
-msgstr ""
+msgstr "Webgunean erosketa-orga du"
 
 #: applications/digital_audit/models.py:40
 msgid "Utiliza un ERP para la gestión interna"
-msgstr ""
+msgstr "ERP bat erabiltzen du barne kudeaketarako"
 
 #: applications/digital_audit/models.py:41
 msgid "Usa facturación digital"
-msgstr ""
+msgstr "Fakturazio digitala erabiltzen du"
 
 #: applications/digital_audit/models.py:42
 msgid "Automatiza procesos repetitivos"
-msgstr ""
+msgstr "Prozesu errepikakorrak automatizatzen ditu"
 
 #: applications/digital_audit/models.py:43
 msgid "Utiliza software colaborativo"
-msgstr ""
+msgstr "Software kolaboratiboa erabiltzen du"
 
 #: applications/digital_audit/models.py:44
 msgid "Tiene copias de seguridad automatizadas"
-msgstr ""
+msgstr "Segurtasun kopia automatizatuak ditu"
 
 #: applications/digital_audit/models.py:47
 msgid "Tiene un chatbot o asistente virtual"
-msgstr ""
+msgstr "Chatbot bat edo laguntzaile birtuala du"
 
 #: applications/digital_audit/models.py:48
 msgid "Utiliza WhatsApp Business u otro canal directo"
-msgstr ""
+msgstr "WhatsApp Business edo beste kanal zuzen bat erabiltzen du"
 
 #: applications/digital_audit/models.py:49
 msgid "Tiene sistema de soporte o tickets"
-msgstr ""
+msgstr "Soporte edo ticket sistema du"
 
 #: applications/digital_audit/models.py:50
 msgid "Responde rápidamente en canales digitales"
-msgstr ""
+msgstr "Kanal digitaletan azkar erantzuten du"
 
 #: applications/digital_audit/models.py:53
 msgid "Tiene una app móvil propia"
-msgstr ""
+msgstr "App mugikor propioa du"
 
 #: applications/digital_audit/models.py:54
 msgid "Tiene una zona privada o funcionalidades especiales"
-msgstr ""
+msgstr "Eremu pribatua edo funtzionalitate bereziak ditu"
 
 #: applications/digital_audit/models.py:55
 msgid "Los empleados pueden trabajar desde el móvil"
-msgstr ""
+msgstr "Enplegatuek mugikorretik lan egin dezakete"
 
 #: applications/digital_audit/models.py:56
 msgid "Utiliza apps móviles de productividad"
-msgstr ""
+msgstr "Produktibitateko app mugikorrak erabiltzen ditu"
 
 #: applications/digital_audit/models.py:59
 msgid "Analiza métricas de ventas y clientes"
-msgstr ""
+msgstr "Sal menta eta bezeroen metrikak aztertzen ditu"
 
 #: applications/digital_audit/models.py:60
 msgid "Utiliza dashboards para decisiones"
-msgstr ""
+msgstr "Dashboard-ak erabiltzen ditu erabakiak hartzeko"
 
 #: applications/digital_audit/models.py:61
 msgid "Mide objetivos digitales (KPI)"
-msgstr ""
+msgstr "Helburu digitalak neurtzen ditu (KPI)"
 
 #: applications/digital_audit/models.py:64
 msgid "Su web tiene certificado SSL"
-msgstr ""
+msgstr "Bere webguneak SSL ziurtagiria du"
 
 #: applications/digital_audit/models.py:65
 msgid "Usa contraseñas seguras y doble factor"
-msgstr ""
+msgstr "Pasahitz seguruak eta biko faktorea erabiltzen du"
 
 #: applications/digital_audit/models.py:66
 msgid "Está adaptado a la normativa RGPD"
-msgstr ""
+msgstr "RGPD araudira egokituta dago"
 
 #: applications/digital_audit/models.py:67
 msgid "Realiza auditorías de seguridad"
-msgstr ""
+msgstr "Segurtasun auditoriak egiten ditu"
 
 #: applications/digital_audit/models.py:69
 msgid "Fecha de envío"
-msgstr ""
+msgstr "Bidalketa data"
 
 #: euskodev/settings.py:207
 msgid "Español"
-msgstr ""
+msgstr "Gaztelania"
 
 #: euskodev/settings.py:208
 msgid "Euskara"
-msgstr ""
+msgstr "Euskara"
 
 #: templates/companies/company_form.html:9
 msgid "Crear Empresa"
@@ -210,11 +210,11 @@ msgstr "Sortzaileak"
 
 #: templates/companies/company_form.html:37
 msgid "Registrar Empresa"
-msgstr ""
+msgstr "Enpresa erregistratu"
 
 #: templates/companies/company_form.html:81
 msgid "Guardar empresa"
-msgstr ""
+msgstr "Enpresa gorde"
 
 #: templates/companies/company_form.html:84
 #: templates/contact/add_contact.html:188
@@ -222,15 +222,15 @@ msgstr ""
 #: templates/contact/contact_list.html:91
 #: templates/contact/contact_list.html:110
 msgid "Cancelar"
-msgstr ""
+msgstr "Utzi"
 
 #: templates/companies/list_companies.html:11
 msgid "Lista empresas"
-msgstr ""
+msgstr "Enpresen zerrenda"
 
 #: templates/companies/list_companies.html:14
 msgid "Agregar empresa"
-msgstr ""
+msgstr "Enpresa gehitu"
 
 #: templates/companies/list_companies.html:21
 #: templates/contact/contact_list.html:40 templates/home/index.html:1493
@@ -239,11 +239,11 @@ msgstr "Izena"
 
 #: templates/companies/list_companies.html:22
 msgid "Ciudad"
-msgstr ""
+msgstr "Hiria"
 
 #: templates/companies/list_companies.html:23
 msgid "Dirección"
-msgstr ""
+msgstr "Helbidea"
 
 #: templates/companies/list_companies.html:24
 #: templates/contact/contact_list.html:42 templates/home/index.html:1474
@@ -253,55 +253,55 @@ msgstr "Posta elektronikoa"
 
 #: templates/companies/list_companies.html:25
 msgid "Phone"
-msgstr ""
+msgstr "Telefonoa"
 
 #: templates/companies/list_companies.html:26
 msgid "Web"
-msgstr ""
+msgstr "Weba"
 
 #: templates/companies/list_companies.html:27
 msgid "¿Tiene Web?"
-msgstr ""
+msgstr "Weba al du?"
 
 #: templates/companies/list_companies.html:28
 msgid "¿Tiene APP?"
-msgstr ""
+msgstr "APPa al du?"
 
 #: templates/companies/list_companies.html:29
 msgid "¿Tiene ERP?"
-msgstr ""
+msgstr "ERPa al du?"
 
 #: templates/companies/list_companies.html:30
 msgid "¿Tiene IA?"
-msgstr ""
+msgstr "IA al du?"
 
 #: templates/companies/list_companies.html:31
 msgid "Gerente"
-msgstr ""
+msgstr "Kudeatzailea"
 
 #: templates/companies/list_companies.html:32
 msgid "Tel.Gerente"
-msgstr ""
+msgstr "Kudeatzailearen Tel."
 
 #: templates/companies/list_companies.html:33
 msgid "Email.Gerente"
-msgstr ""
+msgstr "Kudeatzailearen Emaila"
 
 #: templates/companies/list_companies.html:34
 msgid "¿Visitado?"
-msgstr ""
+msgstr "Bisitatua?"
 
 #: templates/companies/list_companies.html:35
 msgid "¿Fecha visita?"
-msgstr ""
+msgstr "Bisita data?"
 
 #: templates/companies/list_companies.html:36
 msgid "Comentario"
-msgstr ""
+msgstr "Oharra"
 
 #: templates/companies/list_companies.html:48
 msgid "ER"
-msgstr ""
+msgstr "ER"
 
 #: templates/contact/add_contact.html:13
 msgid "Agregar Contacto"
@@ -309,7 +309,7 @@ msgstr "Kontaktua"
 
 #: templates/contact/add_contact.html:187
 msgid "Guardar"
-msgstr ""
+msgstr "Gorde"
 
 #: templates/contact/contact_list.html:15
 msgid "Lista de Contactos"
@@ -317,11 +317,11 @@ msgstr "Kontaktua"
 
 #: templates/contact/contact_list.html:18
 msgid "Agregar nuevo contacto"
-msgstr ""
+msgstr "Kontaktu berria gehitu"
 
 #: templates/contact/contact_list.html:27
 msgid "Filtrar"
-msgstr ""
+msgstr "Iragazi"
 
 #: templates/contact/contact_list.html:41 templates/home/index.html:1503
 msgid "Teléfono"
@@ -329,19 +329,19 @@ msgstr "mugikorra"
 
 #: templates/contact/contact_list.html:61
 msgid "Hacer mailing"
-msgstr ""
+msgstr "Mailing-a egin"
 
 #: templates/contact/contact_list.html:64
 msgid "Eliminar seleccionados"
-msgstr ""
+msgstr "Hautatutakoak ezabatu"
 
 #: templates/contact/contact_list.html:74
 msgid "No hay contactos disponibles."
-msgstr ""
+msgstr "Ez dago kontakturik erabilgarri."
 
 #: templates/contact/contact_list.html:84
 msgid "Confirmar eliminación"
-msgstr ""
+msgstr "Ezabaketa baieztatu"
 
 #: templates/contact/contact_list.html:88
 msgid ""
@@ -351,86 +351,86 @@ msgstr ""
 
 #: templates/contact/contact_list.html:92
 msgid "Sí, eliminar"
-msgstr ""
+msgstr "Bai, ezabatu"
 
 #: templates/contact/contact_list.html:103
 msgid "Confirmar envío de mailing"
-msgstr ""
+msgstr "Mail bidalketa baieztatu"
 
 #: templates/contact/contact_list.html:107
 msgid "¿Quieres enviar un correo masivo a los contactos seleccionados?"
-msgstr ""
+msgstr "Kontaktu hautatuei mezu masiboa bidali nahi diezu?"
 
 #: templates/contact/contact_list.html:113
 msgid "Sí, Hacer mailing"
-msgstr ""
+msgstr "Bai, maila bidali"
 
 #: templates/dashboard/add_client.html:8
 msgid "Agregar Cliente"
-msgstr ""
+msgstr "Bezeroa Gehitu"
 
 #: templates/dashboard/add_client.html:323
 msgid "Agregar Cliente Nuevo"
-msgstr ""
+msgstr "Bezero Berria Gehitu"
 
 #: templates/dashboard/base_dashboard.html:10
 msgid "Dashboard | Euskodev.eus"
-msgstr ""
+msgstr "Panela | Euskodev.eus"
 
 #: templates/digital_audit/form.html:480
 msgid "Análisis con Inteligencia Artificial"
-msgstr ""
+msgstr "Azterketa Adimen Artifizialarekin"
 
 #: templates/digital_audit/form.html:484
 msgid "Descubre tu nivel de"
-msgstr ""
+msgstr "Ezagutu zure"
 
 #: templates/digital_audit/form.html:484
 msgid "digitalización"
-msgstr ""
+msgstr "digitalizazio maila"
 
 #: templates/digital_audit/form.html:488
 msgid ""
 "Responde a unas simples preguntas y obtén un informe personalizado. Solo "
 "tarda 2 minutos."
-msgstr ""
+msgstr "Erantzun galdera sinple batzuei eta txosten pertsonalizatu bat lortuko duzu. 2 minutu besterik ez ditu hartzen."
 
 #: templates/digital_audit/form.html:494
 msgid "Análisis con IA"
-msgstr ""
+msgstr "Azterketa IA-rekin"
 
 #: templates/digital_audit/form.html:495
 msgid "IA analiza tu empresa"
-msgstr ""
+msgstr "IAk zure enpresa aztertzen du"
 
 #: templates/digital_audit/form.html:499
 msgid "Informe detallado"
-msgstr ""
+msgstr "Txosten zehatza"
 
 #: templates/digital_audit/form.html:500
 msgid "Recomendaciones"
-msgstr ""
+msgstr "Gomendioak"
 
 #: templates/digital_audit/form.html:504
 #, python-format
 msgid "100%% Gratis"
-msgstr ""
+msgstr "100%% Doan"
 
 #: templates/digital_audit/form.html:505
 msgid "Sin compromiso"
-msgstr ""
+msgstr "Konpromisorik gabe"
 
 #: templates/digital_audit/form.html:562
 msgid "Tu presencia en internet"
-msgstr ""
+msgstr "Zure presentzia interneten"
 
 #: templates/digital_audit/form.html:627
 msgid "Redes sociales y clientes"
-msgstr ""
+msgstr "Sare sozialak eta bezeroak"
 
 #: templates/digital_audit/form.html:692
 msgid "Vender online y gestión"
-msgstr ""
+msgstr "Online saldu eta kudeaketa"
 
 #: templates/digital_audit/form.html:757
 msgid "Comunicación y seguridad"
@@ -438,26 +438,26 @@ msgstr "Domeinua, hostinga eta segurtasuna"
 
 #: templates/digital_audit/thank_you.html:83
 msgid "¡Gracias!"
-msgstr ""
+msgstr "Mila esker!"
 
 #: templates/digital_audit/thank_you.html:85
 msgid ""
 "Tu análisis de digitalización está siendo procesado por nuestra inteligencia "
 "artificial. En breve recibirás un informe detallado en tu email."
-msgstr ""
+msgstr "Zure digitalizazio azterketa gure adimen artifizialak prozesatzen ari da. Laster txosten zehatz bat jasoko duzu zure emailean."
 
 #: templates/digital_audit/thank_you.html:89 templates/home/404.html:37
 #: templates/jobs/trabaja_gracias.html:9
 msgid "Volver al inicio"
-msgstr ""
+msgstr "Itzuli hasierara"
 
 #: templates/home/404.html:34
 msgid "Página no encontrada"
-msgstr ""
+msgstr "Orria ez da aurkitu"
 
 #: templates/home/404.html:35
 msgid "Lo sentimos, la página que buscas no existe o ha sido movida."
-msgstr ""
+msgstr "Barkatu, bilatzen duzun orria ez da existitzen edo lekuz aldatu da."
 
 #: templates/home/Aviso_legal.html:20 templates/home/base.html:412
 msgid "Aviso Legal"
@@ -465,7 +465,7 @@ msgstr "Lege abisua"
 
 #: templates/home/Aviso_legal.html:22
 msgid "1. Datos de la empresa"
-msgstr ""
+msgstr "1. Enpresaren datuak"
 
 #: templates/home/Aviso_legal.html:25 templates/home/index.html:967
 #: templates/home/index.html:1483
@@ -474,7 +474,7 @@ msgstr "Oiartzun, Gipuzkoa"
 
 #: templates/home/Aviso_legal.html:29
 msgid "2. Propiedad intelectual"
-msgstr ""
+msgstr "2. Jabetza intelektuala"
 
 #: templates/home/Aviso_legal.html:30
 msgid ""
@@ -485,7 +485,7 @@ msgstr ""
 
 #: templates/home/Aviso_legal.html:32
 msgid "3. Limitación de responsabilidad"
-msgstr ""
+msgstr "3. Erantzukizunaren muga"
 
 #: templates/home/Aviso_legal.html:33
 msgid ""
@@ -495,11 +495,11 @@ msgstr ""
 
 #: templates/home/Aviso_legal.html:35
 msgid "4. Legislación aplicable"
-msgstr ""
+msgstr "4. Aplikagarria den legeria"
 
 #: templates/home/Aviso_legal.html:36
 msgid "Este aviso legal se rige por la legislación española."
-msgstr ""
+msgstr "Lege-ohar hau Espainiako legediak arautzen du."
 
 #: templates/home/Blog.html:126 templates/home/Blog_old.html:133
 #: templates/home/Blog_old.html:182 templates/home/articulo_completo
@@ -513,7 +513,7 @@ msgstr "Blog"
 
 #: templates/home/Blog.html:127
 msgid "Últimas noticias y artículos de Euskodev"
-msgstr ""
+msgstr "Euskodev-en azken berriak eta artikuluak"
 
 #: templates/home/Blog.html:129
 msgid "Buscar artículos..."
@@ -540,7 +540,7 @@ msgstr "Irakurri gehiago"
 
 #: templates/home/Blog.html:156
 msgid "No hay artículos todavía."
-msgstr ""
+msgstr "Oraindik ez dago artikulurik."
 
 #: templates/home/Blog_old.html:118 templates/home/articulo_completo
 #: copy.html:118 templates/home/articulo_completo3.html:75
@@ -607,7 +607,7 @@ msgstr "Buruz"
 #: templates/home/Blog_old.html:134 templates/home/articulo_completo
 #: copy.html:134
 msgid "Formar Parte"
-msgstr ""
+msgstr "Parte Hartu"
 
 #: templates/home/Blog_old.html:135 templates/home/articulo_completo
 #: copy.html:135 templates/home/articulo_completo3.html:87
@@ -648,7 +648,7 @@ msgstr "cookie politikak"
 
 #: templates/home/Politicas_de_privacidad.html:22
 msgid "1. Introducción"
-msgstr ""
+msgstr "1. Sarrera"
 
 #: templates/home/Politicas_de_privacidad.html:23
 msgid ""
@@ -659,19 +659,19 @@ msgstr ""
 
 #: templates/home/Politicas_de_privacidad.html:25
 msgid "2. Datos que recopilamos"
-msgstr ""
+msgstr "2. Bilduko ditugun datuak"
 
 #: templates/home/Politicas_de_privacidad.html:26
 msgid "Podemos recopilar los siguientes datos:"
-msgstr ""
+msgstr "Datu hauek bil ditzakegu:"
 
 #: templates/home/Politicas_de_privacidad.html:28
 msgid "Nombre y apellidos"
-msgstr ""
+msgstr "Izena eta abizenak"
 
 #: templates/home/Politicas_de_privacidad.html:29
 msgid "Dirección de correo electrónico"
-msgstr ""
+msgstr "Helbide elektronikoa"
 
 #: templates/home/Politicas_de_privacidad.html:30
 msgid "Número de teléfono"
@@ -679,31 +679,31 @@ msgstr "mugikorra"
 
 #: templates/home/Politicas_de_privacidad.html:31
 msgid "Información de la empresa"
-msgstr ""
+msgstr "Enpresaren informazioa"
 
 #: templates/home/Politicas_de_privacidad.html:34
 msgid "3. Uso de los datos"
-msgstr ""
+msgstr "3. Datuen erabilera"
 
 #: templates/home/Politicas_de_privacidad.html:35
 msgid "Usamos tus datos para:"
-msgstr ""
+msgstr "Zure datuak erabiltzen ditugu:"
 
 #: templates/home/Politicas_de_privacidad.html:37
 msgid "Responder a tus consultas"
-msgstr ""
+msgstr "Zure kontsultei erantzuteko"
 
 #: templates/home/Politicas_de_privacidad.html:38
 msgid "Prestar los servicios solicitados"
-msgstr ""
+msgstr "Eskatutako zerbitzuak emateko"
 
 #: templates/home/Politicas_de_privacidad.html:39
 msgid "Enviar comunicaciones comerciales"
-msgstr ""
+msgstr "Komunikazio komertzialak bidaltzeko"
 
 #: templates/home/Politicas_de_privacidad.html:42
 msgid "4. Protección de datos"
-msgstr ""
+msgstr "4. Datuen babesa"
 
 #: templates/home/Politicas_de_privacidad.html:43
 msgid ""
@@ -723,15 +723,15 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:252
 msgid "Especialistas en Multiplataforma"
-msgstr ""
+msgstr "Espezialistak Multiplataforman"
 
 #: templates/home/aplicaciones_moviles.html:253
 msgid "Apps Nativa"
-msgstr ""
+msgstr "App Natiboak"
 
 #: templates/home/aplicaciones_moviles.html:253
 msgid "alto impacto."
-msgstr ""
+msgstr "eragin handikoa."
 
 #: templates/home/aplicaciones_moviles.html:254
 msgid ""
@@ -741,19 +741,19 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:256
 msgid "Descubrir Metodología"
-msgstr ""
+msgstr "Metodologia Ezagutu"
 
 #: templates/home/aplicaciones_moviles.html:257
 msgid "Contactar con Ingeniería"
-msgstr ""
+msgstr "Ingeniarekin Harremanetan Jarri"
 
 #: templates/home/aplicaciones_moviles.html:274
 msgid "Tecnología"
-msgstr ""
+msgstr "Teknologia"
 
 #: templates/home/aplicaciones_moviles.html:278
 msgid "Infraestructura"
-msgstr ""
+msgstr "Azpiegitura"
 
 #: templates/home/aplicaciones_moviles.html:282
 msgid "Diseño"
@@ -761,11 +761,11 @@ msgstr "Diseinu grafikoa"
 
 #: templates/home/aplicaciones_moviles.html:286
 msgid "Seguridad"
-msgstr ""
+msgstr "Segurtasuna"
 
 #: templates/home/aplicaciones_moviles.html:300
 msgid "Tus servicios, siempre en el bolsillo del cliente."
-msgstr ""
+msgstr "Zure zerbitzuak, beti bezeroaren poltsikoan."
 
 #: templates/home/aplicaciones_moviles.html:301
 msgid ""
@@ -776,7 +776,7 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:307
 msgid "Multiplataforma"
-msgstr ""
+msgstr "Multiplataforma"
 
 #: templates/home/aplicaciones_moviles.html:309
 msgid ""
@@ -785,7 +785,7 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:314
 msgid "Alto Rendimiento"
-msgstr ""
+msgstr "Errendimendu Handia"
 
 #: templates/home/aplicaciones_moviles.html:316
 msgid ""
@@ -794,15 +794,15 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:333
 msgid "Performance & Scalability"
-msgstr ""
+msgstr "Performance & Scalability"
 
 #: templates/home/aplicaciones_moviles.html:334
 msgid "Tecnología de última generación"
-msgstr ""
+msgstr "Azken belaunaldiko teknologia"
 
 #: templates/home/aplicaciones_moviles.html:362
 msgid "¿Qué podemos construir para ti?"
-msgstr ""
+msgstr "Zer eraiki dezakegu zuretzat?"
 
 #: templates/home/aplicaciones_moviles.html:363
 msgid ""
@@ -821,7 +821,7 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:376
 msgid "Gestión Interna"
-msgstr ""
+msgstr "Barne Kudeaketa"
 
 #: templates/home/aplicaciones_moviles.html:377
 msgid ""
@@ -830,7 +830,7 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:383
 msgid "Sistemas de Lealtad"
-msgstr ""
+msgstr "Leialtasun Sistemak"
 
 #: templates/home/aplicaciones_moviles.html:384
 msgid ""
@@ -843,11 +843,11 @@ msgstr "zerbitzuak"
 
 #: templates/home/aplicaciones_moviles.html:391
 msgid "Soporte al cliente en tiempo real y gestión de citas automatizada."
-msgstr ""
+msgstr "Bezeroarentzako laguntza denbora errealean eta hitzorduen kudeaketa automatizatua."
 
 #: templates/home/aplicaciones_moviles.html:404
 msgid "Nuestro Proceso de Ingeniería"
-msgstr ""
+msgstr "Gure Ingeniaritza Prozesua"
 
 #: templates/home/aplicaciones_moviles.html:405
 msgid ""
@@ -857,7 +857,7 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:409
 msgid "01. Arquitectura & UX"
-msgstr ""
+msgstr "01. Arkitektura eta UX"
 
 #: templates/home/aplicaciones_moviles.html:410
 msgid ""
@@ -871,19 +871,19 @@ msgstr "Web garapena"
 
 #: templates/home/aplicaciones_moviles.html:415
 msgid "Sprints semanales donde podrás ver y probar avances reales en tu móvil."
-msgstr ""
+msgstr "Asteroko sprint-ak, zure mugikorrean benetako aurrerapenak ikusi eta probatzeko."
 
 #: templates/home/aplicaciones_moviles.html:419
 msgid "03. QA & Seguridad"
-msgstr ""
+msgstr "03. QA eta Segurtasuna"
 
 #: templates/home/aplicaciones_moviles.html:420
 msgid "Tests exhaustivos para garantizar un funcionamiento impecable y seguro."
-msgstr ""
+msgstr "Proba zehatzak, funtzionamendu ezin hobea eta segurua bermatzeko."
 
 #: templates/home/aplicaciones_moviles.html:424
 msgid "04. Publicación Total"
-msgstr ""
+msgstr "04. Argitalpen Osoa"
 
 #: templates/home/aplicaciones_moviles.html:425
 msgid ""
@@ -892,7 +892,7 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:441
 msgid "¿Hablamos de tu próxima App?"
-msgstr ""
+msgstr "Zure hurrengo App-az hitz egin?"
 
 #: templates/home/aplicaciones_moviles.html:442
 msgid ""
@@ -902,7 +902,7 @@ msgstr ""
 
 #: templates/home/aplicaciones_moviles.html:443
 msgid "Solicitar Consulta de Ingeniería"
-msgstr ""
+msgstr "Ingeniaritza Kontsulta Eskatu"
 
 #: templates/home/articulo_completo copy.html:171
 #: templates/home/articulo_completo_old.html:139
@@ -921,7 +921,7 @@ msgstr "Itzuli"
 
 #: templates/home/articulo_completo3.html:28
 msgid "Imagen Corporativa"
-msgstr ""
+msgstr "Irudi Korporatiboa"
 
 #: templates/home/articulo_completo_old.html:12
 msgid ""
@@ -932,7 +932,7 @@ msgstr ""
 
 #: templates/home/articulo_completo_old.html:16
 msgid "Imagen Corporativa en Gipuzkoa - Euskodev"
-msgstr ""
+msgstr "Irudi Korporatiboa Gipuzkoan - Euskodev"
 
 #: templates/home/base copy.html:210
 msgid "Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025"
@@ -940,7 +940,7 @@ msgstr "Euskodev &copy;zure webgunearen eraikitzailea 2024"
 
 #: templates/home/base copy.html:246 templates/home/index2.html:922
 msgid "Políticas de privacidad"
-msgstr ""
+msgstr "Pribatutasun politikak"
 
 #: templates/home/base copy.html:252 templates/home/index2.html:925
 msgid "Aviso legal"
@@ -1011,7 +1011,7 @@ msgstr "Web garapena "
 #: templates/home/base copy.html:389 templates/home/base.html:546
 #: templates/home/index2.html:1044
 msgid "Gastrogune"
-msgstr ""
+msgstr "Gastrogune"
 
 #: templates/home/base copy.html:390 templates/home/base.html:547
 #: templates/home/index2.html:1046
@@ -1031,7 +1031,7 @@ msgstr ""
 
 #: templates/home/base copy.html:404 templates/home/base.html:561
 msgid "Gastronomía Vasca y Restaurantes"
-msgstr ""
+msgstr "Euskal Gastronomia eta Jatetxeak"
 
 #: templates/home/base copy.html:412 templates/home/base.html:569
 msgid "Cerrar Proyecto"
@@ -1048,11 +1048,11 @@ msgstr "Aplikazio mugikorrak"
 
 #: templates/home/base.html:284
 msgid "Únete"
-msgstr ""
+msgstr "Batu zaitez"
 
 #: templates/home/base.html:290
 msgid "IA"
-msgstr ""
+msgstr "IA"
 
 #: templates/home/base.html:348
 msgid ""
@@ -1062,7 +1062,7 @@ msgstr ""
 
 #: templates/home/base.html:376
 msgid "Empresa"
-msgstr ""
+msgstr "Enpresa"
 
 #: templates/home/base.html:378 templates/home/index_backup.html:355
 msgid "Sobre Nosotros"
@@ -1070,19 +1070,19 @@ msgstr "Guri buruz"
 
 #: templates/home/base.html:408
 msgid "Todos los derechos reservados."
-msgstr ""
+msgstr "Eskubide guztiak erreserbatuta."
 
 #: templates/home/base.html:411
 msgid "Privacidad"
-msgstr ""
+msgstr "Pribatutasuna"
 
 #: templates/home/base.html:413
 msgid "Cookies"
-msgstr ""
+msgstr "Cookie-ak"
 
 #: templates/home/desarrollo_web.html:370
 msgid "Desarrollo web profesional en un ambiente cercano y confiable"
-msgstr ""
+msgstr "Web garapen profesionala inguru hurbil eta fidagarri batean"
 
 #: templates/home/desarrollo_web.html:373
 msgid "Desarrollo web"
@@ -1091,7 +1091,7 @@ msgstr "Web garapena"
 #: templates/home/desarrollo_web.html:374
 #: templates/home/trabaja_con_nosotros.html:615
 msgid "Tecnología y diseño que impulsan tu éxito"
-msgstr ""
+msgstr "Zure arrakasta bultzatzen duten teknologia eta diseinua"
 
 #: templates/home/desarrollo_web.html:375
 #: templates/home/trabaja_con_nosotros.html:616
@@ -1112,35 +1112,35 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:382
 msgid "Solicita Presupuesto Gratis"
-msgstr ""
+msgstr "Eskatu Aurrekontua Doan"
 
 #: templates/home/desarrollo_web.html:386
 msgid "UX centrada"
-msgstr ""
+msgstr "UX ardaztua"
 
 #: templates/home/desarrollo_web.html:387
 msgid "Experiencias que convierten"
-msgstr ""
+msgstr "Bihurtzen duten esperientziak"
 
 #: templates/home/desarrollo_web.html:390
 msgid "Performance real"
-msgstr ""
+msgstr "Benetako performancea"
 
 #: templates/home/desarrollo_web.html:391
 msgid "Velocidad y SEO"
-msgstr ""
+msgstr "Abiadura eta SEO"
 
 #: templates/home/desarrollo_web.html:394
 msgid "Seguridad total"
-msgstr ""
+msgstr "Segurtasun osoa"
 
 #: templates/home/desarrollo_web.html:395
 msgid "Proteccion y fiabilidad"
-msgstr ""
+msgstr "Babesa eta fidagarritasuna"
 
 #: templates/home/desarrollo_web.html:398
 msgid "Soporte cercano"
-msgstr ""
+msgstr "Laguntza hurbila"
 
 #: templates/home/desarrollo_web.html:399
 msgid "Acompanamiento continuo"
@@ -1148,7 +1148,7 @@ msgstr "Ikaskuntza"
 
 #: templates/home/desarrollo_web.html:409
 msgid "Aspectos clave de tu web profesional"
-msgstr ""
+msgstr "Zure web profesionalaren alderdi nagusiak"
 
 #: templates/home/desarrollo_web.html:411
 msgid ""
@@ -1179,7 +1179,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:433
 msgid "Seguridad Web"
-msgstr ""
+msgstr "Web Segurtasuna"
 
 #: templates/home/desarrollo_web.html:434
 msgid ""
@@ -1189,7 +1189,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:446
 msgid "¿Qué incluye cada servicio?"
-msgstr ""
+msgstr "Zer sartzen da zerbitzu bakoitzean?"
 
 #: templates/home/desarrollo_web.html:447
 msgid ""
@@ -1198,23 +1198,23 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:451
 msgid "Arquitectura optimizada, escalable y segura"
-msgstr ""
+msgstr "Arkitektura optimizatua, eskalagarria eta segurua"
 
 #: templates/home/desarrollo_web.html:452
 msgid "SEO técnico avanzado y performance extrema"
-msgstr ""
+msgstr "SEO tekniko aurreratua eta performance muturrekoa"
 
 #: templates/home/desarrollo_web.html:453
 msgid "Experiencias de usuario (UX/UI) enfocadas en conversión"
-msgstr ""
+msgstr "Bihurketa ardatz duten erabiltzaile esperientziak (UX/UI)"
 
 #: templates/home/desarrollo_web.html:454
 msgid "Mantenimiento preventivo y soporte continuo"
-msgstr ""
+msgstr "Mantentze prebentiboa eta etengabeko laguntza"
 
 #: templates/home/desarrollo_web.html:468
 msgid "Soluciones que crecen contigo"
-msgstr ""
+msgstr "Zurekin hazten diren soluzioak"
 
 #: templates/home/desarrollo_web.html:469
 msgid ""
@@ -1223,15 +1223,15 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:481
 msgid "¿Cómo desarrollamos tu proyecto?"
-msgstr ""
+msgstr "Nola garatzen dugu zure proiektua?"
 
 #: templates/home/desarrollo_web.html:482
 msgid "De la idea al lanzamiento, este es nuestro proceso colaborativo."
-msgstr ""
+msgstr "Ideiatik abiarazteraino, gure prozesu kolaboratiboa da hau."
 
 #: templates/home/desarrollo_web.html:489
 msgid "Exploramos tus ideas"
-msgstr ""
+msgstr "Zure ideiak aztertzen ditugu"
 
 #: templates/home/desarrollo_web.html:490
 msgid ""
@@ -1241,7 +1241,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:494
 msgid "Diseñamos la experiencia"
-msgstr ""
+msgstr "Esperientzia diseinatzen dugu"
 
 #: templates/home/desarrollo_web.html:495
 msgid ""
@@ -1261,7 +1261,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:504
 msgid "Lanzamos y medimos"
-msgstr ""
+msgstr "Abiarazi eta neurtzen dugu"
 
 #: templates/home/desarrollo_web.html:505
 msgid ""
@@ -1271,7 +1271,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:517
 msgid "¿Por qué confiar en Euskodev?"
-msgstr ""
+msgstr "Zergatik fidatu Euskodev-en?"
 
 #: templates/home/desarrollo_web.html:518
 msgid ""
@@ -1281,7 +1281,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:527
 msgid "Cercanía y Transparencia Total"
-msgstr ""
+msgstr "Hurbiltasuna eta Gardentasun Osoa"
 
 #: templates/home/desarrollo_web.html:528
 msgid ""
@@ -1292,15 +1292,15 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:531
 msgid "Objetivos claros"
-msgstr ""
+msgstr "Helburu argiak"
 
 #: templates/home/desarrollo_web.html:532
 msgid "Reportes periódicos"
-msgstr ""
+msgstr "Aldizkako txostenak"
 
 #: templates/home/desarrollo_web.html:540
 msgid "Eficiencia Real"
-msgstr ""
+msgstr "Benetako Eraginkortasuna"
 
 #: templates/home/desarrollo_web.html:541
 msgid ""
@@ -1310,7 +1310,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:549
 msgid "Impacto en Negocio"
-msgstr ""
+msgstr "Negozioan Eragina"
 
 #: templates/home/desarrollo_web.html:550
 msgid ""
@@ -1320,7 +1320,7 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:559
 msgid "Diseño UX/UI de Alto Nivel"
-msgstr ""
+msgstr "Maila Garaiko UX/UI Diseinua"
 
 #: templates/home/desarrollo_web.html:560
 msgid ""
@@ -1330,15 +1330,15 @@ msgstr ""
 
 #: templates/home/desarrollo_web.html:574
 msgid "¿Listo para transformar tu web?"
-msgstr ""
+msgstr "Zure web-a eraldatzeko prest?"
 
 #: templates/home/desarrollo_web.html:575
 msgid "Cuéntanos tu idea y te enviamos una propuesta clara y sin compromiso."
-msgstr ""
+msgstr "Esaiguzu zure ideia eta proposamen argi eta konpromisorik gabea bidaliko dizugu."
 
 #: templates/home/desarrollo_web.html:577 templates/home/index_backup.html:363
 msgid "Hablemos de tu proyecto"
-msgstr ""
+msgstr "Hitz egin dezagun zure proiektuaz"
 
 #: templates/home/index.html:934
 msgid "Desarrollo Web & Software en Oiartzun"
@@ -1775,7 +1775,7 @@ msgstr "Domeinua, hostinga eta segurtasuna"
 
 #: templates/home/index2.html:580
 msgid "campo libre"
-msgstr ""
+msgstr "testu askea"
 
 #: templates/home/index2.html:587
 msgid ""
@@ -1978,15 +1978,15 @@ msgstr "itzuli"
 
 #: templates/home/index_backup.html:45
 msgid "& Inteligencia Artificial"
-msgstr ""
+msgstr "eta Adimen Artifiziala"
 
 #: templates/home/index_backup.html:61
 msgid "...estamos en Oiartzun, Gipuzkoa."
-msgstr ""
+msgstr "...Oiartzunen gaude, Gipuzkoan."
 
 #: templates/home/index_backup.html:72
 msgid "Soluciones tecnológicas de alto nivel para impulsar tu negocio."
-msgstr ""
+msgstr "Maila goreneko soluzio teknologikoak zure negozioa bultzatzeko."
 
 #: templates/home/index_backup.html:81
 msgid ""
@@ -2008,7 +2008,7 @@ msgstr ""
 
 #: templates/home/index_backup.html:116
 msgid "IA & Machine Learning"
-msgstr ""
+msgstr "IA eta Machine Learning"
 
 #: templates/home/index_backup.html:117
 msgid ""
@@ -2018,11 +2018,11 @@ msgstr ""
 
 #: templates/home/index_backup.html:136
 msgid "Descubre nuestras últimas innovaciones y noticias."
-msgstr ""
+msgstr "Ezagutu gure azken berrikuntzak eta albisteak."
 
 #: templates/home/index_backup.html:165
 msgid "Próximamente más artículos interesantes..."
-msgstr ""
+msgstr "Laster artikulu interesgarri gehiago..."
 
 #: templates/home/index_backup.html:178
 msgid "Portfolio Premium"
@@ -2030,11 +2030,11 @@ msgstr "Portfolioa"
 
 #: templates/home/index_backup.html:179
 msgid "Proyectos destacados que definen nuestra excelencia digital."
-msgstr ""
+msgstr "Gure bikaintasun digitala definitzen duten proiektu nabarmenak."
 
 #: templates/home/index_backup.html:243
 msgid "Nuestra Historia"
-msgstr ""
+msgstr "Gure Historia"
 
 #: templates/home/index_backup.html:246
 msgid ""
@@ -2051,11 +2051,11 @@ msgstr ""
 
 #: templates/home/index_backup.html:288
 msgid "Lo que dicen de nosotros"
-msgstr ""
+msgstr "Guri buruz esaten dutena"
 
 #: templates/home/index_backup.html:289
 msgid "La confianza de nuestros clientes es nuestro mayor activo."
-msgstr ""
+msgstr "Gure bezeroen konfiantza da gure aktibo handiena."
 
 #: templates/home/index_backup.html:356
 msgid "Developers Full Stack & Visionarios Digitales"
@@ -2084,7 +2084,7 @@ msgstr ""
 
 #: templates/home/index_backup.html:416
 msgid "Hablemos"
-msgstr ""
+msgstr "Hitz egin"
 
 #: templates/home/index_backup.html:418
 msgid ""
@@ -2094,31 +2094,31 @@ msgstr ""
 
 #: templates/home/index_backup.html:451
 msgid "NOMBRE"
-msgstr ""
+msgstr "IZENA"
 
 #: templates/home/index_backup.html:455
 msgid "EMAIL"
-msgstr ""
+msgstr "HELBIDE ELEKTRONIKOA"
 
 #: templates/home/index_backup.html:459
 msgid "TELÉFONO"
-msgstr ""
+msgstr "TELEFONOA"
 
 #: templates/home/index_backup.html:463
 msgid "MENSAJE"
-msgstr ""
+msgstr "MEZUA"
 
 #: templates/home/inteligencia_artificial.html:124
 msgid "Inteligencia Artificial para Negocios"
-msgstr ""
+msgstr "Adimen Artifiziala Negozioetarako"
 
 #: templates/home/inteligencia_artificial.html:126
 msgid "Tecnología que"
-msgstr ""
+msgstr "Zure enpresa"
 
 #: templates/home/inteligencia_artificial.html:127
 msgid "entiende tu empresa."
-msgstr ""
+msgstr "ulertzen duen teknologia."
 
 #: templates/home/inteligencia_artificial.html:130
 msgid ""
@@ -2129,35 +2129,35 @@ msgstr ""
 
 #: templates/home/inteligencia_artificial.html:134
 msgid "Ver qué podemos hacer"
-msgstr ""
+msgstr "Ikusi zer egin dezakegun"
 
 #: templates/home/inteligencia_artificial.html:152
 msgid "DISPONIBILIDAD"
-msgstr ""
+msgstr "ESKURAGARRITASUNA"
 
 #: templates/home/inteligencia_artificial.html:156
 msgid "RESPUESTA"
-msgstr ""
+msgstr "ERANTZUNA"
 
 #: templates/home/inteligencia_artificial.html:160
 msgid "TU INFORMACIÓN"
-msgstr ""
+msgstr "ZURE INFORMAZIOA"
 
 #: templates/home/inteligencia_artificial.html:164
 msgid "IDÍOMAS"
-msgstr ""
+msgstr "HIZKUNTZAK"
 
 #: templates/home/inteligencia_artificial.html:184
 msgid "Atención al Cliente"
-msgstr ""
+msgstr "Bezeroaren Arreta"
 
 #: templates/home/inteligencia_artificial.html:185
 msgid "Un asistente que conoce"
-msgstr ""
+msgstr "Zure enpresa osoa"
 
 #: templates/home/inteligencia_artificial.html:185
 msgid "toda tu empresa"
-msgstr ""
+msgstr "ezagutzen duen laguntzailea"
 
 #: templates/home/inteligencia_artificial.html:186
 msgid ""
@@ -2167,27 +2167,27 @@ msgstr ""
 
 #: templates/home/inteligencia_artificial.html:188
 msgid "Aprende de tus PDFs y documentos"
-msgstr ""
+msgstr "Zure PDF eta dokumentuetatik ikasten du"
 
 #: templates/home/inteligencia_artificial.html:189
 msgid "Reserva citas y pedidos solo"
-msgstr ""
+msgstr "Hitzorduak eta eskaerak bakarrik erreserbatu"
 
 #: templates/home/inteligencia_artificial.html:190
 msgid "Tus datos no salen de tu empresa"
-msgstr ""
+msgstr "Zure datuak ez dute zure enpresa uzten"
 
 #: templates/home/inteligencia_artificial.html:205
 msgid "Ventas y Futuro"
-msgstr ""
+msgstr "Salmentak eta Etorkizuna"
 
 #: templates/home/inteligencia_artificial.html:206
 msgid "Adivina qué pasará con"
-msgstr ""
+msgstr "Asmatu zer gertatuko den"
 
 #: templates/home/inteligencia_artificial.html:206
 msgid "tus ventas"
-msgstr ""
+msgstr "zure salmentekin"
 
 #: templates/home/inteligencia_artificial.html:207
 msgid ""
@@ -2197,27 +2197,27 @@ msgstr ""
 
 #: templates/home/inteligencia_artificial.html:209
 msgid "Predice picos de trabajo"
-msgstr ""
+msgstr "Lan-puntak iragartzen ditu"
 
 #: templates/home/inteligencia_artificial.html:210
 msgid "Detecta dónde pierdes dinero"
-msgstr ""
+msgstr "Non galtzen duzun dirua detektatzen du"
 
 #: templates/home/inteligencia_artificial.html:211
 msgid "Sabe qué cliente es más valioso"
-msgstr ""
+msgstr "Zein bezero den baliotsuena daki"
 
 #: templates/home/inteligencia_artificial.html:226
 msgid "Control y Calidad"
-msgstr ""
+msgstr "Kontrola eta Kalitatea"
 
 #: templates/home/inteligencia_artificial.html:227
 msgid "Ojos inteligentes para"
-msgstr ""
+msgstr "Begi adimendunak"
 
 #: templates/home/inteligencia_artificial.html:227
 msgid "tu negocio"
-msgstr ""
+msgstr "zure negoziorako"
 
 #: templates/home/inteligencia_artificial.html:228
 msgid ""
@@ -2227,23 +2227,23 @@ msgstr ""
 
 #: templates/home/inteligencia_artificial.html:230
 msgid "Detecta errores al instante"
-msgstr ""
+msgstr "Erroreak berehala detektatzen ditu"
 
 #: templates/home/inteligencia_artificial.html:231
 msgid "Asegura que todos llevan casco o protección"
-msgstr ""
+msgstr "Denek kaskoa edo babesa daramatela bermatzen du"
 
 #: templates/home/inteligencia_artificial.html:232
 msgid "Cuenta stock de forma automática"
-msgstr ""
+msgstr "Stock-a automatikoki zenbatzen du"
 
 #: templates/home/inteligencia_artificial.html:243
 msgid "¿Quieres ver cómo"
-msgstr ""
+msgstr "Ikusi nahi duzu nola"
 
 #: templates/home/inteligencia_artificial.html:243
 msgid "ayudaría a tu empresa?"
-msgstr ""
+msgstr "lagunduko lukeen zure enpresan?"
 
 #: templates/home/inteligencia_artificial.html:245
 msgid ""
@@ -2253,7 +2253,7 @@ msgstr ""
 
 #: templates/home/inteligencia_artificial.html:248
 msgid "Pedir información sin compromiso"
-msgstr ""
+msgstr "Eskatu informazioa konpromisorik gabe"
 
 #: templates/home/politicas_de_cookies.html:20
 msgid "Política de Cookies"
@@ -2261,7 +2261,7 @@ msgstr "cookie politikak"
 
 #: templates/home/politicas_de_cookies.html:22
 msgid "1. ¿Qué son las cookies?"
-msgstr ""
+msgstr "1. Zer dira cookie-ak?"
 
 #: templates/home/politicas_de_cookies.html:23
 msgid ""
@@ -2271,35 +2271,35 @@ msgstr ""
 
 #: templates/home/politicas_de_cookies.html:25
 msgid "2. Tipos de cookies que usamos"
-msgstr ""
+msgstr "2. Erabiltzen ditugun cookie motak"
 
 #: templates/home/politicas_de_cookies.html:27
 msgid "Cookies esenciales:"
-msgstr ""
+msgstr "Cookie funtsezkoak:"
 
 #: templates/home/politicas_de_cookies.html:27
 msgid "Necesarias para el funcionamiento del sitio."
-msgstr ""
+msgstr "Gunearen funtzionamendurako beharrezkoak."
 
 #: templates/home/politicas_de_cookies.html:28
 msgid "Cookies analíticas:"
-msgstr ""
+msgstr "Cookie analitikoak:"
 
 #: templates/home/politicas_de_cookies.html:28
 msgid "Nos ayudan a entender cómo interactúas con el sitio."
-msgstr ""
+msgstr "Gunearekin nola elkarreragiten duzun ulertzen laguntzen digute."
 
 #: templates/home/politicas_de_cookies.html:29
 msgid "Cookies de marketing:"
-msgstr ""
+msgstr "Marketin cookie-ak:"
 
 #: templates/home/politicas_de_cookies.html:29
 msgid "Usadas para mostrarte publicidad relevante."
-msgstr ""
+msgstr "Publizitate garrantzitsua erakusteko erabiliak."
 
 #: templates/home/politicas_de_cookies.html:32
 msgid "3. Cómo gestionar las cookies"
-msgstr ""
+msgstr "3. Cookie-ak nola kudeatu"
 
 #: templates/home/politicas_de_cookies.html:33
 msgid ""
@@ -2309,7 +2309,7 @@ msgstr ""
 
 #: templates/home/politicas_de_cookies.html:35
 msgid "4. Actualizaciones"
-msgstr ""
+msgstr "4. Eguneratzeak"
 
 #: templates/home/politicas_de_cookies.html:36
 msgid ""
@@ -2319,15 +2319,15 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:364
 msgid "Experiencia Digital de Alto Nivel"
-msgstr ""
+msgstr "Maila Garaiko Esperientzia Digitala"
 
 #: templates/home/reservas_y_pagos.html:365
 msgid "Sistemas de Reservas y Pagos"
-msgstr ""
+msgstr "Erreserba eta Ordainketa Sistemak"
 
 #: templates/home/reservas_y_pagos.html:365
 msgid "Hechos para Crecer."
-msgstr ""
+msgstr "Hazteko Egina."
 
 #: templates/home/reservas_y_pagos.html:366
 msgid ""
@@ -2337,39 +2337,39 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:368
 msgid "Ver Soluciones"
-msgstr ""
+msgstr "Soluzioak Ikusi"
 
 #: templates/home/reservas_y_pagos.html:369
 msgid "Hablar con un Experto"
-msgstr ""
+msgstr "Aditu batekin Hitz Egin"
 
 #: templates/home/reservas_y_pagos.html:388
 msgid "Seguridad Bancaria"
-msgstr ""
+msgstr "Banku Segurtasuna"
 
 #: templates/home/reservas_y_pagos.html:389
 msgid "Protección total de datos"
-msgstr ""
+msgstr "Datuen babes osoa"
 
 #: templates/home/reservas_y_pagos.html:393
 msgid "Alta Velocidad"
-msgstr ""
+msgstr "Abiadura Handia"
 
 #: templates/home/reservas_y_pagos.html:394
 msgid "Carga instantánea en cualquier dispositivo"
-msgstr ""
+msgstr "Karga instantaneoa edozein gailutan"
 
 #: templates/home/reservas_y_pagos.html:398
 msgid "Diseño a Medida"
-msgstr ""
+msgstr "Neurrirako Diseinua"
 
 #: templates/home/reservas_y_pagos.html:399
 msgid "Adaptado a tu flujo de negocio"
-msgstr ""
+msgstr "Zure negozio-fluxura egokitua"
 
 #: templates/home/reservas_y_pagos.html:411
 msgid "Nuestras Especialidades"
-msgstr ""
+msgstr "Gure Espezialitateak"
 
 #: templates/home/reservas_y_pagos.html:413
 msgid ""
@@ -2379,7 +2379,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:421
 msgid "Pagos Sin Fricción"
-msgstr ""
+msgstr "Marruskadurarik Gabeko Ordainketak"
 
 #: templates/home/reservas_y_pagos.html:422
 msgid ""
@@ -2389,7 +2389,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:428
 msgid "Reservas Dinámicas"
-msgstr ""
+msgstr "Erreserba Dinamikoak"
 
 #: templates/home/reservas_y_pagos.html:429
 msgid ""
@@ -2399,7 +2399,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:435
 msgid "Paneles de Gestión"
-msgstr ""
+msgstr "Kudeaketa Panelak"
 
 #: templates/home/reservas_y_pagos.html:436
 msgid ""
@@ -2409,11 +2409,11 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:452
 msgid "Seguridad que Transmite"
-msgstr ""
+msgstr "Konfiantza transmititzen duen segurtasuna"
 
 #: templates/home/reservas_y_pagos.html:452
 msgid "Confianza"
-msgstr ""
+msgstr "Konfiantza transmititzen duen segurtasuna"
 
 #: templates/home/reservas_y_pagos.html:453
 msgid ""
@@ -2423,7 +2423,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:457
 msgid "Cifrado de Extremo a Extremo"
-msgstr ""
+msgstr "Puntaz Puntako Enkriptatzea"
 
 #: templates/home/reservas_y_pagos.html:458
 msgid ""
@@ -2432,7 +2432,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:462
 msgid "Seguridad mediante Tokens"
-msgstr ""
+msgstr "Token bidezko Segurtasuna"
 
 #: templates/home/reservas_y_pagos.html:463
 msgid ""
@@ -2443,7 +2443,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:476
 msgid "Cómo Trabajamos"
-msgstr ""
+msgstr "Nola Lan Egiten Dugun"
 
 #: templates/home/reservas_y_pagos.html:477
 msgid ""
@@ -2453,11 +2453,11 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:481
 msgid "Análisis de Procesos"
-msgstr ""
+msgstr "Prozesuen Azterketa"
 
 #: templates/home/reservas_y_pagos.html:485
 msgid "Arquitectura de Software"
-msgstr ""
+msgstr "Software Arkitektura"
 
 #: templates/home/reservas_y_pagos.html:489
 msgid "Desarrollo y Testing"
@@ -2465,11 +2465,11 @@ msgstr "Web garapena "
 
 #: templates/home/reservas_y_pagos.html:493
 msgid "Lanzamiento y Soporte"
-msgstr ""
+msgstr "Abiaraztea eta Laguntza"
 
 #: templates/home/reservas_y_pagos.html:499
 msgid "Integraciones Certificadas"
-msgstr ""
+msgstr "Integrazio Ziurtatuak"
 
 #: templates/home/reservas_y_pagos.html:500
 msgid ""
@@ -2479,23 +2479,23 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:507
 msgid "Pagos Globales"
-msgstr ""
+msgstr "Ordainketa Globalak"
 
 #: templates/home/reservas_y_pagos.html:516
 msgid "Cartera Digital"
-msgstr ""
+msgstr "Zorro Digitala"
 
 #: templates/home/reservas_y_pagos.html:525
 msgid "Pasarela Local"
-msgstr ""
+msgstr "Pasabide Lokala"
 
 #: templates/home/reservas_y_pagos.html:534
 msgid "Sincronización"
-msgstr ""
+msgstr "Sinkronizazioa"
 
 #: templates/home/reservas_y_pagos.html:543
 msgid "Gestor Email"
-msgstr ""
+msgstr "Email Kudeatzailea"
 
 #: templates/home/reservas_y_pagos.html:552
 #: templates/home/software_a_medida.html:279
@@ -2504,11 +2504,11 @@ msgstr "Inteligentzia artifiziala"
 
 #: templates/home/reservas_y_pagos.html:569
 msgid "Lidera tu Mercado"
-msgstr ""
+msgstr "Lidertu zure Merkatua"
 
 #: templates/home/reservas_y_pagos.html:570
 msgid "¿Listo para el Siguiente Paso?"
-msgstr ""
+msgstr "Hurrengo Pausorako prest?"
 
 #: templates/home/reservas_y_pagos.html:571
 msgid ""
@@ -2518,15 +2518,15 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:572
 msgid "Solicitar Auditoría Digital"
-msgstr ""
+msgstr "Eskatu Auditoria Digitala"
 
 #: templates/home/reservas_y_pagos.html:590
 msgid "Preguntas Frecuentes"
-msgstr ""
+msgstr "Ohiko Galderak"
 
 #: templates/home/reservas_y_pagos.html:595
 msgid "¿Cuánto tiempo toma implementar un sistema de reservas?"
-msgstr ""
+msgstr "Zenbat denbora behar da erreserba sistema bat ezartzeko?"
 
 #: templates/home/reservas_y_pagos.html:597
 msgid ""
@@ -2537,7 +2537,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:601
 msgid "¿Es compatible con mi sitio web actual?"
-msgstr ""
+msgstr "Bateragarria da nire egungo webgunearekin?"
 
 #: templates/home/reservas_y_pagos.html:603
 msgid ""
@@ -2548,7 +2548,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:607
 msgid "¿Qué comisiones cobran por los pagos?"
-msgstr ""
+msgstr "Zein komisio kobratzen dituzte ordainketengatik?"
 
 #: templates/home/reservas_y_pagos.html:609
 msgid ""
@@ -2559,7 +2559,7 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:613
 msgid "¿Puedo gestionar cancelaciones automáticamente?"
-msgstr ""
+msgstr "Kudeatu ditzaket bertan behera uzteak automatikoki?"
 
 #: templates/home/reservas_y_pagos.html:615
 msgid ""
@@ -2569,11 +2569,11 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:628
 msgid "Lleva tu Negocio al"
-msgstr ""
+msgstr "Eraman zure Negozioa"
 
 #: templates/home/reservas_y_pagos.html:628
 msgid "Siguiente Nivel"
-msgstr ""
+msgstr "Hurrengo Mailara"
 
 #: templates/home/reservas_y_pagos.html:629
 msgid ""
@@ -2583,19 +2583,19 @@ msgstr ""
 
 #: templates/home/reservas_y_pagos.html:630
 msgid "Empieza hoy mismo"
-msgstr ""
+msgstr "Hasi gaur bertan"
 
 #: templates/home/sistema_ticket.html:134
 msgid "Atención al Cliente Profesional"
-msgstr ""
+msgstr "Bezeroarentzako Arreta Profesionala"
 
 #: templates/home/sistema_ticket.html:136
 msgid "Orden, control y"
-msgstr ""
+msgstr "Ordena, kontrola eta"
 
 #: templates/home/sistema_ticket.html:137
 msgid "clientes felices."
-msgstr ""
+msgstr "bezero zoriontsuak."
 
 #: templates/home/sistema_ticket.html:140
 msgid ""
@@ -2605,35 +2605,35 @@ msgstr ""
 
 #: templates/home/sistema_ticket.html:144
 msgid "Ver cómo funciona"
-msgstr ""
+msgstr "Ikusi nola funtzionatzen duen"
 
 #: templates/home/sistema_ticket.html:147
 msgid "Hablar con un experto"
-msgstr ""
+msgstr "Aditu batekin hitz egin"
 
 #: templates/home/sistema_ticket.html:165
 msgid "ORGANIZACIÓN"
-msgstr ""
+msgstr "ANTOLAKETA"
 
 #: templates/home/sistema_ticket.html:169
 msgid "VELOCIDAD"
-msgstr ""
+msgstr "ABIADURA"
 
 #: templates/home/sistema_ticket.html:173
 msgid "CONTROL"
-msgstr ""
+msgstr "KONTROLA"
 
 #: templates/home/sistema_ticket.html:177
 msgid "AHORRO"
-msgstr ""
+msgstr "AURREZKIA"
 
 #: templates/home/sistema_ticket.html:198
 msgid "Todo bajo control"
-msgstr ""
+msgstr "Dena kontrolpean"
 
 #: templates/home/sistema_ticket.html:198
 msgid "sin esfuerzos"
-msgstr ""
+msgstr "esfortzurik gabe"
 
 #: templates/home/sistema_ticket.html:200
 msgid ""
@@ -2644,23 +2644,23 @@ msgstr ""
 
 #: templates/home/sistema_ticket.html:203
 msgid "Responde más rápido sin volverte loco"
-msgstr ""
+msgstr "Erantzun azkarrago erotu gabe"
 
 #: templates/home/sistema_ticket.html:204
 msgid "Cada cliente tiene su historial guardado"
-msgstr ""
+msgstr "Bezero bakoitzak bere historia gordeta du"
 
 #: templates/home/sistema_ticket.html:205
 msgid "Tú decides qué tickets son prioritarios"
-msgstr ""
+msgstr "Zuk erabakitzen duzu zein ticket diren lehentasunezkoak"
 
 #: templates/home/sistema_ticket.html:221
 msgid "Ayuda al instante"
-msgstr ""
+msgstr "Laguntza berehalakoa"
 
 #: templates/home/sistema_ticket.html:221
 msgid "sin esperas"
-msgstr ""
+msgstr "itxaron gabe"
 
 #: templates/home/sistema_ticket.html:223
 msgid ""
@@ -2671,19 +2671,19 @@ msgstr ""
 
 #: templates/home/sistema_ticket.html:226
 msgid "Avisos directos a tu móvil o email"
-msgstr ""
+msgstr "Jakinarazpenak zuzenean zure mugikorrera edo emailez"
 
 #: templates/home/sistema_ticket.html:227
 msgid "Respuestas preparadas para ir más rápido"
-msgstr ""
+msgstr "Erantzun prestatuak azkarrago joateko"
 
 #: templates/home/sistema_ticket.html:228
 msgid "Control de tiempos para ser los mejores"
-msgstr ""
+msgstr "Denboren kontrola onenak izateko"
 
 #: templates/home/sistema_ticket.html:239
 msgid "Fácil de usar"
-msgstr ""
+msgstr "Erabiltzeko erraza"
 
 #: templates/home/sistema_ticket.html:240
 msgid ""
@@ -2693,7 +2693,7 @@ msgstr ""
 
 #: templates/home/sistema_ticket.html:246
 msgid "Gráficas de éxito"
-msgstr ""
+msgstr "Arrakasta grafikoak"
 
 #: templates/home/sistema_ticket.html:247
 msgid ""
@@ -2703,7 +2703,7 @@ msgstr ""
 
 #: templates/home/sistema_ticket.html:253
 msgid "Tu marca, tu estilo"
-msgstr ""
+msgstr "Zure marka, zure estiloa"
 
 #: templates/home/sistema_ticket.html:254
 msgid ""
@@ -2713,7 +2713,7 @@ msgstr ""
 
 #: templates/home/sistema_ticket.html:265
 msgid "¿Cansado del desorden en el soporte?"
-msgstr ""
+msgstr "Laguntzako nahasmenaz nekatuta?"
 
 #: templates/home/sistema_ticket.html:267
 msgid ""
@@ -2723,11 +2723,11 @@ msgstr ""
 
 #: templates/home/sistema_ticket.html:270
 msgid "Empezar a organizar mi empresa"
-msgstr ""
+msgstr "Hasi nire enpresa antolatzen"
 
 #: templates/home/software_a_medida.html:209
 msgid "Arquitectura de Software Elite"
-msgstr ""
+msgstr "Software Arkitektura Elitea"
 
 #: templates/home/software_a_medida.html:210
 msgid "Sin Concesiones."
@@ -2746,7 +2746,7 @@ msgstr "itzuli"
 
 #: templates/home/software_a_medida.html:214
 msgid "Consultoría Técnica"
-msgstr ""
+msgstr "Aholkularitza Teknikoa"
 
 #: templates/home/software_a_medida.html:236
 msgid "¿Por qué Software a Medida?"
@@ -2761,19 +2761,19 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:239
 msgid "Propiedad total del código y los activos."
-msgstr ""
+msgstr "Kode eta aktiboen jabetza osoa."
 
 #: templates/home/software_a_medida.html:240
 msgid "Escalabilidad horizontal sin límites técnicos."
-msgstr ""
+msgstr "Eskalagarritasun horizontala muga teknikorik gabe."
 
 #: templates/home/software_a_medida.html:241
 msgid "Integración nativa con tus procesos actuales."
-msgstr ""
+msgstr "Integrazio natiboa zure egungo prozesuekin."
 
 #: templates/home/software_a_medida.html:258
 msgid "Soluciones de Alto Rendimiento"
-msgstr ""
+msgstr "Errendimendu Handiko Soluzioak"
 
 #: templates/home/software_a_medida.html:259
 msgid ""
@@ -2783,15 +2783,15 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:265
 msgid "Apps Cloud"
-msgstr ""
+msgstr "Cloud App-ak"
 
 #: templates/home/software_a_medida.html:266
 msgid "Sistemas robustos en la nube, optimizados para AWS y Google Cloud."
-msgstr ""
+msgstr "Hodeiko sistema sendoak, AWS eta Google Cloud-erako optimizatuak."
 
 #: templates/home/software_a_medida.html:272
 msgid "Sistemas ERP/CRM"
-msgstr ""
+msgstr "ERP/CRM Sistemak"
 
 #: templates/home/software_a_medida.html:273
 msgid ""
@@ -2805,15 +2805,15 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:286
 msgid "Backend API"
-msgstr ""
+msgstr "Backend APIa"
 
 #: templates/home/software_a_medida.html:287
 msgid "Arquitecturas API seguras y ultra-rápidas con Python y Django."
-msgstr ""
+msgstr "API arkitektura seguru eta ultra-azkarrak Python eta Django-rekin."
 
 #: templates/home/software_a_medida.html:299
 msgid "El Método Euskodev"
-msgstr ""
+msgstr "Euskodev Metodoa"
 
 #: templates/home/software_a_medida.html:300
 msgid ""
@@ -2823,7 +2823,7 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:304
 msgid "01. Descubrimiento & Estrategia"
-msgstr ""
+msgstr "01. Deskubrimendua eta Estrategia"
 
 #: templates/home/software_a_medida.html:305
 msgid ""
@@ -2833,7 +2833,7 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:309
 msgid "02. Arquitectura & UX"
-msgstr ""
+msgstr "02. Arkitektura eta UX"
 
 #: templates/home/software_a_medida.html:310
 msgid ""
@@ -2853,7 +2853,7 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:319
 msgid "04. Despliegue & Evolución"
-msgstr ""
+msgstr "04. Hedapena eta Eboluzioa"
 
 #: templates/home/software_a_medida.html:320
 msgid ""
@@ -2863,7 +2863,7 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:336
 msgid "¿Hablamos de tu próximo éxito?"
-msgstr ""
+msgstr "Zure hurrengo arrakastaz hitz egin?"
 
 #: templates/home/software_a_medida.html:337
 msgid ""
@@ -2874,7 +2874,7 @@ msgstr ""
 
 #: templates/home/software_a_medida.html:338
 msgid "Solicitar Asesoría Técnica Gratis"
-msgstr ""
+msgstr "Eskatu Aholkularitza Teknikoa Doan"
 
 #: templates/home/trabaja_con_nosotros.html:609
 msgid ""
@@ -2888,36 +2888,36 @@ msgstr "Euskodev"
 
 #: templates/home/trabaja_con_nosotros.html:619
 msgid "Trabaja con Nosotros"
-msgstr ""
+msgstr "Lan egin Gurekin"
 
 #: templates/home/trabaja_con_nosotros.html:623
 msgid "Impacto real"
-msgstr ""
+msgstr "Benetako eragina"
 
 #: templates/home/trabaja_con_nosotros.html:624
 msgid "Productos que se usan"
-msgstr ""
+msgstr "Erabiltzen diren produktuak"
 
 #: templates/home/trabaja_con_nosotros.html:627
 msgid "Equipo pequeño"
-msgstr ""
+msgstr "Talde txikia"
 
 #: templates/home/trabaja_con_nosotros.html:628
 msgid "Decisiones rapidas"
-msgstr ""
+msgstr "Erabaki azkarrak"
 
 #: templates/home/trabaja_con_nosotros.html:631
 msgid "Cultura remota"
-msgstr ""
+msgstr "Kultura remotoa"
 
 #: templates/home/trabaja_con_nosotros.html:632
 msgid "Conexiones cercanas"
-msgstr ""
+msgstr "Konexio hurbilak"
 
 #: templates/home/trabaja_con_nosotros.html:638
 #: templates/home/trabaja_con_nosotros.html:653
 msgid "¿Quieres formar parte de Euskodev?"
-msgstr ""
+msgstr "Euskodev-en parte izan nahi duzu?"
 
 #: templates/home/trabaja_con_nosotros.html:639
 msgid ""
@@ -2927,7 +2927,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:641
 msgid "Quiero unirme"
-msgstr ""
+msgstr "Batu nahi dut"
 
 #: templates/home/trabaja_con_nosotros.html:654
 msgid ""
@@ -2938,7 +2938,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:661
 msgid "Proyectos que inspiran"
-msgstr ""
+msgstr "Inspiratzen duten proiektuak"
 
 #: templates/home/trabaja_con_nosotros.html:662
 msgid ""
@@ -2948,7 +2948,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:668
 msgid "Trabajo con sentido"
-msgstr ""
+msgstr "Zentzuzko lana"
 
 #: templates/home/trabaja_con_nosotros.html:669
 msgid ""
@@ -2958,7 +2958,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:675
 msgid "Cultura remota y cercana"
-msgstr ""
+msgstr "Kultura remotoa eta hurbila"
 
 #: templates/home/trabaja_con_nosotros.html:676
 msgid ""
@@ -2968,7 +2968,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:687
 msgid "Asi se trabaja en Euskodev"
-msgstr ""
+msgstr "Horrela egiten da lan Euskodev-en"
 
 #: templates/home/trabaja_con_nosotros.html:688
 msgid ""
@@ -2978,7 +2978,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:696
 msgid "Comunicacion clara"
-msgstr ""
+msgstr "Komunikazio argia"
 
 #: templates/home/trabaja_con_nosotros.html:697
 msgid ""
@@ -2988,7 +2988,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:703
 msgid "Tecnologia que suma"
-msgstr ""
+msgstr "Gehitzen duen teknologia"
 
 #: templates/home/trabaja_con_nosotros.html:704
 msgid ""
@@ -3008,7 +3008,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:717
 msgid "Enfocados en resultados"
-msgstr ""
+msgstr "Emaitzetan zentratuak"
 
 #: templates/home/trabaja_con_nosotros.html:718
 msgid ""
@@ -3018,7 +3018,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:730
 msgid "Herramientas que usamos en Euskodev"
-msgstr ""
+msgstr "Euskodev-en erabiltzen ditugun tresnak"
 
 #: templates/home/trabaja_con_nosotros.html:731
 msgid ""
@@ -3032,7 +3032,7 @@ msgstr "Web garapena "
 
 #: templates/home/trabaja_con_nosotros.html:737
 msgid "Tecnologias robustas para productos con impacto"
-msgstr ""
+msgstr "Teknologia sendoak eragina duten produktuetarako"
 
 #: templates/home/trabaja_con_nosotros.html:738
 msgid ""
@@ -3042,19 +3042,19 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:740
 msgid "Backend seguro y escalable con Python y Django"
-msgstr ""
+msgstr "Backend seguru eta eskalagarria Python eta Django-rekin"
 
 #: templates/home/trabaja_con_nosotros.html:741
 msgid "Workflows ordenados con GitHub, Docker y CI"
-msgstr ""
+msgstr "Workflow ordenatuak GitHub, Docker eta CI-rekin"
 
 #: templates/home/trabaja_con_nosotros.html:742
 msgid "Frontend moderno, accesible y optimizado"
-msgstr ""
+msgstr "Frontend modernoa, irisgarria eta optimizatua"
 
 #: templates/home/trabaja_con_nosotros.html:769
 msgid "¿Que perfiles buscamos?"
-msgstr ""
+msgstr "Zein profil bilatzen ditugu?"
 
 #: templates/home/trabaja_con_nosotros.html:770
 msgid ""
@@ -3069,7 +3069,7 @@ msgstr "Euskodev"
 
 #: templates/home/trabaja_con_nosotros.html:777
 msgid "Diseño, criterio y ejecucion real para productos que importan"
-msgstr ""
+msgstr "Diseinua, irizpidea eta exekuzio erreala garrantzitsuak diren produktuetarako"
 
 #: templates/home/trabaja_con_nosotros.html:778
 msgid ""
@@ -3079,31 +3079,31 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:780
 msgid "Impacto"
-msgstr ""
+msgstr "Eragina"
 
 #: templates/home/trabaja_con_nosotros.html:780
 msgid "De idea a producto"
-msgstr ""
+msgstr "Ideiatik produktura"
 
 #: templates/home/trabaja_con_nosotros.html:781
 msgid "Calidad"
-msgstr ""
+msgstr "Kalitatea"
 
 #: templates/home/trabaja_con_nosotros.html:781
 msgid "Detalle y consistencia"
-msgstr ""
+msgstr "Xehetasuna eta koherentzia"
 
 #: templates/home/trabaja_con_nosotros.html:782
 msgid "Equipo"
-msgstr ""
+msgstr "Taldea"
 
 #: templates/home/trabaja_con_nosotros.html:782
 msgid "Colaboracion real"
-msgstr ""
+msgstr "Benetako kolaborazioa"
 
 #: templates/home/trabaja_con_nosotros.html:790
 msgid "Personas autonomas"
-msgstr ""
+msgstr "Pertsona autonomoak"
 
 #: templates/home/trabaja_con_nosotros.html:791
 msgid ""
@@ -3113,7 +3113,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:794
 msgid "Mentalidad tecnica"
-msgstr ""
+msgstr "Mentalitate teknikoa"
 
 #: templates/home/trabaja_con_nosotros.html:795
 msgid ""
@@ -3123,7 +3123,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:798
 msgid "Buena comunicacion"
-msgstr ""
+msgstr "Komunikazio ona"
 
 #: templates/home/trabaja_con_nosotros.html:799
 msgid ""
@@ -3133,7 +3133,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:802
 msgid "Enfoque en producto"
-msgstr ""
+msgstr "Produktuan arreta"
 
 #: templates/home/trabaja_con_nosotros.html:803
 msgid ""
@@ -3143,7 +3143,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:806
 msgid "Responsabilidad real"
-msgstr ""
+msgstr "Benetako erantzukizuna"
 
 #: templates/home/trabaja_con_nosotros.html:807
 msgid ""
@@ -3153,7 +3153,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:810
 msgid "Curiosidad constante"
-msgstr ""
+msgstr "Etengabeko jakin-mina"
 
 #: templates/home/trabaja_con_nosotros.html:811
 msgid ""
@@ -3163,7 +3163,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:822
 msgid "Beneficios de trabajar en Euskodev"
-msgstr ""
+msgstr "Euskodev-en lan egitearen onurak"
 
 #: templates/home/trabaja_con_nosotros.html:823
 msgid ""
@@ -3173,23 +3173,23 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:832
 msgid "Horarios flexibles"
-msgstr ""
+msgstr "Ordutegi malguak"
 
 #: templates/home/trabaja_con_nosotros.html:833
 msgid "Tu organizas tu tiempo. Lo importante es cumplir y aportar, no fichar."
-msgstr ""
+msgstr "Zuk antolatzen duzu zure denbora. Garrantzitsua da betetzea eta ekartzea, ez fitxatzea."
 
 #: templates/home/trabaja_con_nosotros.html:839
 msgid "Trabajo remoto"
-msgstr ""
+msgstr "Lan remotoa"
 
 #: templates/home/trabaja_con_nosotros.html:840
 msgid "Trabaja desde donde quieras, con herramientas colaborativas modernas."
-msgstr ""
+msgstr "Lan egin nahi duzun lekutik, tresna kolaboratibo modernoekin."
 
 #: templates/home/trabaja_con_nosotros.html:846
 msgid "Formacion continua"
-msgstr ""
+msgstr "Etengabeko prestakuntza"
 
 #: templates/home/trabaja_con_nosotros.html:847
 msgid ""
@@ -3198,7 +3198,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:857
 msgid "Participacion real"
-msgstr ""
+msgstr "Benetako parte-hartzea"
 
 #: templates/home/trabaja_con_nosotros.html:858
 msgid ""
@@ -3208,7 +3208,7 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:864
 msgid "Buen ambiente"
-msgstr ""
+msgstr "Inguru ona"
 
 #: templates/home/trabaja_con_nosotros.html:865
 msgid ""
@@ -3218,15 +3218,15 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:871
 msgid "Estabilidad emocional"
-msgstr ""
+msgstr "Egonkortasun emozionala"
 
 #: templates/home/trabaja_con_nosotros.html:872
 msgid "Si, aqui eso tambien importa. Porque estar bien no es negociable."
-msgstr ""
+msgstr "Bai, hemen hori ere garrantzitsua da. Ongi egotea ez delako negoziagarria."
 
 #: templates/home/trabaja_con_nosotros.html:884
 msgid "¿Listo para formar parte de algo diferente?"
-msgstr ""
+msgstr "Zerbait desberdinaren parte izateko prest?"
 
 #: templates/home/trabaja_con_nosotros.html:885
 msgid ""
@@ -3236,15 +3236,15 @@ msgstr ""
 
 #: templates/home/trabaja_con_nosotros.html:887
 msgid "Quiero unirme al equipo"
-msgstr ""
+msgstr "Taldean batu nahi dut"
 
 #: templates/jobs/trabaja_con_nosotros_form.html:14
 msgid "¡Hola! Qué bueno verte por aquí"
-msgstr ""
+msgstr "Kaixo! Pozten gara hemen ikusteaz"
 
 #: templates/jobs/trabaja_con_nosotros_form.html:15
 msgid "Estamos deseando conocer tu talento. ¡Mucha suerte!"
-msgstr ""
+msgstr "Zure talentua ezagutzeko irrikitan gaude. Zorte on!"
 
 #: templates/jobs/trabaja_con_nosotros_form.html:88
 msgid ""
@@ -3254,7 +3254,7 @@ msgstr ""
 
 #: templates/jobs/trabaja_gracias.html:6
 msgid "¡Gracias por tu interés!"
-msgstr ""
+msgstr "Eskerrik asko zure interesagatik!"
 
 #: templates/jobs/trabaja_gracias.html:7
 msgid ""

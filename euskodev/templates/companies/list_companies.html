@@ -3,19 +3,24 @@
 {% load i18n %}
 
 {% block content %}
-<div class="pc-container p-0">
-    <div class="pc-content p-4 p-lg-5">
-        
-        <!-- Header Section -->
-        <div class="d-flex align-items-center justify-content-between mb-4">
-            <div>
-                <h1 class="h2 fw-bold text-primary mb-1">{% trans "Lista de Empresas" %}</h1>
-                <p class="text-muted mb-0">Gestión completa de entidades registradas ({{ datos|length }} registros)</p>
+
+<!-- Header Banner -->
+<div class="page-header shadow-lg mb-5" style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 16px; padding: 40px; color: white;">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-4">
+        <div class="d-flex align-items-center gap-4">
+            <div class="bg-white bg-opacity-10 p-3 rounded-circle border border-white border-opacity-25 shadow-sm">
+                <i data-lucide="building-2" class="wid-30 text-white"></i>
             </div>
-            <a href="{% url 'companies_app:company_create' %}" class="btn btn-primary d-flex align-items-center gap-2 px-4 shadow-sm py-2">
-                <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Agregar empresa" %}
-            </a>
+            <div class="border-start border-white border-opacity-25 ps-4">
+                <h1 class="h2 fw-bold text-white mb-1">{% trans "Lista de Empresas" %}</h1>
+                <p class="text-white-50 mb-0 fw-medium">Gestión completa de entidades registradas ({{ datos|length }} registros)</p>
+            </div>
         </div>
+        <a href="{% url 'companies_app:company_create' %}" class="btn btn-light px-4 py-2 rounded-3 fw-bold shadow-sm d-flex align-items-center gap-2 border-0" style="color: var(--primary);">
+            <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Agregar empresa" %}
+        </a>
+    </div>
+</div>
 
         <!-- Table Card -->
         <div class="card shadow-sm border-0" style="border-radius: var(--radius-lg); overflow: hidden;">
@@ -152,8 +157,6 @@
                 </table>
             </div>
         </div>
-    </div>
-</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

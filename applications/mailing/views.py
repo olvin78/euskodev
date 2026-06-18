@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import MailingForm
 from django.conf import settings
+from applications.contact.models import Contact
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
 
@@ -40,7 +41,14 @@ def mailing_view(request):
                 error = f"❌ Error al enviar el mailing: {e}"
 
     else:
-        form = MailingForm()
+        preselected_ids = request.GET.get('contacts', '')
+        initial = {}
+        if preselected_ids:
+            ids = [int(i) for i in preselected_ids.split(',') if i.isdigit()]
+            emails = list(Contact.objects.filter(id__in=ids).values_list('email', flat=True))
+            if emails:
+                initial['recipients'] = ', '.join(emails)
+        form = MailingForm(initial=initial)
 
     return render(request, 'mailing/manual_mailing.html', {
         'form': form,

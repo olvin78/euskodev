@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-15 15:08+0000\n"
+"POT-Creation-Date: 2026-06-18 21:35+0000\n"
 "PO-Revision-Date: 2024-07-23 09:31+0000\n"
 "Last-Translator:   <olvind78@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,42 +21,32 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: applications/digital_audit/models.py:7
-#: templates/companies/list_companies.html:52
-#: templates/companies/list_companies.html:60
-#: templates/companies/list_companies.html:68
-#: templates/companies/list_companies.html:76
-#: templates/companies/list_companies.html:89
 msgid "Sí"
-msgstr ""
+msgstr "Sí"
 
 #: applications/digital_audit/models.py:8
-#: templates/companies/list_companies.html:54
-#: templates/companies/list_companies.html:62
-#: templates/companies/list_companies.html:70
-#: templates/companies/list_companies.html:78
-#: templates/companies/list_companies.html:91
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: applications/digital_audit/models.py:9
 msgid "No lo sé"
-msgstr ""
+msgstr "No lo sé"
 
 #: applications/digital_audit/models.py:13
 msgid "Nombre de la empresa"
-msgstr ""
+msgstr "Nombre de la empresa"
 
 #: applications/digital_audit/models.py:14
 msgid "Nombre de contacto"
-msgstr ""
+msgstr "Nombre de contacto"
 
 #: applications/digital_audit/models.py:15
 msgid "Correo electrónico de contacto"
-msgstr ""
+msgstr "Correo electrónico de contacto"
 
 #: applications/digital_audit/models.py:16
 msgid "Teléfono de contacto (opcional)"
-msgstr ""
+msgstr "Teléfono de contacto (opcional)"
 
 #: applications/digital_audit/models.py:20
 msgid "La empresa tiene una página web corporativa"
@@ -200,11 +190,11 @@ msgstr ""
 
 #: euskodev/settings.py:207
 msgid "Español"
-msgstr ""
+msgstr "Español"
 
 #: euskodev/settings.py:208
 msgid "Euskara"
-msgstr ""
+msgstr "Euskara"
 
 #: templates/companies/company_form.html:9
 #, fuzzy
@@ -222,90 +212,116 @@ msgstr ""
 
 #: templates/companies/company_form.html:84
 #: templates/contact/add_contact.html:188
-#: templates/contact/contact_list.html:67
-#: templates/contact/contact_list.html:91
-#: templates/contact/contact_list.html:110
+#: templates/contact/contact_list.html:106
+#: templates/contact/contact_list.html:142
 msgid "Cancelar"
 msgstr ""
 
-#: templates/companies/list_companies.html:11
-msgid "Lista empresas"
-msgstr ""
+#: templates/companies/list_companies.html:12
+#, fuzzy
+#| msgid "Contacto"
+msgid "Lista de Empresas"
+msgstr "Contacto"
 
-#: templates/companies/list_companies.html:14
+#: templates/companies/list_companies.html:16
 msgid "Agregar empresa"
 msgstr ""
 
-#: templates/companies/list_companies.html:21
-#: templates/contact/contact_list.html:40 templates/home/index.html:1507
+#: templates/companies/list_companies.html:26
+#: templates/contact/contact_list.html:66 templates/home/index.html:1508
 msgid "Nombre"
 msgstr "Nombre"
 
-#: templates/companies/list_companies.html:22
+#: templates/companies/list_companies.html:27
 msgid "Ciudad"
 msgstr ""
 
-#: templates/companies/list_companies.html:23
+#: templates/companies/list_companies.html:28
 msgid "Dirección"
 msgstr ""
 
-#: templates/companies/list_companies.html:24
-#: templates/contact/contact_list.html:42 templates/home/index.html:1488
-#: templates/home/index.html:1512
+#: templates/companies/list_companies.html:29
+#: templates/contact/contact_list.html:68 templates/home/index.html:1489
+#: templates/home/index.html:1513
 msgid "Email"
 msgstr "Email"
 
-#: templates/companies/list_companies.html:25
-msgid "Phone"
-msgstr ""
-
-#: templates/companies/list_companies.html:26
-msgid "Web"
-msgstr ""
-
-#: templates/companies/list_companies.html:27
-msgid "¿Tiene Web?"
-msgstr ""
-
-#: templates/companies/list_companies.html:28
-msgid "¿Tiene APP?"
-msgstr ""
-
-#: templates/companies/list_companies.html:29
-msgid "¿Tiene ERP?"
-msgstr ""
-
 #: templates/companies/list_companies.html:30
-msgid "¿Tiene IA?"
-msgstr ""
+#: templates/contact/contact_list.html:67 templates/home/index.html:1518
+#, fuzzy
+#| msgid "teléfono"
+msgid "Teléfono"
+msgstr "teléfono"
 
 #: templates/companies/list_companies.html:31
-msgid "Gerente"
+msgid "Web (Link)"
 msgstr ""
 
 #: templates/companies/list_companies.html:32
-msgid "Tel.Gerente"
+msgid "¿Tiene Web?"
 msgstr ""
 
 #: templates/companies/list_companies.html:33
-msgid "Email.Gerente"
+msgid "¿Tiene APP?"
 msgstr ""
 
 #: templates/companies/list_companies.html:34
-msgid "¿Visitado?"
+msgid "¿Tiene ERP?"
 msgstr ""
 
 #: templates/companies/list_companies.html:35
-msgid "¿Fecha visita?"
+msgid "¿Tiene IA?"
 msgstr ""
 
 #: templates/companies/list_companies.html:36
+msgid "Gerente"
+msgstr ""
+
+#: templates/companies/list_companies.html:37
+msgid "Tel. Gerente"
+msgstr ""
+
+#: templates/companies/list_companies.html:38
+msgid "Email Gerente"
+msgstr ""
+
+#: templates/companies/list_companies.html:39
+msgid "¿Visitado?"
+msgstr ""
+
+#: templates/companies/list_companies.html:40
+msgid "Fecha Visita"
+msgstr ""
+
+#: templates/companies/list_companies.html:41
 msgid "Comentario"
 msgstr ""
 
-#: templates/companies/list_companies.html:48
-msgid "ER"
+#: templates/companies/list_companies.html:78
+#: templates/companies/list_companies.html:86
+#: templates/companies/list_companies.html:94
+#: templates/companies/list_companies.html:102
+#: templates/companies/list_companies.html:122
+msgid "SÍ"
 msgstr ""
+
+#: templates/companies/list_companies.html:80
+#: templates/companies/list_companies.html:88
+#: templates/companies/list_companies.html:96
+#: templates/companies/list_companies.html:104
+#: templates/companies/list_companies.html:124
+msgid "NO"
+msgstr ""
+
+#: templates/companies/list_companies.html:144
+msgid "No hay empresas registradas"
+msgstr ""
+
+#: templates/companies/list_companies.html:146
+#, fuzzy
+#| msgid "Creadores"
+msgid "Nueva Empresa"
+msgstr "Creadores"
 
 #: templates/contact/add_contact.html:13
 #, fuzzy
@@ -317,62 +333,54 @@ msgstr "Contacto"
 msgid "Guardar"
 msgstr ""
 
-#: templates/contact/contact_list.html:15
+#: templates/contact/contact_list.html:19
 #, fuzzy
 #| msgid "Contacto"
-msgid "Lista de Contactos"
+msgid "Contactos"
 msgstr "Contacto"
 
-#: templates/contact/contact_list.html:18
-msgid "Agregar nuevo contacto"
-msgstr ""
+#: templates/contact/contact_list.html:25
+#, fuzzy
+#| msgid "Contacto"
+msgid "Nuevo contacto"
+msgstr "Contacto"
 
-#: templates/contact/contact_list.html:27
+#: templates/contact/contact_list.html:45
 msgid "Filtrar"
 msgstr ""
 
-#: templates/contact/contact_list.html:41 templates/home/index.html:1517
-#, fuzzy
-#| msgid "teléfono"
-msgid "Teléfono"
-msgstr "teléfono"
-
-#: templates/contact/contact_list.html:61
+#: templates/contact/contact_list.html:100
 msgid "Hacer mailing"
 msgstr ""
 
-#: templates/contact/contact_list.html:64
-msgid "Eliminar seleccionados"
+#: templates/contact/contact_list.html:103
+msgid "Eliminar"
 msgstr ""
 
-#: templates/contact/contact_list.html:74
-msgid "No hay contactos disponibles."
+#: templates/contact/contact_list.html:117
+msgid "No hay contactos disponibles"
 msgstr ""
 
-#: templates/contact/contact_list.html:84
-msgid "Confirmar eliminación"
+#: templates/contact/contact_list.html:118
+msgid "Comienza agregando los contactos de tu red comercial."
 msgstr ""
 
-#: templates/contact/contact_list.html:88
-msgid ""
-"¿Estás seguro de que deseas eliminar los contactos seleccionados? Esta "
-"acción no se puede deshacer."
-msgstr ""
+#: templates/contact/contact_list.html:120
+#, fuzzy
+#| msgid "Contacto"
+msgid "Añadir primer contacto"
+msgstr "Contacto"
 
-#: templates/contact/contact_list.html:92
+#: templates/contact/contact_list.html:143
 msgid "Sí, eliminar"
 msgstr ""
 
-#: templates/contact/contact_list.html:103
-msgid "Confirmar envío de mailing"
+#: templates/contact/contact_list.html:164
+msgid "Cerrar"
 msgstr ""
 
-#: templates/contact/contact_list.html:107
-msgid "¿Quieres enviar un correo masivo a los contactos seleccionados?"
-msgstr ""
-
-#: templates/contact/contact_list.html:113
-msgid "Sí, Hacer mailing"
+#: templates/contact/contact_list.html:165
+msgid "Ir al mailing"
 msgstr ""
 
 #: templates/dashboard/add_client.html:8
@@ -482,7 +490,7 @@ msgid "1. Datos de la empresa"
 msgstr ""
 
 #: templates/home/Aviso_legal.html:25 templates/home/index.html:968
-#: templates/home/index.html:1497
+#: templates/home/index.html:1498
 msgid "Oiartzun, Gipuzkoa"
 msgstr ""
 
@@ -516,12 +524,15 @@ msgid "Este aviso legal se rige por la legislación española."
 msgstr ""
 
 #: templates/home/Blog.html:126 templates/home/Blog_old.html:133
-#: templates/home/Blog_old.html:182 templates/home/articulo_completo
-#: copy.html:133 copy.html:169 templates/home/articulo_completo3.html:84
+#: templates/home/Blog_old.html:182
+#: ⁨templates/home/articulo_completo  copy.html⁩:133
+#: ⁨templates/home/articulo_completo  copy.html⁩:169
+#: templates/home/articulo_completo3.html:84
 #: templates/home/articulo_completo_old.html:104
-#: templates/home/articulo_completo_old.html:137 templates/home/base
-#: copy.html:152 templates/home/base.html:283 templates/home/base.html:380
-#: templates/home/index2.html:180 templates/home/index2.html:342
+#: templates/home/articulo_completo_old.html:137
+#: ⁨templates/home/base copy.html⁩:152 templates/home/base.html:283
+#: templates/home/base.html:380 templates/home/index2.html:180
+#: templates/home/index2.html:342
 msgid "Blog"
 msgstr "Blog"
 
@@ -549,7 +560,7 @@ msgstr ""
 #: templates/home/Blog.html:149 templates/home/index.html:1026
 #: templates/home/index.html:1059 templates/home/index.html:1068
 #: templates/home/index.html:1077 templates/home/index.html:1086
-#: templates/home/index.html:1094 templates/home/index.html:1102
+#: templates/home/index.html:1096 templates/home/index.html:1105
 #: templates/home/index_backup.html:83 templates/home/index_backup.html:95
 #: templates/home/index_backup.html:107 templates/home/index_backup.html:119
 #: templates/home/index_backup.html:157
@@ -560,85 +571,100 @@ msgstr ""
 msgid "No hay artículos todavía."
 msgstr ""
 
-#: templates/home/Blog_old.html:118 templates/home/articulo_completo
-#: copy.html:118 templates/home/articulo_completo3.html:75
-#: templates/home/articulo_completo_old.html:101 templates/home/base
-#: copy.html:103 templates/home/base.html:269 templates/home/base.html:365
-#: templates/home/index2.html:165 templates/home/index2.html:268
+#: templates/home/Blog_old.html:118
+#: ⁨templates/home/articulo_completo  copy.html⁩:118
+#: templates/home/articulo_completo3.html:75
+#: templates/home/articulo_completo_old.html:101
+#: ⁨templates/home/base copy.html⁩:103 templates/home/base.html:269
+#: templates/home/base.html:365 templates/home/index2.html:165
+#: templates/home/index2.html:268
 msgid "Servicios"
 msgstr "servicios"
 
-#: templates/home/Blog_old.html:121 templates/home/articulo_completo
-#: copy.html:121 templates/home/base copy.html:108 templates/home/base.html:272
-#: templates/home/base.html:367 templates/home/index.html:1057
+#: templates/home/Blog_old.html:121
+#: ⁨templates/home/articulo_completo  copy.html⁩:121
+#: ⁨templates/home/base copy.html⁩:108 templates/home/base.html:272
+#: templates/home/base.html:367 templates/home/index.html:1056
 #: templates/home/index_backup.html:80
 msgid "Desarrollo Web"
 msgstr "Desarrollo Web"
 
-#: templates/home/Blog_old.html:122 templates/home/articulo_completo
-#: copy.html:122 templates/home/base copy.html:113
+#: templates/home/Blog_old.html:122
+#: ⁨templates/home/articulo_completo  copy.html⁩:122
+#: ⁨templates/home/base copy.html⁩:113
 msgid "Reservas y Pagos Online"
 msgstr ""
 
-#: templates/home/Blog_old.html:123 templates/home/articulo_completo
-#: copy.html:123 templates/home/base copy.html:118 templates/home/base.html:274
-#: templates/home/base.html:369 templates/home/index.html:1075
+#: templates/home/Blog_old.html:123
+#: ⁨templates/home/articulo_completo  copy.html⁩:123
+#: ⁨templates/home/base copy.html⁩:118 templates/home/base.html:274
+#: templates/home/base.html:369 templates/home/index.html:1074
 #: templates/home/index_backup.html:104
 #: templates/home/software_a_medida.html:210
 msgid "Software a Medida"
 msgstr ""
 
-#: templates/home/Blog_old.html:124 templates/home/articulo_completo
-#: copy.html:124 templates/home/base copy.html:123 templates/home/base.html:275
-#: templates/home/base.html:370 templates/home/index.html:1084
-#: templates/home/index.html:1244 templates/home/trabaja_con_nosotros.html:757
+#: templates/home/Blog_old.html:124
+#: ⁨templates/home/articulo_completo  copy.html⁩:124
+#: ⁨templates/home/base copy.html⁩:123 templates/home/base.html:275
+#: templates/home/base.html:370 templates/home/index.html:1083
+#: templates/home/index.html:1245 templates/home/trabaja_con_nosotros.html:757
 msgid "Inteligencia Artificial"
 msgstr ""
 
-#: templates/home/Blog_old.html:125 templates/home/articulo_completo
-#: copy.html:125 templates/home/base copy.html:128
+#: templates/home/Blog_old.html:125
+#: ⁨templates/home/articulo_completo  copy.html⁩:125
+#: ⁨templates/home/base copy.html⁩:128
 msgid "Aplicaciones Móviles"
 msgstr ""
 
-#: templates/home/Blog_old.html:126 templates/home/articulo_completo
-#: copy.html:126 templates/home/base copy.html:133 templates/home/base.html:277
-#: templates/home/index.html:1100
+#: templates/home/Blog_old.html:126
+#: ⁨templates/home/articulo_completo  copy.html⁩:126
+#: ⁨templates/home/base copy.html⁩:133 templates/home/base.html:277
+#: templates/home/index.html:1102
 msgid "Sistema de Ticket"
 msgstr ""
 
-#: templates/home/Blog_old.html:131 templates/home/articulo_completo
-#: copy.html:131 templates/home/articulo_completo3.html:78
-#: templates/home/articulo_completo_old.html:102 templates/home/base
-#: copy.html:142 templates/home/base.html:281 templates/home/base.html:379
-#: templates/home/index.html:1168 templates/home/index2.html:170
-#: templates/home/index2.html:392
+#: templates/home/Blog_old.html:131
+#: ⁨templates/home/articulo_completo  copy.html⁩:131
+#: templates/home/articulo_completo3.html:78
+#: templates/home/articulo_completo_old.html:102
+#: ⁨templates/home/base copy.html⁩:142 templates/home/base.html:281
+#: templates/home/base.html:379 templates/home/index.html:1169
+#: templates/home/index2.html:170 templates/home/index2.html:392
 msgid "Portfolio"
 msgstr "Portfolio"
 
-#: templates/home/Blog_old.html:132 templates/home/articulo_completo
-#: copy.html:132 templates/home/articulo_completo3.html:81
-#: templates/home/articulo_completo_old.html:103 templates/home/base
-#: copy.html:147 templates/home/index2.html:175 templates/home/index2.html:543
+#: templates/home/Blog_old.html:132
+#: ⁨templates/home/articulo_completo  copy.html⁩:132
+#: templates/home/articulo_completo3.html:81
+#: templates/home/articulo_completo_old.html:103
+#: ⁨templates/home/base copy.html⁩:147 templates/home/index2.html:175
+#: templates/home/index2.html:543
 msgid "Sobre"
 msgstr "Sobre"
 
-#: templates/home/Blog_old.html:134 templates/home/articulo_completo
-#: copy.html:134
+#: templates/home/Blog_old.html:134
+#: ⁨templates/home/articulo_completo  copy.html⁩:134
 msgid "Formar Parte"
 msgstr ""
 
-#: templates/home/Blog_old.html:135 templates/home/articulo_completo
-#: copy.html:135 templates/home/articulo_completo3.html:87
-#: templates/home/articulo_completo_old.html:105 templates/home/base
-#: copy.html:157 templates/home/base.html:282 templates/home/index2.html:185
+#: templates/home/Blog_old.html:135
+#: ⁨templates/home/articulo_completo  copy.html⁩:135
+#: templates/home/articulo_completo3.html:87
+#: templates/home/articulo_completo_old.html:105
+#: ⁨templates/home/base copy.html⁩:157 templates/home/base.html:282
+#: templates/home/index2.html:185
 msgid "Nosotros"
 msgstr "Nosotros"
 
-#: templates/home/Blog_old.html:136 templates/home/articulo_completo
-#: copy.html:136 templates/home/articulo_completo3.html:90
-#: templates/home/articulo_completo_old.html:106 templates/home/base
-#: copy.html:162 templates/home/base.html:285 templates/home/base.html:381
-#: templates/home/base.html:387 templates/home/index2.html:190
+#: templates/home/Blog_old.html:136
+#: ⁨templates/home/articulo_completo  copy.html⁩:136
+#: templates/home/articulo_completo3.html:90
+#: templates/home/articulo_completo_old.html:106
+#: ⁨templates/home/base copy.html⁩:162 templates/home/base.html:285
+#: templates/home/base.html:381 templates/home/base.html:387
+#: templates/home/index2.html:190
 msgid "Contacto"
 msgstr "Contacto"
 
@@ -938,12 +964,12 @@ msgstr ""
 msgid "Solicitar Consulta de Ingeniería"
 msgstr ""
 
-#: templates/home/articulo_completo copy.html:171
+#: ⁨templates/home/articulo_completo  copy.html⁩:171
 #: templates/home/articulo_completo_old.html:139
 msgid "Últimas novedades!."
 msgstr "¡Últimas novedades!."
 
-#: templates/home/articulo_completo copy.html:196
+#: ⁨templates/home/articulo_completo  copy.html⁩:196
 #, fuzzy
 #| msgid ""
 #| "Hemos desarrollado esta plataforma para ayudar en la preparación de "
@@ -976,34 +1002,34 @@ msgstr ""
 msgid "Imagen Corporativa en Gipuzkoa - Euskodev"
 msgstr ""
 
-#: templates/home/base copy.html:210
+#: ⁨templates/home/base copy.html⁩:210
 #, fuzzy
 #| msgid "Euskodev &copy;tu creador de sitios web 2024"
 msgid "Euskodev &copy; Tu creador de sitios web en Oiartzun - 2025"
 msgstr "Euskodev &copy;tu creador de sitios web 2024"
 
-#: templates/home/base copy.html:246 templates/home/index2.html:922
+#: ⁨templates/home/base copy.html⁩:246 templates/home/index2.html:922
 msgid "Políticas de privacidad"
 msgstr ""
 
-#: templates/home/base copy.html:252 templates/home/index2.html:925
+#: ⁨templates/home/base copy.html⁩:252 templates/home/index2.html:925
 #, fuzzy
 #| msgid "Aviso_legal"
 msgid "Aviso legal"
 msgstr "Aviso_legal"
 
-#: templates/home/base copy.html:258 templates/home/index2.html:929
+#: ⁨templates/home/base copy.html⁩:258 templates/home/index2.html:929
 #, fuzzy
 #| msgid "politicas de cookies"
 msgid "Políticas de cookies"
 msgstr "politicas de cookies"
 
-#: templates/home/base copy.html:285 templates/home/base.html:443
+#: ⁨templates/home/base copy.html⁩:285 templates/home/base.html:443
 #: templates/home/index2.html:955
 msgid "Facilitamos Vuestro Aprendizaje"
 msgstr "Facilitamos Vuestro Aprendizaje"
 
-#: templates/home/base copy.html:293 templates/home/base.html:451
+#: ⁨templates/home/base copy.html⁩:293 templates/home/base.html:451
 #: templates/home/index2.html:960
 msgid ""
 " es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia "
@@ -1014,37 +1040,37 @@ msgstr ""
 "variedad de test para diferentes puestos de trabajo en el ámbito de la "
 "salud, la educación, la administración y otros sectores."
 
-#: templates/home/base copy.html:297 templates/home/base.html:455
+#: ⁨templates/home/base copy.html⁩:297 templates/home/base.html:455
 #: templates/home/index2.html:965 templates/home/index2.html:1010
 msgid "Personas:"
 msgstr "Personas:"
 
-#: templates/home/base copy.html:298 copy.html:350 copy.html:403
-#: templates/home/base.html:456 templates/home/base.html:507
-#: templates/home/base.html:560
+#: ⁨templates/home/base copy.html⁩:298 ⁨templates/home/base copy.html⁩:350
+#: ⁨templates/home/base copy.html⁩:403 templates/home/base.html:456
+#: templates/home/base.html:507 templates/home/base.html:560
 #, fuzzy
 #| msgid "Category:"
 msgid "Categoría:"
 msgstr "Category:"
 
-#: templates/home/base copy.html:303 copy.html:359 templates/home/base.html:461
-#: templates/home/base.html:516 templates/home/index2.html:976
-#: templates/home/index2.html:1021
+#: ⁨templates/home/base copy.html⁩:303 ⁨templates/home/base copy.html⁩:359
+#: templates/home/base.html:461 templates/home/base.html:516
+#: templates/home/index2.html:976 templates/home/index2.html:1021
 msgid "Volver"
 msgstr "Volver"
 
-#: templates/home/base copy.html:336 templates/home/base.html:493
+#: ⁨templates/home/base copy.html⁩:336 templates/home/base.html:493
 #: templates/home/index2.html:1001
 msgid "Euskodev"
 msgstr "Euskodev"
 
-#: templates/home/base copy.html:337 templates/home/base.html:494
+#: ⁨templates/home/base copy.html⁩:337 templates/home/base.html:494
 #, fuzzy
 #| msgid "Desarrollo de software"
 msgid "Desarrollo de software a medida"
 msgstr "Desarrollo de software"
 
-#: templates/home/base copy.html:345 templates/home/base.html:502
+#: ⁨templates/home/base copy.html⁩:345 templates/home/base.html:502
 #, fuzzy
 #| msgid ""
 #| "Euskodev: Su aliado en el desarrollo de software <br> Euskodev, un equipo "
@@ -1062,23 +1088,23 @@ msgstr ""
 "creación de soluciones digitales a medida, para empresas de todos los "
 "tamaños, desde pequeñas startups hasta grandes corporaciones!"
 
-#: templates/home/base copy.html:351 templates/home/base.html:508
+#: ⁨templates/home/base copy.html⁩:351 templates/home/base.html:508
 #, fuzzy
 #| msgid "Desarrollo de software"
 msgid "Desarrollo de software y soluciones digitales"
 msgstr "Desarrollo de software"
 
-#: templates/home/base copy.html:389 templates/home/base.html:546
+#: ⁨templates/home/base copy.html⁩:389 templates/home/base.html:546
 #: templates/home/index2.html:1044
 msgid "Gastrogune"
 msgstr "Gastrogune"
 
-#: templates/home/base copy.html:390 templates/home/base.html:547
+#: ⁨templates/home/base copy.html⁩:390 templates/home/base.html:547
 #: templates/home/index2.html:1046
 msgid "GastroGune: La esencia de Euskadi en cada bocado."
 msgstr "GastroGune: La esencia de Euskadi en cada bocado."
 
-#: templates/home/base copy.html:398 templates/home/base.html:555
+#: ⁨templates/home/base copy.html⁩:398 templates/home/base.html:555
 #, fuzzy
 #| msgid ""
 #| "GastroGune: Tu Guía para Descubrir la Gastronomía <br> Vasca Eusko.Gune "
@@ -1096,32 +1122,32 @@ msgstr ""
 "sino que también te sirve como guía para descubrir y disfrutar de los "
 "mejores lugares y restaurantes del País Vasco.!"
 
-#: templates/home/base copy.html:404 templates/home/base.html:561
+#: ⁨templates/home/base copy.html⁩:404 templates/home/base.html:561
 msgid "Gastronomía Vasca y Restaurantes"
 msgstr ""
 
-#: templates/home/base copy.html:412 templates/home/base.html:569
+#: ⁨templates/home/base copy.html⁩:412 templates/home/base.html:569
 #, fuzzy
 #| msgid "Close Project"
 msgid "Cerrar Proyecto"
 msgstr "Close Project"
 
-#: templates/home/base.html:273 templates/home/index.html:1092
+#: templates/home/base.html:273 templates/home/index.html:1093
 msgid "Reservas y Pagos"
-msgstr ""
+msgstr "Reservas y Pagos"
 
 #: templates/home/base.html:276 templates/home/base.html:368
-#: templates/home/index.html:1066 templates/home/index_backup.html:92
+#: templates/home/index.html:1065 templates/home/index_backup.html:92
 msgid "Apps Móviles"
-msgstr ""
+msgstr "Apps Móviles"
 
 #: templates/home/base.html:284
 msgid "Únete"
-msgstr ""
+msgstr "Únete"
 
 #: templates/home/base.html:290
 msgid "IA"
-msgstr ""
+msgstr "IA"
 
 #: templates/home/base.html:348
 msgid ""
@@ -1131,7 +1157,7 @@ msgstr ""
 
 #: templates/home/base.html:376
 msgid "Empresa"
-msgstr ""
+msgstr "Empresa"
 
 #: templates/home/base.html:378 templates/home/index_backup.html:355
 #, fuzzy
@@ -1141,15 +1167,15 @@ msgstr "Nosotros"
 
 #: templates/home/base.html:408
 msgid "Todos los derechos reservados."
-msgstr ""
+msgstr "Todos los derechos reservados."
 
 #: templates/home/base.html:411
 msgid "Privacidad"
-msgstr ""
+msgstr "Privacidad"
 
 #: templates/home/base.html:413
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 #: templates/home/desarrollo_web.html:370
 msgid "Desarrollo web profesional en un ambiente cercano y confiable"
@@ -1445,17 +1471,17 @@ msgstr "Desarrollo de software"
 msgid "Solicitar Presupuesto"
 msgstr ""
 
-#: templates/home/index.html:954 templates/home/index.html:1269
+#: templates/home/index.html:954 templates/home/index.html:1270
 #, fuzzy
 #| msgid "Close Project"
 msgid "Proyectos"
 msgstr "Close Project"
 
-#: templates/home/index.html:958 templates/home/index.html:1273
+#: templates/home/index.html:958 templates/home/index.html:1274
 msgid "Éxito"
 msgstr ""
 
-#: templates/home/index.html:962 templates/home/index.html:1277
+#: templates/home/index.html:962 templates/home/index.html:1278
 msgid "Valoración"
 msgstr ""
 
@@ -1506,178 +1532,126 @@ msgstr "servicios"
 msgid "Soluciones tecnológicas de alto nivel para impulsar tu negocio"
 msgstr ""
 
-#: templates/home/index.html:1058
-msgid ""
-"Webs modernas, rápidas y optimizadas para SEO. Diseño responsive y "
-"experiencia de usuario excepcional."
+#: templates/home/index.html:1119
+msgid " Análisis de IA"
 msgstr ""
 
-#: templates/home/index.html:1067
-msgid ""
-"Aplicaciones nativas e híbridas para iOS y Android. Tu negocio en el "
-"bolsillo de tus clientes."
-msgstr ""
-
-#: templates/home/index.html:1076
-msgid ""
-"Soluciones personalizadas que se adaptan a tus procesos. Automatización y "
-"eficiencia garantizada."
-msgstr ""
-
-#: templates/home/index.html:1085
-msgid ""
-"Chatbots, automatización con IA y soluciones de machine learning para tu "
-"empresa."
-msgstr ""
-
-#: templates/home/index.html:1093
-msgid ""
-"Sistemas de reservas online y pasarelas de pago integradas. Gestiona tu "
-"negocio 24/7."
-msgstr ""
-
-#: templates/home/index.html:1101
-msgid ""
-"Gestión de incidencias y soporte al cliente. Optimiza tu atención y "
-"seguimiento."
-msgstr ""
-
-#: templates/home/index.html:1116 templates/home/index.html:1126
+#: templates/home/index.html:1129
 msgid "Análisis de IA"
 msgstr ""
 
-#: templates/home/index.html:1127
+#: templates/home/index.html:1130
 #, python-format
 msgid "100%% Gratuito"
 msgstr ""
 
-#: templates/home/index.html:1134
+#: templates/home/index.html:1137
 msgid "Análisis Inteligente de tu Negocio"
 msgstr ""
 
-#: templates/home/index.html:1142
+#: templates/home/index.html:1143
 msgid "Análisis de tu web actual"
 msgstr ""
 
-#: templates/home/index.html:1146
+#: templates/home/index.html:1147
 msgid "Recomendaciones SEO"
 msgstr ""
 
-#: templates/home/index.html:1150
+#: templates/home/index.html:1151
 msgid "Sugerencias de mejora"
 msgstr ""
 
-#: templates/home/index.html:1154
+#: templates/home/index.html:1155
 msgid "Informe detallado en minutos"
 msgstr ""
 
-#: templates/home/index.html:1169
+#: templates/home/index.html:1170
 msgid "Proyectos que definen nuestra experiencia"
 msgstr ""
 
-#: templates/home/index.html:1178
+#: templates/home/index.html:1179
 msgid "Web App"
 msgstr ""
 
-#: templates/home/index.html:1191
+#: templates/home/index.html:1192
 msgid "Plataforma"
 msgstr ""
 
-#: templates/home/index.html:1194 templates/home/index.html:1208
+#: templates/home/index.html:1195 templates/home/index.html:1209
 #, fuzzy
 #| msgid "Close Project"
 msgid "Ver Proyecto"
 msgstr "Close Project"
 
-#: templates/home/index.html:1205 templates/home/index2.html:621
+#: templates/home/index.html:1206 templates/home/index2.html:621
 #, fuzzy
 #| msgid "E-Commerce"
 msgid "E-commerce"
 msgstr "E-Commerce"
 
-#: templates/home/index.html:1218
+#: templates/home/index.html:1219
 msgid "Restaurante"
 msgstr ""
 
-#: templates/home/index.html:1231
+#: templates/home/index.html:1232
 msgid "Turismo"
 msgstr ""
 
-#: templates/home/index.html:1245
+#: templates/home/index.html:1246
 msgid "Tu Asistente Inteligente"
 msgstr ""
 
-#: templates/home/index.html:1260
+#: templates/home/index.html:1261
 #, fuzzy
 #| msgid "Euskodev"
 msgid "Sobre Euskodev"
 msgstr "Euskodev"
 
-#: templates/home/index.html:1311 templates/home/index_backup.html:378
+#: templates/home/index.html:1312 templates/home/index_backup.html:378
 msgid "Stack Tecnológico"
 msgstr ""
 
-#: templates/home/index.html:1312
+#: templates/home/index.html:1313
 msgid "Utilizamos las herramientas más modernas y potentes"
 msgstr ""
 
-#: templates/home/index.html:1423
+#: templates/home/index.html:1424
 msgid "Lo que dicen nuestros clientes"
 msgstr ""
 
-#: templates/home/index.html:1424
+#: templates/home/index.html:1425
 msgid "La confianza de quienes trabajan con nosotros"
 msgstr ""
 
-#: templates/home/index.html:1435
+#: templates/home/index.html:1436
 msgid "Cliente Satisfecho"
 msgstr ""
 
-#: templates/home/index.html:1448
+#: templates/home/index.html:1449
 msgid "Emprendedor"
 msgstr ""
 
-#: templates/home/index.html:1461
+#: templates/home/index.html:1462
 msgid "Dueño de Negocio"
 msgstr ""
 
-#: templates/home/index.html:1474 templates/home/index_backup.html:417
+#: templates/home/index.html:1475 templates/home/index_backup.html:417
 msgid "¿Tienes un proyecto en mente?"
 msgstr ""
 
-#: templates/home/index.html:1475
+#: templates/home/index.html:1476
 msgid "Estamos listos para transformar tus ideas en realidades digitales."
 msgstr ""
 
-#: templates/home/index.html:1496
+#: templates/home/index.html:1497
 msgid "Ubicación"
 msgstr ""
 
-#: templates/home/index.html:1509
-#, fuzzy
-#| msgid "Nombre"
-msgid "Tu nombre"
-msgstr "Nombre"
-
-#: templates/home/index.html:1514
-msgid "tu@email.com"
-msgstr ""
-
-#: templates/home/index.html:1519
-msgid "Tu número"
-msgstr ""
-
-#: templates/home/index.html:1522
+#: templates/home/index.html:1523
 msgid "Mensaje"
 msgstr "Mensaje"
 
-#: templates/home/index.html:1524
-#, fuzzy
-#| msgid "Desarrollo de software"
-msgid "¿Cómo podemos ayudarte?"
-msgstr "Desarrollo de software"
-
-#: templates/home/index.html:1531 templates/home/index_backup.html:470
+#: templates/home/index.html:1532 templates/home/index_backup.html:470
 msgid "ENVIAR MENSAJE"
 msgstr ""
 
@@ -3349,3 +3323,13 @@ msgid ""
 "Hemos recibido tu solicitud correctamente. Nuestro equipo revisará tu perfil "
 "y se pondrá en contacto contigo lo antes posible."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Nombre"
+#~ msgid "Tu nombre"
+#~ msgstr "Nombre"
+
+#, fuzzy
+#~| msgid "Desarrollo de software"
+#~ msgid "¿Cómo podemos ayudarte?"
+#~ msgstr "Desarrollo de software"

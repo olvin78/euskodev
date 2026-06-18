@@ -138,9 +138,9 @@
       <article class="blog-card" data-title="{{ entrada_blog.titulo|striptags|lower }}" data-excerpt="{{ entrada_blog.resumen|striptags|lower }}">
         <a href="{% url 'home_app:blog-detail' entrada_blog.id %}">
           {% if entrada_blog.imagen %}
-          <img src="{{ entrada_blog.imagen.url }}" class="blog-img" alt="{{ entrada_blog.titulo }}">
+          <img loading="lazy" src="{{ entrada_blog.imagen.url }}" class="blog-img" alt="{{ entrada_blog.titulo }}">
           {% else %}
-          <img src="{% static 'img/portada.jpg' %}" class="blog-img" alt="{{ entrada_blog.titulo }}">
+          <img loading="lazy" src="{% static 'img/portada.jpg' %}" class="blog-img" alt="{{ entrada_blog.titulo }}">
           {% endif %}
         </a>
         <div class="blog-body">

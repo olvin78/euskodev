@@ -84,7 +84,7 @@ def formulario_contactar(request):
         <p><strong>Mensaje:</strong><br>{message}</p>
         """
 
-        destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["info@euskodev.eus", "euskodev@gmail.com"])
+        destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["euskodev@gmail.com"])
         
         exito_total = True
         for dest in destinatarios:
@@ -133,7 +133,7 @@ def formulario_contactar2(request):
             asunto,
             contenido,
             settings.DEFAULT_FROM_EMAIL,
-            ["info@euskodev.eus"],  # <-- cámbialo por otro correo real tuyo
+            ["euskodev@gmail.com"],  # <-- cámbialo por otro correo real tuyo
             fail_silently=False,
         )
             messages.success(request, "Tu mensaje ha sido enviado con éxito.")
@@ -287,7 +287,7 @@ class EnviarSolicitudView(FormView):
         </div>
         """
 
-        destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["info@euskodev.eus", "euskodev@gmail.com"])
+        destinatarios = getattr(settings, "CONTACT_RECIPIENTS", ["euskodev@gmail.com"])
         
         cv_file = form.cleaned_data['curriculum']
         adjuntos = None
