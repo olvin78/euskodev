@@ -25,6 +25,10 @@ urlpatterns = [
  
     path("ads.txt",
          RedirectView.as_view(url=staticfiles_storage.url("ads.txt")),),
+    path("robots.txt",
+         RedirectView.as_view(url=staticfiles_storage.url("robots.txt")),),
+    path("sitemap.xml",
+         RedirectView.as_view(url=staticfiles_storage.url("sitemap.xml")),),
 
 ]
 
