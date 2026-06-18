@@ -12,12 +12,12 @@
                 <i data-lucide="building-2" class="wid-30 text-white"></i>
             </div>
             <div class="border-start border-white border-opacity-25 ps-4">
-                <h1 class="h2 fw-bold text-white mb-1">{% trans "Lista de Empresas" %}</h1>
+                <h1 class="h2 fw-bold text-white mb-1">Lista de Empresas</h1>
                 <p class="text-white-50 mb-0 fw-medium">Gestión completa de entidades registradas ({{ datos|length }} registros)</p>
             </div>
         </div>
         <a href="{% url 'companies_app:company_create' %}" class="btn btn-light px-4 py-2 rounded-3 fw-bold shadow-sm d-flex align-items-center gap-2 border-0" style="color: var(--primary);">
-            <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Agregar empresa" %}
+            <i data-lucide="plus-circle" class="wid-18"></i> Agregar empresa
         </a>
     </div>
 </div>
@@ -28,22 +28,22 @@
                 <table class="table table-hover align-middle mb-0" style="min-width: 2200px;">
                     <thead class="bg-light">
                         <tr style="background: var(--gray-50);">
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Nombre" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Ciudad" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Dirección" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Email" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Teléfono" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Web (Link)" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene Web?" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene APP?" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene ERP?" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Tiene IA?" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Gerente" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Tel. Gerente" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Email Gerente" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "¿Visitado?" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Fecha Visita" %}</th>
-                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">{% trans "Comentario" %}</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Nombre</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Ciudad</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Dirección</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Email</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Teléfono</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Web (Link)</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">¿Tiene Web?</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">¿Tiene APP?</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">¿Tiene ERP?</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">¿Tiene IA?</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Gerente</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Tel. Gerente</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Email Gerente</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold text-center" style="font-size: 11px; letter-spacing: 1px; border: 0;">¿Visitado?</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Fecha Visita</th>
+                            <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 1px; border: 0;">Comentario</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,33 +80,33 @@
                             <!-- [7] ¿Tiene Web? -->
                             <td class="px-4 py-3 text-center">
                                 {% if dato.has_website %}
-                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">SÍ</span>
                                 {% else %}
-                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">NO</span>
                                 {% endif %}
                             </td>
                             <!-- [8] ¿Tiene APP? -->
                             <td class="px-4 py-3 text-center">
                                 {% if dato.has_mobile_app %}
-                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">SÍ</span>
                                 {% else %}
-                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">NO</span>
                                 {% endif %}
                             </td>
                             <!-- [9] ¿Tiene ERP? -->
                             <td class="px-4 py-3 text-center">
                                 {% if dato.has_custom_software %}
-                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">SÍ</span>
                                 {% else %}
-                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">NO</span>
                                 {% endif %}
                             </td>
                             <!-- [10] ¿Tiene IA? -->
                             <td class="px-4 py-3 text-center">
                                 {% if dato.uses_ai %}
-                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">{% trans "SÍ" %}</span>
+                                <span class="badge bg-soft-success text-success px-3 py-2 rounded-pill shadow-sm">SÍ</span>
                                 {% else %}
-                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                <span class="badge bg-soft-light text-muted px-3 py-2 rounded-pill">NO</span>
                                 {% endif %}
                             </td>
                             <!-- [11] Gerente -->
@@ -124,9 +124,9 @@
                             <!-- [14] ¿Visitado? -->
                             <td class="px-4 py-3 text-center">
                                 {% if dato.visited %}
-                                <span class="badge bg-success px-3 py-2 rounded-pill">{% trans "SÍ" %}</span>
+                                <span class="badge bg-success px-3 py-2 rounded-pill">SÍ</span>
                                 {% else %}
-                                <span class="badge bg-light text-muted px-3 py-2 rounded-pill">{% trans "NO" %}</span>
+                                <span class="badge bg-light text-muted px-3 py-2 rounded-pill">NO</span>
                                 {% endif %}
                             </td>
                             <!-- [15] Fecha Visita -->
@@ -146,9 +146,9 @@
                                 <div class="mb-3">
                                      <i data-lucide="building" class="wid-50 text-muted opacity-25"></i>
                                 </div>
-                                <h4 class="fw-bold text-muted">{% trans "No hay empresas registradas" %}</h4>
+                                <h4 class="fw-bold text-muted">No hay empresas registradas</h4>
                                 <a href="{% url 'companies_app:company_create' %}" class="btn btn-primary shadow-sm">
-                                    <i data-lucide="plus-circle" class="wid-18 me-2"></i> {% trans "Nueva Empresa" %}
+                                    <i data-lucide="plus-circle" class="wid-18 me-2"></i> Nueva Empresa
                                 </a>
                             </td>
                         </tr>

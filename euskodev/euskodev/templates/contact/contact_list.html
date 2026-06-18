@@ -14,13 +14,13 @@
                 <i data-lucide="users" class="wid-30 text-white"></i>
              </div>
              <div class="border-start border-white border-opacity-25 ps-4">
-                <h1 class="h2 fw-bold text-white mb-1">{% trans "Contactos" %}</h1>
+                <h1 class="h2 fw-bold text-white mb-1">Contactos</h1>
                 <p class="text-white-50 mb-0 fw-medium">Gestión y seguimiento de clientes potenciales</p>
              </div>
         </div>
         <div class="d-flex gap-2">
             <a href="{% url 'contact_app:add_contact' %}" class="btn btn-light px-4 py-2 rounded-3 fw-bold shadow-sm d-flex align-items-center gap-2 border-0" style="color: var(--primary);">
-                <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Nuevo contacto" %}
+                <i data-lucide="plus-circle" class="wid-18"></i> Nuevo contacto
             </a>
         </div>
     </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-12 col-md-4 col-lg-2 ms-auto">
                 <button type="submit" class="btn btn-secondary w-100 d-flex align-items-center justify-content-center gap-2 shadow-sm fw-bold">
-                     <i data-lucide="filter" class="wid-16"></i> {% trans "Filtrar" %}
+                     <i data-lucide="filter" class="wid-16"></i> Filtrar
                 </button>
             </div>
         </form>
@@ -61,9 +61,9 @@
                                         <input type="checkbox" id="selectAll" class="form-check-input ms-0">
                                     </div>
                                 </th>
-                                <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 0.1em; border: 0;">{% trans "Nombre" %}</th>
-                                <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 0.1em; border: 0;">{% trans "Teléfono" %}</th>
-                                <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 0.1em; border: 0;">{% trans "Email" %}</th>
+                                <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 0.1em; border: 0;">Nombre</th>
+                                <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 0.1em; border: 0;">Teléfono</th>
+                                <th class="px-4 py-3 text-uppercase text-muted fw-bold" style="font-size: 11px; letter-spacing: 0.1em; border: 0;">Email</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,13 +95,13 @@
                              <span>Selecciona contactos para realizar acciones masivas</span>
                         </div>
                         <button type="button" class="btn btn-primary d-flex align-items-center gap-2 px-4 shadow-sm fw-bold" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); border: none;" onclick="goToMailing()">
-                            <i data-lucide="send" class="wid-18"></i> {% trans "Gestión de mailing" %}
+                            <i data-lucide="send" class="wid-18"></i> Gestión de mailing
                         </button>
                         <button type="button" class="btn btn-danger d-flex align-items-center gap-2 px-4 shadow-sm fw-bold" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
-                            <i data-lucide="trash-2" class="wid-18"></i> {% trans "Eliminar" %}
+                            <i data-lucide="trash-2" class="wid-18"></i> Eliminar
                         </button>
                         <a href="{% url 'contact_app:contact_list' %}" class="btn btn-outline-secondary px-4 fw-bold">
-                            {% trans "Cancelar" %}
+                            Cancelar
                         </a>
                     </div>
                 </div>
@@ -112,10 +112,10 @@
              <div class="mb-4">
                   <i data-lucide="users" class="wid-60 text-muted opacity-25"></i>
              </div>
-             <h4 class="fw-bold text-muted">{% trans "No hay contactos disponibles" %}</h4>
-             <p class="text-muted mb-4">{% trans "Comienza agregando los contactos de tu red comercial." %}</p>
+             <h4 class="fw-bold text-muted">No hay contactos disponibles</h4>
+             <p class="text-muted mb-4">Comienza agregando los contactos de tu red comercial.</p>
              <a href="{% url 'contact_app:add_contact' %}" class="btn btn-primary d-inline-flex align-items-center gap-2 px-4 py-2 fw-bold">
-                  <i data-lucide="plus-circle" class="wid-18"></i> {% trans "Añadir primer contacto" %}
+                  <i data-lucide="plus-circle" class="wid-18"></i> Añadir primer contacto
              </a>
         </div>
 {% endif %}
@@ -135,8 +135,8 @@
                 <p class="text-muted">Esta acción eliminará permanentemente a los contactos seleccionados y no se puede deshacer.</p>
             </div>
             <div class="modal-footer border-0 p-4 pt-0 justify-content-center gap-2">
-                <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">{% trans "Cancelar" %}</button>
-                <button type="button" onclick="document.getElementById('contactsForm').submit();" class="btn btn-danger px-4 shadow-sm fw-bold">{% trans "Sí, eliminar" %}</button>
+                <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="document.getElementById('contactsForm').submit();" class="btn btn-danger px-4 shadow-sm fw-bold">Sí, eliminar</button>
             </div>
         </div>
     </div>
