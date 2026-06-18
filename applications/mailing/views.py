@@ -30,7 +30,7 @@ def mailing_view(request):
                 send_email = sib_api_v3_sdk.SendSmtpEmail(
                     subject=subject,
                     html_content=f"<html><body>{message}</body></html>",
-                    sender={"name": "Euskodev", "email": "info@euskodev.eus"},
+                    sender={"name": "Euskodev", "email": "euskodev@gmail.com"},
                     to=[{"email": email} for email in recipients],
                 )
 

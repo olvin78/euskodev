@@ -1,0 +1,443 @@
+{% load i18n %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ✅ Título dinámico para SEO -->
+  <title>{% trans 'Dashboard | Euskodev.eus' %}</title>
+
+  <!-- ✅ Metadatos esenciales -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ✅ Metadatos SEO optimizados -->
+  <meta name="description"
+    content="Servicios de desarrollo web, diseño, SEO y software a medida en Oiartzun, Errenteria, Lezo y Pasajes. Potencia tu negocio en línea con Euskodev.">
+  <meta name="keywords"
+    content="Euskodev, Desarrollo Web en Oiartzun, SEO Errenteria, Software Lezo, Diseño Web Pasajes, CMS, CRM, Web Gipuzkoa">
+  <meta name="author" content="Euskodev">
+
+  <!-- ✅ Meta etiquetas Open Graph (para redes sociales) -->
+  <meta property="og:title" content="Euskodev | Dashboard">
+  <meta property="og:description"
+    content="Servicios digitales para empresas en Oiartzun, Errenteria, Lezo y Pasajes. Diseño web, apps, software y más.">
+  <meta property="og:image" content="{% static 'img/logo-euskodev-azul-blanco-horizontal-rgb.png' %}">
+  <meta property="og:url" content="https://euskodev.eus">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ✅ Favicon -->
+  <link rel="shortcut icon" href="{% static 'img/favicon_3d.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'img/favicon_3d.ico' %}" type="image/x-icon">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon_3d.png' %}">
+
+  <!-- ✅ Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+    id="main-font-link">
+
+  <!-- ✅ Íconos -->
+  <link rel="stylesheet" href="{% static 'dashboard/fonts/tabler-icons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/fonts/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/fonts/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/fonts/material.css' %}">
+
+  <!-- ✅ Archivos CSS principales -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}" id="main-style-link">
+  <link rel="stylesheet" href="{% static 'dashboard/css/style-preset.css' %}">
+
+  <!-- ✅ Premium Custom Redesign CSS -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/custom_dashboard.css' %}">
+
+  <!-- ✅ Lucide Icons (Universal) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+
+<!-- [Head] end -->
+
+
+{% block head %}
+
+
+{% endblock %}
+<!-- [Body] Start -->
+
+<body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
+  <!-- [ Pre-loader ] start -->
+  <div class="loader-bg">
+    <div class="loader-track">
+      <div class="loader-fill"></div>
+    </div>
+  </div>
+  <!-- [ Pre-loader ] End -->
+
+  <!-- [ Sidebar Menu ] start -->
+  <nav class="pc-sidebar pt-4">
+    <div class="navbar-wrapper">
+      <div class="m-header pb-4 px-4 d-flex align-items-center justify-content-center">
+        <a href="{% url 'dashboard_app:home' %}" class="b-brand d-flex align-items-center text-decoration-none">
+          <img src="{% static 'img/logo-euskodev-azul-blanco.png' %}" alt="Euskodev"
+            style="max-height: 40px; filter: brightness(0) invert(1);" class="img-fluid">
+        </a>
+
+      </div>
+
+      <div class="navbar-content">
+        <ul class="pc-navbar mt-3">
+          <li class="pc-item pc-caption">
+            <label>General</label>
+          </li>
+          <li class="pc-item active">
+            <a href="{% url 'dashboard_app:home' %}" class="pc-link">
+              <span class="pc-micon"><i data-lucide="layout-dashboard"></i></span>
+              <span class="pc-mtext">Dashboard</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="{% url 'home_app:home' %}" class="pc-link">
+              <span class="pc-micon"><i data-lucide="external-link"></i></span>
+              <span class="pc-mtext">Web Principal</span>
+            </a>
+          </li>
+
+          <li class="pc-item pc-caption">
+            <label>Gestión Empresarial</label>
+          </li>
+          <li class="pc-item">
+            <a href="{% url 'companies_app:list_companies' %}" class="pc-link">
+              <span class="pc-micon"><i data-lucide="building-2"></i></span>
+              <span class="pc-mtext">Lista de Empresas</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="{% url 'companies_app:map_companies' %}" class="pc-link">
+              <span class="pc-micon"><i data-lucide="map"></i></span>
+              <span class="pc-mtext">Mapa Global</span>
+            </a>
+          </li>
+
+          <li class="pc-item pc-caption">
+            <label>Comunicaciones</label>
+          </li>
+          <li class="pc-item">
+            <a href="{% url 'mailing_app:manual' %}" class="pc-link">
+              <span class="pc-micon"><i data-lucide="mail"></i></span>
+              <span class="pc-mtext">Gestión Mailing</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a class="pc-link" href="{% url 'contact_app:contact_list' %}">
+              <span class="pc-micon"><i data-lucide="users"></i></span>
+              <span class="pc-mtext">Contactos</span>
+            </a>
+          </li>
+
+          <li class="pc-item pc-caption">
+            <label>Facturación & ERP</label>
+          </li>
+          <li class="pc-item">
+            <a href="{% url 'dashboard_app:budget_list' %}" class="pc-link">
+              <span class="pc-micon"><i data-lucide="file-text"></i></span>
+              <span class="pc-mtext">Presupuestos</span>
+            </a>
+          </li>
+          <li class="pc-item">
+            <a href="#" class="pc-link">
+              <span class="pc-micon"><i data-lucide="receipt"></i></span>
+              <span class="pc-mtext">Facturas</span>
+            </a>
+          </li>
+
+          <li class="pc-item pc-caption">
+            <label>Configuración</label>
+          </li>
+          <li class="pc-item">
+            <a href="#" class="pc-link">
+              <span class="pc-micon"><i data-lucide="settings"></i></span>
+              <span class="pc-mtext">Ajustes</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Upgrade Promo Slim -->
+        <div class="m-3 p-3 rounded-4 bg-white-10 text-center glass d-none d-lg-block">
+          <div class="mb-2">
+            <i data-lucide="gem" class="text-accent" style="width: 32px; height: 32px;"></i>
+          </div>
+          <h6 class="text-white mb-2">Soporte VIP</h6>
+          <p class="text-white-50 small mb-3">Accede a herramientas exclusivas.</p>
+          <a href="#!" class="btn btn-accent btn-sm w-100 rounded-pill">Saber más</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- [ Sidebar Menu ] end -->
+
+  <header class="pc-header">
+    <div class="header-wrapper">
+      <div class="w-100 d-flex align-items-center h-100">
+        <div class="d-flex align-items-center" style="flex: 0 0 auto;">
+          <ul class="list-unstyled mb-0 d-flex align-items-center">
+            <li class="pc-h-item me-3" id="mobile-collapse">
+              <a href="#" class="pc-head-link ms-0">
+                <i data-lucide="menu"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center" style="flex: 1 1 auto; min-width: 0;">
+          <ul class="list-unstyled mb-0 d-flex align-items-center justify-content-center w-100">
+            <li class="pc-h-item d-none d-md-inline-flex">
+              <div class="input-group search-group" style="width: 350px; max-width: 100%;">
+                <span class="input-group-text bg-transparent border-0 pe-0">
+                  <i data-lucide="search" style="width: 18px; color: var(--gray-400);"></i>
+                </span>
+                <input type="search" class="form-control border-0 bg-transparent px-2" placeholder="Búsqueda global...">
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-flex align-items-center gap-4" style="flex: 0 0 auto;">
+          <div class="dropdown pc-h-item">
+            <a class="pc-head-link dropdown-toggle arrow-none me-0 d-flex align-items-center gap-2" data-bs-toggle="dropdown" href="#" role="button">
+              <img src="{% static 'dashboard/images/user/avatar-2.jpg' %}" alt="user-image" class="rounded-circle border border-2 border-light shadow-sm" style="width: 36px; height: 36px;">
+              <span class="d-none d-lg-inline-block fw-semibold text-dark">Olvin Duarte</span>
+            </a>
+            <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown shadow-lg border-0 mt-2">
+              <div class="dropdown-header p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="{% static 'dashboard/images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar wid-45 rounded-circle me-3">
+                  <div>
+                    <h6 class="mb-0 fw-bold">Olvin Duarte</h6>
+                    <small class="text-muted">Administrador</small>
+                  </div>
+                </div>
+                <hr class="dropdown-divider my-3">
+                <a href="#!" class="dropdown-item py-2 px-0"><i data-lucide="user" class="me-2 wid-18 opacity-50"></i> Mi Perfil</a>
+                <a href="#!" class="dropdown-item py-2 px-0"><i data-lucide="settings" class="me-2 wid-18 opacity-50"></i> Ajustes</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item py-2 px-0 text-danger border-top mt-3 pt-3"><i data-lucide="log-out" class="me-2 wid-18"></i> Salir</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- [ Header ] end -->
+
+  <div class="pc-container">
+    <div class="pc-content">
+      <!-- El contenido de los bloques entrará aquí conservando el centrado -->
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <footer class="pc-footer">
+    <div class="footer-wrapper container-fluid">
+      <div class="row">
+        <div class="col-sm my-1">
+          <p class="m-0">
+            Creado por &#9829; Euskodev.eus
+          </p>
+        </div>
+        <div class="col-auto my-1">
+          <ul class="list-inline footer-link mb-0">
+            <li class="list-inline-item"><a href="../index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ [Page Specific JS] Carga optimizada solo para esta página -->
+  <script src="{% static 'dashboard/js/plugins/apexcharts.min.js' %}" defer></script>
+  <script src="{% static 'dashboard/js/pages/dashboard-default.js' %}" defer></script>
+
+  <!-- ✅ [Required JS] Archivos esenciales -->
+  <script src="{% static 'dashboard/js/plugins/popper.min.js' %}" defer></script>
+  <script src="{% static 'dashboard/js/plugins/simplebar.min.js' %}" defer></script>
+  <script src="{% static 'dashboard/js/plugins/bootstrap.min.js' %}" defer></script>
+  <script src="{% static 'dashboard/js/fonts/custom-font.js' %}" defer></script>
+  <script src="{% static 'dashboard/js/pcoded.js' %}" defer></script>
+  <script src="{% static 'dashboard/js/plugins/feather.min.js' %}" defer></script>
+
+  <!-- ✅ Mejor organización de scripts de configuración -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      layout_change('light');   // Cambia a modo claro
+      change_box_container(false); // Desactiva contenedor en caja
+      layout_rtl_change(false); // No usar RTL
+      preset_change("preset-1"); // Aplicar preset de diseño
+      font_change("Public-Sans"); // Fuente por defecto
+    });
+  </script>
+
+
+  <!-- Cargar ApexCharts -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 📌 Cargar datos desde Django (inyectados en el template)
+      let clientsWeek = {{ chart_data_week_clients| safe
+    }};
+    let budgetsWeek = {{ chart_data_week_budgets| safe }};
+    let clientsMonth = {{ chart_data_month_clients| safe }};
+    let budgetsMonth = {{ chart_data_month_budgets| safe }};
+
+    // 📊 Configuración del gráfico
+    let options = {
+      series: [
+        {
+          name: "Clientes",
+          data: clientsWeek  // Por defecto, se muestra la semana
+        },
+        {
+          name: "Facturas",
+          data: budgetsWeek
+        }
+      ],
+      chart: {
+        type: "bar",
+        height: 350,
+        zoom: {
+          enabled: false
+        },
+        animations: {
+          enabled: true,
+          easing: 'easeinout',
+          speed: 800,
+          animateGradually: {
+            enabled: true,
+            delay: 150
+          },
+          dynamicAnimation: {
+            enabled: true,
+            speed: 350
+          }
+        }
+      },
+      xaxis: {
+        categories: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], // Categorías para la semana
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontWeight: '500',
+            colors: '#6c757d'
+          }
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: '14px',
+            fontWeight: '500',
+            colors: '#6c757d'
+          }
+        }
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 10, // Redondear las barras
+          horizontal: false,
+          columnWidth: '55%',
+        }
+      },
+      colors: ["#008FFB", "#FEB019"],  // Azul para clientes, amarillo para facturas
+      grid: {
+        show: true,
+        borderColor: '#f1f1f1',
+        strokeDashArray: 5,
+        position: 'back',
+        xaxis: {
+          lines: {
+            show: true
+          }
+        },
+        yaxis: {
+          lines: {
+            show: true
+          }
+        }
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        theme: 'dark',
+        y: {
+          formatter: function (value) {
+            return value + " usuarios";
+          }
+        }
+      },
+      responsive: [{
+        breakpoint: 1024,
+        options: {
+          chart: {
+            height: 300
+          },
+          legend: {
+            position: 'bottom',
+            horizontalAlign: 'center',
+          }
+        }
+      }]
+    };
+
+    // 📈 Crear gráfico
+    let chart = new ApexCharts(document.querySelector("#activity-chart"), options);
+    chart.render();
+
+    // 📌 Interacción: cambiar entre semana y mes
+    document.querySelector("#chart-week").addEventListener("click", function () {
+      chart.updateOptions({
+        xaxis: { categories: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"] },
+        series: [
+          { name: "Clientes", data: clientsWeek },
+          { name: "Facturas", data: budgetsWeek }
+        ]
+      });
+    });
+
+    document.querySelector("#chart-month").addEventListener("click", function () {
+      chart.updateOptions({
+        xaxis: { categories: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"] },
+        series: [
+          { name: "Clientes", data: clientsMonth },
+          { name: "Facturas", data: budgetsMonth }
+        ]
+      });
+    });
+  });
+  </script>
+
+  <script>
+    // Global Lucide Init
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+
+
+
+</body>
+<!-- [Body] end -->
+
+</html>

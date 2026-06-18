@@ -1,0 +1,1193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>De mi tierra</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'portfolio/de-mi-tierra/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/de-mi-tierra/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/de-mi-tierra/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/de-mi-tierra/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'portfolio/de-mi-tierra/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'portfolio/de-mi-tierra/assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Updated: Jun 29 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a
+              href="mailto:contact@example.com">demitierra@gmail.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5509 50008 51</span></i>
+        </div>
+        <div class="languages d-none d-md-flex align-items-center">
+          <!--<ul>
+            <li>En</li>
+            <li><a href="#">De</a></li>
+          </ul>-->
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="{% static 'portfolio/de-mi-tierra/assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">De mi tierra</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Inicio<br></a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#specials">Especiales</a></li>
+            <li><a href="#events">Eventos</a></li>
+            <li><a href="#chefs">Chefs</a></li>
+            <li><a href="#gallery">Galería</a></li>
+            <!--<li class="dropdown"><a href="#"><span>Dropdown</span> <i
+                  class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
+                      class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>-->
+            <li><a href="#contact">Contácto</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-book-a-table d-none d-xl-block" href="#book-a-table">Encuentra una mesa</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="{% static 'portfolio/de-mi-tierra/assets/img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start">
+            <h2 data-aos="fade-up" data-aos-delay="100">Bienvenido a <span>De mi tierra</span></h2>
+            <p data-aos="fade-up" data-aos-delay="200">Sorprendiendo paladares desde hace más de 7 años!</p>
+            <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+              <a href="#menu" class="cta-btn">Nuestro Menú</a>
+              <a href="#book-a-table" class="cta-btn">Encuenttra una mesa</a>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
+            <a href="assets/img/menu/videomenu.mp4" class="glightbox pulsating-play-btn"></a>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section, sección sobre nosotros-->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/about.jpg' %}" class="img-fluid about-img" alt="">
+          </div>
+          <div class="col-lg-6 order-2 order-lg-1 content">
+            <h3>Conoce un poco sobre nosotros</h3>
+            <p class="fst-italic">
+              En nuestro restaurante, creemos que la comida es una excusa perfecta para compartir momentos especiales
+              con amigos y familiares..
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> <span>Ambiente acogedor: "Creamos un ambiente cálido y acogedor donde
+                  nuestros clientes se sientan como en casa". </span>
+              </li>
+              <li><i class="bi bi-check2-all"></i> <span>"Nuestro personal te recibirá con una sonrisa y te hará sentir
+                  parte de nuestra familia. Creamos un ambiente relajado y acogedor donde podrás disfrutar de una comida
+                  deliciosa."</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Cocina creativa y variada: "Nuestra carta es una invitación a
+                  un viaje culinario lleno de sabores y texturas. Nuestros chefs, con años de experiencia, elaboran
+                  platos creativos y originales, utilizando técnicas culinarias innovadoras y combinaciones de
+                  ingredientes".</span></li>
+
+              <li><i class="bi bi-check2-all"></i> <span>Eventos especiales y ocasiones únicas: "Celebra tus momentos
+                  más
+                  importantes con nosotros. Organizamos eventos especiales como cenas románticas, cumpleaños, reuniones
+                  familiares y eventos corporativos. Nuestro equipo se encargará de cada detalle para que tu celebración
+                  sea inolvidable."</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section, termina la seccion sobre nosotros -->
+
+    <!-- Why Us Section , sección de porque nosotros-->
+    <section id="why-us" class="why-us section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Por qué nosotros.</h2>
+        <p>Por qué elegir nuestro restaurante</p>
+      </div><!-- End Section Title-->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-item">
+              <span>01</span>
+              <h4><a href="" class="stretched-link">El ambiente</a></h4>
+              <p>El ambiente del restaurante incluye la decoración, la iluminación, la música y el diseño del
+                espacio. Un ambiente agradable y acogedor que invita a los clientes a relajarse</p>
+            </div>
+          </div><!-- Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-item">
+              <span>02</span>
+              <h4><a href="" class="stretched-link">El servicio</a></h4>
+              <p>Un servicio atento, amable y eficiente para marcas la diferenciar entre una experiencia
+                agradable, Nuestro servicio implica desde la bienvenida y la toma de pedidos hasta la resolución de
+                cualquier problema que pueda surgir. </p>
+            </div>
+          </div><!-- Card Item -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-item">
+              <span>03</span>
+              <h4><a href="" class="stretched-link">La comida</a></h4>
+              <p>La calidad de los ingredientes, la preparación de los platos y la variedad del menú son fundamentales
+              </p>
+            </div>
+          </div><!-- Card Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section, termina la sección de porque nosotros-->
+
+    <!-- Menu Section -->
+
+    <section id="menu" class="menu section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Menú</h2>
+        <p>Hecha un vistazo a nuestro Menú</p>
+      </div><!-- End Section Title -->
+
+      <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul class="menu-filters isotope-filters">
+              <li data-filter="*" class="filter-active">Menú</li>
+              <li data-filter=".filter-starters">Entradas</li>
+              <li data-filter=".filter-salads">Ensaladas</li>
+              <li data-filter=".filter-specialty">Especiales</li>
+              <li data-filter=".filter-specialty">Postre</li>
+            </ul>
+          </div>
+        </div><!-- Menu Filters -->
+
+        <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/lobster-bisque.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Langosta 1kg</a><span>$17.95</span>
+            </div>
+            <div class="menu-ingredients">
+              La carne de langosta, tierna y jugosa, se baña en una cremosa salsa a base de queso gruyère, yema de huevo
+              y brandy. Envolvida en una masa de hojaldre y horneada hasta alcanzar la perfección, esta langosta es una
+              explosión de sabores que te transportará a un restaurante de alta cocina.
+            </div>
+          </div><!-- Menu Item -->
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/mozzarella.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Cordon blue</a><span>$8.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Cordon bleu en salsa de hongos: Un clásico reconfortante. La jugosa pechuga de pollo rellena de jamón y
+              queso, empanizada y dorada, se baña en una rica salsa de champiñones.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-specialty">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/tuscan-grilled.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Fajas de pollo a la parrilla</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Las fajitas de pollo son un plato lleno de vida. El pollo jugoso, las verduras crujientes y las tortillas
+              calientes crean una sinfonía de sabores y texturas.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-specialty">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/lobster-roll.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Rollos de carne</a><span>$12.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Explosión de sabores asiáticos: Nuestros rollitos de carne en salsa primavera son un viaje culinario por
+              el sudeste asiático. La carne tierna, las verduras crujientes y la salsa agridulce crean una combinación
+              de sabores única.
+            </div>
+          </div><!-- Menu Item -->
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/cake.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Biscocho de limón</a><span>$7.79</span>
+            </div>
+            <div class="menu-ingredients">
+              Nuestro bizcocho de limón es una delicia suave y esponjosa, impregnada del aroma cítrico de los limones
+              frescos. Perfecto para cualquier ocasión, desde un desayuno especial hasta una merienda deliciosa.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-salads">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/caesar.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Ensalada César.</a><span>$8.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Con lechuga romana fresca, pollo a la parrilla y crotones crujientes, cada bocado es una explosión de
+              sabor. La salsa César casera, hecha con anchoas, huevo y queso parmesano, le da el toque final perfecto.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/bowl-1932375_1280.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Helado de tres sabores</a><span>$9.00</span>
+            </div>
+            <div class="menu-ingredients">
+              El helado de tres sabores, con su combinación clásica de vainilla, fresa y chocolate, es un postre
+              delicioso y refrescante que gusta a grandes y pequeños.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-specialty">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/bread-barrel.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Pan de masa madre al estilo francés</a><span>$5.00</span>
+            </div>
+            <div class="menu-ingredients">
+              Nuestro pan de masa madre francés es la base perfecta para cualquier desayuno. Con una corteza crujiente y
+              una miga suave y aireada, este pan artesanal captura la esencia de las panaderías parisinas.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/postrechocolate.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Postre de chocolatee</a><span>$7.50</span>
+            </div>
+            <div class="menu-ingredients">
+              Un bizcocho de chocolate denso y húmedo, se une a una capa de mermelada de albaricoque y una generosa capa
+              de ganache de chocolate amargo.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-salads">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/greek-salad.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Ensalad vegana</a><span>$10.00</span>
+            </div>
+            <div class="menu-ingredients">
+              Nuestra ensalada vegana es un estallido de frescura y sabor. Combina una mezcla de lechugas variadas con
+              crujientes pepinos, tomates jugosos y zanahorias ralladas. Para añadir un toque de cremosidad,
+              incorporamos aguacate en cubos.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/flan.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Flan de huevo</a><span>$6.00</span>
+            </div>
+            <div class="menu-ingredients">
+              Nuestro flan de huevo es una experiencia única para tus sentidos. Su textura suave y aireada, combinada
+              con el intenso sabor a vainilla, se funde en tu boca dejando un delicioso sabor a caramelo.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-salads">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/spinach-salad.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Ensalada mixta</a><span>$9.00</span>
+            </div>
+            <div class="menu-ingredients">
+              La ensalada mixta es un plato fresco y ligero que combina diferentes ingredientes para crear una explosión
+              de sabores y texturas. Su base suele ser una mezcla de lechugas, a las que se añaden otros vegetales como
+              tomate, pepino, zanahoria, cebolla y aceitunas.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+          <div class="col-lg-6 menu-item isotope-item filter-starters">
+            <img src="{% static 'portfolio/de-mi-tierra/assets/img/menu/orangecake.jpg' %}" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Postre de naranja</a><span>$8.00</span>
+            </div>
+            <div class="menu-ingredients">
+              Nuestro bizcocho de naranja es una explosión de sabor y aroma. Su textura suave y esponjosa, combinada con
+              el intenso sabor a naranja, te transportará a un soleado día de primavera.
+            </div>
+          </div><!-- Menu Item -->
+
+
+
+
+        </div><!-- Menu Container -->
+
+      </div>
+
+    </section><!-- /Menu Section -->
+
+    <!-- Specials Section -->
+    <section id="specials" class="specials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Especiales</h2>
+        <p>Echa un vistazo a nuestros especiales</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#specials-tab-1">Combinado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-2">Ensalada cítrica</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-3">Spagetti</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-4">Humus...</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#specials-tab-5">Frutas naturales</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="specials-tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Camarones en una deliciosa salsa caribeña</h3>
+                    <p class="fst-italic">Las especias caribeñas le confieren un sabor intenso y aromático que te
+                      transportará a las playas paradisíacas. </p>
+                    <p>Una explosión de sabores tropicales en cada bocado. Deliciosos camarones salteados en una salsa
+                      cremosa y aromática, elaborada con coco, mango, cilantro fresco y un toque de especias caribeñas.
+                    </p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'portfolio/de-mi-tierra/assets/img/specials-1.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nuestra ensalada tropicál</h3>
+                    <p class="fst-italic">Disfruta de nuestra refrescante ensalada tropical, una explosión de sabores y
+                      colores.</p>
+                    <p>Rodajas dulces de naranja, limón, piña, arandanos se combinan a la perfección con la acidez
+                      cítrica del limón. Para darle un toque crujiente,
+                      agregamos nueces. Todo ello aliñado con una vinagreta ligera, creando una experiencia única y
+                      refrescante.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'portfolio/de-mi-tierra/assets/img/specials-2.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nuestros spaghetti en caldo de pollo son un reconfortante abrazo en cada cucharada. </h3>
+                    <p class="fst-italic"> Elaborados con un caldo casero, rico y sabroso, y acompañados de fideos
+                      cocidos al dente, este
+                      plato te transportará a los sabores de la cocina casera. El toque final lo dan unas verduras
+                      frescas y aromáticas, como zanahoria, apio y cebolla, que le aportan un sabor dulce y natural.
+                      Perfecto para un día frío o cuando buscas un plato sencillo y lleno de sabor.</p>
+
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'portfolio/de-mi-tierra/assets/img/specials-3.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nuestro hummus es una adictiva explosión de sabores mediterráneos que te conquistará</h3>
+                    <p class="fst-italic"> Cada cucharada es un viaje sensorial a través de Oriente Medio, con un
+                      equilibrio perfecto entre lo cremoso y lo especiado. Acompáñalo con verduras frescas, pan pita
+                      crujiente o galletas saladas y déjate seducir por su irresistible sabor.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'portfolio/de-mi-tierra/assets/img/specials-4.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="specials-tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Nuestra combinación de mango, banana y arándanos es un festín para los sentidos.</h3>
+                    <p class="fst-italic">La dulzura jugosa del mango se fusiona a la perfección con la cremosidad de la
+                      banana y la acidez refrescante de los arándanos. Esta mezcla de frutas no solo es deliciosa, sino
+                      que también está repleta de vitaminas y antioxidantes, convirtiéndola en un snack saludable y
+                      energizante. ¡Ideal para cualquier momento del día!</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'portfolio/de-mi-tierra/assets/img/specials-5.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Specials Section -->
+
+    <!-- Events Section -->
+    <section id="events" class="events section">
+
+      <img class="slider-bg" src="assets/img/background.webp" alt="" data-aos="fade-in">
+
+      <div class="container">
+
+        <div class="swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="row gy-4 event-item">
+                <div class="col-lg-6">
+                  <img src="{% static 'portfolio/de-mi-tierra/assets/img/events-slider/cumpleaños.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Cumpleaños</h3>
+                  <div class="precio">
+                    <p><span>$189</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Para hacer la fiesta más divertida, el restaurantes ofrece actividades como juegos, concursos o
+                    incluso la contratación de un animador infantil.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-circle"></i> <span>un menú especial para la ocasión, adaptándose a los
+                        gustos y preferencias de los invitados. Esto puede incluir desde un menú infantil hasta opciones
+                        vegetarianas o sin gluten..</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>El restaurante puede encargarse de la decoración del
+                        espacio, creando un ambiente festivo y acorde con el tema de la fiesta..</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span> Además de la carta de bebidas habitual, el
+                        restaurante puede ofrecer opciones especiales para la fiesta, como cócteles sin alcohol para los
+                        niños o una selección de vinos para los adultos..</span></li>
+                  </ul>
+                  <p>
+                    Nuestro compromiso es brindarte una experiencia inolvidable, desde el momento en que cruzas la
+                    puerta hasta que te vas.
+                  </p>
+                </div>
+              </div>
+            </div><!-- End Slider item -->
+
+            <div class="swiper-slide">
+              <div class="row gy-4 event-item">
+                <div class="col-lg-6">
+                  <img src="{% static 'portfolio/de-mi-tierra/assets/img/events-slider/evento-privado.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Fiestas privadas</h3>
+                  <div class="price">
+                    <p><span>$290</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    Trabajamos contigo de cerca para entender tus visiones y convertirlas en realidad."
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-circle"></i> <span>Desde la elección del menú hasta la decoración, cada
+                        detalle se adapta a sus gustos y preferencias.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Nos encanta sorprender a los invitados con actividades
+                        divertidas, música en vivo, espectáculos y animadores. Queremos que todos se diviertan y creen
+                        recuerdos que perduren en el tiempo."</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Nos especializamos en organizar eventos sofisticados y
+                        elegantes, con una atención al detalle exquisita.</span></li>
+                  </ul>
+                  <p>
+                    Te mantendremos informado en cada etapa del proceso, desde la planificación hasta la ejecución, para
+                    que te sientas seguro y tranquilo."
+                  </p>
+                </div>
+              </div>
+            </div><!-- End Slider item -->
+
+            <div class="swiper-slide">
+              <div class="row gy-4 event-item">
+                <div class="col-lg-6">
+                  <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/decoracionmesa.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Fiestas personalisadas</h3>
+                  <div class="price">
+                    <p><span>$150</span></p>
+                  </div>
+                  <p class="fst-italic">
+                    "Nos comprometemos con el medio ambiente y utilizamos productos locales y ecológicos para crear
+                    eventos responsables."
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-circle"></i> <span>Decoración temática: Adaptar la decoración del espacio
+                        al tema del evento.</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Iluminación: Creamos ambientes acogedores y festivos
+                        con diferentes tipos de iluminación..</span></li>
+                    <li><i class="bi bi-check2-circle"></i> <span>Vinos y licores: Seleccionar una carta de vinos y
+                        licores acorde al tipo de evento..</span></li>
+                  </ul>
+                  <p>
+                    Nos esforzamos por construir relaciones duraderas basadas en la confianza y la excelencia."
+                  </p>
+                </div>
+              </div>
+            </div><!-- End Slider item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Events Section -->
+
+    <!-- Book A Table Section -->
+    <section id="book-a-table" class="book-a-table section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>RESERVACIÓN</h2>
+        <p>Encuentra una mesa</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Número de teléfono"
+                required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="date" name="date" class="form-control" id="date" placeholder="Fecha" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="time" class="form-control" name="time" id="time" placeholder="time" required="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <input type="number" class="form-control" name="people" id="people" placeholder="Número de personas"
+                required="">
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Mensaje"></textarea>
+          </div>
+
+          <div class="text-center mt-3">
+            <div class="loading">Cargando</div>
+            <div class="error-message"></div>
+            <div class="sent-message">tu solicitud fue enviada.nosotros te llamaremo y enviaremos un email, para
+              confirmar tu reservación. Gracias!</div>
+            <button type="submit">Enviar solicitud</button>
+          </div>
+        </form><!-- End Reservation Form -->
+
+      </div>
+
+    </section><!-- /Book A Table Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Comentarios</h2>
+        <p>Qué estan diciendo.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper" data-speed="600" data-delay="5000"
+          data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" "="">
+            <p>
+              <i class=" bi bi-quote quote-icon-left"></i>
+                <span>"¡Una experiencia inolvidable! El servicio fue impecable, los camareros siempre atentos y
+                  dispuestos a ayudar. El ambiente era tan acogedor que me sentí como en casa. Y ni hablar de la comida,
+                  ¡cada bocado era una explosión de sabor! Definitivamente volveré.</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/testimonials/Face1.jpeg' %}" class="testimonial-img" alt="">
+                <h3>Saul Etxeverriaa</h3>
+                <h4>Cliente</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"El mejor restaurante que he visitado en mucho tiempo. La comida era exquisita, presentada de
+                    manera artística. El lugar era muy cómodo y tranquilo, perfecto para disfrutar de una buena
+                    conversación. El personal fue muy amable y profesional."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/testimonials/Face(3).jpeg' %}" class="testimonial-img" alt="">
+                <h3>Sara Gutierrez</h3>
+                <h4>Clienta</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"¡Un 10 de 10! Desde el momento en que entré, me sentí como un invitado especial. El servicio
+                    fue rápido y eficiente, sin ser intrusivo. La comida estaba deliciosa y las porciones eran
+                    generosas. Definitivamente lo recomendaré a mis amigos."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/testimonials/Face(4).jpeg' %}" class="testimonial-img" alt="">
+                <h3>hanna Sandigo</h3>
+                <h4>Clienta</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>"Un oasis en medio de la ciudad. El ambiente era tan relajante que olvidé por completo el estrés
+                    diario. La comida era una obra de arte, cada plato estaba perfectamente equilibrado. El servicio fue
+                    de primera categoría, los camareros eran muy conocedores de la carta."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/testimonials/Face(2).jpeg' %}" class="testimonial-img" alt="">
+                <h3>Brandon Isai</h3>
+                <h4>Cliente</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>¡La mejor comida que he probado en mi vida! El sabor de cada plato era increíble, los
+                    ingredientes eran frescos y de alta calidad. El lugar era muy cómodo y el servicio era excelente.
+                    Sin duda, volveré a este restaurante."</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/testimonials/Face.jpeg' %}" class="testimonial-img" alt="">
+                <h3>John López</h3>
+                <h4>Cliente</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Galeria</h2>
+        <p>Algunas fotos de nuestro restaurante</p>
+      </div><!-- End Section Title -->
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/grilled-fish-6912548_1280.jpg' %}" class="glightbox" data-gallery="images-gallery"
+                style=" ">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/grilled-fish-6912548_1280.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/restaurante.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/restaurante.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/buenplato.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/buenplato.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/meat-3593929_1280.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/meat-3593929_1280.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/chefs-4055824_1280.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/chefs-4055824_1280.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/rollodepollo.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/rollodepollo.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gourmet.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/gourmet.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/fillet-3693670_1280.jpg' %}" class="glightbox" data-gallery="images-gallery">
+                <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/fillet-3693670_1280.jpg' %}" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Gallery Section -->
+
+    <!-- Chefs Section -->
+    <section id="chefs" class="chefs section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Nuestros equipo de cocina</h2>
+        <p>Nuestros principales encargados de Cocina.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/cheff.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Walter Espinoza</h4>
+                  <span>Cheff</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/pasteleria.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Sarah Fernández</h4>
+                  <span>Pastelería</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <img src="{% static 'portfolio/de-mi-tierra/assets/img/gallery/cocineroprofecioinal.jpg' %}" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>William Gonzáles</h4>
+                  <span>Cocinero profecional</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Chefs Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contácto</h2>
+        <p>Contáctanos</p>
+      </div><!-- End Section Title -->
+
+      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+        
+        <iframe style="border:0; width: 100%; height: 400px;"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d144507.29696463692!2d-86.34086189842795!3d12.097814714237426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2ses!4v1722358080042!5m2!1ses!2ses"
+          frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+      </div><!-- End Google Maps -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Dirección</h3>
+                <p>Avd Tres Cantos 43</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Horario</h3>
+                <p>Lunes-Viernes:<br>11:00 AM - 2300 PM</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Llamanos</h3>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Envianos un email</h3>
+                <p>info@example.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
+
+          <div class="col-lg-8">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+              data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Escriba un nombre" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Escriba un email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Escriba el asunto" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Mensaje adicional"
+                    required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">cargando..</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Tu mensaje fue enviado. Gracias!</div>
+
+                  <button type="submit">Enviar mensaje</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">De mi tierra</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>--- Adan s----</p>
+            <p>NICARAGUA, NI ---00</p>
+            <p class="mt-3"><strong>teléfono:</strong> <span>+1 5509 50008 51</span></p>
+            <p><strong>Correo:</strong> <span>demitierra@gmail.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <!--
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+-->
+        <div class="container copyright text-center mt-4">
+          <p>©<strong class="px-1 sitename">De mi tierra</strong> <span>todo tipo de
+              reservaciónes</span>
+          </p>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you've purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+            Creado por <a href="https://bootstrapmade.com/">euskodev</a>
+          </div>
+        </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'portfolio/de-mi-tierra/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'portfolio/de-mi-tierra/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'portfolio/de-mi-tierra/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'portfolio/de-mi-tierra/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'portfolio/de-mi-tierra/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'portfolio/de-mi-tierra/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'portfolio/de-mi-tierra/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'portfolio/de-mi-tierra/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

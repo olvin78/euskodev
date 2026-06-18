@@ -1,29 +1,25 @@
-version: '3.8'
+version: "3.9"
 
 services:
   web:
-    build: .
-    volumes:
-      - .:/euskodev
-      - static_volume:/euskodev/staticfiles
-      - media_volume:/euskodev/media
-    expose:
-      - "8000"
-    env_file:
-      - .env
-    command: gunicorn euskodev.wsgi:application --bind 0.0.0.0:8000
-
-  nginx:
-    image: nginx:alpine
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - static_volume:/euskodev/staticfiles
-      - media_volume:/euskodev/media
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >-
+      sh -c "python manage.py migrate
+      && python manage.py collectstatic --noinput
+      && gunicorn euskodev.wsgi:application --bind 0.0.0.0:8000"
+    environment:
+      DJANGO_SETTINGS_MODULE: euskodev.settings
     ports:
-      - "80:80"
-    depends_on:
-      - web
+      - "8000:8000"
+    volumes:
+      - static_data:/euskodev/static
+      - media_data:/euskodev/media
+      - sqlite_data:/euskodev/db
+    restart: always
 
 volumes:
-  static_volume:
-  media_volume:
+  static_data:
+  media_data:
+  sqlite_data:

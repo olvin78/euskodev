@@ -1,0 +1,42 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+<style>
+    .error-page { 
+        padding-top: 120px; 
+        padding-bottom: 60px; 
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .error-code {
+        font-size: 8rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+    }
+    .error-page h2 { margin: 20px 0; }
+    .error-page p { color: var(--text-muted); margin-bottom: 30px; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="error-page">
+    <div class="container">
+        <div class="error-code">404</div>
+        <h2>{% trans 'Página no encontrada' %}</h2>
+        <p>{% trans 'Lo sentimos, la página que buscas no existe o ha sido movida.' %}</p>
+        <a href="{% url 'home_app:home' %}" class="btn-gradient">
+            {% trans 'Volver al inicio' %}
+        </a>
+    </div>
+</div>
+
+{% endblock %}

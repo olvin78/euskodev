@@ -1,0 +1,586 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block head %}
+    <!-- Leaflet CSS (para mapas interactivos) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Google Fonts (optimizadas) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- Verificación para Bing Webmaster Tools -->
+    <meta name="msvalidate.01" content="AC3BD5E70BC8953F24C913F2109BBD34" />
+
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .dancing-script-cursiva {
+            font-family: 'Dancing Script', cursive;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+
+
+<section id="hero_modern" class="reveal-up">
+    <!-- Premium 3D Background -->
+    <img class="hero-bg-image" src="{% static 'img/redesign/hero_background_redesign_1773092878123.png' %}" alt="Euskodev High-Tech Background">
+    
+    <div class="hero-content glass-panel p-5 animate__animated animate__fadeIn">
+        <h1 class="hero-title text-uppercase">
+            {% trans 'Web, App, Software' %}<br>
+            <span style="color: var(--primary);">{% trans '& Inteligencia Artificial' %}</span>
+        </h1>
+        <p class="hero-subtitle" id="changing-subtitle">
+            {% trans 'Diseño web, desarrollo de software y apps a medida con calidad premium.' %}
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-4 mt-4">
+            <a class="btn btn-premium" href="#contact">
+                {% trans 'Solicitar Presupuesto' %}
+            </a>
+            <a class="btn btn-premium" style="background: transparent; border: 2px solid var(--primary); color: var(--primary);" href="{% url 'digital_audit_app:form' %}">
+                {% trans 'Análisis Gratis' %}
+            </a>
+        </div>
+        
+        <div class="mt-5 pt-3 border-top border-secondary border-opacity-25">
+             <h3 class="fw-bold mb-0" style="color: var(--text-main);"><i class="bi bi-telephone-fill me-2" style="color: var(--primary);"></i> 747 478 842</h3>
+             <p class="dancing-script-cursiva text-end mt-2" style="color: var(--secondary); font-size: 1.2rem;">{% trans '...estamos en Oiartzun, Gipuzkoa.' %}</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Services -->
+<section class="page-section py-5" id="services" class="reveal-up">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-modern">{% trans 'Nuestros Servicios' %}</h2>
+            <p class="text-muted fs-5">{% trans 'Soluciones tecnológicas de alto nivel para impulsar tu negocio.' %}</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Desarrollo Web -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 h-100 d-flex flex-column">
+                    <img src="{% static 'img/redesign/service_web_redesign_1773092891827.png' %}" class="img-fluid rounded-4 mb-4" alt="Web Development Redesign">
+                    <h4 class="text-uppercase fw-bold mb-3" style="color: var(--primary);">{% trans 'Desarrollo Web' %}</h4>
+                    <p class="text-dim flex-grow-1">{% trans 'Apps web modernas, escalables y con un diseño impecable que cautivan a tus clientes.' %}</p>
+                    <a href="{% url 'home_app:desarrollo_web' %}" class="text-decoration-none fw-bold" style="color: var(--secondary);">
+                        {% trans 'Leer más' %} <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aplicaciones Móviles -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 h-100 d-flex flex-column">
+                    <img src="{% static 'img/redesign/service_app_redesign_1773092905545.png' %}" class="img-fluid rounded-4 mb-4" alt="Mobile App Development">
+                    <h4 class="text-uppercase fw-bold mb-3" style="color: var(--primary);">{% trans 'Apps Móviles' %}</h4>
+                    <p class="text-dim flex-grow-1">{% trans 'Experiencias móviles fluidas en iOS y Android que llevan tu negocio a cualquier lugar.' %}</p>
+                    <a href="{% url 'home_app:aplicaciones_moviles' %}" class="text-decoration-none fw-bold" style="color: var(--secondary);">
+                        {% trans 'Leer más' %} <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Software a Medida -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 h-100 d-flex flex-column">
+                    <img src="{% static 'img/redesign/service_software_redesign_1773092923871.png' %}" class="img-fluid rounded-4 mb-4" alt="Custom Software">
+                    <h4 class="text-uppercase fw-bold mb-3" style="color: var(--primary);">{% trans 'Software a Medida' %}</h4>
+                    <p class="text-dim flex-grow-1">{% trans 'Herramientas personalizadas para optimizar tus procesos corporativos y aumentar la eficiencia.' %}</p>
+                    <a href="{% url 'home_app:software_a_medida' %}" class="text-decoration-none fw-bold" style="color: var(--secondary);">
+                        {% trans 'Leer más' %} <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Inteligencia Artificial -->
+            <div class="col-lg-3 col-md-6">
+                <div class="glass-card p-4 h-100 d-flex flex-column">
+                    <img src="{% static 'img/redesign/service_ai_redesign_1773092937445.png' %}" class="img-fluid rounded-4 mb-4" alt="AI Solutions">
+                    <h4 class="text-uppercase fw-bold mb-3" style="color: var(--primary);">{% trans 'IA & Machine Learning' %}</h4>
+                    <p class="text-dim flex-grow-1">{% trans 'Integramos inteligencia artificial para predecir, automatizar y transformar tus operaciones.' %}</p>
+                    <a href="{% url 'home_app:inteligencia_artificial' %}" class="text-decoration-none fw-bold" style="color: var(--secondary);">
+                        {% trans 'Leer más' %} <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Blog -->
+<!-- Latest Insights (Blog) -->
+<section id="blog_premium" class="page-section py-5 reveal-up">
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h2 class="section-title-modern text-start mb-0">{% trans 'Últimas Publicaciones' %}</h2>
+                <p class="text-dim mt-3">{% trans 'Descubre nuestras últimas innovaciones y noticias.' %}</p>
+            </div>
+            <a href="{% url 'home_app:blog' %}" class="btn btn-premium btn-sm" style="padding: 10px 20px;">
+                {% trans 'Ver todo' %}
+            </a>
+        </div>
+
+        <div class="blog-scroller-modern py-4 reveal-up">
+            {% for entrada in entradas_blog %}
+                <div class="blog-item-modern">
+                    <div class="glass-card hover-lift h-100 overflow-hidden d-flex flex-column">
+                        {% if entrada.imagen %}
+                        <div class="blog-img-wrapper" style="height: 200px; overflow: hidden;">
+                            <img src="{{ entrada.imagen.url }}" class="w-100 h-100 object-fit-cover" style="transition: transform 0.6s ease;" alt="{{ entrada.titulo }}">
+                        </div>
+                        {% endif %}
+                        <div class="p-4 flex-grow-1 d-flex flex-column">
+                            <h4 class="text-white fw-bold mb-3 line-clamp-2">{{ entrada.titulo|safe }}</h4>
+                            <p class="text-dim small mb-4 line-clamp-2">{{ entrada.resumen|safe }}</p>
+                            <div class="mt-auto">
+                                <a href="{% url 'home_app:blog-detail' entrada.id %}" class="btn btn-outline-primary btn-sm rounded-pill px-4">
+                                    {% trans 'Leer más' %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center w-100 py-5">
+                    <p class="text-dim">{% trans 'Próximamente más artículos interesantes...' %}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Portfolio Grid Modernized -->
+<section class="page-section py-5" id="portfolio" class="reveal-up">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-modern">{% trans 'Portfolio Premium' %}</h2>
+            <p class="text-dim fs-5">{% trans 'Proyectos destacados que definen nuestra excelencia digital.' %}</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Portfolio item 1: Sun And Surf -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card-modern glass-card">
+                    <img src="{% static "portfolio/sun-and-surf/img/tablas4.jpg" %}" class="portfolio-img-zoom" alt="Sun And Surf">
+                    <div class="portfolio-overlay-modern">
+                        <h4 class="fw-bold">Sun And Surf</h4>
+                        <p class="text-light mb-3">Custom Web Application</p>
+                        <a href="{% url 'home_app:sun-and-surf' %}" target="_blank" class="btn btn-premium btn-sm">View Case</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio item 2: Atenea -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card-modern glass-card">
+                    <img src="{% static "portfolio/atenea-gastronomica/assets/img/portada.png" %}" class="portfolio-img-zoom" alt="Atenea Gastronómica">
+                    <div class="portfolio-overlay-modern">
+                        <h4 class="fw-bold">Atenea Gastronómica</h4>
+                        <p class="text-light mb-3">Culinary Experience Platform</p>
+                        <a href="{% url 'home_app:atenea-gastronomica' %}" target="_blank" class="btn btn-premium btn-sm">View Case</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio item 3: La Maison -->
+            <div class="col-lg-4 col-md-6">
+                <div class="portfolio-card-modern glass-card">
+                    <img src="{% static "portfolio/la-maison-du-bordeaux/assets/img/chocolates-06.jpg" %}" class="portfolio-img-zoom" alt="La Maison du Bordeaux">
+                    <div class="portfolio-overlay-modern">
+                        <h4 class="fw-bold">La Maison du Bordeaux</h4>
+                        <p class="text-light mb-3">Premium E-commerce</p>
+                        <a href="{% url 'home_app:la-maison-du-bordeaux' %}" target="_blank" class="btn btn-premium btn-sm">View Case</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio item 4: Tu Asistente Inteligente -->
+            <div class="col-lg-12">
+                 <div class="portfolio-card-modern glass-card" style="aspect-ratio: 21/9;">
+                    <img src="{% static "img/tuasistenteinteligente.png" %}" class="portfolio-img-zoom" alt="Tu Asistente Inteligente">
+                    <div class="portfolio-overlay-modern">
+                        <h2 class="fw-bold">Tu Asistente Inteligente</h2>
+                        <p class="text-light mb-4">Advanced AI Agent Infrastructure & NLP Integration</p>
+                        <a href="https://tuasistenteinteligente.com/" target="_blank" class="btn btn-premium">Launch AI Platform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--fin de portafolio grid-->
+
+
+
+<!-- Modern About Us (Story) -->
+<section id="about_premium" class="page-section py-5 reveal-up" style="background: var(--dark-bg); color: var(--text-main);">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <h2 class="section-title-modern text-start">{% trans 'Nuestra Historia' %}</h2>
+                <div class="ps-4 border-start border-primary border-4">
+                    <p class="fs-5 text-dim mb-4">
+                        {% trans "Desde Oiartzun, en el corazón del País Vasco, en Euskodev ayudamos a negocios de Oiartzun, Errenteria, Lezo y Pasajes a digitalizarse con soluciones que realmente funcionan." %}
+                    </p>
+                    <p class="fs-5 text-dim mb-4">
+                        {% trans "No somos solo una agencia de marketing; somos ingenieros y creadores que entienden el código y la estrategia por igual." %}
+                    </p>
+                    <div class="d-flex gap-5 mt-5">
+                        <div>
+                            <h2 class="fw-bold text-white mb-0">50+</h2>
+                            <p class="text-primary fw-bold text-uppercase small">Projects</p>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold text-white mb-0">100%</h2>
+                            <p class="text-primary fw-bold text-uppercase small">Success</p>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold text-white mb-0">5★</h2>
+                            <p class="text-primary fw-bold text-uppercase small">Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="position-relative d-inline-block">
+                    <img src="{% static 'assets/img/about/nueva.jpg' %}" class="about-image-premium" alt="Euskodev Story Image">
+                    <!-- Tech overlay decoration -->
+                    <div class="position-absolute glass-panel p-3" style="bottom: -20px; right: -20px; width: 150px;">
+                        <p class="mb-0 small fw-bold text-white">EST. 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--fin de  Abaut-->
+
+
+
+<!-- Testimonials (Opinions) -->
+<section id="opinions_premium" class="page-section py-5 reveal-up">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-modern">{% trans 'Lo que dicen de nosotros' %}</h2>
+            <p class="text-dim fs-5">{% trans 'La confianza de nuestros clientes es nuestro mayor activo.' %}</p>
+        </div>
+        <div class="row g-4">
+            <!-- Opinion 1 -->
+            <div class="col-lg-4">
+                <div class="opinion-card-premium h-100">
+                    <p class="fs-5 text-white mb-4" style="font-style: italic;">"En Euskodev me diseñaron una web perfecta para mi negocio. Me escucharon con atención y entendieron mis necesidades a la perfección."</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{% static 'assets/img/opiniones/primera.jpeg' %}" class="rounded-circle" width="60" height="60" style="object-fit: cover;" alt="Mertxe">
+                        <div>
+                            <h5 class="text-white fw-bold mb-0">Mertxe</h5>
+                            <p class="text-primary small mb-0">Cliente Satisfecho</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Opinion 2 -->
+            <div class="col-lg-4">
+                <div class="opinion-card-premium h-100">
+                    <p class="fs-5 text-white mb-4" style="font-style: italic;">"Buscaba una web para mi negocio y no sabía por dónde empezar. En Euskodev me lo pusieron facilísimo. ¡Son profesionales y majísimos!"</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{% static 'assets/img/opiniones/segundaa.jpeg' %}" class="rounded-circle" width="60" height="60" style="object-fit: cover;" alt="Jose Luis">
+                        <div>
+                            <h5 class="text-white fw-bold mb-0">Jose Luis</h5>
+                            <p class="text-primary small mb-0">Emprendedor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Opinion 3 -->
+            <div class="col-lg-4">
+                <div class="opinion-card-premium h-100">
+                    <p class="fs-5 text-white mb-4" style="font-style: italic;">"En Euskodev supieron lo que buscaba para mi negocio online. Me hicieron una web preciosa y que funciona de maravilla."</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="{% static 'assets/img/opiniones/tercera.jpeg' %}" class="rounded-circle" width="60" height="60" style="object-fit: cover;" alt="Luis Diego">
+                        <div>
+                            <h5 class="text-white fw-bold mb-0">Luis Diego</h5>
+                            <p class="text-primary small mb-0">Dueño de Negocio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modern Team Section -->
+<section class="page-section py-5 reveal-up" id="team">
+    <div class="container py-5">
+        <div class="glass-panel p-5 rounded-5 border-0 position-relative overflow-hidden">
+            <!-- Decorative light blob -->
+            <div class="position-absolute" style="width: 300px; height: 300px; background: radial-gradient(circle, var(--primary-glow), transparent); top: -150px; right: -150px; opacity: 0.3; filter: blur(60px); z-index: 0;"></div>
+            
+            <div class="row align-items-center g-5 position-relative" style="z-index: 1;">
+                <div class="col-lg-6">
+                    <div class="position-relative hover-lift">
+                        <video class="img-fluid rounded-4 shadow-lg w-100" autoplay loop muted playsinline style="border: 1px solid var(--glass-border); transform: rotate(-1deg);">
+                            <source src="{% static 'videos/quienes_somo_euskodev.mp4' %}" type="video/mp4">
+                        </video>
+                        <div class="position-absolute glass-panel p-3 d-none d-md-block" style="bottom: -20px; right: -20px; border-radius: 12px;">
+                            <p class="text-primary mb-0 small fw-bold">100% Oiartzun</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-lg-start text-center">
+                    <h2 class="section-title-modern text-start">{% trans 'Sobre Nosotros' %}</h2>
+                    <h3 class="text-primary fw-bold mb-4">{% trans 'Developers Full Stack & Visionarios Digitales' %}</h3>
+                    <p class="text-dim fs-5 mb-4" style="line-height: 1.8;">
+                        {% trans 'Euskodev es una empresa de desarrollo de software ubicada en Oiartzun, dedicada a la creación de soluciones digitales personalizadas para empresas y negocios. Nos especializamos en desarrollo web, automatización de procesos y digitalización empresarial.' %}
+                    </p>
+                    <p class="text-dim fs-5 mb-5" style="line-height: 1.8;">
+                        {% trans 'Nuestro equipo está comprometido en ofrecer tecnología innovadora y eficiente, ayudando a empresas a modernizar sus operaciones y alcanzar nuevos niveles de productividad.' %}
+                    </p>
+                    <a href="#contact" class="btn btn-premium btn-lg px-5">{% trans 'Hablemos de tu proyecto' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--acá termina el área de team-->
+
+
+
+<!-- Modern Tools Section -->
+<section class="page-section py-5 reveal-up" id="tools" style="background: var(--dark-bg);">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title-modern">{% trans 'Stack Tecnológico' %}</h2>
+            <p class="text-dim fs-5">{% trans 'Utilizamos las herramientas más potentes y modernas para garantizar resultados excepcionales.' %}</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            {% with tech_stack="python,django,sqlite,postgresql,github,bootstrap,html5,css3,linux,javascript,react,docker" %}
+                {% for tech in tech_stack.split %}
+                <div class="col-6 col-md-3 col-lg-2">
+                    <div class="glass-card p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center hover-up">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/{{ tech }}/{{ tech }}-original.svg" alt="{{ tech }}" width="50" class="mb-3">
+                        <h6 class="text-white fw-bold text-capitalize mb-0">{{ tech }}</h6>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endwith %}
+            <!-- AI & Cloud Specialty -->
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="glass-card p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center hover-up" style="border-color: var(--primary);">
+                    <i class="fas fa-brain text-primary mb-3" style="font-size: 50px;"></i>
+                    <h6 class="text-white fw-bold mb-0">AI / LLM</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <div class="glass-card p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center hover-up">
+                    <i class="fas fa-cloud text-secondary mb-3" style="font-size: 50px;"></i>
+                    <h6 class="text-white fw-bold mb-0">Cloud / AWS</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modern Contact Section -->
+<section class="page-section py-5 reveal-up" id="contact" style="background: linear-gradient(180deg, #0f172a 0%, var(--dark-bg) 100%);">
+    <div class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <h2 class="section-title-modern text-start">{% trans 'Hablemos' %}</h2>
+                <h3 class="text-white fw-bold mb-4">{% trans '¿Tienes un proyecto en mente?' %}</h3>
+                <p class="text-dim fs-5 mb-5">{% trans 'Estamos listos para transformar tus ideas en realidades digitales. Contáctanos y descubre cómo podemos ayudarte a crecer.' %}</p>
+                
+                <div class="glass-card p-4 mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-primary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            <i class="fab fa-whatsapp text-white fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="text-dim small mb-0">WhatsApp</p>
+                            <h5 class="text-white fw-bold mb-0">+34 747 47 88 42</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-primary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                            <i class="fas fa-envelope text-white fs-3"></i>
+                        </div>
+                        <div>
+                            <p class="text-dim small mb-0">Email</p>
+                            <h5 class="text-white fw-bold mb-0">info@euskodev.eus</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-7">
+                <div class="glass-panel p-5 rounded-5 border-0 shadow-2xl">
+                    <form id="contactForm" method="post" action="{% url 'home_app:formulario_contactar' %}">
+                        {% csrf_token %}
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="text-white small fw-bold mb-2">{% trans 'NOMBRE' %}</label>
+                                <input class="form-control glass-input" id="name" name="name" type="text" placeholder="Tu nombre" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-white small fw-bold mb-2">{% trans 'EMAIL' %}</label>
+                                <input class="form-control glass-input" id="email" name="email" type="email" placeholder="tu@email.com" required />
+                            </div>
+                            <div class="col-12">
+                                <label class="text-white small fw-bold mb-2">{% trans 'TELÉFONO' %}</label>
+                                <input class="form-control glass-input" id="phone" name="phone" type="tel" placeholder="Tu número de contacto" required />
+                            </div>
+                            <div class="col-12">
+                                <label class="text-white small fw-bold mb-2">{% trans 'MENSAJE' %}</label>
+                                <textarea class="form-control glass-input" id="message" name="message" placeholder="¿Cómo podemos ayudarte?" required style="min-height: 150px;"></textarea>
+                            </div>
+                            <div class="col-12 text-center mt-5">
+                                <div class="mb-4 d-inline-block">
+                                    <div class="g-recaptcha" data-sitekey="6LfjFPEqAAAAAL23CYZsif_KdPGU2189i0UMjIgk"></div>
+                                </div>
+                                <button type="submit" class="btn btn-premium btn-lg w-100 py-3">{% trans 'ENVIAR MENSAJE' %}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección del Mapa SIN márgenes abajo -->
+<section class="bg-dark mb-0 pb-5">
+<div class="container-fluid px-0">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h3 class="map-title text-white py-3">Oiartzun, País Vasco</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div id="map-oiartzun" class="map-container" style="width: 100vw; height: 500px; margin-bottom: 0;"></div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+
+
+<!-- Modal Mantenimiento -->
+<!-- Modal Mantenimiento - Euskodev -->
+<div class="modal fade" id="modalMantenimiento" tabindex="-1" aria-labelledby="modalMantenimientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0" style="border-radius: 12px;">
+      
+      <!-- Header -->
+      <div class="modal-header" style="background-color:#1D3557; border-radius: 12px 12px 0 0;">
+        <h5 class="modal-title fw-semibold text-white" id="modalMantenimientoLabel">
+          <i class="bi bi-shield-lock-fill me-2"></i> Mantenimiento en proceso
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body text-center" style="background-color:#F1FAEE;">
+        <i class="bi bi-gear-wide-connected display-5 mb-3" style="color:#457B9D;"></i>
+        
+        <p class="text-dark mb-3">
+          Este apartado de <strong>Euskodev</strong> se encuentra actualmente en 
+          <strong style="color:#E63946;">mantenimiento</strong> para mejorar la 
+          <strong>seguridad y protección de tus datos</strong>.
+        </p>
+
+        <p class="mb-2">Puedes contactarnos directamente mediante:</p>
+
+        <div class="p-3 rounded" style="background-color:#A8DADC;">
+          <p class="mb-1"><i class="bi bi-envelope"></i> <strong>info@euskodev.eus</strong></p>
+          <p class="mb-0"><i class="bi bi-envelope-fill"></i> <strong>euskodev@gmail.com</strong></p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer justify-content-center" style="background-color:#F1FAEE;">
+        <button type="button" class="btn px-4" style="background-color:#457B9D; color:white;" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<style>
+.modal-content {
+    animation: fadeScale 0.3s ease-in-out;
+    border: 1px solid #A8DADC;
+}
+@keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    function createMap(id, lat, lng) {
+        var map = L.map(id).setView([lat, lng], 12); // Zoom ajustado
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Agregar marcador con imagen dentro del popup
+        L.marker([lat, lng]).addTo(map)
+            .bindPopup(`
+                <div style="text-align: center;">
+                    <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" 
+                         alt="Logo Oiartzun" 
+                         style="max-width: 80px; display: block; margin: 0 auto; margin-top:25px;">
+                    <b style"margin-top:10px;">Oiartzun, País Vasco</b>
+                </div>
+            `).openPopup();
+    }
+
+    createMap('map-oiartzun', 43.29906393296637, -1.8600191715360295); // Coordenadas de Oiartzun
+});
+</script>
+
+{% endblock %}

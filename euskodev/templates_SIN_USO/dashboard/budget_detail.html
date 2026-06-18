@@ -1,0 +1,398 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="utf-8">
+    <title>Aurrekontua #{{ budget.numero_presupuesto }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #F1FAEE;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .factura {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #1D3557;
+            padding-bottom: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+        }
+
+        .contacto {
+            font-size: 13px;
+            color: #1D3557;
+            line-height: 1.5;
+            text-align: left;
+            padding-left: 80px;
+        }
+
+        .titulo {
+            text-align: right;
+        }
+
+        .titulo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1D3557;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .numero {
+            background: #1D3557;
+            color: white;
+            padding: 6px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .datos-presupuesto {
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+            background: #F8FCFF;
+            padding: 10px 50px;
+            border-radius: 4px;
+            border: 1px solid #E3EDF7;
+        }
+
+        .datos-presupuesto .label {
+            font-weight: bold;
+            width: 85px;
+            display: inline-block;
+            color: #1D3557;
+        }
+
+        .datos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .seccion {
+            background: #F8FCFF;
+            border: 1px solid #E3EDF7;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .seccion h6 {
+            background: #457B9D;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .tabla th {
+            background: #457B9D !important;
+            color: white;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .tabla td {
+            font-size: 11px;
+            padding: 6px;
+            vertical-align: middle;
+        }
+
+        .totales {
+            text-align: right;
+            margin: 25px 0;
+            font-size: 12px;
+        }
+
+        .total-final {
+            font-size: 15px;
+            font-weight: bold;
+            color: #1D3557;
+            border-top: 2px solid #457B9D;
+            padding-top: 10px;
+        }
+
+        .condiciones {
+            background: #E9F4FB;
+            padding: 15px 20px;
+            border-radius: 6px;
+            border-left: 4px solid #457B9D;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+
+        .firma {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .linea-firma {
+            width: 300px;
+            margin: 0 auto;
+            border-bottom: 1px solid #457B9D;
+            padding-top: 20px;
+        }
+
+        @media print {
+            @page { margin: 0.4cm; }
+            body { margin: 0; padding: 0; }
+            .factura { box-shadow: none; border: none; padding: 10px; }
+            .btn { display: none !important; }
+        }
+    </style>
+
+    <style>
+.btn-action {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-action:hover::before {
+    left: 100%;
+}
+
+.btn-back {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+}
+
+.btn-back:hover {
+    background: linear-gradient(135deg, #5a6268, #3d4348);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #E9C46A, #F4A261);
+    color: #1D3557;
+}
+
+.btn-edit:hover {
+    background: linear-gradient(135deg, #d4b15f, #e6955e);
+    color: #1D3557;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 196, 106, 0.4);
+}
+
+.btn-print {
+    background: linear-gradient(135deg, #457B9D, #1D3557);
+    color: white;
+}
+
+.btn-print:hover {
+    background: linear-gradient(135deg, #3a6a8a, #172a45);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 53, 87, 0.4);
+}
+
+@media (max-width: 768px) {
+    .btn-action {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .btn-action i {
+        margin-right: 6px;
+    }
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+    </style>
+
+    
+</head>
+
+<body>
+<div class="factura">
+
+    <!-- ENCABEZADO -->
+    <div class="header">
+        <div class="logo-container">
+            <img src="{% static 'img/logo-euskodev-azul-transparente-negro.png' %}" alt="Logo" class="logo">
+            <div class="contacto">
+                Tel: {{ company.telefono }}<br>
+                Email: {{ company.email }}<br>
+                Web: {{ company.web }}
+            </div>
+        </div>
+
+        <div class="titulo">
+            <h1>AURREKONTUA</h1>
+            <div class="numero"><b>N° {{ budget.numero_presupuesto }}</b></div>
+
+            <div class="datos-presupuesto">
+                <div><span class="label">Data:</span> {{ budget.fecha_creacion|date:"d/m/Y" }}</div>
+                <div><span class="label">Iraungitze-data:</span> {{ budget.fecha_vencimiento|date:"d/m/Y" }}</div>
+                {% if budget.agente %}
+                <div><span class="label">Agentea:</span> {{ budget.agente.get_full_name|default:budget.agente.username }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔹 DATOS CLIENTE Y DATOS PROFESIONAL -->
+    <div class="datos">
+        <div class="seccion">
+            <h6><b>Bezeroaren Informazioa</b></h6>
+            <p><strong>Izena:</strong> {{ budget.cliente.nombre }}<br>
+            <strong>Enpresa:</strong> {{ budget.cliente.empresa }}<br>
+            <strong>IFK:</strong> {{ budget.cliente.nif|default:"-" }}<br>
+            <strong>Emaila:</strong> {{ budget.cliente.email|default:"-" }}<br>
+            <strong>Telefonoa:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
+            <strong>Helbidea:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
+        </div>
+
+        <div class="seccion">
+            <h6><b>Profesionalaren Datuak</b></h6>
+            <p>
+            <strong>Izena:</strong> {{ company.nombre }}<br>
+            <strong>Izen komertziala:</strong> {{ company.nombre_comercial }}<br>
+            <strong>IFK/NAN:</strong> {{ company.nif|default:"-" }}<br>
+            <strong>Helbide Fiskala:</strong> {{ company.direccion_fiscal|default:"-" }}<br>
+            </p>
+
+            {% if company.mostrar_datos_pago_en_presupuesto %}
+                <hr style="margin:8px 0;">
+                <h6><b>Ordainketa Datuak</b></h6>
+                <p>
+                    <strong>Ordainketa mota:</strong> {{ company.get_forma_pago_display }}<br>
+                    {% if company.forma_pago == "TRANSFERENCIA" %}
+                        <strong>Banku-kontua:</strong> {{ company.cuenta_bancaria }}<br>
+                        <strong>Bankua:</strong> {{ company.get_banco_display }}<br>
+                    {% endif %}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 🔹 TABLA DE ÍTEMS -->
+    <table class="table table-bordered tabla">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Deskribapena</th>
+                <th>Prezioa</th>
+                <th>Kant</th>
+                <th>Desk (%)</th>
+                <th>Guztira</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td class="text-center">{{ forloop.counter }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td class="text-center">{{ item.precio_unitario }} €</td>
+                <td class="text-center">{{ item.cantidad }}</td>
+                <td class="text-center">{{ item.descuento }}%</td>
+                <td class="text-center">{{ item.subtotal }} €</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- 🔹 TOTALES CORREGIDOS -->
+    <div class="totales">
+        <p><strong>Azpitotala:</strong> {{ budget.calcular_subtotal|floatformat:2 }} €</p>
+        <p><strong>Zergak ({{ budget.impuesto_porcentaje }}%):</strong> {{ budget.calcular_impuestos|floatformat:2 }} €</p>
+        <p class="total-final">GUZTIRA: {{ budget.calcular_total_con_impuestos|floatformat:2 }} €</p>
+    </div>
+
+    <!-- 🔹 CONDICIONES -->
+    <div class="condiciones">
+        <strong>Ordainketa Baldintzak</strong><br>
+        Aurrekontu hau baliozkoa da igorri eta 30 egunera arte.<br>
+        Proiektua hasteko, guztizkoaren <strong>%50a</strong> edo <strong>%100a</strong> ordaindu beharko da adostasunaren arabera.<br>
+        Ordainketa banku-transferentzia bidez egingo da adierazitako datuetara.<br><br>
+
+        <strong>Orduen kudeaketa:</strong><br>
+        Aurrekontuan geratzen diren orduak mantentzerako edo hobekuntzetarako erabili ahal izango dira.<br>
+        Ordu gehiago behar izanez gero, abisua egingo da eta adostuko da.<br><br>
+
+        <strong>Estrak eta esparrua:</strong><br>
+        Dokumentu honetan jasota ez dauden funtzionalitate, plugin edo zerbitzu gehigarriak aparte baloratuko eta aurrekontatuko dira.
+    </div>
+
+    <!-- 🔹 FIRMA -->
+    <div class="firma">
+        <div class="linea-firma"></div>
+        <div style="font-size: 11px;">Bezeroaren sinadura</div>
+    </div>
+</div>
+
+<!-- 🔹 BOTONES MEJORADOS -->
+<div class="d-flex justify-content-end gap-3 mt-4 no-print">
+    <a href="{% url 'dashboard_app:budget_list' %}" class="btn btn-action btn-back">
+        <i class="bi bi-arrow-left me-2"></i>Itzuli
+    </a>
+    <a href="{% url 'dashboard_app:update_budget' budget.id %}" class="btn btn-action btn-edit">
+        <i class="bi bi-pencil-square me-2"></i>Eguneratu
+    </a>
+    <button onclick="window.print()" class="btn btn-action btn-print">
+        <i class="bi bi-printer me-2"></i>Inprimatu
+    </button>
+</div>
+
+</body>
+</html>

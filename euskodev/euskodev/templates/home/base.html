@@ -1,0 +1,737 @@
+{% load static %}
+
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block meta %}
+    <meta name="description" content="Euskodev ofrece desarrollo web, apps y software a medida en Oiartzun, Errenteria, Lezo y Pasajes. Soluciones para empresas locales.">
+    <link rel="canonical" href="https://www.euskodev.eus{{ request.path }}" />
+    <meta name="author" content="Euskodev - Desarrollo Web y Apps en Oiartzun">
+    <meta property="og:title" content="Euskodev - Desarrollo Web en Oiartzun | Diseño y Apps para Empresas">
+    <meta property="og:description" content="Tu negocio en Oiartzun necesita presencia digital. Creamos páginas web, apps y branding corporativo a medida.">
+    <meta property="og:image" content="https://www.euskodev.eus/static/img/portada.jpg">
+    <meta property="og:url" content="https://www.euskodev.eus{{ request.path }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Euskodev - Desarrollo Web en Oiartzun | Diseño y Apps">
+    <meta name="twitter:description" content="Expertos en diseño web y apps en Oiartzun. Digitaliza tu empresa y llega a más clientes.">
+    <meta name="twitter:image" content="https://www.euskodev.eus/static/img/portada.jpg">
+    {% endblock %}
+
+    <!--esto es para agregar en otros buscadores como este es un codigo que da web master tools -->
+    <meta name="msvalidate.01" content="AC3BD5E70BC8953F24C913F2109BBD34" />
+
+    {% block title %}
+    <title>Euskodev | Desarrollo Web y Apps en Oiartzun, Errenteria, Pasajes y Lezo</title>
+    {% endblock %}
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon_3d.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'img/favicon_3d.ico' %}" type="image/x-icon">
+    <link rel="icon" type="image/png" href="{% static 'img/favicon_3d.png' %}">
+    
+    <!-- Google Fonts -->
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+    <!-- Estilos personalizados -->
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/boton_asistente.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">   
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- Google Search Console -->
+
+    <meta name="google-site-verification" content="Z5huUGyc1deP2ce9DgHlqWheIAB-kZt5-Ae9WK1rfeU" />
+    <!-- Leaflet CSS (Para mapas) -->
+     
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-JLE08PZQL8');
+    </script>
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1565972943494658">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Euskodev",
+        "image": "https://www.euskodev.eus/static/img/logo-euskodev-azul-blanco.png",
+        "url": "https://www.euskodev.eus",
+        "telephone": "+34 747 47 88 42",
+        "email": "euskodev@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Oiartzun",
+            "addressRegion": "Gipuzkoa",
+            "addressCountry": "ES"
+        },
+        "description": "Desarrollo web, apps y software a medida en Oiartzun, Gipuzkoa.",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+            "https://www.linkedin.com/company/euskodev"
+        ]
+    }
+    </script>
+
+
+<!-- Estilos personalizados -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+  
+    @media (max-width: 991.98px) {
+      .mobile-nav-scroll {
+        background: rgba(15, 15, 15, 0.9);
+        backdrop-filter: blur(6px);
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        font-family: 'Inter', sans-serif;
+      }
+
+      .main-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .main-menu .nav-link {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0.65rem 1rem;
+        color: #f1f1f1;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .main-menu .nav-link:hover {
+        border-color: #1ea0c0;
+        color: #1ea0c0;
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .main-menu .dropdown-menu {
+        background-color: #1a1a1a;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.05);
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .main-menu .dropdown-item {
+        font-size: 15px;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        color: #ddd;
+        transition: background 0.2s ease;
+      }
+  
+      .main-menu .dropdown-item:hover,
+      .main-menu .dropdown-item:focus,
+      .main-menu .dropdown-item.active,
+      .main-menu .dropdown-item:active {
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
+      }
+  
+      .main-menu .lang-switcher {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+  
+      .main-menu .lang-switcher button {
+        font-size: 14px;
+        color: #fff;
+        background: transparent;
+        border: 1px solid #444;
+        border-radius: 4px;
+        padding: 0.3rem 0.6rem;
+        text-transform: uppercase;
+        transition: 0.2s ease;
+      }
+  
+      .main-menu .lang-switcher button:hover {
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
+        border-color: #2a2f3a !important;
+      }
+  
+      .main-menu .lang-switcher .active {
+        font-weight: 600;
+        color: #f8fafc;
+        border-color: #f8fafc;
+      }
+    }
+  
+    @media (min-width: 992px) {
+      .main-menu {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 20px!important;
+      }
+  
+      .main-menu .nav-link {
+        padding: 0.5rem 0.8rem;
+        transition: all 0.2s ease;
+        border-radius: 6px;
+        color: #ddd;
+      }
+  
+      .main-menu .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: #1ea0c0 !important;
+      }
+  
+      .main-menu .dropdown-menu {
+        background-color: #1a1a1a;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-top: 0.5rem;
+        --bs-dropdown-link-hover-bg: #2a2f3a;
+        --bs-dropdown-link-active-bg: #2a2f3a;
+        --bs-dropdown-link-hover-color: #f8fafc;
+        --bs-dropdown-link-active-color: #f8fafc;
+      }
+  
+      .main-menu .dropdown-item {
+        color: #f1f1f1;
+        font-size: 15px;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+      }
+  
+      .main-menu .dropdown-item:hover,
+      .main-menu .dropdown-item:focus,
+      .main-menu .dropdown-item.active,
+      .main-menu .dropdown-item:active {
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
+      }
+  
+      .main-menu .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+  
+      .main-menu .lang-switcher button {
+        background: transparent;
+        border: 1px solid #666;
+        color: #eee;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        font-size: 17px;
+        text-transform: uppercase;
+      }
+  
+      .main-menu .lang-switcher .active {
+        border-color: #f8fafc;
+        color: #f8fafc;
+      }
+  
+      .main-menu .lang-switcher button:hover {
+        background-color: #2a2f3a !important;
+        color: #f8fafc !important;
+      }
+    }
+  </style>
+  
+   
+{% block head %}{% endblock %}
+
+<!-- Estilos para scroll en móviles y fuente en escritorio -->
+<!-- Fuente elegante y moderna desde Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+</head>
+
+<body id="page-top">
+
+
+{% comment %}Botón flotante IA desactivado{% endcomment %}
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="{% url 'home_app:home' %}" aria-label="Ir a la página de inicio">
+        <img loading="lazy" src="{% static 'img/logo-euskodev-azul-blanco.png' %}" alt="Euskodev" style="height: 50px;">
+      </a>
+  
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-2 main-menu">
+          <!-- Servicios Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3 py-2 rounded" href="#" id="serviciosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #f8fafc;">
+              {% trans 'Servicios' %}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark shadow-lg rounded-3 border-0" style="background: #141419; min-width: 220px;" aria-labelledby="serviciosDropdown">
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:desarrollo_web' %}"><i class="bi bi-code-slash me-2"></i>{% trans 'Desarrollo Web' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:reservas_pagos' %}"><i class="bi bi-calendar-check me-2"></i>{% trans 'Reservas y Pagos' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:software_a_medida' %}"><i class="bi bi-laptop me-2"></i>{% trans 'Software a Medida' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:inteligencia_artificial' %}"><i class="bi bi-cpu me-2"></i>{% trans 'Inteligencia Artificial' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:aplicaciones_moviles' %}"><i class="bi bi-phone me-2"></i>{% trans 'Apps Móviles' %}</a></li>
+              <li><a class="dropdown-item py-2 rounded" href="{% url 'home_app:sistema_ticket' %}"><i class="bi bi-ticket-detailed me-2"></i>{% trans 'Sistema de Ticket' %}</a></li>
+            </ul>
+          </li>
+  
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:home' %}#portfolio">{% trans 'Portfolio' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:home' %}#about">{% trans 'Nosotros' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:blog' %}" style="color: #00e5c4;">{% trans 'Blog' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:trabaja_con_nosotros' %}">{% trans 'Únete' %}</a></li>
+          <li class="nav-item"><a class="nav-link px-3 py-2 rounded" href="{% url 'home_app:home' %}#contact">{% trans 'Contacto' %}</a></li>
+  
+          <!-- Botón Análisis IA -->
+          <li class="nav-item">
+            <a class="nav-link px-3 py-2 rounded" href="{% url 'digital_audit_app:form' %}" style="background: linear-gradient(135deg, #00e5c4, #7c3aed); color: #050508; font-weight: 600;">
+              <i class="bi bi-stars me-1"></i>{% trans 'IA' %}
+            </a>
+          </li>
+  
+          <!-- Idiomas -->
+          <li class="nav-item dropdown ms-lg-2">
+            <a class="nav-link dropdown-toggle px-2 py-2 rounded" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #94a3b8;">
+              {% get_current_language as CURRENT_LANGUAGE %}{{ CURRENT_LANGUAGE|upper }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark border-0 rounded-2" style="min-width: 100px; background: #141419;">
+              {% get_available_languages as AVAILABLE_LANGUAGES %}
+              {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+              {% for language in languages %}
+                <li>
+                  <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="language" value="{{ language.code }}">
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button type="submit" class="dropdown-item py-2 rounded w-100 text-start {% if language.code == CURRENT_LANGUAGE %}active{% endif %}">
+                      {{ language.code|upper }}
+                    </button>
+                  </form>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container mt-3">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+{% block content %}
+
+
+
+
+
+{% endblock %}
+
+
+
+<!-- Footer Premium -->
+<footer style="background: #0a0a0f; color: #f8fafc; padding: 80px 0 30px; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
+        <div class="row g-5 mb-5">
+            <!-- Logo y descripción -->
+            <div class="col-lg-4">
+                <img loading="lazy" src="{% static 'img/logo-euskodev-azul-blanco.png' %}" alt="Euskodev" style="height: 50px; margin-bottom: 20px;">
+                <p class="text-muted mb-4" style="line-height: 1.8;">
+                    {% trans 'Desarrollo web, apps y software a medida en Oiartzun. Transformamos tu visión en tecnología.' %}
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="https://www.linkedin.com/company/euskodev/" target="_blank" class="d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; color: #f8fafc; transition: all 0.3s;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/euskodev/" target="_blank" class="d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; color: #f8fafc; transition: all 0.3s;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/euskodev/" target="_blank" class="d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; background: rgba(255,255,255,0.05); border-radius: 10px; color: #f8fafc; transition: all 0.3s;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Enlaces rápidos -->
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4" style="font-weight: 600;">{% trans 'Servicios' %}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="{% url 'home_app:desarrollo_web' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Desarrollo Web' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:aplicaciones_moviles' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Apps Móviles' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:software_a_medida' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Software a Medida' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:inteligencia_artificial' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Inteligencia Artificial' %}</a></li>
+                </ul>
+            </div>
+            
+            <!-- Empresa -->
+            <div class="col-lg-2 col-md-4">
+                <h5 class="mb-4" style="font-weight: 600;">{% trans 'Empresa' %}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="{% url 'home_app:home' %}#about" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Sobre Nosotros' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:home' %}#portfolio" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Portfolio' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:blog' %}" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Blog' %}</a></li>
+                    <li class="mb-2"><a href="{% url 'home_app:home' %}#contact" class="text-muted text-decoration-none" style="transition: color 0.3s;">{% trans 'Contacto' %}</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contacto -->
+            <div class="col-lg-4 col-md-4">
+                <h5 class="mb-4" style="font-weight: 600;">{% trans 'Contacto' %}</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-3 d-flex align-items-center gap-2">
+                        <i class="fas fa-map-marker-alt" style="color: #00e5c4;"></i>
+                        <span class="text-muted">Oiartzun, Gipuzkoa</span>
+                    </li>
+                    <li class="mb-3 d-flex align-items-center gap-2">
+                        <i class="fas fa-phone" style="color: #00e5c4;"></i>
+                        <a href="tel:+34747478842" class="text-muted text-decoration-none">+34 747 47 88 42</a>
+                    </li>
+                    <li class="mb-3 d-flex align-items-center gap-2">
+                        <i class="fas fa-envelope" style="color: #00e5c4;"></i>
+                        <a href="mailto:euskodev@gmail.com" class="text-muted text-decoration-none">euskodev@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bottom bar -->
+        <div class="row pt-4" style="border-top: 1px solid rgba(255,255,255,0.05);">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <p class="mb-0 text-muted" style="font-size: 0.9rem;">&copy; 2025 <span style="color: #00e5c4;">Euskodev</span>. {% trans 'Todos los derechos reservados.' %}</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="{% url 'home_app:politicas_de_privacidad' %}" class="text-muted text-decoration-none me-3" style="font-size: 0.9rem;">{% trans 'Privacidad' %}</a>
+                <a href="{% url 'home_app:aviso_legal' %}" class="text-muted text-decoration-none me-3" style="font-size: 0.9rem;">{% trans 'Aviso Legal' %}</a>
+                <a href="{% url 'home_app:politicas_de_cookies' %}" class="text-muted text-decoration-none" style="font-size: 0.9rem;">{% trans 'Cookies' %}</a>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    
+    <!--fin del  footer-->
+    
+
+{% comment %}Botón flotante IA desactivado{% endcomment %}
+
+
+
+<!-- Portfolio Modals-->
+<!-- Portfolio item 1 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolio-testosakidetza" tabindex="-1" role="dialog" 
+ aria-labelledby="portfolioTitle-testosakidetza" aria-describedby="portfolioDesc-testosakidetza" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="close-modal" data-bs-dismiss="modal">
+            <img loading="lazy" src="{% static 'assets/img/close-icon.svg' %}" alt="Cerrar ventana modal de Testosakidetza" />
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details-->
+                        <h2 class="text-uppercase" id="portfolioTitle-testosakidetza">TESTOSAKIDETZA</h2>
+                        <p class="item-intro text-muted">{% trans 'Facilitamos Vuestro Aprendizaje' %}</p>
+                        
+                        <img loading="lazy" class="img-fluid d-block mx-auto"
+                            src="{% static 'assets/img/portfolio/testosakidetza.png' %}"
+                            alt="Desarrollo web y base de datos con Django y Python para Testosakidetza - Preparación de oposiciones"
+                            loading="lazy" />
+                        
+                        <p id="portfolioDesc-testosakidetza">
+                            <strong>TESTOSAKIDETZA</strong> {% trans ' es tu portal ideal para prepararte con éxito. Esta web te ofrece una amplia variedad de test para diferentes puestos de trabajo en el ámbito de la salud, la educación, la administración y otros sectores.' %}
+                        </p>
+
+                        <ul class="list-inline">
+                            <li><strong>{% trans 'Personas:' %}</strong> 20.000+</li>
+                            <li><strong>{% trans 'Categoría:' %}</strong> Atenea Gastronómica</li>
+                        </ul>
+
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            {% trans 'Volver' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--fin del portafiolio numero 1-->
+
+
+<!-- Portfolio modal - Euskodev -->
+<div class="portfolio-modal modal fade" id="portfolio-euskodev" tabindex="-1" role="dialog" 
+ aria-labelledby="portfolioTitle-euskodev" aria-describedby="portfolioDesc-euskodev" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        
+        <!-- Imagen destacada -->
+        <div>
+            <img loading="lazy" src="{% static 'assets/img/portafolio/portafolio2.png' %}"
+                 alt="Euskodev - Desarrollo web, software a medida, mantenimiento de sitios y creación de aplicaciones" 
+                 loading="lazy" />
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details -->
+                        <h2 class="text-uppercase" id="portfolioTitle-euskodev">{% trans 'Euskodev' %}</h2>
+                        <p class="item-intro text-muted">{% trans 'Desarrollo de software a medida' %}</p>
+                        
+                        <img loading="lazy" class="img-fluid d-block mx-auto"
+                             src="{% static 'assets/img/portfolio/portafolio2.png' %}"
+                             alt="Plataformas de reservación para hoteles, restaurantes y negocios" 
+                             loading="lazy" />
+
+                        <p id="portfolioDesc-euskodev">
+                            <strong>Euskodev</strong> - {% trans 'Tu aliado en el desarrollo de software. <br> Euskodev es un equipo de desarrolladores expertos en el País Vasco, especializados en la creación de soluciones digitales personalizadas para empresas de todos los tamaños, desde startups hasta grandes corporaciones.' %}
+                        </p>
+
+                        <ul class="list-inline">
+                            <li>
+                                <strong>{% trans 'Categoría:' %}</strong>
+                                {% trans 'Desarrollo de software y soluciones digitales' %}
+                            </li>
+                        </ul>
+
+                        <!-- Botón para cerrar modal -->
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            {% trans 'Volver' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--fin del portafolio numero 2-->
+
+<!-- Portfolio modal - Gastrogune -->
+<div class="portfolio-modal modal fade" id="portfolio-gastrogune" tabindex="-1" role="dialog" 
+ aria-labelledby="portfolioTitle-gastrogune" aria-describedby="portfolioDesc-gastrogune" aria-hidden="true">
+
+ <div class="modal-dialog">
+    <div class="modal-content">
+        
+        <!-- Botón de cierre del modal -->
+        <div class="close-modal" data-bs-dismiss="modal">
+            <img loading="lazy" src="{% static 'assets/img/close-icon.svg' %}" alt="Cerrar ventana de Gastrogune" />
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="modal-body">
+                        <!-- Project details -->
+                        <h2 class="text-uppercase" id="portfolioTitle-gastrogune">{% trans 'Gastrogune' %}</h2>
+                        <p class="item-intro text-muted">{% trans 'GastroGune: La esencia de Euskadi en cada bocado.' %}</p>
+                        
+                        <img loading="lazy" class="img-fluid d-block mx-auto"
+                            src="{% static 'assets/img/portfolio/cocina.jpg' %}"
+                            alt="Gastrogune - Descubre la gastronomía vasca con recetas y restaurantes tradicionales" 
+                            loading="lazy" />
+
+                        <p id="portfolioDesc-gastrogune">
+                            <strong>GastroGune</strong> - {% trans 'Tu guía para descubrir la gastronomía vasca. Eusko.Gune no solo te acerca la cocina vasca a tu hogar con recetas tradicionales, sino que también te ayuda a encontrar los mejores restaurantes del País Vasco para disfrutar su auténtica esencia gastronómica.' %}
+                        </p>
+
+                        <ul class="list-inline">
+                            <li>
+                                <strong>{% trans 'Categoría:' %}</strong>
+                                {% trans 'Gastronomía Vasca y Restaurantes' %}
+                            </li>
+                        </ul>
+
+                        <!-- Botón para cerrar modal -->
+                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                type="button">
+                            <i class="fas fa-xmark me-1"></i>
+                            {% trans 'Cerrar Proyecto' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script principal de tu sitio -->
+<script src="{% static 'js/scripts.js' %}"></script>
+
+<!-- Font Awesome icons -->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+<!-- Script botones personalizados -->
+<script src="{% static 'js/botones_index.js' %}"></script>
+
+<!-- Leaflet JS para el mapa -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<!-- Google Analytics (Tag Manager) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
+
+<!-- GSAP y ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+<!-- Animate.css para animaciones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<!-- SweetAlert2 para alertas -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Premium GSAP Animations -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade reveal animation
+    gsap.utils.toArray('.reveal-up').forEach(elem => {
+        gsap.from(elem, { 
+            opacity: 0, 
+            y: 30, 
+            duration: 1, 
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 90%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // Staggered reveal for cards
+    gsap.utils.toArray('.row').forEach(row => {
+        const cards = row.querySelectorAll('.glass-card, .opinion-card-premium');
+        if (cards.length > 0) {
+            gsap.from(cards, {
+                opacity: 0,
+                y: 40,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "power1.out",
+                scrollTrigger: {
+                    trigger: row,
+                    start: "top 80%"
+                }
+            });
+        }
+    });
+});
+</script>
+
+<!-- Cambio de color aleatorio -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const div = document.getElementById('miDiv');
+    const colorAleatorio = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+    div.style.backgroundColor = colorAleatorio;
+});
+</script>
+
+<!-- Subtítulos rotativos -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const subtitles = [
+        "Diseño web, desarrollo de software y apps a medida.",
+        "Soluciones digitales personalizadas para tu empresa.",
+        "Convierte tu visión en tecnología funcional."
+    ];
+    
+    let index = 0;
+    const subtitleElement = document.getElementById("changing-subtitle");
+
+    function changeSubtitle() {
+        subtitleElement.style.opacity = 0;
+        setTimeout(() => {
+            index = (index + 1) % subtitles.length;
+            subtitleElement.textContent = subtitles[index];
+            subtitleElement.style.opacity = 1;
+        }, 1000);
+    }
+
+    setInterval(changeSubtitle, 2300);
+});
+</script>
+
+<!-- Google Tag Manager (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JLE08PZQL8"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- CDN de animate.css para la animación del dropdown -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll('.navbar-collapse .nav-link:not(.dropdown-toggle)');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      if (window.innerWidth < 992) {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        if (bsCollapse) {
+          bsCollapse.hide();
+        }
+      }
+    });
+  });
+});
+</script>
+
+  
+
+</body>
+
+
+</html>

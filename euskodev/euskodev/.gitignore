@@ -1,0 +1,81 @@
+.sqlite3
+settings.py# Django specific
+*.log
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+.env
+.pyc
+*.pyc
+# Ignore the settings file
+settings.py
+
+# migrations/
+
+staticfiles/
+media/sendgrid.env
+sendgrid.env
+db.sqlite3
+virtualassistant/settings.py
+# �� Archivos de Python
+*.pyc
+*.pyo
+__pycache__/
+
+# �� Archivos de entorno virtual
+env/
+venv/
+ENV/
+.venv/
+
+# 🚀 Configuración de IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+
+# 🚀 Configuración y logs del sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# 🚀 Archivos de dependencias
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# �� Base de datos SQLite (si usas SQLite)
+db.sqlite3
+*.sqlite3
+
+# 🚀 Archivos de migraciones de Django (opcional)
+# **/migrations/*.py
+# !**/migrations/__init__.py
+
+# 🚀 Archivos de credenciales (⚠️ IMPORTANTE ⚠️)
+.env
+*.env
+config/settings_local.py
+
+# 🚀 Archivos de caché y estáticos
+staticfiles/
+media/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# 🚀 Archivos de Docker y despliegue (si usas Docker)
+docker-compose.override.yml
+.dockerignore
+
+# 🚀 Archivos de compilación
+*.egg-info/
+*.so
+euskodev/settings.py
+euskodev/settings.py
+
+# Traducciones compiladas
+locale/**/django.mo
+# Settings locales
+ euskodev/settings[2-9].py
+
+locale/**/django.mo

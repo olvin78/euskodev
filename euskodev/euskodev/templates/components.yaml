@@ -1,0 +1,3 @@
+components:
+  - name: my_component
+    path: components/my_component.html
