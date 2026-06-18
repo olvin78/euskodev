@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crear Empresa</title>
+  <title>{% trans "Crear Empresa" %}</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="/static/img/favicon_3d.ico" type="image/x-icon">
     <link rel="icon" href="/static/img/favicon_3d.ico" type="image/x-icon">
@@ -38,7 +38,7 @@
 <body>
 
 <div class="form-container">
-  <h2 class="form-title">Registrar Empresa</h2>
+  <h2 class="form-title">{% trans "Registrar Empresa" %}</h2>
 
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -82,10 +82,10 @@
 
     <div class="d-flex justify-content-between mt-4">
       <button type="submit" class="btn btn-primary btn-lg w-50 me-3">
-        Guardar empresa
+        {% trans "Guardar empresa" %}
       </button>
       <a href="{% url 'companies_app:list_companies' %}" class="btn btn-secondary btn-lg w-50">
-        Cancelar
+        {% trans "Cancelar" %}
       </a>
     </div>
     

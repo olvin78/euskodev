@@ -606,39 +606,39 @@
 {% block content %}
 
 <section class="join-hero">
-  <img loading="lazy" src="{% static 'img/trabaja_con_nosotros_hero_v3.png' %}" alt="Imagen de portada representando el equipo de Euskodev en un ambiente de trabajo real" class="join-hero__image" loading="lazy">
+  <img loading="lazy" src="{% static 'img/trabaja_con_nosotros_hero_v3.png' %}" alt="{% trans 'Imagen de portada representando el equipo de Euskodev en un ambiente de trabajo real' %}" class="join-hero__image" loading="lazy">
   <div class="join-hero__overlay"></div>
   <div class="container join-hero__content">
     <div class="row align-items-center">
       <div class="col-lg-7">
-        <span class="join-hero__eyebrow">Euskodev Team</span>
-        <h1 class="join-hero__title">Tecnología y diseño que impulsan tu éxito</h1>
-        <p class="join-hero__subtitle" id="changing-subtitle">Diseño web, desarrollo de software y apps a medida.</p>
+        <span class="join-hero__eyebrow">{% trans 'Euskodev Team' %}</span>
+        <h1 class="join-hero__title">{% trans 'Tecnología y diseño que impulsan tu éxito' %}</h1>
+        <p class="join-hero__subtitle" id="changing-subtitle">{% trans 'Diseño web, desarrollo de software y apps a medida' %}.</p>
         <a class="join-hero__cta" href="{% url 'home_app:trabaja_con_nosotros_form' %}">
           <i class="bi bi-stars"></i>
-          Trabaja con Nosotros
+          {% trans 'Trabaja con Nosotros' %}
         </a>
         <div class="join-hero__meta">
           <div class="join-hero__meta-card">
-            <strong class="d-block">Impacto real</strong>
-            <span class="text-white-50">Productos que se usan</span>
+            <strong class="d-block">{% trans 'Impacto real' %}</strong>
+            <span class="text-white-50">{% trans 'Productos que se usan' %}</span>
           </div>
           <div class="join-hero__meta-card">
-            <strong class="d-block">Equipo pequeño</strong>
-            <span class="text-white-50">Decisiones rapidas</span>
+            <strong class="d-block">{% trans 'Equipo pequeño' %}</strong>
+            <span class="text-white-50">{% trans 'Decisiones rapidas' %}</span>
           </div>
           <div class="join-hero__meta-card">
-            <strong class="d-block">Cultura remota</strong>
-            <span class="text-white-50">Conexiones cercanas</span>
+            <strong class="d-block">{% trans 'Cultura remota' %}</strong>
+            <span class="text-white-50">{% trans 'Conexiones cercanas' %}</span>
           </div>
         </div>
       </div>
       <div class="col-lg-5 d-none d-lg-block">
         <div class="join-cta">
-          <h3 class="mb-3">¿Quieres formar parte de Euskodev?</h3>
-          <p class="text-white-50">Buscamos personas con pasion, criterio y ganas de construir cosas que importan.</p>
+          <h3 class="mb-3">{% trans '¿Quieres formar parte de Euskodev?' %}</h3>
+          <p class="text-white-50">{% trans 'Buscamos personas con pasion, criterio y ganas de construir cosas que importan.' %}</p>
           <a href="{% url 'home_app:trabaja_con_nosotros_form' %}" class="join-cta__btn">
-            Quiero unirme
+            {% trans 'Quiero unirme' %}
             <i class="bi bi-arrow-right"></i>
           </a>
         </div>
@@ -650,30 +650,30 @@
 <section class="join-section">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="join-section__title">¿Quieres formar parte de Euskodev?</h2>
-      <p class="join-section__subtitle mx-auto">En Euskodev no buscamos empleados, buscamos personas con pasion, criterio y ganas de construir cosas que realmente importen. Aqui vas a crecer, aprender y aportar en proyectos reales que mejoran vidas y negocios.</p>
+      <h2 class="join-section__title">{% trans "¿Quieres formar parte de Euskodev?" %}</h2>
+      <p class="join-section__subtitle mx-auto">{% trans "En Euskodev no buscamos empleados, buscamos personas con pasion, criterio y ganas de construir cosas que realmente importen. Aqui vas a crecer, aprender y aportar en proyectos reales que mejoran vidas y negocios." %}</p>
       <div class="join-section__line"></div>
     </div>
     <div class="row g-4">
       <div class="col-md-4">
         <div class="join-feature">
           <span class="join-feature__icon"><i class="bi bi-rocket-takeoff-fill"></i></span>
-          <h5 class="join-feature__title">Proyectos que inspiran</h5>
-          <p class="join-feature__text">Desarrollamos plataformas, webs y apps con impacto. Nada de codigo basura o proyectos sin proposito. Todo lo que hacemos se usa, se valora y se cuida.</p>
+          <h5 class="join-feature__title">{% trans "Proyectos que inspiran" %}</h5>
+          <p class="join-feature__text">{% trans "Desarrollamos plataformas, webs y apps con impacto. Nada de codigo basura o proyectos sin proposito. Todo lo que hacemos se usa, se valora y se cuida." %}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="join-feature">
           <span class="join-feature__icon"><i class="bi bi-house-heart-fill"></i></span>
-          <h5 class="join-feature__title">Trabajo con sentido</h5>
-          <p class="join-feature__text">Apostamos por un modelo flexible, humano y sin postureo. Aqui tienes voz, puedes proponer, aprender y evolucionar sin quemarte por el camino.</p>
+          <h5 class="join-feature__title">{% trans "Trabajo con sentido" %}</h5>
+          <p class="join-feature__text">{% trans "Apostamos por un modelo flexible, humano y sin postureo. Aqui tienes voz, puedes proponer, aprender y evolucionar sin quemarte por el camino." %}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="join-feature">
           <span class="join-feature__icon"><i class="bi bi-person-video3"></i></span>
-          <h5 class="join-feature__title">Cultura remota y cercana</h5>
-          <p class="join-feature__text">Trabajamos desde donde queramos, pero siempre conectados. Comunicacion clara, equipo unido, foco en el valor y en las personas.</p>
+          <h5 class="join-feature__title">{% trans "Cultura remota y cercana" %}</h5>
+          <p class="join-feature__text">{% trans "Trabajamos desde donde queramos, pero siempre conectados. Comunicacion clara, equipo unido, foco en el valor y en las personas." %}</p>
         </div>
       </div>
     </div>
@@ -684,8 +684,8 @@
   <div class="container">
     <div class="row align-items-center g-5">
       <div class="col-lg-5">
-        <h2 class="join-section__title text-white">Asi se trabaja en Euskodev</h2>
-        <p class="join-section__subtitle text-white-50">No somos una empresa mas. Somos un equipo pequeno, agil y con vision clara. Asi es nuestro dia a dia, sin filtros ni promesas vacias.</p>
+        <h2 class="join-section__title text-white">{% trans "Asi se trabaja en Euskodev" %}</h2>
+        <p class="join-section__subtitle text-white-50">{% trans "No somos una empresa mas. Somos un equipo pequeno, agil y con vision clara. Asi es nuestro dia a dia, sin filtros ni promesas vacias." %}</p>
         <div class="join-section__line"></div>
       </div>
       <div class="col-lg-7">
@@ -693,29 +693,29 @@
           <div class="join-step">
             <span class="join-step__badge">01</span>
             <div>
-              <h5 class="join-step__title">Comunicacion clara</h5>
-              <p class="join-step__text">Nos hablamos directo y con respeto. Slack, Notion y una cultura donde cada idea vale. Aqui nadie se pierde en la cadena de mando.</p>
+              <h5 class="join-step__title">{% trans "Comunicacion clara" %}</h5>
+              <p class="join-step__text">{% trans "Nos hablamos directo y con respeto. Slack, Notion y una cultura donde cada idea vale. Aqui nadie se pierde en la cadena de mando." %}</p>
             </div>
           </div>
           <div class="join-step">
             <span class="join-step__badge">02</span>
             <div>
-              <h5 class="join-step__title">Tecnologia que suma</h5>
-              <p class="join-step__text">Django, GitHub, Docker, Figma… solo usamos herramientas que realmente nos ayudan. Nada de procesos por inercia.</p>
+              <h5 class="join-step__title">{% trans "Tecnologia que suma" %}</h5>
+              <p class="join-step__text">{% trans "Django, GitHub, Docker, Figma… solo usamos herramientas que realmente nos ayudan. Nada de procesos por inercia." %}</p>
             </div>
           </div>
           <div class="join-step">
             <span class="join-step__badge">03</span>
             <div>
-              <h5 class="join-step__title">Aprendizaje continuo</h5>
-              <p class="join-step__text">Aqui todos estamos en modo beta: aprendemos, compartimos, investigamos. Si algo mejora nuestro trabajo, lo aplicamos.</p>
+              <h5 class="join-step__title">{% trans "Aprendizaje continuo" %}</h5>
+              <p class="join-step__text">{% trans "Aqui todos estamos en modo beta: aprendemos, compartimos, investigamos. Si algo mejora nuestro trabajo, lo aplicamos." %}</p>
             </div>
           </div>
           <div class="join-step">
             <span class="join-step__badge">04</span>
             <div>
-              <h5 class="join-step__title">Enfocados en resultados</h5>
-              <p class="join-step__text">No miramos horarios, miramos impacto. Lo que entregas y lo que solucionas. Tienes libertad, pero tambien responsabilidad.</p>
+              <h5 class="join-step__title">{% trans "Enfocados en resultados" %}</h5>
+              <p class="join-step__text">{% trans "No miramos horarios, miramos impacto. Lo que entregas y lo que solucionas. Tienes libertad, pero tambien responsabilidad." %}</p>
             </div>
           </div>
         </div>
@@ -727,19 +727,19 @@
 <section class="join-section">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="join-section__title">Herramientas que usamos en Euskodev</h2>
-      <p class="join-section__subtitle mx-auto">Estas son las tecnologias y herramientas que usamos cada dia para desarrollar con calidad, eficiencia y vision profesional.</p>
+      <h2 class="join-section__title">{% trans "Herramientas que usamos en Euskodev" %}</h2>
+      <p class="join-section__subtitle mx-auto">{% trans "Estas son las tecnologias y herramientas que usamos cada dia para desarrollar con calidad, eficiencia y vision profesional." %}</p>
       <div class="join-section__line"></div>
     </div>
     <div class="join-tools-wrap">
       <div>
-        <div class="join-tools-kicker">Stack profesional</div>
-        <h3 class="join-section__title" style="font-size: clamp(1.6rem, 3vw, 2.2rem);">Tecnologias robustas para productos con impacto</h3>
-        <p class="join-section__subtitle">Seleccionamos herramientas que aportan estabilidad, rendimiento y una experiencia de desarrollo limpia.</p>
+        <div class="join-tools-kicker">{% trans "Stack profesional" %}</div>
+        <h3 class="join-section__title" style="font-size: clamp(1.6rem, 3vw, 2.2rem);">{% trans "Tecnologias robustas para productos con impacto" %}</h3>
+        <p class="join-section__subtitle">{% trans "Seleccionamos herramientas que aportan estabilidad, rendimiento y una experiencia de desarrollo limpia." %}</p>
         <ul class="join-tools-list">
-          <li><span class="join-tools-dot"></span><span>Backend seguro y escalable con Python y Django</span></li>
-          <li><span class="join-tools-dot"></span><span>Workflows ordenados con GitHub, Docker y CI</span></li>
-          <li><span class="join-tools-dot"></span><span>Frontend moderno, accesible y optimizado</span></li>
+          <li><span class="join-tools-dot"></span><span>{% trans "Backend seguro y escalable con Python y Django" %}</span></li>
+          <li><span class="join-tools-dot"></span><span>{% trans "Workflows ordenados con GitHub, Docker y CI" %}</span></li>
+          <li><span class="join-tools-dot"></span><span>{% trans "Frontend moderno, accesible y optimizado" %}</span></li>
         </ul>
       </div>
       <div class="join-tools-panel">
@@ -754,7 +754,7 @@
           <span class="join-pill"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">HTML5</span>
           <span class="join-pill"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">CSS3</span>
           <span class="join-pill"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">Linux</span>
-          <span class="join-pill"><i class="bi bi-cpu-fill" style="color:#1f9f95"></i>Inteligencia Artificial</span>
+          <span class="join-pill"><i class="bi bi-cpu-fill" style="color:#1f9f95"></i>{% trans "Inteligencia Artificial" %}</span>
           <span class="join-pill"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">JavaScript</span>
         </div>
       </div>
@@ -766,20 +766,20 @@
 <section class="join-section">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="join-section__title">¿Que perfiles buscamos?</h2>
-      <p class="join-section__subtitle mx-auto">En Euskodev valoramos la experiencia, la actitud y la capacidad de aportar al equipo. Estos son algunos de los perfiles que mejor encajan con nuestra forma de trabajar.</p>
+      <h2 class="join-section__title">{% trans "¿Que perfiles buscamos?" %}</h2>
+      <p class="join-section__subtitle mx-auto">{% trans "En Euskodev valoramos la experiencia, la actitud y la capacidad de aportar al equipo. Estos son algunos de los perfiles que mejor encajan con nuestra forma de trabajar." %}</p>
       <div class="join-section__line"></div>
     </div>
     <div class="row g-4">
       <div class="col-lg-5">
         <div class="join-intro">
-          <span class="join-intro__kicker">Perfil Euskodev</span>
-          <div class="join-intro__headline">Diseño, criterio y ejecucion real para productos que importan</div>
-          <p class="join-section__subtitle">Buscamos talento con autonomia creativa y mentalidad de producto. Gente que piensa, propone y construye.</p>
+          <span class="join-intro__kicker">{% trans "Perfil Euskodev" %}</span>
+          <div class="join-intro__headline">{% trans "Diseño, criterio y ejecucion real para productos que importan" %}</div>
+          <p class="join-section__subtitle">{% trans "Buscamos talento con autonomia creativa y mentalidad de producto. Gente que piensa, propone y construye." %}</p>
           <div class="join-intro__meta">
-            <div class="join-intro__metric">Impacto<span>De idea a producto</span></div>
-            <div class="join-intro__metric">Calidad<span>Detalle y consistencia</span></div>
-            <div class="join-intro__metric">Equipo<span>Colaboracion real</span></div>
+            <div class="join-intro__metric">{% trans "Impacto" %}<span>{% trans "De idea a producto" %}</span></div>
+            <div class="join-intro__metric">{% trans "Calidad" %}<span>{% trans "Detalle y consistencia" %}</span></div>
+            <div class="join-intro__metric">{% trans "Equipo" %}<span>{% trans "Colaboracion real" %}</span></div>
           </div>
           <img loading="lazy" src="{% static 'img/diseno_criterio_v3.png' %}" alt="Diseño y ejecución de software en Euskodev" class="join-media join-media--short mt-3">
         </div>
@@ -787,28 +787,28 @@
       <div class="col-lg-7">
         <div class="join-flow">
           <div class="join-flow__item">
-            <h5 class="join-flow__title">Personas autonomas</h5>
-            <p class="join-flow__text">Que saben organizarse, priorizar tareas y avanzar con criterio sin depender de supervision constante.</p>
+            <h5 class="join-flow__title">{% trans "Personas autonomas" %}</h5>
+            <p class="join-flow__text">{% trans "Que saben organizarse, priorizar tareas y avanzar con criterio sin depender de supervision constante." %}</p>
           </div>
           <div class="join-flow__item">
-            <h5 class="join-flow__title">Mentalidad tecnica</h5>
-            <p class="join-flow__text">Amantes del codigo limpio, con ganas de aprender, compartir conocimiento y mejorar procesos de forma continua.</p>
+            <h5 class="join-flow__title">{% trans "Mentalidad tecnica" %}</h5>
+            <p class="join-flow__text">{% trans "Amantes del codigo limpio, con ganas de aprender, compartir conocimiento y mejorar procesos de forma continua." %}</p>
           </div>
           <div class="join-flow__item">
-            <h5 class="join-flow__title">Buena comunicacion</h5>
-            <p class="join-flow__text">Personas claras, empaticas y capaces de trabajar en equipo con transparencia y respeto mutuo.</p>
+            <h5 class="join-flow__title">{% trans "Buena comunicacion" %}</h5>
+            <p class="join-flow__text">{% trans "Personas claras, empaticas y capaces de trabajar en equipo con transparencia y respeto mutuo." %}</p>
           </div>
           <div class="join-flow__item">
-            <h5 class="join-flow__title">Enfoque en producto</h5>
-            <p class="join-flow__text">Que entienden que el codigo es un medio para crear soluciones funcionales, usables y que aporten valor real.</p>
+            <h5 class="join-flow__title">{% trans "Enfoque en producto" %}</h5>
+            <p class="join-flow__text">{% trans "Que entienden que el codigo es un medio para crear soluciones funcionales, usables y que aporten valor real." %}</p>
           </div>
           <div class="join-flow__item">
-            <h5 class="join-flow__title">Responsabilidad real</h5>
-            <p class="join-flow__text">Que cumplen con lo que prometen, cuidan la calidad y piensan a largo plazo en todo lo que construyen.</p>
+            <h5 class="join-flow__title">{% trans "Responsabilidad real" %}</h5>
+            <p class="join-flow__text">{% trans "Que cumplen con lo que prometen, cuidan la calidad y piensan a largo plazo en todo lo que construyen." %}</p>
           </div>
           <div class="join-flow__item">
-            <h5 class="join-flow__title">Curiosidad constante</h5>
-            <p class="join-flow__text">Con ganas de explorar nuevas ideas, probar herramientas, aportar soluciones y mejorar el trabajo del equipo.</p>
+            <h5 class="join-flow__title">{% trans "Curiosidad constante" %}</h5>
+            <p class="join-flow__text">{% trans "Con ganas de explorar nuevas ideas, probar herramientas, aportar soluciones y mejorar el trabajo del equipo." %}</p>
           </div>
         </div>
       </div>
@@ -819,8 +819,8 @@
 <section class="join-section join-benefits">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="join-section__title text-white">Beneficios de trabajar en Euskodev</h2>
-      <p class="join-section__subtitle text-white-50 mx-auto">No solo es lo que hacemos, sino como lo hacemos. Estos son algunos de los beneficios que disfrutaras siendo parte del equipo.</p>
+      <h2 class="join-section__title text-white">{% trans "Beneficios de trabajar en Euskodev" %}</h2>
+      <p class="join-section__subtitle text-white-50 mx-auto">{% trans "No solo es lo que hacemos, sino como lo hacemos. Estos son algunos de los beneficios que disfrutaras siendo parte del equipo." %}</p>
       <div class="join-section__line"></div>
     </div>
     <div class="row g-4">
@@ -829,22 +829,22 @@
           <div class="join-benefit-row">
             <span class="join-benefit-icon"><i class="bi bi-clock-history"></i></span>
             <div>
-              <h5 class="join-benefit-title">Horarios flexibles</h5>
-              <p class="join-benefit-text">Tu organizas tu tiempo. Lo importante es cumplir y aportar, no fichar.</p>
+              <h5 class="join-benefit-title">{% trans "Horarios flexibles" %}</h5>
+              <p class="join-benefit-text">{% trans "Tu organizas tu tiempo. Lo importante es cumplir y aportar, no fichar." %}</p>
             </div>
           </div>
           <div class="join-benefit-row">
             <span class="join-benefit-icon"><i class="bi bi-house-door-fill"></i></span>
             <div>
-              <h5 class="join-benefit-title">Trabajo remoto</h5>
-              <p class="join-benefit-text">Trabaja desde donde quieras, con herramientas colaborativas modernas.</p>
+              <h5 class="join-benefit-title">{% trans "Trabajo remoto" %}</h5>
+              <p class="join-benefit-text">{% trans "Trabaja desde donde quieras, con herramientas colaborativas modernas." %}</p>
             </div>
           </div>
           <div class="join-benefit-row">
             <span class="join-benefit-icon"><i class="bi bi-journals"></i></span>
             <div>
-              <h5 class="join-benefit-title">Formacion continua</h5>
-              <p class="join-benefit-text">Acceso a recursos, cursos y entornos reales donde puedes seguir creciendo.</p>
+              <h5 class="join-benefit-title">{% trans "Formacion continua" %}</h5>
+              <p class="join-benefit-text">{% trans "Acceso a recursos, cursos y entornos reales donde puedes seguir creciendo." %}</p>
             </div>
           </div>
         </div>
@@ -854,22 +854,22 @@
           <div class="join-benefit-row">
             <span class="join-benefit-icon"><i class="bi bi-megaphone-fill"></i></span>
             <div>
-              <h5 class="join-benefit-title">Participacion real</h5>
-              <p class="join-benefit-text">Tus ideas no se quedan en el aire. Aqui tu voz se tiene en cuenta desde el primer dia.</p>
+              <h5 class="join-benefit-title">{% trans "Participacion real" %}</h5>
+              <p class="join-benefit-text">{% trans "Tus ideas no se quedan en el aire. Aqui tu voz se tiene en cuenta desde el primer dia." %}</p>
             </div>
           </div>
           <div class="join-benefit-row">
             <span class="join-benefit-icon"><i class="bi bi-heart-pulse"></i></span>
             <div>
-              <h5 class="join-benefit-title">Buen ambiente</h5>
-              <p class="join-benefit-text">Sin postureo, sin tensiones. Un entorno tranquilo, de confianza y colaboracion.</p>
+              <h5 class="join-benefit-title">{% trans "Buen ambiente" %}</h5>
+              <p class="join-benefit-text">{% trans "Sin postureo, sin tensiones. Un entorno tranquilo, de confianza y colaboracion." %}</p>
             </div>
           </div>
           <div class="join-benefit-row">
             <span class="join-benefit-icon"><i class="bi bi-emoji-smile"></i></span>
             <div>
-              <h5 class="join-benefit-title">Estabilidad emocional</h5>
-              <p class="join-benefit-text">Si, aqui eso tambien importa. Porque estar bien no es negociable.</p>
+              <h5 class="join-benefit-title">{% trans "Estabilidad emocional" %}</h5>
+              <p class="join-benefit-text">{% trans "Si, aqui eso tambien importa. Porque estar bien no es negociable." %}</p>
             </div>
           </div>
         </div>
@@ -881,10 +881,10 @@
 <section class="join-section">
   <div class="container">
     <div class="join-final text-center">
-      <h2 class="join-section__title">¿Listo para formar parte de algo diferente?</h2>
-      <p class="join-section__subtitle mx-auto">En Euskodev no buscamos empleados, buscamos personas que quieran construir el futuro con nosotros. Si esto resuena contigo, estamos deseando conocerte.</p>
+      <h2 class="join-section__title">{% trans "¿Listo para formar parte de algo diferente?" %}</h2>
+      <p class="join-section__subtitle mx-auto">{% trans "En Euskodev no buscamos empleados, buscamos personas que quieran construir el futuro con nosotros. Si esto resuena contigo, estamos deseando conocerte." %}</p>
       <a href="{% url 'home_app:trabaja_con_nosotros_form' %}" class="join-hero__cta mt-3">
-        Quiero unirme al equipo
+        {% trans "Quiero unirme al equipo" %}
         <i class="bi bi-arrow-right"></i>
       </a>
     </div>

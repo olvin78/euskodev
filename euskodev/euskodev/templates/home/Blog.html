@@ -123,11 +123,11 @@
   <div class="container">
     <div class="blog-hero">
       <div class="blog-hero-content">
-        <h1 class="mb-2">Blog</h1>
-        <p class="mb-0">Últimas noticias y artículos de Euskodev</p>
+        <h1 class="mb-2">{% trans 'Blog' %}</h1>
+        <p class="mb-0">{% trans 'Últimas noticias y artículos de Euskodev' %}</p>
         <div class="blog-search">
-          <input type="search" id="blogSearch" placeholder="Buscar artículos..." aria-label="Buscar artículos">
-          <a href="{% url 'home_app:blog' %}" class="btn-gradient btn-sm">Ver todo</a>
+          <input type="search" id="blogSearch" placeholder="{% trans 'Buscar artículos...' %}" aria-label="{% trans 'Buscar artículos' %}">
+          <a href="{% url 'home_app:blog' %}" class="btn-gradient btn-sm">{% trans 'Ver todo' %}</a>
         </div>
       </div>
     </div>
@@ -146,14 +146,14 @@
         <div class="blog-body">
           <h5 class="blog-title">{{ entrada_blog.titulo|safe }}</h5>
           <p class="blog-excerpt">{{ entrada_blog.resumen|safe|striptags|truncatechars:120 }}</p>
-          <a href="{% url 'home_app:blog-detail' entrada_blog.id %}" class="service-link">Leer más <i class="bi bi-arrow-right"></i></a>
+          <a href="{% url 'home_app:blog-detail' entrada_blog.id %}" class="service-link">{% trans 'Leer más' %} <i class="bi bi-arrow-right"></i></a>
         </div>
       </article>
       {% endfor %}
     </div>
     {% else %}
     <div class="text-center">
-      <p class="text-muted">No hay artículos todavía.</p>
+      <p class="text-muted">{% trans 'No hay artículos todavía.' %}</p>
     </div>
     {% endif %}
   </div>
