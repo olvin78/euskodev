@@ -135,6 +135,9 @@ class BudgetDetailView(StaffRequiredMixin, DetailView):
         context["impuestos"] = budget.calcular_impuestos
         context["total_con_impuestos"] = budget.calcular_total_con_impuestos
 
+        # 🔹 Mostrar columna de descuento solo si algún item tiene descuento
+        context["mostrar_descuentos"] = budget.items.filter(descuento__gt=0).exists()
+
         return context
 
 
