@@ -515,7 +515,7 @@
                             <div class="budget-meta">
                                 <span class="budget-meta-item">
                                     <i class="bi bi-person"></i>
-                                    {{ budget.cliente.nombre }}
+                                    {{ budget.cliente.nombre|default:"Cliente sin asignar" }}
                                 </span>
                                 <span class="budget-meta-item">
                                     <i class="bi bi-building"></i>
@@ -523,12 +523,12 @@
                                 </span>
                                 <span class="budget-meta-item">
                                     <i class="bi bi-calendar"></i>
-                                    {{ budget.fecha_creacion }}
+                                    {{ budget.fecha_creacion|default:"-" }}
                                 </span>
                             </div>
                         </div>
                         <div class="budget-amount">
-                            {{ budget.total }} €
+                            {{ budget.total|floatformat:2|default:"0" }} €
                             <div class="budget-date">Total estimado</div>
                         </div>
                     </div>

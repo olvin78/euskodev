@@ -106,7 +106,7 @@ class BudgetListView(StaffRequiredMixin, ListView):
     context_object_name = "budgets"
 
     def get_queryset(self):
-        queryset = Budget.objects.all().order_by('-id')
+        queryset = Budget.objects.select_related('cliente').all().order_by('-id')
         query = self.request.GET.get('q')
         if query:
             queryset = queryset.filter(
