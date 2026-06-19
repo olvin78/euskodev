@@ -330,6 +330,16 @@
         </div>
     </div>
 
+    <style>
+        .discount-col { display: none; }
+    </style>
+    <div class="no-print" style="margin-bottom: 10px;">
+        <label style="font-size: 12px; cursor: pointer;">
+            <input type="checkbox" id="toggle-discount" onchange="toggleDiscountColumn()">
+            Erakutsi deskontu zutabea
+        </label>
+    </div>
+
     <!-- 🔹 TABLA DE ÍTEMS -->
     <table class="table table-bordered tabla">
         <thead>
@@ -338,7 +348,7 @@
                 <th>Deskribapena</th>
                 <th>Prezioa</th>
                 <th>Kant</th>
-                <th>Desk (%)</th>
+                <th class="discount-col">Desk (%)</th>
                 <th>Guztira</th>
             </tr>
         </thead>
@@ -349,12 +359,21 @@
                 <td>{{ item.descripcion }}</td>
                 <td class="text-center">{{ item.precio_unitario }} €</td>
                 <td class="text-center">{{ item.cantidad }}</td>
-                <td class="text-center">{{ item.descuento }}%</td>
+                <td class="text-center discount-col">{{ item.descuento }}%</td>
                 <td class="text-center">{{ item.subtotal }} €</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <script>
+    function toggleDiscountColumn() {
+        var show = document.getElementById('toggle-discount').checked;
+        document.querySelectorAll('.discount-col').forEach(function(el) {
+            el.style.display = show ? '' : 'none';
+        });
+    }
+    </script>
 
     <p style="text-align: center; font-style: italic; color: #555; margin: 60px 0 5px; font-size: 11px;">
         Aurrekontu hau zerbitzuen prezioen arabera sortu da, eta ez ordutegiko prezioen arabera.
