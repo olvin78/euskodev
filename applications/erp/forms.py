@@ -41,6 +41,17 @@ class ClientForm(forms.ModelForm):
             'codigo_postal': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['nombre'].required = True
+
+    def clean(self):
+        cleaned_data = super().clean()
+        nombre = cleaned_data.get('nombre')
+        if not nombre:
+            self.add_error('nombre', 'El nombre del cliente es obligatorio.')
+        return cleaned_data
+
 # ✅ Formset para manejar múltiples ítems en un presupuesto
 BudgetItemFormSet = inlineformset_factory(
     Budget,

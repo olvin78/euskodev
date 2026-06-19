@@ -12,9 +12,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        body {
-            background: #F1FAEE;
-            font-family: Arial, sans-serif;
+            body {
+                background: white;
+                font-family: Arial, sans-serif;
             font-size: 12px;
             color: #333;
             margin: 0;
@@ -160,7 +160,7 @@
         }
 
         .firma {
-            margin-top: 80px;
+            margin-top: 40px;
             text-align: center;
         }
 
@@ -356,15 +356,50 @@
         </tbody>
     </table>
 
-    <!-- 🔹 TOTALES CORREGIDOS -->
-    <div class="totales">
+    <p style="text-align: center; font-style: italic; color: #555; margin: 60px 0 5px; font-size: 11px;">
+        Aurrekontu hau zerbitzuen prezioen arabera sortu da, eta ez ordutegiko prezioen arabera.
+    </p>
+
+    <!-- 🔹 TOTALES (abajo de la primera página) -->
+    <div class="totales" style="margin-top: 10px;">
         <p><strong>Azpitotala:</strong> {{ budget.calcular_subtotal|floatformat:2 }} €</p>
         <p><strong>Zergak ({{ budget.impuesto_porcentaje }}%):</strong> {{ budget.calcular_impuestos|floatformat:2 }} €</p>
         <p class="total-final">GUZTIRA: {{ budget.calcular_total_con_impuestos|floatformat:2 }} €</p>
     </div>
 
-    <!-- 🔹 CONDICIONES -->
-    <div class="condiciones">
+    <!-- 🔹 FOOTER PÁGINA 1 -->
+    <div style="margin-top: 60px; font-size: 10px; color: #777; text-align: center;">
+        <strong style="color: #1D3557;">Euskodev</strong> &mdash;
+        Tel: {{ company.telefono|default:"-" }} &mdash;
+        Email: {{ company.email|default:"-" }} &mdash;
+        Web: {{ company.web|default:"-" }}
+    </div>
+
+    <!-- 🔹 DATOS CLIENTE Y PROFESIONAL (segunda página) -->
+    <div class="datos" style="page-break-before: always; padding-top: 40px;">
+        <div class="seccion">
+            <h6><b>Bezeroaren Informazioa</b></h6>
+            <p><strong>Izena:</strong> {{ budget.cliente.nombre }}<br>
+            <strong>Enpresa:</strong> {{ budget.cliente.empresa }}<br>
+            <strong>IFK:</strong> {{ budget.cliente.nif|default:"-" }}<br>
+            <strong>Emaila:</strong> {{ budget.cliente.email|default:"-" }}<br>
+            <strong>Telefonoa:</strong> {{ budget.cliente.telefono|default:"-" }}<br>
+            <strong>Helbidea:</strong> {{ budget.cliente.direccion|default:"-" }}</p>
+        </div>
+
+        <div class="seccion">
+            <h6><b>Profesionalaren Datuak</b></h6>
+            <p>
+            <strong>Izena:</strong> {{ company.nombre }}<br>
+            <strong>Izen komertziala:</strong> {{ company.nombre_comercial }}<br>
+            <strong>IFK/NAN:</strong> {{ company.nif|default:"-" }}<br>
+            <strong>Helbide Fiskala:</strong> {{ company.direccion_fiscal|default:"-" }}<br>
+            </p>
+        </div>
+    </div>
+
+    <!-- 🔹 CONDICIONES (segunda página) -->
+    <div class="condiciones" style="margin: 20px 0;">
         <strong>Ordainketa Baldintzak</strong><br>
         Aurrekontu hau baliozkoa da igorri eta 30 egunera arte.<br>
         Proiektua hasteko, guztizkoaren <strong>%50a</strong> edo <strong>%100a</strong> ordaindu beharko da adostasunaren arabera.<br>
@@ -378,11 +413,26 @@
         Dokumentu honetan jasota ez dauden funtzionalitate, plugin edo zerbitzu gehigarriak aparte baloratuko eta aurrekontatuko dira.
     </div>
 
+    <!-- 🔹 DESCRIPCIÓN DEL PROYECTO -->
+    <div class="seccion" style="margin-top: 20px;">
+        <h6><b>Proiektuaren Deskribapena</b></h6>
+        <p style="text-align: justify; white-space: pre-wrap;">{{ budget.descripcion|default:"-" }}</p>
+    </div>
+
     <!-- 🔹 FIRMA -->
     <div class="firma">
         <div class="linea-firma"></div>
         <div style="font-size: 11px;">Bezeroaren sinadura</div>
     </div>
+
+    <!-- 🔹 FOOTER DATOS DE CONTACTO -->
+    <div style="margin-top: 40px; font-size: 10px; color: #777; text-align: center;">
+        <strong style="color: #1D3557;">Euskodev</strong> &mdash;
+        Tel: {{ company.telefono|default:"-" }} &mdash;
+        Email: {{ company.email|default:"-" }} &mdash;
+        Web: {{ company.web|default:"-" }}
+    </div>
+
 </div>
 
 <!-- 🔹 BOTONES MEJORADOS -->

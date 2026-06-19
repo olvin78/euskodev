@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   web:
     build:
@@ -8,11 +6,12 @@ services:
     command: >-
       sh -c "python manage.py migrate
       && python manage.py collectstatic --noinput
+      && python manage.py compilemessages
       && gunicorn euskodev.wsgi:application --bind 0.0.0.0:8000"
     environment:
       DJANGO_SETTINGS_MODULE: euskodev.settings
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8055:8000"
     volumes:
       - static_data:/euskodev/static
       - media_data:/euskodev/media
