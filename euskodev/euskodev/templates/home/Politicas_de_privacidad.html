@@ -6,9 +6,13 @@
 <style>
     .legal-page { padding-top: 120px; padding-bottom: 60px; }
     .legal-content { max-width: 800px; margin: 0 auto; }
-    .legal-content h1 { margin-bottom: 30px; }
-    .legal-content h2 { margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; }
-    .legal-content p, .legal-content li { color: var(--text-muted); line-height: 1.8; }
+    .legal-content h1 { margin-bottom: 30px; font-weight: 700; }
+    .legal-content h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.4rem; font-weight: 600; color: #00e5c4; }
+    .legal-content h3 { margin-top: 25px; margin-bottom: 10px; font-size: 1.15rem; font-weight: 600; }
+    .legal-content p, .legal-content li { color: #c0c0c0; line-height: 1.8; text-align: justify; }
+    .legal-content ul, .legal-content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .legal-content li { margin-bottom: 0.5rem; }
+    .legal-content .last-updated { color: #666; font-style: italic; margin-bottom: 30px; }
 </style>
 {% endblock %}
 
@@ -18,32 +22,69 @@
     <div class="container">
         <div class="legal-content">
             <h1>{% trans 'Política de Privacidad' %}</h1>
-            
-            <h2>{% trans '1. Introducción' %}</h2>
-            <p>{% trans 'En Euskodev, nos comprometemos a proteger tu privacidad. Esta política de privacidad describe cómo recopilamos, usamos y protegemos tus datos personales.' %}</p>
-            
-            <h2>{% trans '2. Datos que recopilamos' %}</h2>
-            <p>{% trans 'Podemos recopilar los siguientes datos:' %}</p>
+            <p class="last-updated">{% trans 'Última actualización: 19 de junio de 2026' %}</p>
+
+            <h2>{% trans '1. Responsable del tratamiento' %}</h2>
+            <p>{% trans 'De conformidad con el Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales (LOPDGDD), te informamos de que los datos personales que nos proporciones serán tratados por:' %}</p>
             <ul>
-                <li>{% trans 'Nombre y apellidos' %}</li>
-                <li>{% trans 'Dirección de correo electrónico' %}</li>
-                <li>{% trans 'Número de teléfono' %}</li>
-                <li>{% trans 'Información de la empresa' %}</li>
+                <li><strong>{% trans 'Responsable:' %}</strong> EUSKODEV</li>
+                <li><strong>{% trans 'Domicilio:' %}</strong> {% trans 'Oiartzun, Gipuzkoa (España)' %}</li>
+                <li><strong>Email:</strong> <a href="mailto:euskodev@gmail.com" style="color: #00e5c4;">euskodev@gmail.com</a></li>
+                <li><strong>{% trans 'Teléfono:' %}</strong> <a href="tel:+34747478842" style="color: #00e5c4;">+34 747 47 88 42</a></li>
             </ul>
-            
-            <h2>{% trans '3. Uso de los datos' %}</h2>
-            <p>{% trans 'Usamos tus datos para:' %}</p>
+
+            <h2>{% trans '2. ¿Qué datos recopilamos y con qué finalidad?' %}</h2>
+            <p>{% trans 'En Euskodev recopilamos y tratamos los siguientes datos personales en función de la finalidad para la que nos los proporciones:' %}</p>
+
+            <h3>{% trans '2.1 Formulario de contacto' %}</h3>
             <ul>
-                <li>{% trans 'Responder a tus consultas' %}</li>
-                <li>{% trans 'Prestar los servicios solicitados' %}</li>
-                <li>{% trans 'Enviar comunicaciones comerciales' %}</li>
+                <li><strong>{% trans 'Datos:' %}</strong> {% trans 'Nombre, correo electrónico, teléfono y mensaje.' %}</li>
+                <li><strong>{% trans 'Finalidad:' %}</strong> {% trans 'Atender y responder a tus consultas, solicitudes de información o presupuestos.' %}</li>
+                <li><strong>{% trans 'Base legal:' %}</strong> {% trans 'Consentimiento del interesado (art. 6.1.a RGPD).' %}</li>
+                <li><strong>{% trans 'Plazo de conservación:' %}</strong> {% trans 'Hasta que se resuelva tu consulta y, posteriormente, durante el plazo de prescripción de responsabilidades legales (máximo 5 años).' %}</li>
             </ul>
-            
-            <h2>{% trans '4. Protección de datos' %}</h2>
-            <p>{% trans 'Implementamos medidas de seguridad para proteger tus datos personales contra accesos no autorizados.' %}</p>
-            
-            <h2>{% trans '5. Contacto' %}</h2>
-            <p>{% trans 'Para ejercer tus derechos de protección de datos, contacta con nosotros en euskodev@gmail.com' %}</p>
+
+            <h3>{% trans '2.2 Formulario de análisis IA' %}</h3>
+            <ul>
+                <li><strong>{% trans 'Datos:' %}</strong> {% trans 'Nombre, correo electrónico, teléfono, URL del sitio web y detalles del proyecto.' %}</li>
+                <li><strong>{% trans 'Finalidad:' %}</strong> {% trans 'Realizar un análisis automatizado del sitio web y enviar el informe de resultados.' %}</li>
+                <li><strong>{% trans 'Base legal:' %}</strong> {% trans 'Ejecución de medidas precontractuales (art. 6.1.b RGPD).' %}</li>
+                <li><strong>{% trans 'Plazo de conservación:' %}</strong> {% trans 'Hasta la finalización del análisis y, posteriormente, durante el plazo de prescripción de responsabilidades (máximo 5 años).' %}</li>
+            </ul>
+
+            <h3>{% trans '2.3 Formulario de solicitud de empleo' %}</h3>
+            <ul>
+                <li><strong>{% trans 'Datos:' %}</strong> {% trans 'Nombre, correo electrónico, teléfono, CV e información curricular.' %}</li>
+                <li><strong>{% trans 'Finalidad:' %}</strong> {% trans 'Gestionar tu candidatura en procesos de selección.' %}</li>
+                <li><strong>{% trans 'Base legal:' %}</strong> {% trans 'Consentimiento del interesado (art. 6.1.a RGPD).' %}</li>
+                <li><strong>{% trans 'Plazo de conservación:' %}</strong> {% trans 'Máximo 1 año desde la recepción, salvo que autorices su conservación por más tiempo.' %}</li>
+            </ul>
+
+            <h2>{% trans '3. Derechos del interesado' %}</h2>
+            <p>{% trans 'Puedes ejercer tus derechos de protección de datos en cualquier momento. Tienes derecho a:' %}</p>
+            <ul>
+                <li><strong>{% trans 'Acceso:' %}</strong> {% trans 'Saber qué datos estamos tratando y con qué finalidad.' %}</li>
+                <li><strong>{% trans 'Rectificación:' %}</strong> {% trans 'Solicitar la corrección de datos inexactos.' %}</li>
+                <li><strong>{% trans 'Supresión:' %}</strong> {% trans 'Solicitar la eliminación de tus datos cuando ya no sean necesarios.' %}</li>
+                <li><strong>{% trans 'Limitación:' %}</strong> {% trans 'Solicitar la limitación del tratamiento de tus datos.' %}</li>
+                <li><strong>{% trans 'Portabilidad:' %}</strong> {% trans 'Recibir tus datos en un formato estructurado y legible.' %}</li>
+                <li><strong>{% trans 'Oposición:' %}</strong> {% trans 'Oponerte al tratamiento de tus datos para fines de marketing directo.' %}</li>
+            </ul>
+            <p>{% trans 'Para ejercer estos derechos, envíanos un correo electrónico a' %} <a href="mailto:euskodev@gmail.com" style="color: #00e5c4;">euskodev@gmail.com</a> {% trans 'indicando el derecho que deseas ejercer y adjuntando una copia de tu DNI o documento identificativo. Responderemos a tu solicitud en el plazo máximo de un mes.' %}</p>
+            <p>{% trans 'Si no quedas satisfecho con la respuesta, tienes derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) a través de su sede electrónica' %} <a href="https://www.aepd.es" target="_blank" rel="noopener" style="color: #00e5c4;">www.aepd.es</a>.</p>
+
+            <h2>{% trans '4. Destinatarios de los datos' %}</h2>
+            <p>{% trans 'Tus datos personales no serán cedidos a terceros, salvo obligación legal o cuando sea necesario para la prestación del servicio con proveedores encargados del tratamiento (por ejemplo, servicios de hosting, plataformas de email o pasarelas de pago). En cualquier caso, estos proveedores cumplen con la normativa de protección de datos y han firmado el correspondiente contrato de encargado del tratamiento.' %}</p>
+
+            <h2>{% trans '5. Medidas de seguridad' %}</h2>
+            <p>{% trans 'En Euskodev implementamos las medidas técnicas y organizativas adecuadas para garantizar la seguridad de tus datos personales y evitar su alteración, pérdida, tratamiento o acceso no autorizado, teniendo en cuenta el estado de la tecnología, la naturaleza de los datos y los riesgos a los que están expuestos.' %}</p>
+            <p>{% trans 'Estas medidas incluyen, entre otras, el cifrado de comunicaciones mediante HTTPS, el acceso restringido a los datos, y la realización de copias de seguridad periódicas.' %}</p>
+
+            <h2>{% trans '6. Conservación de los datos' %}</h2>
+            <p>{% trans 'Conservaremos tus datos personales únicamente durante el tiempo necesario para cumplir con la finalidad para la que fueron recogidos, y mientras exista una base legal para su tratamiento. Una vez finalizada la finalidad, los datos se bloquearán y se conservarán durante el plazo de prescripción de responsabilidades legales, tras el cual serán eliminados de forma segura.' %}</p>
+
+            <h2>{% trans '7. Cambios en la política de privacidad' %}</h2>
+            <p>{% trans 'Podemos actualizar esta política de privacidad para adaptarla a cambios normativos o de nuestra actividad. Te recomendamos revisar esta página periódicamente. Cuando se realicen cambios significativos, te lo notificaremos mediante un aviso en el sitio web.' %}</p>
         </div>
     </div>
 </div>

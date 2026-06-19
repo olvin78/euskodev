@@ -18,6 +18,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
+#: templates/home/base.html:105
+msgid "Inicio"
+msgstr "Hasiera"
+
 #: applications/digital_audit/models.py:7
 #: templates/companies/list_companies.html:52
 #: templates/companies/list_companies.html:60
@@ -1058,7 +1062,7 @@ msgstr "IA"
 msgid ""
 "Desarrollo web, apps y software a medida en Oiartzun. Transformamos tu "
 "visión en tecnología."
-msgstr ""
+msgstr "Web garapena, aplikazioak eta neurrirako softwarea Oiartzunen. Zure ikuspegia teknologia bihurtzen dugu."
 
 #: templates/home/base.html:376
 msgid "Empresa"

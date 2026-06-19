@@ -6,9 +6,18 @@
 <style>
     .legal-page { padding-top: 120px; padding-bottom: 60px; }
     .legal-content { max-width: 800px; margin: 0 auto; }
-    .legal-content h1 { margin-bottom: 30px; }
-    .legal-content h2 { margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; }
-    .legal-content p, .legal-content li { color: var(--text-muted); line-height: 1.8; }
+    .legal-content h1 { margin-bottom: 30px; font-weight: 700; }
+    .legal-content h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.4rem; font-weight: 600; color: #00e5c4; }
+    .legal-content h3 { margin-top: 25px; margin-bottom: 10px; font-size: 1.15rem; font-weight: 600; }
+    .legal-content p, .legal-content li { color: #c0c0c0; line-height: 1.8; text-align: justify; }
+    .legal-content ul, .legal-content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .legal-content li { margin-bottom: 0.5rem; }
+    .legal-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .legal-content th, .legal-content td { border: 1px solid rgba(255,255,255,0.1); padding: 12px 15px; text-align: left; }
+    .legal-content th { background: rgba(0,229,196,0.1); color: #00e5c4; font-weight: 600; }
+    .legal-content td { color: #c0c0c0; }
+    .legal-content .last-updated { color: #666; font-style: italic; margin-bottom: 30px; }
+    .legal-content .cookie-table { overflow-x: auto; }
 </style>
 {% endblock %}
 
@@ -18,22 +27,104 @@
     <div class="container">
         <div class="legal-content">
             <h1>{% trans 'Política de Cookies' %}</h1>
-            
+            <p class="last-updated">{% trans 'Última actualización: 19 de junio de 2026' %}</p>
+
+            <p>{% trans 'En Euskodev, utilizamos cookies propias y de terceros para garantizar el correcto funcionamiento de nuestro sitio web, mejorar nuestra oferta de servicios y mostrarte contenido relevante. Esta política explica qué son las cookies, qué tipos utilizamos, con qué finalidad y cómo puedes gestionarlas.' %}</p>
+
             <h2>{% trans '1. ¿Qué son las cookies?' %}</h2>
-            <p>{% trans 'Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web.' %}</p>
-            
-            <h2>{% trans '2. Tipos de cookies que usamos' %}</h2>
+            <p>{% trans 'Las cookies son pequeños archivos de texto que se almacenan en tu navegador cuando visitas un sitio web. Permiten que el sitio recuerde tus preferencias, acciones y navegación durante un periodo de tiempo, para que no tengas que volver a configurarlas cada vez que nos visitas.' %}</p>
+            <p>{% trans 'Las cookies pueden ser propias (establecidas por nuestro sitio web) o de terceros (establecidas por dominios externos, como Google Analytics o Google AdSense).' %}</p>
+
+            <h2>{% trans '2. Tipos de cookies que utilizamos' %}</h2>
+
+            <div class="cookie-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>{% trans 'Tipo' %}</th>
+                        <th>{% trans 'Finalidad' %}</th>
+                        <th>{% trans 'Duración' %}</th>
+                        <th>{% trans 'Gestión' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>{% trans 'Técnicas / Esenciales' %}</strong></td>
+                        <td>{% trans 'Necesarias para la navegación y el funcionamiento básico del sitio. Sin ellas, el sitio no puede funcionar correctamente.' %}</td>
+                        <td>{% trans 'Sesión / Persistentes' %}</td>
+                        <td>{% trans 'No requieren consentimiento' %}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>{% trans 'Analíticas' %}</strong></td>
+                        <td>{% trans 'Recogen información anónima sobre cómo los usuarios interactúan con el sitio (páginas visitadas, tiempo de navegación, etc.) para mejorar nuestros servicios.' %}</td>
+                        <td>{% trans 'Persistentes (hasta 2 años)' %}</td>
+                        <td>{% trans 'Requieren consentimiento' %}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>{% trans 'De marketing' %}</strong></td>
+                        <td>{% trans 'Permiten mostrar anuncios relevantes basados en tus intereses y medir la efectividad de nuestras campañas publicitarias.' %}</td>
+                        <td>{% trans 'Persistentes (hasta 1 año)' %}</td>
+                        <td>{% trans 'Requieren consentimiento' %}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>{% trans '2.1 Cookies técnicas esenciales' %}</h3>
+            <p>{% trans 'Estas cookies son estrictamente necesarias para el funcionamiento de la web y no pueden desactivarse. Se utilizan para:' %}</p>
             <ul>
-                <li><strong>{% trans 'Cookies esenciales:' %}</strong> {% trans 'Necesarias para el funcionamiento del sitio.' %}</li>
-                <li><strong>{% trans 'Cookies analíticas:' %}</strong> {% trans 'Nos ayudan a entender cómo interactúas con el sitio.' %}</li>
-                <li><strong>{% trans 'Cookies de marketing:' %}</strong> {% trans 'Usadas para mostrarte publicidad relevante.' %}</p>
+                <li>{% trans 'Mantener la sesión del usuario durante la navegación.' %}</li>
+                <li>{% trans 'Recordar las preferencias de idioma seleccionadas.' %}</li>
+                <li>{% trans 'Proteger la seguridad del sitio web (CSRF, autenticación).' %}</li>
+                <li>{% trans 'Almacenar el estado de consentimiento de cookies.' %}</li>
             </ul>
-            
-            <h2>{% trans '3. Cómo gestionar las cookies' %}</h2>
-            <p>{% trans 'Puedes configurar tu navegador para rechazar todas las cookies o para avisarte cuando se envía una cookie.' %}</p>
-            
-            <h2>{% trans '4. Actualizaciones' %}</h2>
-            <p>{% trans 'Esta política puede actualizarse periódicamente. Te notificaremos de cualquier cambio significativo.' %}</p>
+
+            <h3>{% trans '2.2 Cookies analíticas' %}</h3>
+            <p>{% trans 'Utilizamos Google Analytics (Google LLC) para entender cómo los visitantes interactúan con nuestro sitio. Esta información nos ayuda a mejorar la experiencia de usuario. Las cookies recopilan información de forma anónima, incluyendo:' %}</p>
+            <ul>
+                <li>{% trans 'Número de visitantes y visitas.' %}</li>
+                <li>{% trans 'Páginas más visitadas y tiempo de navegación.' %}</li>
+                <li>{% trans 'Origen del tráfico (buscador, redes sociales, enlace directo).' %}</li>
+            </ul>
+            <p>{% trans 'Puedes consultar la política de privacidad de Google en' %} <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: #00e5c4;">https://policies.google.com/privacy</a>.</p>
+
+            <h3>{% trans '2.3 Cookies de marketing' %}</h3>
+            <p>{% trans 'Utilizamos Google AdSense para mostrar anuncios personalizados en nuestro sitio. Estas cookies rastrean tu actividad de navegación para crear un perfil de tus intereses y mostrarte anuncios relevantes.' %}</p>
+
+            <h2>{% trans '3. ¿Quién utiliza las cookies?' %}</h2>
+            <p>{% trans 'Las cookies pueden ser:' %}</p>
+            <ul>
+                <li><strong>{% trans 'Propias:' %}</strong> {% trans 'Gestionadas directamente por Euskodev.' %}</li>
+                <li><strong>{% trans 'De terceros:' %}</strong> {% trans 'Gestionadas por proveedores externos como Google (Analytics, AdSense).' %}</li>
+            </ul>
+
+            <h2>{% trans '4. Cómo gestionar las cookies' %}</h2>
+            <p>{% trans 'Puedes aceptar, rechazar o configurar las cookies en cualquier momento desde el banner de cookies que aparece al acceder al sitio por primera vez. También puedes modificar tus preferencias accediendo al enlace "Configurar cookies" en el pie de página.' %}</p>
+            <p>{% trans 'Además, puedes configurar tu navegador para bloquear o eliminar cookies. A continuación te indicamos cómo hacerlo en los navegadores más comunes:' %}</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" style="color: #00e5c4;">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/es/kb/proteccion-antirrastreo-mejorada-de-firefox" target="_blank" rel="noopener" style="color: #00e5c4;">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener" style="color: #00e5c4;">Safari</a></li>
+                <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener" style="color: #00e5c4;">Microsoft Edge</a></li>
+            </ul>
+            <p>{% trans 'Ten en cuenta que si bloqueas las cookies esenciales, algunas funcionalidades del sitio pueden verse afectadas.' %}</p>
+
+            <h2>{% trans '5. Base legal' %}</h2>
+            <p>{% trans 'El tratamiento de datos realizado a través de las cookies se basa en el consentimiento del usuario (artículo 6.1.a del RGPD), excepto las cookies técnicas esenciales que están exentas de consentimiento al ser necesarias para la prestación del servicio.' %}</p>
+
+            <h2>{% trans '6. Transferencias internacionales' %}</h2>
+            <p>{% trans 'Al utilizar servicios como Google Analytics y Google AdSense, los datos pueden transferirse a Estados Unidos. Google está adherido al marco EU-US Data Privacy Framework, que garantiza un nivel adecuado de protección de datos.' %}</p>
+
+            <h2>{% trans '7. Actualizaciones de esta política' %}</h2>
+            <p>{% trans 'Podemos actualizar esta política de cookies periódicamente para reflejar cambios en los servicios que utilizamos o en la normativa aplicable. Te recomendamos revisar esta página con regularidad. Si realizamos cambios significativos, te lo notificaremos mediante un aviso en el sitio web.' %}</p>
+
+            <h2>{% trans '8. Contacto' %}</h2>
+            <p>{% trans 'Si tienes alguna pregunta sobre nuestra política de cookies, puedes contactarnos a través de:' %}</p>
+            <ul>
+                <li>{% trans 'Correo electrónico:' %} <a href="mailto:euskodev@gmail.com" style="color: #00e5c4;">euskodev@gmail.com</a></li>
+                <li>{% trans 'Teléfono:' %} <a href="tel:+34747478842" style="color: #00e5c4;">+34 747 47 88 42</a></li>
+                <li>{% trans 'Dirección: Oiartzun, Gipuzkoa (España)' %}</li>
+            </ul>
         </div>
     </div>
 </div>
