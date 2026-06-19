@@ -2,17 +2,6 @@ from django import forms
 from django.forms import inlineformset_factory
 from .models import Budget, BudgetItem, Client
 
-# ✅ Formulario para el Presupuesto (Budget)
-class BudgetForm(forms.ModelForm):
-    class Meta:
-        model = Budget
-        fields = ['cliente', 'descripcion', 'total']
-        widgets = {
-            'cliente': forms.Select(attrs={'class': 'form-control'}),
-            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
-            'total': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
-        }
-
 # ✅ Formulario para los Ítems del Presupuesto (BudgetItem)
 class BudgetItemForm(forms.ModelForm):
     class Meta:
